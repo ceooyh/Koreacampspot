@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import kcs.dto.BoardDTO;
-import kcs.dto.Board_CommentDTO;
-import kcs.dto.Board_FileDTO;
+import kcs.dto.BoardCommentDTO;
+import kcs.dto.BoardFileDTO;
 import kcs.mapper.BoardMapper;
 
 @Service
@@ -27,11 +27,11 @@ public class BoardService {
 		return mapper.selectBoard(bno);
 	}
 
-	public List<Board_CommentDTO> selectBoardComment(int bno) {
+	public List<BoardCommentDTO> selectBoardComment(int bno) {
 		return mapper.selectBoardComment(bno);
 	}
 
-	public List<Board_FileDTO> selectFileList(int bno) {
+	public List<BoardFileDTO> selectFileList(int bno) {
 		return mapper.selectFileList(bno);
 	}
 	
