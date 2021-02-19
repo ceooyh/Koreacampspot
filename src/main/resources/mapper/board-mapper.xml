@@ -2,5 +2,23 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kcs.mapper.BoardMapper">
+<mapper namespace="board">
+	
+	<update id="addCount" parameterType="int">
+		update board set views = views+1 where bno = #{bno}
+	</update>
+	
+	<select id="selectBoard" parameterType="int" resultType="board">
+		select * from board where bno = #{bno}
+	</select>
+	
+	<select id="selectBoardComment" parameterType="int" resultType="boardComment">
+		select * from board_comment where bno = #{bno}
+	</select>
+	
+	<select id="selectFileList" parameterType="int" resultType="boardFile">
+ 		select * from board_file where bno = #{bno}
+ 	</select>
+	
+	
 </mapper>
