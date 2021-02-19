@@ -4,65 +4,96 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
+<title>Insert title here</title>
+<script src="lib/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("nav").mouseover(function(){
+			$("nav").css("backgroundColor","rgba(247, 243, 243, 1)");
+		})
+		$("nav").mouseleave(function(){
+			$("nav").css("backgroundColor","rgba(247, 243, 243, 0.5)");
+		})
+		$("#menubar>li").mouseover(function(){
+			if($(this).children().hasClass("sub")){
+				$(this).children(".sub").stop().slideDown();
+				$("#menu").stop().slideDown();
+			}
+		});
+		$("#menubar>li").mouseleave(function(){
+			$(this).children(".sub").stop().slideUp();
+			$("#menu").css("backgroundColor","rgba(247, 243, 243, 0.5)");
+			$("#menu").stop().slideUp();
+		});
+	});
+</script>
+
 <title>메뉴바</title>
+
 </head>
 <body>
 	<!-- 로그인 안함 -->
 	<nav>
 		<h1 id="title">CAMPSPOT</h1>
 		<ul id="menu_bar">
-			<li>소개</li>
-			<li>캠핑 스팟 찾기</li>
-			<li>찜한 스팟</li>
-			<li>회원가입</li>
-			<li>로그인</li>
+			<li><a href="#">소개</a></li>
+			<li><a href="#">캠핑 스팟 찾기</a></li>
+			<li><a href="#">찜한 스팟</a></li>
+			<li><a href="#">회원가입</a></li>
+			<li><a href="#">로그인</a></li>
 		</ul>
 	</nav>
 	<!-- 일반으로 로그인함 -->
 	<nav>
-		<h1 id="title">CAMPSPOT</h1>ㄲ
+		<h1 id="title">CAMPSPOT</h1>
 		<ul id="menu_bar">
-			<li>소개</li>
-			<li>캠핑 스팟 찾기</li>
-			<li>찜한 스팟</li>
-			<li>문의하기</li>
-			<li>마이 페이지</li>
-			<li>로그아웃</li>
-		</ul>
-		<ul class="submenu num1">
-			<li>개인정보 수정</li>
-			<li>취향정보수정</li>
-			<li>캠핑장 예약 내역</li>
+			<li><a href="#">소개</a></li>
+			<li><a href="#">캠핑 스팟 찾기</a></li>
+			<li><a href="#">찜한 스팟</a></li>
+			<li><a href="#">문의하기</a></li>
+			<li><a href="#">마이 페이지</a>
+				<ul class="sub">
+					<li>개인정보 수정</li>
+					<li>취향정보수정</li>
+					<li>캠핑장 예약 내역</li>
+				</ul>
+			</li>
+			<li><a href="#">로그아웃</a></li>
 		</ul>
 	</nav>
 	<!-- 사업자로 로그인함 -->
 	<nav>
 		<h1 id="title">CAMPSPOT</h1>
-		<ul id="menu_bar">
-			<li>소개</li>
-			<li>캠핑장 등록</li>
-			<li>예약 관리</li>
-			<li>문의하기</li>
-			<li>마이 페이지</li>
-			<li>로그아웃</li>
+		<ul id="menubar">
+			<li><a href="#">소개</a></li>
+			<li><a href="#">캠핑장 등록</a>
+				<ul class="sub">
+					<li><a href="#">캠핑장 등록 신청</a></li>
+					<li><a href="#">캠핑장 신청/현황 관리</a></li>
+					<li><a href="#">캠핑장 관리</a></li>
+				</ul>
+			</li>
+			<li><a href="#">예약 관리</a></li>
+			<li><a href="#">문의하기</a></li>
+			<li>
+			<a href="#">마이 페이지</a>
+			<ul class="sub">
+				<li><a href="#">개인정보수정</a></li>
+				<li><a href="#">사업자정보수정</a></li>
+			</ul>
+			</li>
+			<li id="logout"><a href="#">로그아웃</a></li>
 		</ul>
-		<ul class="submenu num1">
-			<li>캠핑장 등록 신청</li>
-			<li>캠핑장 신청/현황 관리</li>
-			<li>캠핑장 관리</li>
-		</ul>
-		<ul class="submenu num4">
-			<li>개인정보수정</li>
-			<li>사업자정보수정</li>
-		</ul>
+		<div id="menu"></div>
 	</nav>
 	<!-- 관리자 로그인함 -->
 	<nav>
 		<ul id="menu_bar">
-			<li>캠핑장 등록 허가</li>
-			<li>회원 관리</li>
-			<li>문의 관리</li>
-			<li>로그아웃</li>
+			<li><a href="#">캠핑장 등록 허가</a></li>
+			<li><a href="#">회원 관리</a></li>
+			<li><a href="#">문의 관리</a></li>
+			<li><a href="#">로그아웃</a></li>
 		</ul>
 	</nav>
 </body>

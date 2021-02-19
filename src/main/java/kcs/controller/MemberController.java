@@ -22,6 +22,7 @@ public class MemberController {
 	}
 
 	// 여기부터 RequestMapping 처리
+
 	// 멤버 로그인
 	@RequestMapping("/login.do")
 	public String login(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
@@ -58,4 +59,10 @@ public class MemberController {
 		return ("index");
 	}
 	
+=======
+	@RequestMapping("guest_join.do")
+	public String guestJoin() {
+		return "member/guest_join";
+	}
+
 }
