@@ -55,7 +55,7 @@
 					<li><a href="infoView.do">소개</a></li>
 					<li><a href="#">캠핑 스팟 찾기</a></li>
 					<li><a href="#">찜한 스팟</a></li>
-					<li><a href="QnAView.do">문의하기</a></li>
+					<li><a href="qnaView.do">문의하기</a></li>
 					<li><a href="#">마이 페이지</a>
 						<ul class="sub">
 							<li>개인정보 수정</li>
@@ -64,7 +64,7 @@
 						</ul>
 					</li>
 					<li><a href="boardView.do">게시판</a></li>
-					<li><a href="logout.do">로그아웃</a></li>
+					<li><a href="logoutAction.do">로그아웃</a></li>
 				</ul>
 			</nav>
 		</c:when>
@@ -84,7 +84,7 @@
 						</ul>
 					</li>
 					<li><a href="#">예약 관리</a></li>
-					<li><a href="QnAView.do">문의하기</a></li>
+					<li><a href="qnaView.do">문의하기</a></li>
 					<li>
 					<a href="#">마이 페이지</a>
 					<ul class="sub">
@@ -105,7 +105,7 @@
 				<ul id="menu_bar">
 					<li><a href="#">캠핑장 등록 허가</a></li>
 					<li><a href="#">회원 관리</a></li>
-					<li><a href="QnAView.do">문의 관리</a></li>
+					<li><a href="qnaView.do">문의 관리</a></li>
 					<li><a href="boardView.do">게시판</a></li>
 					<li><a href="logoutAction.do">로그아웃</a></li>
 				</ul>
