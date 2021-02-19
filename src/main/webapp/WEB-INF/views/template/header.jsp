@@ -30,7 +30,7 @@
 			<li>로그아웃</li>
 		</ul>
 		<ul class="submenu num1">
-			<li>개인정보수정</li>
+			<li>개인정보 수정</li>
 			<li>취향정보수정</li>
 			<li>캠핑장 예약 내역</li>
 		</ul>
