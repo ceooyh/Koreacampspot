@@ -1,5 +1,8 @@
 package kcs.dto;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("business")
 public class BusinessDTO {
 	private int bno;
 	private String id;
