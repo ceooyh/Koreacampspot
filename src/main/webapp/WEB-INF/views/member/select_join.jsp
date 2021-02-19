@@ -7,12 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-    <form action="">
-        <textarea name="" id="" cols="30" rows="10"></textarea>
-        <a href="business_join.do">사업자</a>
-        <a href="guest_join.do">일반 가입자</a>
-    </form>
-
+	<div id="container">
+        <textarea name="info_paper" id="info_paper" cols="30" rows="10">정보제공동의서들어가는곳</textarea>
+        <a href="business_joinView.do">사업자</a>
+        <a href="guest_joinView.do">일반 가입자</a>
+	</div>
 </body>
 </html>
