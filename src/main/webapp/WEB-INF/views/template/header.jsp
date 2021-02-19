@@ -33,8 +33,7 @@
 </head>
 <body>
 	<c:choose>
-		<!-- 로그인이 되지 않았을 경우 -->
-		<c:when test="${sessionScope.login == false}">
+		<c:when test="${sessionScope.login == null}">
 			<nav>
 			<h1 id="title">CAMPSPOT</h1>
 			<ul id="menu_bar">
@@ -47,7 +46,6 @@
 		</nav>
 		</c:when>
 		
-		<!-- 일반 사용자 로그인 -->
 		<c:when test="${sessionScope.user_type == 1}">
 			<nav>
 				<h1 id="title">CAMPSPOT</h1>
@@ -70,7 +68,6 @@
 		</c:when>
 		
 
-		<!-- 사업자 로그인 -->
 		<c:when test="${sessionScope.user_type == 2}">
 			<nav>
 				<h1 id="title">CAMPSPOT</h1>
@@ -99,7 +96,6 @@
 		</c:when>
 		
 
-		<!-- 관리자 로그인 -->
 		<c:when test="${sessionScope.user_type == 0}">
 			<nav>
 				<ul id="menu_bar">
