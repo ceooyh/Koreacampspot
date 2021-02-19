@@ -38,7 +38,7 @@ public class MemberController {
 		session.setMaxInactiveInterval(10 * 60);
 		System.out.println("로그인 성공");
 		return ("index");
-	} else {
+	} else { 
 		try {
 			response.setContentType("text/html;charset=utf-8");
 				response.getWriter().write("<script>alert('아이디와 비밀번호를 확인하세요');history.back();</script>");

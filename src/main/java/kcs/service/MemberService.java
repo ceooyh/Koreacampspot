@@ -22,7 +22,7 @@ public class MemberService {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("id", id);
 		map.put("pass", pass);
-		return mapper.login(map);
+		return mapper.login(map); 
 	}
 	
 }

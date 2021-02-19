@@ -9,6 +9,6 @@ import kcs.dto.MemberDTO;
 @Mapper
 public interface MemberMapper {
 
-	MemberDTO login(HashMap<String, Object> map);
+	MemberDTO login(HashMap<String, Object> map); 
 
 }
