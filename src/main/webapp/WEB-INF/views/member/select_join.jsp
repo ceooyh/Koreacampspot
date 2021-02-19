@@ -7,10 +7,20 @@
 <title>회원가입 첫페이지</title>
 </head>
 <body>
+<<<<<<< HEAD
     <form action="">
         <textarea name="" id="" cols="30" rows="10"></textarea>
         <button>사업자</button>
         <button>일반 가입자</button>
     </form>
+=======
+
+    <form action="">
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <a href="business_join.do">사업자</a>
+        <a href="guest_join.do">일반 가입자</a>
+    </form>
+
+>>>>>>> branch 'master' of https://github.com/ceooyh/Koreacampspot.git
 </body>
 </html>

@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 <title>Insert title here</title>
 <script src="lib/jquery-3.5.1.min.js"></script>
 <link rel="stylesheet" type="text/css" href="header.css">
@@ -28,6 +29,9 @@
 		});
 	});
 </script>
+
+<title>메뉴바</title>
+
 </head>
 <body>
 	<!-- 로그인 안함 -->
