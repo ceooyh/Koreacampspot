@@ -23,7 +23,7 @@ public class BoardController {
 	
 	// 여기부터 RequestMapping 처리
 	
-	//보드뷰 받아오기 - 성진
+	//게시판 목록 받아오기 - 성진
 	@RequestMapping("/boardView.do")
 	public String boardView(HttpServletRequest request) {
 		int bno = 0;
@@ -47,6 +47,7 @@ public class BoardController {
 
 		return "board_detail_view";
 	}
+	
 	
 	
 	

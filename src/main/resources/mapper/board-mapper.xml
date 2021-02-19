@@ -11,5 +11,14 @@
 	<select id="selectBoard" parameterType="int" resultType="board">
 		select * from board where bno = #{bno}
 	</select>
-
+	
+	<select id="selectBoardComment" parameterType="int" resultType="boardComment">
+		select * from board_comment where bno = #{bno}
+	</select>
+	
+	<select id="selectFileList" parameterType="int" resultType="boardFile">
+ 		select * from board_file where bno = #{bno}
+ 	</select>
+	
+	
 </mapper>
