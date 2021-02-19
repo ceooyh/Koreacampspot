@@ -23,7 +23,7 @@ public class MemberController {
 
 	// 여기부터 RequestMapping 처리
 
-	// 멤버 로그인
+	// 로그인
 	@RequestMapping("/login.do")
 	public String login(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 		String id = request.getParameter("id");
@@ -31,14 +31,12 @@ public class MemberController {
 		
 		MemberDTO dto = service.login(id,pass);
 		if(dto != null) {
-		session.setAttribute("login", true);
-		session.setAttribute("id", dto.getId());
-		session.setAttribute("pass", dto.getPass());
-		session.setAttribute("name", dto.getName());
-		session.setAttribute("user_type", dto.getUser_type());
-		session.setMaxInactiveInterval(10 * 60);
-		System.out.println("로그인 성공");
-		return ("index");
+			session.setAttribute("login", true);
+			session.setAttribute("id", dto.getId());
+			session.setAttribute("pass", dto.getPass());
+			session.setAttribute("name", dto.getName());
+			session.setAttribute("user_type", dto.getUser_type());
+		return "index";
 	} else { 
 		try {
 			response.setContentType("text/html;charset=utf-8");
@@ -59,7 +57,6 @@ public class MemberController {
 		return ("index");
 	}
 	
-=======
 	@RequestMapping("guest_join.do")
 	public String guestJoin() {
 		return "member/guest_join";

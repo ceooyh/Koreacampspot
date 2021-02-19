@@ -17,6 +17,7 @@ public class MemberService {
 	}
 
 	// 여기부터 서비스 메서드 작성
+	
 	// 로그인 메서드 -성진
 	public MemberDTO login(String id, String pass) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
