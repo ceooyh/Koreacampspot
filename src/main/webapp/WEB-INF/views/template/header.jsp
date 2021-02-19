@@ -37,21 +37,21 @@
 	<nav>
 		<h1 id="title">CAMPSPOT</h1>
 		<ul id="menu_bar">
-			<li><a href="#">소개</a></li>
+			<li><a href="infoView.do">소개</a></li>
 			<li><a href="#">캠핑 스팟 찾기</a></li>
 			<li><a href="#">찜한 스팟</a></li>
-			<li><a href="#">회원가입</a></li>
-			<li><a href="#">로그인</a></li>
+			<li><a href="joinView.do">회원가입</a></li>
+			<li><a href="loginView.do">로그인</a></li>
 		</ul>
 	</nav>
 	<!-- 일반으로 로그인함 -->
 	<nav>
 		<h1 id="title">CAMPSPOT</h1>
 		<ul id="menu_bar">
-			<li><a href="#">소개</a></li>
+			<li><a href="infoView.do">소개</a></li>
 			<li><a href="#">캠핑 스팟 찾기</a></li>
 			<li><a href="#">찜한 스팟</a></li>
-			<li><a href="#">문의하기</a></li>
+			<li><a href="QnAView.do">문의하기</a></li>
 			<li><a href="#">마이 페이지</a>
 				<ul class="sub">
 					<li>개인정보 수정</li>
@@ -59,14 +59,15 @@
 					<li>캠핑장 예약 내역</li>
 				</ul>
 			</li>
-			<li><a href="#">로그아웃</a></li>
+			<li><a href="boardView.do">게시판</a></li>
+			<li><a href="logout.do">로그아웃</a></li>
 		</ul>
 	</nav>
 	<!-- 사업자로 로그인함 -->
 	<nav>
 		<h1 id="title">CAMPSPOT</h1>
 		<ul id="menubar">
-			<li><a href="#">소개</a></li>
+			<li><a href="infoView.do">소개</a></li>
 			<li><a href="#">캠핑장 등록</a>
 				<ul class="sub">
 					<li><a href="#">캠핑장 등록 신청</a></li>
@@ -75,7 +76,7 @@
 				</ul>
 			</li>
 			<li><a href="#">예약 관리</a></li>
-			<li><a href="#">문의하기</a></li>
+			<li><a href="QnAView.do">문의하기</a></li>
 			<li>
 			<a href="#">마이 페이지</a>
 			<ul class="sub">
@@ -83,7 +84,7 @@
 				<li><a href="#">사업자정보수정</a></li>
 			</ul>
 			</li>
-			<li id="logout"><a href="#">로그아웃</a></li>
+			<li id="logout"><a href="logout.do">로그아웃</a></li>
 		</ul>
 		<div id="menu"></div>
 	</nav>
@@ -92,8 +93,9 @@
 		<ul id="menu_bar">
 			<li><a href="#">캠핑장 등록 허가</a></li>
 			<li><a href="#">회원 관리</a></li>
-			<li><a href="#">문의 관리</a></li>
-			<li><a href="#">로그아웃</a></li>
+			<li><a href="QnAView.do">문의 관리</a></li>
+			<li><a href="boardView.do">게시판</a></li>
+			<li><a href="logout.do">로그아웃</a></li>
 		</ul>
 	</nav>
 </body>

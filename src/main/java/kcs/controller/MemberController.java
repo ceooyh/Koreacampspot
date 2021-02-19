@@ -58,8 +58,7 @@ public class MemberController {
 		session.invalidate();
 		return ("index");
 	}
-	
-=======
+
 	@RequestMapping("guest_join.do")
 	public String guestJoin() {
 		return "member/guest_join";
