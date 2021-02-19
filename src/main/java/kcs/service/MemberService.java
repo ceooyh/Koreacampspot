@@ -29,10 +29,9 @@ public class MemberService {
 
 	// 일반 사용자 회원가입 - 희원,20210219
 	public int guestJoin(MemberDTO memberDTO, FavoriteDTO favoriteDTO) {
-		int count = 0;
-		count = mapper.guestJoin(memberDTO);
+		int count = mapper.guestJoin(memberDTO);
 		if(count != 0 && favoriteDTO != null);
-			count = mapper.insertGuestFavorit(favoriteDTO);
+			mapper.insertGuestFavorit(favoriteDTO);
 		return count;
 	}
 	
