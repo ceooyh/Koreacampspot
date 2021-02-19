@@ -31,7 +31,7 @@ public class MemberController {
 	}
 	
 	// 로그인 진행 - 성진
-	@RequestMapping("/login.do")
+	@RequestMapping("/loginAction.do")
 	public String login(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 		String id = request.getParameter("id");
 		String pass = request.getParameter("pass");
@@ -56,7 +56,7 @@ public class MemberController {
 	}
 
 	// 멤버 로그아웃 - 성진
-	@RequestMapping("/logout.do")
+	@RequestMapping("/logoutAction.do")
 	public String logout(HttpServletRequest request, HttpSession session) {
 		session.invalidate();
 		return "index";
@@ -75,7 +75,7 @@ public class MemberController {
 	}
 	
 	// 일반 사용자 회원가입 수행 - 희원,20210219
-	@RequestMapping("/guest_join.do")
+	@RequestMapping("/guest_joinAction.do")
 	public String guestJoin(HttpServletRequest request, HttpServletResponse response) {
 		// 개인정보
 		String id = request.getParameter("id");
@@ -90,7 +90,7 @@ public class MemberController {
 		int gender = Integer.parseInt(request.getParameter("gender"));
 		int user_type = 1;
 		
-		// 취향 정보
+		// 취향 정보 - 미완성
 		
 		// 회원테이블에 추가
 		MemberDTO memberDTO = new MemberDTO(id, pass, name, tel1, tel2, tel3, birth, email1, email2, gender, user_type);
