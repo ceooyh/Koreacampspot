@@ -27,6 +27,7 @@
 - 
 
 <추가 커밋>
-- .do requestMapping 이름값 view와 action추가변경(영호)
-- header부분 jstl처리 (영호)
+- .do requestMapping 이름값 view와 action추가변경(505)
+- header부분 jstl처리 (505)
 - 일반 사용자 회원가입 진행중 - 희원
+- 폰트파일 추가 - 505
