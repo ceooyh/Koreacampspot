@@ -7,7 +7,6 @@ import org.apache.ibatis.type.Alias;
 
 
 @Alias("boardFile")
-
 public class BoardFileDTO {
 	private int bno;
 	private String fileName;

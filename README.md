@@ -36,4 +36,5 @@
 - qna, index,header, footer, board_detail_view, board_write - 타이틀 수정/guest_join, business_join - id,name 추가 / select_join   - .do 추가 / board_list, board_detail_view, board_write, qna - template 경로 수정 / index 틀 형성 / business_join 틀 형성 -(가현)
 - controller명령어 수정 - (희원)
 - 게시판 디티오 컨트롤러 맵퍼xml 커밋 -(성진)
+- 일반 사용자/사업자 회원가입까지 구현(취향,사업자정보,사업자파일 제외)-(희원)
 
