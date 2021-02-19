@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>메뉴바</title>
 </head>
 <body>
 	<!-- 로그인 안함 -->

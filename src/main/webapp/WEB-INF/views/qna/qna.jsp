@@ -5,10 +5,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>문의하기 페이지</title>
 </head>
 <body>
-	<!-- <jsp:include page="template/header.jsp"></jsp:include> -->
+	<jsp:include page="../template/header.jsp"></jsp:include> 
 	<div id="container">
 		<div id="qna_form">
 			<form action="sendQnA.do">
@@ -49,6 +49,6 @@
 		</div>
 		<button id="btn_more">더보기</button>
 	</div>
-	<!-- <jsp:include page="template/footer.jsp"></jsp:include> -->
+	<jsp:include page="../template/footer.jsp"></jsp:include>
 </body>
 </html>
