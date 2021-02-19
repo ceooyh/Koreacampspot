@@ -24,3 +24,8 @@
 - alias, boardDTO, board-mapper 추가 - (희원)
 - 멤버 컨트롤러 로그인,로그아웃 , 서비스 로그인 멤버 서비스, 로그인 멤버 맵퍼수정(성진)
 - member dto 수정완료-(희원)
+- 
+
+<추가 커밋>
+- .do requestMapping 이름값 view와 action추가변경(영호)
+- header부분 jstl처리 
