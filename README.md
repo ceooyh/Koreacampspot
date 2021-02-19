@@ -29,3 +29,4 @@
 <추가 커밋>
 - .do requestMapping 이름값 view와 action추가변경(영호)
 - header부분 jstl처리 (영호)
+- 일반 사용자 회원가입 진행중 - 희원
