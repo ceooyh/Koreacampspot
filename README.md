@@ -10,5 +10,6 @@
 #2021년 02월 19일 금요일
 <1차커밋>
 - footer,qna,board_write,board_list,board_detail_view 틀 형성, 주석처리(가현)
-- 회원가입 기초틀 생성
-- 로그인 및 헤더파일(TEMPLATE) 
+- 회원가입 기초틀 생성(505)
+- 로그인 및 헤더파일(TEMPLATE)(나경)
+- 컨트롤러, dto, mapper, serivce 패키지, 클래스 생성(희원)
