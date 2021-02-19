@@ -12,7 +12,7 @@
 		비밀번호<input type="password" name="pass" id="pass"><br>
 		<button>로그인</button>
 		<a href="selectJoinView.do">회원가입</a>
-		<a href="find_id_pwView.do">아이디/비밀번호 찾기</a>
+		<a href="findIdPwView.do">아이디/비밀번호 찾기</a>
 	</form>
 </body>
 </html>
