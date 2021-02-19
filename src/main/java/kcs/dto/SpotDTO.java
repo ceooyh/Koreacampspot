@@ -1,5 +1,8 @@
 package kcs.dto;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("spot")
 public class SpotDTO {
 
 	private int sno;
