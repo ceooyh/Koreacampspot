@@ -9,8 +9,6 @@
 - 11시 50분 : index.jsp, jquery 추가 완료
 - 09시 58분 : jsp파일 생성 완료, 폴더 구분 완료(2차 커밋-희원님 완료)
 
-
-
 #2021년 02월 19일 금요일
 <1차커밋>
 - footer,qna,board_write,board_list,board_detail_view 틀 형성, 주석처리(가현)
@@ -24,4 +22,5 @@
 - qna, index,header, footer, board_detail_view, board_write - 타이틀 수정/guest_join, business_join - id,name 추가 / select_join   - .do 추가(가현)
 - member-mapper 추가 -(희원)
 - alias, boardDTO, board-mapper 추가 - (희원)
+- 멤버 컨트롤러 로그인,로그아웃 , 서비스 로그인 멤버 서비스, 로그인 멤버 맵퍼수정(성진)
 
