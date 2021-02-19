@@ -1,5 +1,13 @@
 package kcs.dto;
+
 // 게시판 첨부파일 DTO - 성진
+
+
+import org.apache.ibatis.type.Alias;
+
+
+@Alias("boardFile")
+
 public class BoardFileDTO {
 	private int bno;
 	private String fileName;
