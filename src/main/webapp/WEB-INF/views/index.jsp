@@ -7,7 +7,6 @@
 <title>메인 페이지</title>
 </head>
 <body>
-
 	<jsp:include page="template/header.jsp" flush="false"></jsp:include>
 	
 	<div>
