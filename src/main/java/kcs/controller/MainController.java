@@ -10,8 +10,8 @@ public class MainController {
 		return "index";
 	}
 	
-	@RequestMapping("/")
+	@RequestMapping("info.do")
 	public String info() {
-		return "info";
+		return "main/info";
 	}
 }
