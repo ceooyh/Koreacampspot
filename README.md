@@ -17,3 +17,4 @@
 - 
 <2차커밋>
 - 컨트롤러 추가(희원)
+- qna, index,header, footer, board_detail_view, board_write - 타이틀 수정/guest_join, business_join - id,name 추가 / select_join   - .do 추가(가현)
