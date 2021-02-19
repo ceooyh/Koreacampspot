@@ -7,9 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="">
-		아이디<input type="text" name="" id=""><br>
-		비밀번호<input type="password" name="" id=""><br>
+	<form action="login.do">
+		아이디<input type="text" name="id" id="id"><br>
+		비밀번호<input type="password" name="pass" id="pass"><br>
 		<input type="submit" value="로그인">
 		<input type="button" value="회원가입" onClick="location.href='../member/select_join.jsp'">
 	</form>
