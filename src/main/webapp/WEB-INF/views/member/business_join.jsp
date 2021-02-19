@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>사업자 회원가입 페이지</title>
+<title>Insert title here</title>
 </head>
 <body>
+
     <h1>사업자 가입 페이지</h1>
     <form action="business_join.do" method="GET"> 
         <input type="text" name="id" id="id" placeholder="아이디를 입력하세요"><br>
@@ -24,5 +25,6 @@
         </select> <br>
         <input type="text" name="business_no" id="business_no" placeholder="사업자 등록번호를 입력해주세요"><br>
     </form>
+
 </body>
 </html>

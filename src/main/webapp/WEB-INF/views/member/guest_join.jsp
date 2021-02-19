@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>일반사용자 회원가입</title>
+<title>Insert title here</title>
 </head>
 <body>
+
     <h1>회원 가입 페이지</h1>
     <form action="guest_join.do" method="GET">
         <input type="text" name="id" id="id" placeholder="아이디를 입력하세요"><br>
@@ -31,5 +32,6 @@
     </form>
     <button>회원가입</button>
     <button>취소</button>
+
 </body>
 </html>

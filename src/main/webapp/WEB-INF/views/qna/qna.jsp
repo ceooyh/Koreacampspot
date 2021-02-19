@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +7,7 @@
 <title>문의하기 페이지</title>
 </head>
 <body>
+
 	<jsp:include page="../template/header.jsp"></jsp:include> 
 	<div id="container">
 		<div id="qna_form">
@@ -50,5 +50,7 @@
 		<button id="btn_more">더보기</button>
 	</div>
 	<jsp:include page="../template/footer.jsp"></jsp:include>
+
+  
 </body>
 </html>
