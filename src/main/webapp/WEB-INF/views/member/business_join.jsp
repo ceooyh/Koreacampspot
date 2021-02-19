@@ -9,7 +9,7 @@
 <body>
 
     <h1>사업자 가입 페이지</h1>
-    <form action="business_join.do" method="GET"> 
+    <form action="business_joinAction.do" method="GET"> 
         <input type="text" name="id" id="id" placeholder="아이디를 입력하세요"><br>
         <input type="password" name="pass" id="pass" placeholder="비밀번호 입력"><br>
         <input type="password" name="passcheck" id="passcheck" placeholder="비밀번호 확인"><br>
