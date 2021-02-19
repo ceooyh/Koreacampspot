@@ -31,7 +31,7 @@ public class MemberController {
 	}
 	
 	// 로그인 진행 - 성진
-	@RequestMapping("/login.do")
+	@RequestMapping("/loginAction.do")
 	public String login(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 		String id = request.getParameter("id");
 		String pass = request.getParameter("pass");
