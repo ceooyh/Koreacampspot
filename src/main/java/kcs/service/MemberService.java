@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import org.springframework.stereotype.Service;
 
+import kcs.dto.BusinessDTO;
 import kcs.dto.FavoriteDTO;
 import kcs.dto.MemberDTO;
 import kcs.mapper.MemberMapper;
@@ -33,6 +34,15 @@ public class MemberService {
 		if(count != 0 && favoriteDTO != null);
 			mapper.insertGuestFavorit(favoriteDTO);
 		return count;
+	}
+
+	public int businessJoin(MemberDTO memberDTO, BusinessDTO businessDTO) {
+//		int count1 = mapper.businessJoin(memberDTO);
+//		int count2 = 0;
+//		if(count1 != 0 && businessDTO != null);
+//			count2 = mapper.insertBusiness(businessDTO);
+//		return count1+count2;
+		return 0;
 	}
 	
 }
