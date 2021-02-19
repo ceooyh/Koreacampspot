@@ -92,12 +92,54 @@ public class MemberController {
 		
 		// 취향 정보 - 미완성
 		
-		// 회원테이블에 추가
+		// 회원테이블, 취향테이블에 추가
 		MemberDTO memberDTO = new MemberDTO(id, pass, name, tel1, tel2, tel3, birth, email1, email2, gender, user_type);
 		FavoriteDTO favoriteDTO = null;
 //		favoriteDTO new FavoriteDTO(id, stag);
-		int count = service.guestJoin(memberDTO, favoriteDTO);
+		
+		try {
+			int count = service.guestJoin(memberDTO, favoriteDTO);
+			if(count == 0) {
+				response.setContentType("text/html;charset=utf-8");
+				response.getWriter().write("<script>alert('페이지 오류');history.back();</script>");
+			}
+			else {
+				response.setContentType("text/html;charset=utf-8");
+				response.getWriter().write("<script>alert('회원가입 완료!');location.href='loginView.do';</script>");
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
+	
+	// 사업자 회원가입 페이지로 이동 - 희원,20210219
+	@RequestMapping("/businessJoinView.do")
+	public String businessJoinView() {
+		return "business_join";
+	}
 
+	// 사업자 회원가입 수행 - 희원,20210219
+	@RequestMapping("/businessJoinAction.do")
+	public String businessJoinAction(HttpServletRequest request, HttpServletResponse response) {
+		// 개인정보
+		String id = request.getParameter("id");
+		String pass = request.getParameter("pass");
+		String name = request.getParameter("name");
+		String tel1 = request.getParameter("tel1");
+		String tel2 = request.getParameter("tel2");
+		String tel3 = request.getParameter("tel3");
+		String birth = request.getParameter("birth");
+		String email1 = request.getParameter("email");
+		String email2 = request.getParameter("host");
+		int gender = Integer.parseInt(request.getParameter("gender"));
+		int user_type = 2;
+		
+		// 사업자 등록 정보 - 미완성
+		
+		// 회원테이블, 사업자등록정보테이블에 추가
+		
+		return null;
+	}
+	
 }
