@@ -36,6 +36,7 @@ public class MemberService {
 		return count;
 	}
 
+	// 사업자 회원가입 - 희원,20210219
 	public int businessJoin(MemberDTO memberDTO, BusinessDTO businessDTO) {
 		int count = mapper.businessJoin(memberDTO);
 		if(count != 0 && businessDTO != null);
