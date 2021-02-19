@@ -5,11 +5,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>게시판 글쓰기 페이지</title>
 </head>
 <body>
 
-<!-- header와 jstl 주석처리 
+<!-- jstl 주석처리 
 
 	<c:if test="${sessionScope.login == null || sessionScope.login == false  }">
 		<c:set var="page" target="${sessionScope }" value="${pageContext.request.requestURI}${pageContext.request.queryString }" property="resultPage" scope="session"/>
@@ -20,9 +20,10 @@
 		</script>
 	</c:if>
 	
-	<jsp:include page="template/header.jsp" flush="false"></jsp:include>
-	
  -->	
+	
+	<jsp:include page="../template/header.jsp" flush="false"></jsp:include>
+	
  
 	<div id="container">
 		<h2>글쓰기 페이지</h2>
@@ -68,10 +69,8 @@
 		</form>
 	</div>
 	
-<!-- footer 주석 처리
 	
-	<jsp:include page="template/footer.jsp" flush="false"></jsp:include>
+	<jsp:include page="../template/footer.jsp" flush="false"></jsp:include>
 
--->
 </body>
 </html>

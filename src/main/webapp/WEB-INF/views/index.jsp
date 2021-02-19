@@ -4,9 +4,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>메인 페이지</title>
 </head>
 <body>
-네넹 커밋만 하면 네 저장이 되네요! 신기방기 네 이해했습니다. 네 여기서 커밋 해볼까요?
+
+	<jsp:include page="template/header.jsp" flush="false"></jsp:include>
+	
+	<div>
+	
+	
+	</div>	
+	
+	<jsp:include page="template/footer.jsp" flush="false"></jsp:include>
+	 
 </body>
 </html>

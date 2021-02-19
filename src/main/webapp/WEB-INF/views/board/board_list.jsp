@@ -5,14 +5,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>게시판 목록 페이지</title>
 </head>
 <body>
-<!-- header 주석처리 
 
-	<jsp:include page="template/header.jsp" flush="false"></jsp:include>
-	
--->
+	<jsp:include page="../template/header.jsp" flush="false"></jsp:include>
+
 		<div id="container">
 		<table class="board">
 			<tr>
@@ -71,11 +69,9 @@
 		</table>
 	</div>
 	
-	<!-- 
 	
-	<jsp:include page="template/footer.jsp" flush="false"></jsp:include>
+	<jsp:include page="../template/footer.jsp" flush="false"></jsp:include>
 	 
-	 -->
 	
 </body>
 </html>
