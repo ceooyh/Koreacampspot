@@ -8,8 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kcs.dto.BoardDTO;
-import kcs.dto.Board_CommentDTO;
-import kcs.dto.Board_FileDTO;
+import kcs.dto.BoardCommentDTO;
+import kcs.dto.BoardFileDTO;
 import kcs.service.BoardService;
 
 @Controller
@@ -36,9 +36,9 @@ public class BoardController {
 		// 2. DB 해당 게시글 정보를 읽어온다.
 		BoardDTO dto = service.selectBoard(bno);// 글목록 읽어옴
 		// 2-1. 댓글 불러오는 부분
-		List<Board_CommentDTO> list = service.selectBoardComment(bno);
+		List<BoardCommentDTO> list = service.selectBoardComment(bno);
 		// 2-2 첨부파일 로드 부분
-		List<Board_FileDTO> fList = service.selectFileList(bno);
+		List<BoardFileDTO> fList = service.selectFileList(bno);
 
 		// 3. request에 BoardDTO 저장
 		request.setAttribute("board", dto);

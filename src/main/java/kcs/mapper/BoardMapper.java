@@ -5,8 +5,8 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import kcs.dto.BoardDTO;
-import kcs.dto.Board_CommentDTO;
-import kcs.dto.Board_FileDTO;
+import kcs.dto.BoardCommentDTO;
+import kcs.dto.BoardFileDTO;
 
 @Mapper
 public interface BoardMapper {
@@ -15,8 +15,8 @@ public interface BoardMapper {
 
 	BoardDTO selectBoard(int bno);
 
-	List<Board_CommentDTO> selectBoardComment(int bno);
+	List<BoardCommentDTO> selectBoardComment(int bno);
 
-	List<Board_FileDTO> selectFileList(int bno);
+	List<BoardFileDTO> selectFileList(int bno);
 
 }
