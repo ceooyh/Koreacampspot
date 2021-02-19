@@ -10,6 +10,9 @@ import kcs.dto.BoardFileDTO;
 
 @Mapper
 public interface BoardMapper {
+	
+	
+	List<BoardDTO> selectBoardList(int page);
 
 	void addCount(int bno);
 
@@ -18,5 +21,6 @@ public interface BoardMapper {
 	List<BoardCommentDTO> selectBoardComment(int bno);
 
 	List<BoardFileDTO> selectFileList(int bno);
+
 
 }
