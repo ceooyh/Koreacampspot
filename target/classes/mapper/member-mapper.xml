@@ -12,5 +12,10 @@
 	<insert id="insertGuestFavorit" parameterType="favorite">
 		insert into favorite values(#{id}, #{stag})
 	</insert>
-	
+	<insert id="businessJoin" parameterType="member">
+		insert into member values(#{id}, #{pass}, #{name}, #{tel1}, #{tel2}, #{tel3}, #{birth}, #{email1}, #{email2}, #{gender}, #{user_type})
+	</insert>
+	<insert id="insertBusiness" parameterType="business">
+		insert into business values(SEQ_BUSINESS_BNO.NEXTVAL, #{id}, #{business_no})
+	</insert>
 </mapper>
