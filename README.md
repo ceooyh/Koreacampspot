@@ -34,3 +34,4 @@
 - 게시판 컨트롤러, 서비스, 매퍼, 매퍼.xml 중간점검,게시판 글, 게시판 파일 DTO 커밋,디티오 이름바꾸고 컨트롤러 서비스 맵퍼 DTOimport 수정 - (성진)
 - qna, index,header, footer, board_detail_view, board_write - 타이틀 수정/guest_join, business_join - id,name 추가 / select_join   - .do 추가 / board_list, board_detail_view, board_write, qna - template 경로 수정 / index 틀 형성 / business_join 틀 형성 -(가현)
 - controller명령어 수정 - (희원)
+- 게시판 디티오 컨트롤러 맵퍼xml 커밋 -(성진)
