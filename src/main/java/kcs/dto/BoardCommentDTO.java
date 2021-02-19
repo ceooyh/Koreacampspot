@@ -9,7 +9,6 @@ import org.apache.ibatis.type.Alias;
 // 게시판 댓글 DTO - 성진
 
 @Alias("boardComment")
-
 public class BoardCommentDTO {
 	private int cno;
 	private int bno;
