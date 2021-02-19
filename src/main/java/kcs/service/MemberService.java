@@ -37,12 +37,10 @@ public class MemberService {
 	}
 
 	public int businessJoin(MemberDTO memberDTO, BusinessDTO businessDTO) {
-//		int count1 = mapper.businessJoin(memberDTO);
-//		int count2 = 0;
-//		if(count1 != 0 && businessDTO != null);
-//			count2 = mapper.insertBusiness(businessDTO);
-//		return count1+count2;
-		return 0;
+		int count = mapper.businessJoin(memberDTO);
+		if(count != 0 && businessDTO != null);
+			mapper.insertBusiness(businessDTO);
+		return count;
 	}
 	
 }
