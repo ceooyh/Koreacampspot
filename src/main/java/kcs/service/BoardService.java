@@ -34,6 +34,18 @@ public class BoardService {
 	public List<BoardFileDTO> selectFileList(int bno) {
 		return mapper.selectFileList(bno);
 	}
+
+	public List<BoardDTO> selectBoardList(int page) {
+		return mapper.selectBoardList(page);
+	}
+
+	public int selectCount() {
+		return mapper.selectCount();
+	}
+
+	public int insertComment(BoardCommentDTO dto) {
+		return mapper.insertBoardComment(dto);
+	}
 	
 	// 여기부터 서비스 메서드 작성
 }

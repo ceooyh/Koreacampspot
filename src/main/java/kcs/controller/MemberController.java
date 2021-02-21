@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import kcs.dto.BusinessDTO;
 import kcs.dto.FavoriteDTO;
 import kcs.dto.MemberDTO;
 import kcs.service.MemberService;
@@ -141,7 +142,22 @@ public class MemberController {
 		// 사업자 등록 정보 - 미완성
 		
 		// 회원테이블, 사업자등록정보테이블에 추가
+		MemberDTO memberDTO = new MemberDTO(id, pass, name, tel1, tel2, tel3, birth, email1, email2, gender, user_type);
+		BusinessDTO businessDTO = null;
+//		businessDTO = new BusinessDTO(id, business_no);
 		
+		try {
+			int count = service.businessJoin(memberDTO, businessDTO);
+			if(count == 0) {
+				response.setContentType("text/html;charset=utf-8");
+				response.getWriter().write("<script>alert('페이지 오류');history.back();</script>");
+			}
+			else {
+				response.setContentType("text/html;charset=utf-8");
+				response.getWriter().write("<script>alert('회원가입 완료!');location.href='loginView.do';</script>");
+			}
+		} catch (IOException e) {
+		}
 		return null;
 	}
 	

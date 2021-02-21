@@ -32,6 +32,16 @@
 - 일반 사용자 회원가입 진행중 - (희원)
 - 폰트파일 추가, 2차 .do명령어 수정 - (505)
 - 게시판 컨트롤러, 서비스, 매퍼, 매퍼.xml 중간점검,게시판 글, 게시판 파일 DTO 커밋,디티오 이름바꾸고 컨트롤러 서비스 맵퍼 DTOimport 수정 - (성진)
+
 - qna, index,header, footer, board_detail_view, board_write - 타이틀 수정/guest_join, business_join - id,name 추가 / select_join   - .do 추가 / board_list, board_detail_view, board_write, qna - template 경로 수정 / index 틀 형성 / business_join 틀 형성 -(가현)
 - controller명령어 수정 - (희원)
 - 게시판 디티오 컨트롤러 맵퍼xml 커밋 -(성진)
+- 일반 사용자/사업자 회원가입까지 구현(취향,사업자정보,사업자파일 제외)-(희원)
+- review_write.jsp 위치 이동(member->book) - (505)
+- 페이징VO작업 페이징 처리중 중간점검 - 성진
+- 
+
+
+----------------------------------------------------------#2021년 02월 21일 일요일---------------------------------------------
+- 페이징 VO, 게시판 페이징처리 return 게시판list반환, 댓글작성 기능 까지 커밋 - (성진)
+
