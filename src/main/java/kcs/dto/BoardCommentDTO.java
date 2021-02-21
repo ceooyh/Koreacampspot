@@ -19,6 +19,15 @@ public class BoardCommentDTO {
 	private int chate;
 	
 	
+	
+	public BoardCommentDTO(int bno, String writer, String content) {
+		super();
+		this.bno = bno;
+		this.writer = writer;
+		this.content = content;
+	}
+
+
 	public BoardCommentDTO(int cno, int bno, String writer, String content, String cdate, int clike, int chate) {
 		super();
 		this.cno = cno;

@@ -15,6 +15,15 @@ public class BoardDTO {
 	private int views;
 	
 	
+	//게시판 글쓰기 등록용 생성자
+	public BoardDTO(String writer, String title, String content) {
+		super();
+		this.writer = writer;
+		this.title = title;
+		this.content = content;
+	}
+
+	//게시판 읽어오기용 생성자
 	public BoardDTO(int bno, String writer, String title, String content, String bdate, int blike, int bhate,
 			int views) {
 		super();
