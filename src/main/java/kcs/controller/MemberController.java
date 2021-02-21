@@ -70,13 +70,13 @@ public class MemberController {
 	}
 	
 	// 일반 사용자 회원가입 페이지로 이동 - 희원,20210219
-	@RequestMapping("/guest_joinView.do")
+	@RequestMapping("/guestJoinView.do")
 	public String guestJoinView() {
 		return "member/guest_join";
 	}
 	
 	// 일반 사용자 회원가입 수행 - 희원,20210219
-	@RequestMapping("/guest_joinAction.do")
+	@RequestMapping("/guestJoinAction.do")
 	public String guestJoin(HttpServletRequest request, HttpServletResponse response) {
 		// 개인정보
 		String id = request.getParameter("id");
