@@ -13,7 +13,7 @@ import kcs.dto.BoardFileDTO;
 public interface BoardMapper {
 	
 	//게시판목록
-	List<BoardDTO> selectBoardList(int page);
+	List<BoardDTO> selectBoardList(int pageNo);
 	//조회수 증가
 	void addCount(int bno);
 	//해당 게시글 한개

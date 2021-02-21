@@ -41,16 +41,15 @@ public class BoardController {
 	//게시판 목록 뽑기 - 성진
 	@RequestMapping("/boardView.do")
 	public String index(HttpServletRequest request) {
-		int page = 1;
+		int pageNo = 1;
 		//페이지 셋팅
 		if(request.getParameter("pageNo") != null)
-			page = Integer.parseInt(request.getParameter("pageNo"));
-		List<BoardDTO> list = service.selectBoardList(page);//글목록 읽어옴
+			pageNo = Integer.parseInt(request.getParameter("pageNo"));
+		List<BoardDTO> list = service.selectBoardList(pageNo);//글목록 읽어옴
 		int count = service.selectCount();
-		PaggingVO vo = new PaggingVO(count, page);
+		PaggingVO vo = new PaggingVO(count, pageNo);
 		request.setAttribute("list", list);
 		request.setAttribute("pagging", vo);
-		System.out.println(list.toString());
 		return "board/board_list";
 	}
 	
