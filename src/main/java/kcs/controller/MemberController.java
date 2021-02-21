@@ -66,7 +66,7 @@ public class MemberController {
 	// 회원가입 사용자 선택 페이지로 이동 - 희원,20210219
 	@RequestMapping("/selectJoinView.do")
 	public String selectJoinView() {
-		return "select_join";
+		return "member/select_join";
 	}
 	
 	// 일반 사용자 회원가입 페이지로 이동 - 희원,20210219
@@ -117,7 +117,7 @@ public class MemberController {
 	// 사업자 회원가입 페이지로 이동 - 희원,20210219
 	@RequestMapping("/businessJoinView.do")
 	public String businessJoinView() {
-		return "business_join";
+		return "member/business_join";
 	}
 
 	// 사업자 회원가입 수행 - 희원,20210219
