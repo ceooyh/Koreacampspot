@@ -4,165 +4,289 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>사업자 회원가입 페이지</title>
 <style>
-	* {
-		margin: 0;
-		padding: 0;
-	}
-	
-	h1 {
-		text-align: center;
-		width: 500px;
-		font-size: 24px;
-		margin: 0 auto;
-		margin-top: 50px;
-		font-weight: normal;
-	}
-	
-	#container {
-		border: 1px solid #e5e5e5;
-		width: 520px;
-		padding: 70px;
-		margin: 0 auto;
-	}
-	
-	label {
-		font-size: 15px;
-		font-weight: bold;
-		margin: 10px;
-	}
-	
-	input {
-		width: 100%;
-		border: none;
-		outline: none; /*깜빡깜빡*/
-		font-size: 16px;
-		margin: 5px;
-		display: inline-block;
-		border-bottom: 2px solid #e5e5e5;
-	}
-	
-	#email {
-		width: 80%;
-		font-weight: bold;
-	}
-	
-	.host {
-		width: 20%;
-		font-weight: bold;
-		color: gray;
-	}
-	
-	.email {
-		border-bottom: 2px solid #e5e5e5;
-	}
-	
-	button {
-		padding: 15px 20px;
-		background-color: #e5e5e5;
-		outline-color: gray;
-		border: none;
-		font-size: 16px;
-		border-radius: 20px;
-		margin-right: 30px;
-	}
-	
-	.border_none {
-		border: none;
-	}
+	@font-face {
+        font-family: '보통노토';
+        src: url(Font/NotoSansCJKkr-hinted/NotoSansCJKkr-Medium.otf);
+    }
+    @font-face {
+        font-family: '굵은노토';
+        src: url(Font/NotoSansCJKkr-hinted/NotoSansCJKkr-Black.otf);
+    }
+    @font-face {
+        font-family: '검은고딕';
+        src: url(Font/검은고딕/OFL.txt);
+    }
+    @font-face {
+        font-family: '보통로보';
+        src: url(Font/Roboto/Roboto-Medium.ttf);
+    }
+    @font-face {
+        font-family: '두꺼운로보';
+        src: url(Font/Roboto/Roboto-Bold.ttf);
+    }
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    section{
+        width: 100%;
+        margin: 0 auto;
+    }
+    #headline{
+        font-size: 30px;
+        margin: 20px 0;
+        text-align: center;
+        color: rgb(46, 46, 46);
+        font-family: '굵은노토';
+    }
+    #inside_headline{
+        font-size: 30px;
+        margin: 20px 0;
+        color: rgb(46, 46, 46);
+        font-family: '보통노토';
+    }
+    label{
+        font-family: '굵은노토';
+        font-size: 13px;
+        color: rgb(49, 49, 49);
+    }
+    input{
+        border: none;
+    }
+    span{
+        display: inline-block;
+    }
+    input:focus {
+        outline:none;
+    }
+    input::placeholder{
+        color: rgb(216, 215, 215);
+    }
+    #container{
+        padding: 50px;
+        width: 600px;
+        margin: 0 auto;
+        border: 1px solid rgb(189, 187, 187);
+    }
+    .part{
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .guest_insert{
+        width: 100px;
+        margin: 10px 0;
+    }
+    .guest_input1{
+        width: 600px;
+        padding-top: 10px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid rgb(247, 245, 245);
+    }
+    .guest_input1{
+        font-size: 18px;
+        font-family: '보통노토';
+        color: rgb(46, 46, 46);
+    }
+    #tel1{
+        width: 100px;
+        color: rgb(97, 95, 95);
+        font-family: '보통노토';
+        border: none;
+    }
+    .guest_input2{
+        font-size: 18px;
+        font-family: '보통노토';
+        width: 244px;
+        padding-top: 10px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid rgb(247, 245, 245);
+    }
+    .guest_input3{
+        font-size: 18px;
+        font-family: '보통노토';
+        width: 440px;
+        padding-top: 10px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid rgb(247, 245, 245);
+    }
+    #host{
+        width: 150px;
+        color: rgb(97, 95, 95);
+        font-family: '보통노토';
+        border: none;
+    }
+    .guest_input4{
+        font-size: 18px;
+        font-family: '보통노토';
+        width: 196px;
+        padding-top: 10px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid rgb(247, 245, 245);
+    }
+    .gender_select{
+        margin-top: 10px;
+        margin-right: 5px;
+        font-family: '보통노토';
+        color: rgb(97, 95, 95);
+    }
+    #btn_id_check{
+        padding: 2px;
+        border: none;
+        font-size: 16px;
+        border-radius: 10px;
+        background-color: white;
+        font-family: '보통노토';
+        color: rgb(97, 95, 95);
+    }
+    #btn_id_check:hover{
+        border: none;
+        background-color: rgb(97, 95, 95);
+        color: white;
+    }
+    .btn_submit{
+        padding-top: 8px;
+        padding-bottom: 8px;
+        background-color: rgb(245, 244, 244);
+        width: 49%;
+        border: none;
+        font-family: '보통노토';
+        border-radius: 3%;
+    }
+    #btn_continer button:hover{
+        background-color: rgb(63, 62, 62);
+        color: rgb(245, 244, 244);
+        cursor: pointer;
+    }
+    input[type="checkbox"]{
+        display: none;
+    }
+    #checkbox_gender input[type="checkbox"] + label span{
+        border-radius: 5px;
+        padding: 5px;
+        display: inline-block;
+        cursor:pointer;
+        vertical-align:middle;
+        border: 1px solid rgb(216, 215, 215);
+    }
+    #checkbox_gender input[type="checkbox"] + label span:hover{
+        color: white;
+        background-color: rgb(216, 215, 215);
+    }
+    #checkbox_gender input[type="checkbox"]:checked + label span{
+        background-color: rgb(233, 173, 9);
+        color: rgb(46, 46, 46);
+    }
+    .guest_input1:focus,.guest_input2:focus,.guest_input3:focus,.guest_input4:focus{
+        border-bottom: 2px solid rgb(46, 46, 46);
+    }
 </style>
+<script type="text/javascript">
+	
+</script>
 </head>
 <body>
-	<h1>사업자 가입 페이지</h1>
-	<div id="container">
-		<form action="business_join.do" method="GET">
-			<table>
-				<tr>
-					<td><label for="id">아이디</label></td>
-					<td><input type="text" class="other" name="id" id="id" placeholder="아이디를 입력하세요"></td>
-				</tr>
+    <section>
+        <p id="headline">회원 가입 페이지</p>
+        <form action="guestJoinAction.do" method="GET">
+        <div id="container">
+                <p id="inside_headline">사업자님의 정보를 입력해주세요</p>
+                <div id="id_insert" class="part"><!--아이디 입력 부분 start-->
+                        <span class="guest_insert"><label for="id">아이디</label></span><br>
+                        <span><input  class="guest_input1" type="text" name="id" id="id" placeholder="아이디를 입력하세요"></span><br>
+                        <span class="guest_insert"><button id="btn_id_check">중복검사</button></span>
+                </div><!--아이디 입력 부분 end-->
 
 
-				<tr>
-					<td><label for="pass">비밀번호</label></td>
-					<td><input type="password" class="other" name="pass" id="pass" placeholder="비밀번호 입력(8~32자리)"></td>
-				</tr>
-
-				<tr>
-					<td><label for="passcheck">비밀번호 확인</label></td>
-					<td><input type="password" class="other" name="passcheck" id="passcheck" placeholder="비밀번호 확인"></td>
-				</tr>
-
-				<tr>
-					<td><label for="name">이름</label></td>
-					<td><input type="text" class="other" name="name" id="name" placeholder="이름 입력"></td>
-				</tr>
-
-				<tr>
-					<td><label for="tel">전화번호</label></td>
-					<td><input type="text" class="tel" name="tel1" id="tel1" placeholder="010"></td>
-					<td>
-						<input type="text" class="tel" name="tel2" id="tel2" placeholder="0000">
-					</td>
-					<td>
-					<input type="text" class="tel" name="tel3" id="tel3" placeholder="0000">
-					</td>
-					</tr>
-
-				<tr>
-					<td><label for="birth">생년월일</label></td>
-					<td><input type="text" class="birth" name="birth" id="birth" placeholder="생년월일을 입력해주세요"></td>
-				</tr>
-			</table>
-
-			<div class="email">
-				<table>
-					<tr>
-						<td><label for="email">이메일</label></td>
-						<td class="host"><input type="text" class="email" name="email" id="email" placeholder="이메일을 입력해주세요"> <select name="host" id="host">
-								<option value="naver.com">naver.com</option>
-								<option value="gmail.com">gmail.com</option>
-								<option value="nate.com">nate.com</option>
-								<option value="hanmail.com">hanmail.com</option>
-								<option value="daum.net">daum.net</option>
-						</select></td>
-					</tr>
-				</table>
-			</div>
-			
-			<div>
-				<table>
-					<tr>
-						<td><label for="business_no">사업자 등록번호</label></td>
-						<td><input type="text" class="other" name="business_no" id="business_no" placeholder="사업자 등록번호를 입력해주세요"></td>
-					</tr>
-					<tr>
-						<td><button>가입</button></td>
-					</tr>
-				</table>
-			</div>
-		</form>
-	</div>
-
-    <h1>사업자 가입 페이지</h1>
-    <form action="businessJoinAction.do" method="GET"> 
-        <input type="text" name="id" id="id" placeholder="아이디를 입력하세요"><br>
-        <input type="password" name="pass" id="pass" placeholder="비밀번호 입력"><br>
-        <input type="password" name="passcheck" id="passcheck" placeholder="비밀번호 확인"><br>
-        <input type="text" name="name" id="name" placeholder="이름 입력"><br>
-        <input type="text" name="tel1" id="tel1" placeholder="010"><input type="text" name="tel2" id="tel2" placeholder="0000"><input type="text" name="tel3" id="tel3" placeholder="0000"><br>
-        <input type="text" name="birth" id="birth" placeholder="생년월일을 입력해주세요"><br>
-        <input type="text" name="email" id="email" placeholder="이메일을 입력해주세요"> <select name="host" id="host">
-            <option value="naver.com">naver.com</option>
-            <option value="gmail.com">gmail.com</option>
-            <option value="nate.com">nate.com</option>
-            <option value="hanmail.com">hanmail.com</option>
-            <option value="daum.net">daum.net</option>
-        </select> <br>
-        <input type="text" name="business_no" id="business_no" placeholder="사업자 등록번호를 입력해주세요"><br>
-    </form>
 
 
+                <div id="id_insert" class="part"><!--비밀번호 입력 부분 start-->
+                        <span class="guest_insert"><label for="pass">비밀번호입력</label></span><br>
+                        <span><input  class="guest_input1" type="password" name="pass" id="pass" placeholder="비밀번호 입력"></span>
+                </div><!--비밀번호 입력 부분 end-->
+                    
+                    
+                    
+                    
+                <div id="id_insert" class="part"><!--비밀번호 확인 부분 start-->
+                        <span class="guest_insert"><label for="passcheck">비밀번호확인</label></span><br>
+                        <span><input class="guest_input1" type="password" name="passcheck" id="passcheck" placeholder="비밀번호 확인"></span>
+                </div><!--비밀번호 확인 부분 end-->
+                    
+
+
+
+                <div id="id_insert" class="part"><!--이름 입력 부분 start-->
+                    <span class="guest_insert"><label for="name">이름</label></span><br>
+                    <span><input class="guest_input1" type="text" name="name" id="name" placeholder="이름 입력"></span>
+                </div><!--이름 입력 부분 end-->
+
+
+
+
+                <div id="id_insert" class="part"><!--전화번호 입력 부분 start-->
+                    <span class="guest_insert"><label for="tel2">전화번호</label></span><br>
+                        <span><select name="tel1" id="tel1">
+                                <option value="010">010</option>
+                                <option value="019">019</option>
+                                <option value="011">011</option>
+                            </select></span>
+                            <span><input class="guest_input2" type="text" name="tel2" id="tel2" class="tel" placeholder="0000"></span>
+                            <span><input class="guest_input2" type="text" name="tel3" id="tel3" class="tel" placeholder="0000"></span>
+                </div><!--전화번호 입력 부분 end-->
+
+
+
+
+                <div id="id_insert" class="part"><!--이메일 부분 start-->
+                    <span class="guest_insert"><label for="pass">이메일</label></span><br>
+                    <span><input class="guest_input3" type="text" name="email" id="email" placeholder="이메일을 입력해주세요"></span>
+                    <span><select name="host" id="host">
+                                <option value="naver.com">@naver.com</option>
+                                <option value="gmail.com">@gmail.com</option>
+                                <option value="nate.com">@nate.com</option>
+                                <option value="hanmail.com">@hanmail.com</option>
+                                <option value="daum.net">@daum.net</option>
+                            </select></span>
+                </div><!--이메일 부분 end-->
+
+
+
+
+                <div id="id_insert" class="part"><!--생일/성별 start-->
+                    <span class="guest_insert"><label for="year">생일/성별</label></span><br>
+                    <span><input  class="guest_input4" type="text" id="year" name="year" placeholder="년"></span>
+                    <span><input class="guest_input4" type="text" id="month" name="month" placeholder="월"></span>
+                    <span><input  class="guest_input4" type="text" id="day" name="day" placeholder="일"></span><br>
+                    <div id="checkbox_gender">
+                        <span class="gender_select"><input id="gender_woman" type="checkbox" value="1" class="checkbox"><label for="gender_woman"><span>여성</span></label></span>
+                        <span class="gender_select"><input id="gender_man" type="checkbox" value="0" class="checkbox"><label for="gender_man"><span>남성</span></label></span>
+                    </div>
+                </div><!--생일 성별 end-->
+                
+                
+                
+                
+                <div id="id_insert" class="part"><!--사업자 등록번호 입력 start-->
+                    <span class="guest_insert"><label for="business_no">사업자등록번호</label></span><br>
+                    <span><input class="guest_input4" type="text" id="business_no1" name="business_no1" placeholder="000"></span>
+                    <span><input class="guest_input4" type="text" id="business_no2" name="business_no2" placeholder="00"></span>
+                    <span><input class="guest_input4" type="text" id="business_no3" name="business_no3" placeholder="00000"></span><br>
+                 </div><!--사업자 등록번호 입력 end-->
+                 
+                 
+                 
+                 
+
+
+
+                <div id="btn_continer">
+                    <button class="btn_submit">다음</button>
+                    <button class="btn_submit">이전</button>
+                </div>
+            </div>
+        </form><!--폼마지막 줄-->
+    </section>
 </body>
 </html>
