@@ -176,7 +176,7 @@ $(document).ready(function(){
                                <tr>
                                    <td>
                                        <h3 class="camp_name">그렇고 그런 캠프장</h3><br>
-                                       <span class="camp_content">그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그런 캠프장</span><br>
+                                       <span class="camp_content">그런 캠프장</span><br>
                                        <span class="camp_star">★★★★☆ 4.2</span>
                                    </td>
                                    <td>
@@ -204,7 +204,7 @@ $(document).ready(function(){
                                 <tr>
                                     <td>
                                         <h3 class="camp_name">그렇고 그런 캠프장</h3><br>
-                                        <span class="camp_content">그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그런 캠프장</span><br>
+                                        <span class="camp_content">그런 캠프장</span><br>
                                         <span class="camp_star">★★★★☆ 4.2</span>
                                     </td>
                                     <td>
@@ -234,7 +234,7 @@ $(document).ready(function(){
                                    </td>
                                    <td>
                                        <h3 class="camp_name">그렇고 그런 캠프장</h3><br>
-                                       <span class="camp_content">그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그런 캠프장</span><br>
+                                       <span class="camp_content">그런 캠프장</span><br>
                                        <span class="camp_star">★★★★☆ 4.2</span>
                                    </td>
                                 </tr>
@@ -248,7 +248,7 @@ $(document).ready(function(){
                                     </td>
                                     <td>
                                         <h3 class="camp_name">그렇고 그런 캠프장</h3><br>
-                                        <span class="camp_content">그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그런 캠프장</span><br>
+                                        <span class="camp_content"> 그런 캠프장</span><br>
                                         <span class="camp_star">★★★★☆ 4.2</span>
                                     </td>
                                  </tr>
@@ -262,7 +262,7 @@ $(document).ready(function(){
                                     </td>
                                     <td>
                                         <h3 class="camp_name">그렇고 그런 캠프장</h3><br>
-                                        <span class="camp_content">그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그런 캠프장</span><br>
+                                        <span class="camp_content"> 그런 캠프장</span><br>
                                         <span class="camp_star">★★★★☆ 4.2</span>
                                     </td>
                                  </tr>
@@ -286,7 +286,7 @@ $(document).ready(function(){
                                <tr>
                                    <td>
                                        <h3 class="camp_name">그렇고 그런 캠프장</h3><br>
-                                       <span class="camp_content">그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그런 캠프장</span><br>
+                                       <span class="camp_content"> 그런 캠프장</span><br>
                                        <span class="camp_star">★★★★☆ 4.2</span>
                                    </td>
                                    <td>
@@ -300,7 +300,7 @@ $(document).ready(function(){
                                 <tr>
                                     <td>
                                         <h3 class="camp_name">그렇고 그런 캠프장</h3><br>
-                                        <span class="camp_content">그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그렇고 그런 캠프장</span><br>
+                                        <span class="camp_content"> 그런 캠프장</span><br>
                                         <span class="camp_star">★★★★☆ 4.2</span>
                                     </td>
                                     <td>
