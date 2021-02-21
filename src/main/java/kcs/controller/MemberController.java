@@ -63,12 +63,15 @@ public class MemberController {
 		return "index";
 	}
 	
+	@RequestMapping("guest_join.do")
+	public String guestJoin() {
+		return null;
+	}
 	// 회원가입 사용자 선택 페이지로 이동 - 희원,20210219
 	@RequestMapping("/selectJoinView.do")
 	public String selectJoinView() {
 		return "member/select_join";
 	}
-	
 	// 일반 사용자 회원가입 페이지로 이동 - 희원,20210219
 	@RequestMapping("/guestJoinView.do")
 	public String guestJoinView() {
