@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<<<<<<< HEAD
 <meta charset="UTF-8">
 <title>게시판 목록 페이지</title>
 <style>
@@ -63,6 +64,74 @@
     	color: black;
     	text-decoration: none;
     }
+=======
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    #container{
+        width: 1200px;
+        border: 1px solid black;
+        margin: 0 auto;
+    }
+    #search_bar{
+        width: 1200px;
+        background-color: #e8e8e8;
+        margin: 30px 0px;
+        padding: 15px;
+        vertical-align: middle;
+    }
+    #search{
+        height: 30px;
+        border-color: #e8e8e8;
+        color: #e8e8e8;
+        border-radius: 3px;
+        border: 1px solid #c8c8c8;
+    }
+    #btn_search{
+        height: 30px;
+        background-color: #646262;
+        font-weight: bold;
+        font-size: 16px;
+        border: 1px solid #c8c8c8;
+        border-radius: 3px;
+        margin-left: 5px;
+        padding: 5px;
+        color: white;
+    }
+    #main{
+        border: 1px solid red;
+        
+    }
+    .board{
+        width: 100%;
+		margin:20px auto;
+		border-collapse: collapse;
+	}
+	.board th, .board td{
+		padding: 10px;
+		text-align: center;
+	}
+	.board th{
+		border-top : 1px solid black;
+		border-bottom : 1px solid black;
+	}
+	.board td{
+		border-top : 1px solid #e8e8e8;
+		border-bottom : 1px solid #e8e8e8;
+	}
+	.board tr:last-child > td {
+		border-bottom : 1px solid #e8e8e8;
+	}
+    
 </style>
 <body>
     <jsp:include page="../template/header.jsp" flush="false"></jsp:include>
@@ -82,9 +151,13 @@
                     <th class="writer">작성자</th>
                     <th class="date">작성일</th>
                     <th>조회수</th>
+                    
                     <!-- 좋아요 클릭하면 좋아요를 많이 받은 순서대로 출력 -->
                     <th id="blike"><a href="main.do?mode=blike">좋아요</a></th>
                     <th id="bhate"><a href="main.do?mode=bhate">싫어요</a></th>
+                    
+                    <th><a href="main.do?mode=blike">좋아요</a></th>
+                    <th><a href="main.do?mode=bhate">싫어요</a></th>
                 </tr>
 
         <!-- jstl 주석처리,게시판 기능 추가 기존 게시판에 있는 내용을 el과 jstl로 표현 -

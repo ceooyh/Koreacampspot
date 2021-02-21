@@ -17,7 +17,6 @@
 					<td><input type="text" class="other" name="id" id="id" placeholder="아이디를 입력하세요"></td>
 				</tr>
 
-<<<<<<< HEAD
 				<tr>
 					<td><label for="pass">비밀번호</label></td>
 					<td><input type="password" class="other" name="pass" id="pass" placeholder="비밀번호 입력(8~32자리)"></td>
@@ -71,7 +70,7 @@
               <button>취소</button>
         </form>
 	</div>
-=======
+
     <h1>회원 가입 페이지</h1>
     <form action="guestJoinAction.do" method="GET">
         <input type="text" name="id" id="id" placeholder="아이디를 입력하세요"><br>
