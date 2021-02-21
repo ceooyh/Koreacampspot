@@ -72,7 +72,7 @@ public class MemberController {
 	// 일반 사용자 회원가입 페이지로 이동 - 희원,20210219
 	@RequestMapping("/guestJoinView.do")
 	public String guestJoinView() {
-		return "member/guest_join";
+		return "member/guest_join1";
 	}
 	
 	// 일반 사용자 회원가입 수행 - 희원,20210219
