@@ -1,7 +1,7 @@
 package vo;
 
 public class PaggingVO {
-	//전체 게시글 개수
+	//전체 게시글 개수 
 		private int count;
 		//한페이지당 출력할 게시글(글목록) 개수
 		private final int pageOfContentCount = 7;
