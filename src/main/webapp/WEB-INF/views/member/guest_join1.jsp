@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>일반사용자 회원가입 개인정보 입력란</title>
+<title>일반사용자 회원가입 개인정보 입력파트</title>
 <style>
     @font-face {
         font-family: '보통노토';
@@ -84,10 +84,10 @@
         padding-bottom: 15px;
         border-bottom: 2px solid rgb(247, 245, 245);
     }
-    .guest_input1 > input{
+    .guest_input1{
         font-size: 18px;
         font-family: '보통노토';
-        color: rgb(189, 187, 187);
+        color: rgb(46, 46, 46);
     }
     #tel1{
         width: 100px;
@@ -96,12 +96,14 @@
         border: none;
     }
     .guest_input2{
+        font-family: '보통노토';
         width: 244px;
         padding-top: 10px;
         padding-bottom: 15px;
         border-bottom: 2px solid rgb(247, 245, 245);
     }
     .guest_input3{
+        font-family: '보통노토';
         width: 440px;
         padding-top: 10px;
         padding-bottom: 15px;
@@ -114,6 +116,7 @@
         border: none;
     }
     .guest_input4{
+        font-family: '보통노토';
         width: 196px;
         padding-top: 10px;
         padding-bottom: 15px;
@@ -148,9 +151,10 @@
         font-family: '보통노토';
         border-radius: 3%;
     }
-    .btn_submit:hover{
+    #btn_continer button:hover{
         background-color: rgb(63, 62, 62);
         color: rgb(245, 244, 244);
+        cursor: pointer;
     }
     input[type="checkbox"]{
         display: none;
@@ -171,13 +175,14 @@
         background-color: rgb(233, 173, 9);
         color: rgb(46, 46, 46);
     }
+    .guest_input1:focus,.guest_input2:focus,.guest_input3:focus,.guest_input4:focus{
+        border-bottom: 2px solid rgb(46, 46, 46);
+    }
 
 
 </style>
 </head>
 <body>
-	<jsp:include page="../template/header.jsp" flush="false"></jsp:include>
-	
     <section>
         <p id="headline">회원 가입 페이지</p>
         <form action="guestJoinAction.do" method="GET">
@@ -247,9 +252,9 @@
 
                 <div id="id_insert" class="part"><!--생일/성별 start-->
                     <span class="guest_insert"><label for="year">생일/성별</label></span><br>
-                    <span class="guest_input4"><input type="text" id="year" name="year" placeholder="년"></span>
-                    <span class="guest_input4"><input type="text" id="month" name="month" placeholder="월"></span>
-                    <span class="guest_input4"><input type="text" id="day" name="day" placeholder="일"></span><br>
+                    <span><input  class="guest_input4" type="text" id="year" name="year" placeholder="년"></span>
+                    <span><input class="guest_input4" type="text" id="month" name="month" placeholder="월"></span>
+                    <span><input  class="guest_input4" type="text" id="day" name="day" placeholder="일"></span><br>
                     <div id="checkbox_gender">
                         <span class="gender_select"><input id="gender_woman" type="checkbox" value="1" class="checkbox"><label for="gender_woman"><span>여성</span></label></span>
                         <span class="gender_select"><input id="gender_man" type="checkbox" value="0" class="checkbox"><label for="gender_man"><span>남성</span></label></span>
@@ -265,7 +270,5 @@
             </div>
         </form><!--폼마지막 줄-->
     </section>
-    
-    <jsp:include page="../template/footer.jsp" flush="false"></jsp:include>
 </body>
 </html>
