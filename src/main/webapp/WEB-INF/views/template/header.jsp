@@ -40,7 +40,7 @@
 				<li><a href="infoView.do">소개</a></li>
 				<li><a href="#">캠핑 스팟 찾기</a></li>
 				<li><a href="#">찜한 스팟</a></li>
-				<li><a href="joinView.do">회원가입</a></li>
+				<li><a href="selectJoinView.do">회원가입</a></li>
 				<li><a href="loginView.do">로그인</a></li>
 			</ul>
 		</nav>
