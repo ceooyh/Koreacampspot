@@ -6,6 +6,74 @@
 <meta charset="UTF-8">
 <title>게시판 글쓰기 페이지</title>
 </head>
+<style>
+	*{
+	    margin:0;
+	    padding:0;
+	}
+    #container{
+        width: 1200px; 
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid black;
+    }
+    h2{
+	    border-top : 1px solid black;
+		border-bottom : 1px solid black;
+	    padding: 10px;
+        margin: 10px;
+	}
+    #container table{
+	    width: 100%;
+	    border-collapse: collapse;
+	    margin:0 auto;
+	}
+	#container th{
+	    width:150px !important;
+	    text-align: right;
+	    padding:5px;
+	}
+	#container td{
+	    padding:15px;
+	    height: 40px;
+	}
+	#container input{
+	    width: 100%;
+	    height:40px;
+	    box-sizing:border-box;
+	    border-width : 1px;
+	    border-radius: 5px;
+	}
+    .btn{
+	    text-decoration: none;
+	    width: 80px;
+	    display: inline-block;
+	    padding:5px 0px;
+	    font-weight:normal;
+	    border : 1px solid #585858;
+	    text-align:center;
+	    font-size:14px;
+	    box-sizing: border-box;
+	    border-radius: 3px;
+	    background-color: #646262;
+	    color: white;
+	}
+    textarea {
+	    width:100%;
+	    height: 300px;
+	    resize: none;
+	    box-sizing: border-box;
+	}
+	p input{
+	    width:80% !important;
+	}
+    .btn:hover{
+	    background-color: #282828;
+	    color:#FFFFFF
+	}
+
+	
+</style>
 <body>
 
 <!-- jstl 주석처리 
@@ -29,18 +97,18 @@
 		<form action="boardWriteAction.do" enctype="multipart/form-data" method="post">
 			<table>
 				<tr>
-					<th>제목</th>
+					<th>[제목]</th>
 					<td><input type="text" name="title"></td>
 				</tr>
 				<tr>
-					<th>작성자</th>
+					<th>[작성자]</th>
 					<td>
 						<input type="hidden" name="writer" value="${sessionScope.id }">
 						${sessionScope.id }
 					</td>
 				</tr>
 				<tr>
-					<th style="vertical-align: top;">내용</th><td><textarea name="content"></textarea></td>
+					<th style="vertical-align: top;">[내용]</th><td><textarea name="content"></textarea></td>
 				</tr>
 		
 		<!-- 첨부 파일 등록
