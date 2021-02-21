@@ -180,7 +180,7 @@ $(document).ready(function(){
                                        <span class="camp_star">★★★★☆ 4.2</span>
                                    </td>
                                    <td>
-                                       <img src="1.jpg">
+                                       <img src="../../img/mainpage/1.jpg">
                                    </td>
                                 </tr>
                             </table>
@@ -194,7 +194,7 @@ $(document).ready(function(){
                                         <span class="camp_star">★★★★☆ 4.2</span>
                                     </td>
                                     <td>
-                                        <img src="1.jpg">
+                                        <img src="../../img/mainpage/1.jpg">
                                     </td>
                                  </tr>
                             </table>
@@ -208,7 +208,7 @@ $(document).ready(function(){
                                         <span class="camp_star">★★★★☆ 4.2</span>
                                     </td>
                                     <td>
-                                        <img src="1.jpg">
+                                        <img src="../../img/mainpage/1.jpg">
                                     </td>
                                  </tr>
                             </table>
@@ -230,7 +230,7 @@ $(document).ready(function(){
                             <table class="camp_info right">
                                <tr>
                                    <td>
-                                       <img src="1.jpg">
+                                       <img src="../../img/mainpage/1.jpg">
                                    </td>
                                    <td>
                                        <h3 class="camp_name">그렇고 그런 캠프장</h3><br>
@@ -244,7 +244,7 @@ $(document).ready(function(){
                             <table class="camp_info right">
                                 <tr>
                                     <td>
-                                        <img src="1.jpg">
+                                        <img src="../../img/mainpage/1.jpg">
                                     </td>
                                     <td>
                                         <h3 class="camp_name">그렇고 그런 캠프장</h3><br>
@@ -258,7 +258,7 @@ $(document).ready(function(){
                             <table class="camp_info right">
                                 <tr>
                                     <td>
-                                        <img src="1.jpg">
+                                        <img src="../../img/mainpage/1.jpg">
                                     </td>
                                     <td>
                                         <h3 class="camp_name">그렇고 그런 캠프장</h3><br>
@@ -290,7 +290,7 @@ $(document).ready(function(){
                                        <span class="camp_star">★★★★☆ 4.2</span>
                                    </td>
                                    <td>
-                                       <img src="1.jpg">
+                                       <img src="../../img/mainpage/1.jpg">
                                    </td>
                                 </tr>
                             </table>
@@ -304,7 +304,7 @@ $(document).ready(function(){
                                         <span class="camp_star">★★★★☆ 4.2</span>
                                     </td>
                                     <td>
-                                        <img src="1.jpg">
+                                        <img src="../../img/mainpage/1.jpg">
                                     </td>
                                  </tr>
                             </table>
@@ -318,7 +318,7 @@ $(document).ready(function(){
                                         <span class="camp_star">★★★★☆ 4.2</span>
                                     </td>
                                     <td>
-                                        <img src="1.jpg">
+                                        <img src="../../img/mainpage/1.jpg">
                                     </td>
                                  </tr>
                             </table>
