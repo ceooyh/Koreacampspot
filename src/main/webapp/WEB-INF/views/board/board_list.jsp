@@ -31,13 +31,13 @@
     #btn_search{
         height: 30px;
         background-color: #646262;
+        color: white;
         font-weight: bold;
         font-size: 16px;
         border: 1px solid #c8c8c8;
         border-radius: 3px;
         margin-left: 5px;
         padding: 5px;
-        color: white;
     }
     .board{
         width: 100%;
