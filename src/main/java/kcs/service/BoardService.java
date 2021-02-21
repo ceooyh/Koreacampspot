@@ -40,8 +40,8 @@ public class BoardService {
 		return mapper.selectFileList(bno);
 	}
 	//게시판 목록 읽어오기 - 성진
-	public List<BoardDTO> selectBoardList(int page) {
-		return mapper.selectBoardList(page);
+	public List<BoardDTO> selectBoardList(int pageNo) {
+		return mapper.selectBoardList(pageNo);
 	}
 	//게시판 갯수 - 성진
 	public int selectCount() {

@@ -13,6 +13,7 @@ public class BoardDTO {
 	private int blike;
 	private int bhate;
 	private int views;
+	private int comment_count;
 	
 	//
 	public BoardDTO(int bno, String writer, String title, String content) {
@@ -45,10 +46,34 @@ public class BoardDTO {
 		this.views = views;
 	}
 
+	// 게시판 목록 읽어오기용 생성자
+	public BoardDTO(int bno, String writer, String title, String content, String bdate, int blike, int bhate, int views,
+			int comment_count) {
+		super();
+		this.bno = bno;
+		this.writer = writer;
+		this.title = title;
+		this.content = content;
+		this.bdate = bdate;
+		this.blike = blike;
+		this.bhate = bhate;
+		this.views = views;
+		this.comment_count = comment_count;
+	}
+	
+	
+	public int getComment_count() {
+		return comment_count;
+	}
+
+	public void setComment_count(int comment_count) {
+		this.comment_count = comment_count;
+	}
 
 	public int getBno() {
 		return bno;
 	}
+
 
 
 	public void setBno(int bno) {
