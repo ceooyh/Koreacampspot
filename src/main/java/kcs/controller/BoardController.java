@@ -38,7 +38,7 @@ public class BoardController {
 	
 	// 여기부터 RequestMapping 처리
 	
-	//게시판 목록 뽑기 - 성진
+	//게시판 목록 뽑기 - 성진 -
 	@RequestMapping("/boardView.do")
 	public String index(HttpServletRequest request) {
 		int pageNo = 1;
