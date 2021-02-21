@@ -12,7 +12,7 @@ import kcs.dto.BoardDTO;
 import kcs.dto.BoardCommentDTO;
 import kcs.dto.BoardFileDTO;
 import kcs.service.BoardService;
-import vo.PaggingVO;
+import kcs.vo.PaggingVO;
 
 @Controller
 public class BoardController {
