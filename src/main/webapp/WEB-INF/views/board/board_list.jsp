@@ -11,7 +11,7 @@
         padding:0;
     }
     #container{
-        width: 1200px;
+        width: 1200px; 
         margin: 0 auto;
     }
     #search_bar{
