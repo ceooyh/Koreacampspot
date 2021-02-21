@@ -6,25 +6,25 @@
 <meta charset="UTF-8">
 <title>일반사용자 회원가입 개인정보 입력파트</title>
 <style>
-    @font-face {
+     @font-face {
         font-family: '보통노토';
-        src: url(../../../Font/NotoSansCJKkr-hinted/NotoSansCJKkr-Medium.otf);
+        src: url(Font/NotoSansCJKkr-hinted/NotoSansCJKkr-Medium.otf);
     }
     @font-face {
         font-family: '굵은노토';
-        src: url(../../../Font/NotoSansCJKkr-hinted/NotoSansCJKkr-Black.otf);
+        src: url(Font/NotoSansCJKkr-hinted/NotoSansCJKkr-Black.otf);
     }
     @font-face {
         font-family: '검은고딕';
-        src: url(../../../Font/검은고딕/OFL.txt);
+        src: url(Font/검은고딕/OFL.txt);
     }
     @font-face {
         font-family: '보통로보';
-        src: url(../../../Font/Roboto/Roboto-Medium.ttf);
+        src: url(Font/Roboto/Roboto-Medium.ttf);
     }
     @font-face {
         font-family: '두꺼운로보';
-        src: url(../../../Font/Roboto/Roboto-Bold.ttf);
+        src: url(Font/Roboto/Roboto-Bold.ttf);
     }
     *{
         padding: 0;
@@ -96,6 +96,7 @@
         border: none;
     }
     .guest_input2{
+        font-size: 18px;
         font-family: '보통노토';
         width: 244px;
         padding-top: 10px;
@@ -103,6 +104,7 @@
         border-bottom: 2px solid rgb(247, 245, 245);
     }
     .guest_input3{
+        font-size: 18px;
         font-family: '보통노토';
         width: 440px;
         padding-top: 10px;
@@ -116,6 +118,7 @@
         border: none;
     }
     .guest_input4{
+        font-size: 18px;
         font-family: '보통노토';
         width: 196px;
         padding-top: 10px;

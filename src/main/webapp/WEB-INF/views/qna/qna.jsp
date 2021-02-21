@@ -119,9 +119,9 @@
         color: rgb(231, 231, 231);
         background-color: rgb(46, 46, 46);
     }
-
-
-
+    textarea::placeholder{
+        color: rgb(216, 215, 215);
+    }
 </style>
 <body>
     <section>
@@ -133,11 +133,6 @@
                             <p><label for="#">[아이디]</label></p>
                             <span class="input_span"><input id="first_input" type="text" name="id" id="id" value="ceooyh" readonly></span>
                         </div><!--아이디 입력란 마지막 자동 입력-->
-
-                        <div class="part_select">
-                            <p><label for="#">[전화번호]</label></p>
-                            <sapn class="input_span"><input type="text" name="tel" id="tel" value="010-4108-8101" readonly></sapn>
-                        </div><!--전화번호 입력란 마지막 자동 입력-->
 
                         <div class="part_select">
                             <p><label for="title">[제목]</label></p>
