@@ -16,6 +16,6 @@
 		select qno, title, writer, content, qdate, status, response from (select ceil(rownum / 7) as page, qno, title, writer, content, qdate, status, response from (select * from qna where writer = #{writer} order by qno DESC)) where page = #{pageNo}
 	</select>
 	<insert id="sendQnA" parameterType="qna">
-		insert into qna qno, title, writer, content values(SEQ_QNA_QNO.NEXTVAL, #{}, #{}, #{})
+		insert into qna qno, title, writer, content values(SEQ_QNA_QNO.NEXTVAL, #{title}, #{writer}, #{content})
 	</insert>
 </mapper>
