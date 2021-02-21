@@ -29,7 +29,8 @@ public class QnAController {
 	@RequestMapping("/qnaView.do")
 	public String qnaView(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 		// 세션 정보
-		int user_type = Integer.parseInt((String) session.getAttribute("user_type"));
+		System.out.println((int) session.getAttribute("user_type"));
+		int user_type = (int) session.getAttribute("user_type");
 		String writer = "";
 		// 페이징
 		int pageNo = 1;
@@ -71,6 +72,13 @@ public class QnAController {
 				QnADTO dto = new QnADTO(title, writer, content); 
 				// 문의 등록
 				int count = service.sendQnA(dto);
+				if(count == 0) {
+					response.setContentType("text/html;charset=utf-8");
+					response.getWriter().write("<script>alert('페이지 오류');history.back();</script>");
+				}else {
+					response.setContentType("text/html;charset=utf-8");
+					response.getWriter().write("<script>alert('문의 등록 완료!');location.href='qnaView.do';</script>");
+				}
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
