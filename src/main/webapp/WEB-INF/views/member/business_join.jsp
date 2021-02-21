@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>사업자 회원가입 페이지</title>
 <style>
-	@font-face {
+    @font-face {
         font-family: '보통노토';
         src: url(Font/NotoSansCJKkr-hinted/NotoSansCJKkr-Medium.otf);
     }
@@ -181,17 +181,38 @@
     .guest_input1:focus,.guest_input2:focus,.guest_input3:focus,.guest_input4:focus{
         border-bottom: 2px solid rgb(46, 46, 46);
     }
+    input[type="file"]{
+        overflow: hidden;
+        width: 1;
+        height: 1;
+        padding: 0; 
+    }
+    #file_upload label{
+        padding: 8px;
+        font-family: '굵은노토';
+        width: 100px;
+        border-radius: 10px;
+        border: 1px solid rgb(216, 215, 215);
+        color: rgb(46, 46, 46);
+        cursor: pointer;
+    }
+    #file_upload label:hover{
+        border: none;
+        background-color: rgb(46, 46, 46);
+        color: rgb(216, 215, 215);
+    }
+
+
+
+
 </style>
-<script type="text/javascript">
-	
-</script>
 </head>
 <body>
     <section>
         <p id="headline">회원 가입 페이지</p>
         <form action="guestJoinAction.do" method="GET">
         <div id="container">
-                <p id="inside_headline">사업자님의 정보를 입력해주세요</p>
+                <p id="inside_headline">회원님의 정보를 입력해주세요</p>
                 <div id="id_insert" class="part"><!--아이디 입력 부분 start-->
                         <span class="guest_insert"><label for="id">아이디</label></span><br>
                         <span><input  class="guest_input1" type="text" name="id" id="id" placeholder="아이디를 입력하세요"></span><br>
@@ -264,21 +285,19 @@
                         <span class="gender_select"><input id="gender_man" type="checkbox" value="0" class="checkbox"><label for="gender_man"><span>남성</span></label></span>
                     </div>
                 </div><!--생일 성별 end-->
-                
-                
-                
-                
+
+
                 <div id="id_insert" class="part"><!--사업자 등록번호 입력 start-->
                     <span class="guest_insert"><label for="business_no">사업자등록번호</label></span><br>
                     <span><input class="guest_input4" type="text" id="business_no1" name="business_no1" placeholder="000"></span>
                     <span><input class="guest_input4" type="text" id="business_no2" name="business_no2" placeholder="00"></span>
                     <span><input class="guest_input4" type="text" id="business_no3" name="business_no3" placeholder="00000"></span><br>
                  </div><!--사업자 등록번호 입력 end-->
-                 
-                 
-                 
-                 
 
+
+                <div id="file_upload" class="part">
+                    <span><input type="file" name="file" id="file"><label for="file">파일업로드</label></span>
+                </div>    
 
 
                 <div id="btn_continer">
