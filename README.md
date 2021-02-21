@@ -23,7 +23,7 @@
 - member-mapper 추가 -(희원)
 - alias, boardDTO, board-mapper 추가 - (희원)
 - 멤버 컨트롤러 로그인,로그아웃 , 서비스 로그인 멤버 서비스, 로그인 멤버 맵퍼수정(성진)
-- member dto 수정완료-(희원)
+- member dto 수정완료-(희원)<---------------------1차백업(505)
 - 
 
 <추가 커밋>
@@ -35,7 +35,7 @@
 
 - qna, index,header, footer, board_detail_view, board_write - 타이틀 수정/guest_join, business_join - id,name 추가 / select_join   - .do 추가 / board_list, board_detail_view, board_write, qna - template 경로 수정 / index 틀 형성 / business_join 틀 형성 -(가현)
 - controller명령어 수정 - (희원)
-- 게시판 디티오 컨트롤러 맵퍼xml 커밋 -(성진)
+- 게시판 디티오 컨트롤러 맵퍼xml 커밋 -(성진)<---------------2차 백업(505)
 - 일반 사용자/사업자 회원가입까지 구현(취향,사업자정보,사업자파일 제외)-(희원)
 - review_write.jsp 위치 이동(member->book) - (505)
 - 페이징VO작업 페이징 처리중 중간점검 - 성진
@@ -49,6 +49,7 @@
 - 회원가입 페이지(일반가입자) 취향선택부분 프론트엔드 수정-(505)
 - QnADTO 생성, 문의 목록 보기 처리 - 희원
 - qna-mapper 변경 -(희원)
-- .do수정-(희원),(505)
+- .do수정-(희원),(505)<-------------3차 백업
 - 문의하기 css 등록하기 백엔드 구성 완료 -(희원),(505)
+- 필요없는 파일 폴더 삭제, 문의하기,회원가입 변수명 변경-(505)
 
