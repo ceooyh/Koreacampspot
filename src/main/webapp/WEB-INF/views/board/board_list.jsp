@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<<<<<<< HEAD
 <meta charset="UTF-8">
 <title>게시판 목록 페이지</title>
 <style>
