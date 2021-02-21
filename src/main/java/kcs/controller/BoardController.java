@@ -3,6 +3,7 @@ package kcs.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,7 +42,7 @@ public class BoardController {
 	}
 	
 	
-	//board_list에서 게시판 목록 받아오기 - 성진
+	//board_list 글쓰기 페이지처리 - 성진
 	@RequestMapping("/boardWriteView.do")
 	public String boardView(HttpServletRequest request) {
 		int bno = 0;
@@ -64,6 +65,18 @@ public class BoardController {
 		request.setAttribute("file", fList);
 
 		return "board_detail_view";
+	}
+	// 댓글달기
+	@RequestMapping("/insertComment.do")
+	public String insertComment(HttpServletRequest request, HttpServletResponse response) {
+		
+		int bno = Integer.parseInt(request.getParameter("bno"));
+		String writer = request.getParameter("writer");
+		String content = request.getParameter("content");
+		
+		service.insertComment(new BoardCommentDTO(bno, writer, content));
+		
+		return null;
 	}
 	
 	
