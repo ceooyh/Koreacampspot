@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,13 +15,13 @@
         width: 1200px;
         border: 1px solid black;
         margin: 0 auto;
+        text-align: center;
     }
     #search_bar{
-        width: 1200px;
         background-color: #e8e8e8;
         margin: 30px 0px;
         padding: 15px;
-        vertical-align: middle;
+        text-align: right;
     }
     #search{
         height: 30px;
@@ -41,7 +42,6 @@
         color: white;
     }
     #main{
-        border: 1px solid red;
         
     }
     .board{
@@ -75,7 +75,9 @@
         <div id="main">
             <!--검색 버튼 alink-->
             <div id="search_bar">
-                <input type="text" id="search" name="search" placeholder="검색어를 입력해 주세요."><button id="btn_search">검색</button>
+                <form action="boardSearch.do">
+                    <input type="text" id="search" name="search" placeholder="검색어를 입력해 주세요."><button id="btn_search" type="submit">검색</button>
+                </form>    
             </div>
             <table class="board">
                 <tr>
@@ -86,32 +88,26 @@
                     <th>조회수</th>
                     
                     <!-- 좋아요 클릭하면 좋아요를 많이 받은 순서대로 출력 -->
-                    <th id="blike"></th>
-                    <th id="bhate"></th>
                     
-                    <th><a href="main.do?mode=blike">좋아요</a></th>
-                    <th><a href="main.do?mode=bhate">싫어요</a></th>
+                    <th id="blike"><a href="plusLikeHate.do?mode=blike">좋아요</a></th>
+                    <th id="bhate"><a href="plusLikeHate.do?mode=bhate">싫어요</a></th>
                 </tr>
 
-        <!-- jstl 주석처리,게시판 기능 추가 기존 게시판에 있는 내용을 el과 jstl로 표현 -
+        <!-- jstl 주석처리,게시판 기능 추가 기존 게시판에 있는 내용을 el과 jstl로 표현 - -->
 
             <c:if test="${requestScope.list ==null}">
                 <script>
-                    location.href="main.do?pageNo=1";
+                    location.href="boardList.do?pageNo=1";
                     
                 </script>
-            </c:if>
+            </c:if> 
             <c:forEach var="dto" items="${requestScope.list }">
                 <tr>
                     <td>${dto.bno }</td>
-                    <td><a href="boardView.do?bno=${dto.bno }"> ${dto.title }
-                        <c:if test="${dto.cCount > 0 }">
-                            [${dto.cCount}]
-                        </c:if>
-                    </a></td>
+                    <td><a href="boardView.do?bno=${dto.bno }"> ${dto.title }</a></td>
                     <td>${dto.writer}</td>
                     <td>${dto.bDate }</td>
-                    <td>${dto.bCount }</td>
+                    <td>${dto.views }</td>
                     <td>${dto.bLike }</td>
                     <td>${dto.bHate }</td>
                 </tr>
@@ -134,7 +130,6 @@
                         </div>
                 </td>
             </tr>    
-            -->
         
             </table>
         </div>
@@ -142,6 +137,6 @@
 
 
     <jsp:include page="../template/footer.jsp" flush="false"></jsp:include>
- 
+
 </body>
 </html>
