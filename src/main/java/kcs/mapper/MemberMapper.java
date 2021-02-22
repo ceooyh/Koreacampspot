@@ -38,6 +38,9 @@ public interface MemberMapper {
 	// 개인정보 수정 진행 (일반 사용자)
 	int guestInfoUpdate(MemberDTO memberDTO);
 
+	// 취향정보 수정 진행 (일반 사용자)
+	int guestFavoriteUpdate(FavoriteDTO favoriteDTO);
+
 	
 }
 

@@ -155,7 +155,7 @@
 					<li><a href="manageBookListView.do">예약 관리</a></li>
 					<li><a href="qnaView.do">문의하기</a></li>
 					<li>
-                        <a href="#">마이 페이지</a>
+                        <a href="businessInfoUpdateView.do">마이 페이지</a>
                         <ul class="sub">
                             <li><a href="businessInfoUpdateView.do">사업자정보수정</a></li>
                         </ul>

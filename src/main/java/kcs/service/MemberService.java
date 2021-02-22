@@ -70,4 +70,9 @@ public class MemberService {
 	public int guestInfoUpdate(MemberDTO memberDTO) {
 		return mapper.guestInfoUpdate(memberDTO);
 	}
+
+	// 취향정보 수정 진행 (일반 사용자) - 희원,20210223
+	public int guestFavoriteUpdate(FavoriteDTO favoriteDTO) {
+		return mapper.guestFavoriteUpdate(favoriteDTO);
+	}
 }

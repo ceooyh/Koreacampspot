@@ -385,7 +385,8 @@
 					"id" : $('#id').val() 
 				}, 
 				success: function(data){ 
-					if(data){ 
+					data = data === "true";
+					if(data == true){ 
 						alert("아이디 사용가능");
 					} else{ 
 						alert("아이디가 중복되었습니다.");

@@ -378,7 +378,8 @@ $(function(){
 				"id" : $('#id').val() 
 			}, 
 			success: function(data){ 
-				if(data){ 
+				data = data === "true";
+				if(data == true){ 
 					alert("아이디 사용가능");
 				} else{ 
 					alert("아이디가 중복되었습니다.");
@@ -543,7 +544,7 @@ $(function(){
                 <div id="id_insert" class="part"><!--아이디 입력 부분 start-->
                         <span class="guest_insert"><label for="id">아이디</label></span><br>
                         <span><input  class="guest_input1" type="text" name="id" id="id" placeholder="아이디를 입력하세요"></span><br>
-                        <span class="guest_insert"><button id="btn_id_check">중복검사</button></span>
+                        <span class="guest_insert"><button type="button" id="btn_id_check">중복검사</button></span>
                 </div><!--아이디 입력 부분 end-->
 
 
@@ -608,8 +609,8 @@ $(function(){
                     <span><input class="guest_input4" type="text" id="month" name="month" placeholder="월"></span>
                     <span><input  class="guest_input4" type="text" id="day" name="day" placeholder="일"></span><br>
                     <div id="checkbox_gender">
-                        <span class="gender_select"><input id="gender_woman" type="checkbox" value="1" class="checkbox"><label for="gender_woman"><span>여성</span></label></span>
-                        <span class="gender_select"><input id="gender_man" type="checkbox" value="0" class="checkbox"><label for="gender_man"><span>남성</span></label></span>
+                        <span class="gender_select"><input id="gender_woman" type="checkbox" value="1" class="checkbox" name="gender"><label for="gender_woman" class="label"><span>여성</span></label></span>
+                        <span class="gender_select"><input id="gender_man" type="checkbox" value="0" class="checkbox" name="gender"><label for="gender_man" class="label"><span>남성</span></label></span>
                     </div>
                 </div><!--생일 성별 end-->
 
