@@ -121,19 +121,19 @@
                         <li><a href="qnaView.do">문의하기</a></li>
                         <li><a href="questMyPageView.do">마이 페이지</a>
                             <ul class="sub">
-                                <li>개인정보 수정</li>
-                                <li>취향정보수정</li>
-                                <li>캠핑장 예약 내역</li>
+                                <li><a href="guestInfoUpdateView.do">개인정보 수정</a></li>
+                                <li><a href="guestFavoriteUpdateView.do">취향정보수정</a></li>
+                                <li><a href="guestBookListView.do">캠핑장 예약 내역</a></li>
                             </ul>
                         </li>
-                        <li><a href="boardView.do">게시판</a></li>
+                        <li><a href="boardList.do">게시판</a></li>
                         <li><a href="logoutAction.do">로그아웃</a></li>
                     </ul>
                 <div id="login">
                     <table>
                         <tr>
                             <td><img src="guest_login.png" style="width:32px;"></td>
-                            <td>님 로그인</td>
+                            <td>${sessionScope.id}님 로그인</td>
                         </tr>
                     </table>
                 </div>
@@ -147,18 +147,17 @@
 					<li><a href="infoView.do">소개</a></li>
 					<li><a href="#">캠핑장 등록</a>
 						<ul class="sub">
-							<li><a href="#">캠핑장 등록 신청</a></li>
-							<li><a href="#">캠핑장 신청/현황</a></li>
-							<li><a href="#">캠핑장 관리</a></li>
+							<li><a href="applySpotView.do">캠핑장 등록 신청</a></li>
+							<li><a href="applySpotStatusView.do">캠핑장 신청/현황</a></li>
+							<li><a href="applySpotListView.do">캠핑장 관리</a></li>
 						</ul>
 					</li>
-					<li><a href="#">예약 관리</a></li>
+					<li><a href="manageBookListView.do">예약 관리</a></li>
 					<li><a href="qnaView.do">문의하기</a></li>
 					<li>
                         <a href="#">마이 페이지</a>
                         <ul class="sub">
-                            <li><a href="businessInfoUpdateView.do">개인정보수정</a></li>
-                            <li><a href="businessNoInfoUpdateView.do">사업자정보수정</a></li>
+                            <li><a href="businessInfoUpdateView.do">사업자정보수정</a></li>
                         </ul>
                     </li>
 					<li id="logout"><a href="logoutAction.do">로그아웃</a></li>
@@ -167,7 +166,7 @@
                     <table>
                         <tr>
                             <td><img src="guest_login.png" style="width:32px;"></td>
-                            <td>님 로그인</td>
+                            <td>${sessionScope.id}님 로그인</td>
                         </tr>
                     </table>
                 </div>
@@ -176,10 +175,10 @@
 
 		<c:when test="${sessionScope.user_type == 0}">
 			<nav>
-                <h1 id="title">CAMPSPOT</h1>
+                <h1 id="title"><a href="indexView.do">CAMPSPOT</a></h1>
 				<ul id="menu_bar">
-					<li><a href="#">캠핑장 등록 허가</a></li>
-					<li><a href="#">회원 관리</a></li>
+					<li><a href="applyManageListView.do">캠핑장 등록 허가</a></li>
+					<li><a href="memberManageListView.do">회원 관리</a></li>
 					<li><a href="qnaView.do">문의 관리</a></li>
 					<li><a href="boardView.do">게시판</a></li>
 					<li><a href="logoutAction.do">로그아웃</a></li>
@@ -188,7 +187,7 @@
                     <table>
                         <tr>
                             <td><img src="guest_login.png" style="width:32px;"></td>
-                            <td>님 로그인</td>
+                            <td>${sessionScope.id}님 로그인</td>
                         </tr>
                     </table>
                 </div>
