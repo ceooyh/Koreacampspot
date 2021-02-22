@@ -33,16 +33,16 @@
     }
     section{
         width: 100%;
-        margin: 0 auto;
+        margin: 30px auto;
     }
-    #headline{
+    section #headline{
         font-size: 30px;
         margin: 20px 0;
         text-align: center;
         color: rgb(46, 46, 46);
         font-family: '굵은노토';
     }
-    #inside_headline{
+    section #inside_headline{
         font-size: 30px;
         margin: 20px 0;
         color: rgb(46, 46, 46);
@@ -53,16 +53,16 @@
         font-size: 13px;
         color: rgb(49, 49, 49);
     }
-    input{
+    section input{
         border: none;
     }
-    span{
+    section span{
         display: inline-block;
     }
-    input:focus {
+    section input:focus {
         outline:none;
     }
-    input::placeholder{
+    section input::placeholder{
         color: rgb(216, 215, 215);
     }
     #container{
@@ -418,6 +418,6 @@
             </div>
         </form><!--폼마지막 줄-->
     </section>
-    <jsp:include page="../template/footer.jsp" flush="false"></jsp:include>
+   <jsp:include page="../template/footer.jsp" flush="false"></jsp:include>
 </body>
 </html>
