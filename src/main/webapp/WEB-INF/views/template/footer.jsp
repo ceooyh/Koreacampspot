@@ -15,6 +15,8 @@
         margin: 0 auto;
         padding: 5px;
         font-size: 14px;
+        background-color: rgb(46,46,46);
+        color:  rgb(215,215,215);
     }
     ul{
         list-style: none;
@@ -37,7 +39,7 @@
     #name{
         font-size: 20px;
         font-weight: bold;
-        color: black;
+        color:  rgb(215,215,215);
         text-decoration: none;
     }
     hr{
@@ -45,7 +47,7 @@
     }
     #black{
         font-weight: bold;
-        color: black;
+        color:  rgb(215,215,215);
         text-decoration: none;
     }
 </style>

@@ -26,7 +26,7 @@
             $("#menu").stop().slideUp();
         });
     });
-</script>
+    </script>
 <style>
     * {
         margin: 0;
@@ -36,7 +36,6 @@
         margin-top: 20px;
         margin-left: 30px;
         float: left;
-        border: 1px solid lime;
     }
     a {
         text-decoration: none;
@@ -51,11 +50,9 @@
         margin: 5px auto;
         display: inline-block;
         text-align: center;
-        border: 1px solid blue
     }
     li {
         list-style: none;
-        width: 140px;
         height: 60px;
         margin: 0px 10px;
         text-align: center;
@@ -63,7 +60,6 @@
         padding:20px 0px;
         box-sizing: border-box;
         display: inline-block;
-        border: 1px solid purple;
     }
     nav {
         width: 1920px;
@@ -75,7 +71,6 @@
         width: 200px;
         float: right;
         margin-top: 15px;
-        border: 1px solid hotpink;
     }
     #menu_bar li {
         position: relative;
@@ -99,6 +94,7 @@
 </style>
 </head>
 <body>
+  <!-- 비로그인시 출력될 메뉴바 -->
     <c:choose>
 		<c:when test="${sessionScope.login == null}">
 			<nav>
@@ -112,8 +108,8 @@
 				</ul>
 			</nav>
 		</c:when>
-	
 
+    <!-- 개인회원 로그인시 출력될 메뉴바 
 		<c:when test="${sessionScope.user_type == 1}">
 			<nav>
 				<h1 id="title">CAMPSPOT</h1>
@@ -142,7 +138,9 @@
                 </div>
 			</nav>
 		</c:when>
-   
+    -->
+    
+    <!-- 사업자 회원 로그인시 출력될 메뉴바
 		<c:when test="${sessionScope.user_type == 2}">
 			<nav >
 				<h1 id="title">CAMPSPOT</h1>
@@ -176,7 +174,9 @@
                 </div>
 			</nav>
 		</c:when>
-	
+      -->   
+
+    <!-- 관리자 로그인시 출력될 메뉴바
 		<c:when test="${sessionScope.user_type == 0}">
 			<nav>
                 <h1 id="title">CAMPSPOT</h1>
@@ -197,7 +197,7 @@
                 </div>
 			</nav>
 		</c:when>
-  
+    -->
 	</c:choose>
 
 </body>
