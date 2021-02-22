@@ -109,7 +109,7 @@
 			</nav>
 		</c:when>
 
-    <!-- 개인회원 로그인시 출력될 메뉴바 
+    
 		<c:when test="${sessionScope.user_type == 1}">
 			<nav>
 				<h1 id="title">CAMPSPOT</h1>
@@ -138,9 +138,7 @@
                 </div>
 			</nav>
 		</c:when>
-    -->
-    
-    <!-- 사업자 회원 로그인시 출력될 메뉴바
+  
 		<c:when test="${sessionScope.user_type == 2}">
 			<nav >
 				<h1 id="title">CAMPSPOT</h1>
@@ -174,9 +172,7 @@
                 </div>
 			</nav>
 		</c:when>
-      -->   
 
-    <!-- 관리자 로그인시 출력될 메뉴바
 		<c:when test="${sessionScope.user_type == 0}">
 			<nav>
                 <h1 id="title">CAMPSPOT</h1>
@@ -197,7 +193,6 @@
                 </div>
 			</nav>
 		</c:when>
-    -->
 	</c:choose>
 
 </body>
