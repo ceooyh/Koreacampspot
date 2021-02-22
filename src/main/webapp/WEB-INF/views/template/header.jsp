@@ -7,26 +7,6 @@
 <meta charset="UTF-8">
 <title>상단 메뉴바</title>
 <script src="lib/jquery-3.5.1.min.js"></script>
-<script>
-    $(document).ready(function(){
-        $("nav").mouseover(function(){
-            $("nav").css("backgroundColor","rgba(247, 243, 243, 1)");
-        })
-        $("nav").mouseleave(function(){
-            $("nav").css("backgroundColor","rgba(247, 243, 243, 0.5)");
-        })
-        $("#menubar>li").mouseover(function(){
-            if($(this).children().hasClass("sub")){
-                $(this).children(".sub").stop().slideDown();
-                $("#menu").stop().slideDown();
-            }
-        });
-        $("#menubar>li").mouseleave(function(){
-            $(this).children(".sub").stop().slideUp();
-            $("#menu").stop().slideUp();
-        });
-    });
-    </script>
 <style>
     * {
         margin: 0;
@@ -94,7 +74,6 @@
 </style>
 </head>
 <body>
-  <!-- 비로그인시 출력될 메뉴바 -->
     <c:choose>
 		<c:when test="${sessionScope.login == null}">
 			<nav>
@@ -109,7 +88,7 @@
 			</nav>
 		</c:when>
 
-    
+
 		<c:when test="${sessionScope.user_type == 1}">
 			<nav>
 				<h1 id="title">CAMPSPOT</h1>
@@ -138,7 +117,7 @@
                 </div>
 			</nav>
 		</c:when>
-  
+
 		<c:when test="${sessionScope.user_type == 2}">
 			<nav >
 				<h1 id="title">CAMPSPOT</h1>
