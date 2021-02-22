@@ -293,12 +293,12 @@
 	   			};
 	    		if($("#month").val().length == 0){
 	    			alert("생년월일을 입력해주세요");
-	    			$("#year").focus();
+	    			$("#month").focus();
 	   				return false;
 	   			};
 	    		if($("#day").val().length == 0){
 	    			alert("생년월일을 입력해주세요");
-	    			$("#year").focus();
+	    			$("#day").focus();
 	   				return false;
 	   			};
 	    		if(!(id == prevID)){
