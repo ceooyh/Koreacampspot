@@ -245,9 +245,9 @@
 				$("#passcheck").css("color", "red");
 				$("#input_result3").html("비밀번호는 반드시 입력해주시기 바랍니다.");
 			}
-			else($("#passcheck").val()!=$("#pass").val(){
+			/*else($("#passcheck").val()!=$("#pass").val()){
 				$("#input_result3").html("비밀번호와 일치하지 않습니다.");
-			}
+			}*/
 		});
 		
 		/*이름 입력시 문제되는 사항에 대해서 보여줌*/
