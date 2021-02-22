@@ -4,9 +4,29 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회사 소개 페이지</title>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    section{
+        width: 1200px;
+        margin: 0 auto;
+    }
+    #writer_section{
+        width: 100%;
+        margin: 0 auto;
+    }
+</style>
 </head>
 <body>
-
+	<jsp:include page="../template/header.jsp" flush="false"></jsp:include>
+	  <section>
+	        <div id="writer_section">
+	                <img id="section_line_img" src="../../../img/infopage/section_Image.png" alt="">
+	        </div>
+	    </section>
+	 <jsp:include page="../template/footer.jsp" flush="false"></jsp:include>
 </body>
 </html>

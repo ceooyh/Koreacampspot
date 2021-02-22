@@ -48,7 +48,7 @@
         color: rgb(46, 46, 46);
         font-family: '보통노토';
     }
-    label{
+    .label{
         font-family: '굵은노토';
         font-size: 13px;
         color: rgb(49, 49, 49);
@@ -337,8 +337,8 @@
         <div id="container">
                 <p id="inside_headline">회원님의 정보를 입력해주세요</p>
                 <div id="id_insert" class="part"><!--아이디 입력 부분 start-->
-                        <span class="guest_insert"><label for="id">아이디</label></span><br>
-                        <span><input  class="guest_input1" type="text" name="id" id="id" placeholder="아이디를 입력하세요"></span><br>
+                        <span class="guest_insert"><label for="id" class="label">아이디</label></span><br>
+                        <span><input  class="guest_input1 input" type="text" name="id" id="id" placeholder="아이디를 입력하세요"></span><br>
                         <span class="guest_insert"><button id="btn_id_check" type="button">중복검사</button></span>
                 </div><!--아이디 입력 부분 end-->
 
@@ -346,7 +346,7 @@
 
 
                 <div id="id_insert" class="part"><!--비밀번호 입력 부분 start-->
-                        <span class="guest_insert"><label for="pass">비밀번호입력</label></span><br>
+                        <span class="guest_insert"><label for="pass" class="label">비밀번호입력</label></span><br>
                         <span><input  class="guest_input1" type="password" name="pass" id="pass" placeholder="비밀번호 입력"></span>
                 </div><!--비밀번호 입력 부분 end-->
                     
@@ -354,7 +354,7 @@
                     
                     
                 <div id="id_insert" class="part"><!--비밀번호 확인 부분 start-->
-                        <span class="guest_insert"><label for="passcheck">비밀번호확인</label></span><br>
+                        <span class="guest_insert"><label for="passcheck" class="label">비밀번호확인</label></span><br>
                         <span><input class="guest_input1" type="password" name="passcheck" id="passcheck" placeholder="비밀번호 확인"></span>
                 </div><!--비밀번호 확인 부분 end-->
                     
@@ -362,7 +362,7 @@
 
 
                 <div id="id_insert" class="part"><!--이름 입력 부분 start-->
-                    <span class="guest_insert"><label for="name">이름</label></span><br>
+                    <span class="guest_insert"><label for="name" class="label">이름</label></span><br>
                     <span><input class="guest_input1" type="text" name="name" id="name" placeholder="이름 입력"></span>
                 </div><!--이름 입력 부분 end-->
 
@@ -370,7 +370,7 @@
 
 
                 <div id="id_insert" class="part"><!--전화번호 입력 부분 start-->
-                    <span class="guest_insert"><label for="tel2">전화번호</label></span><br>
+                    <span class="guest_insert"><label for="tel2" class="label">전화번호</label></span><br>
                         <span><select name="tel1" id="tel1">
                                 <option value="010">010</option>
                                 <option value="019">019</option>
@@ -384,7 +384,7 @@
 
 
                 <div id="id_insert" class="part"><!--이메일 부분 start-->
-                    <span class="guest_insert"><label for="pass">이메일</label></span><br>
+                    <span class="guest_insert"><label for="pass" class="label">이메일</label></span><br>
                     <span><input class="guest_input3" type="text" name="email" id="email" placeholder="이메일을 입력해주세요"></span>
                     <span><select name="host" id="host">
                                 <option value="naver.com">@naver.com</option>
@@ -399,13 +399,13 @@
 
 
                 <div id="id_insert" class="part"><!--생일/성별 start-->
-                    <span class="guest_insert"><label for="year">생일/성별</label></span><br>
+                    <span class="guest_insert"><label for="year" class="label">생일/성별</label></span><br>
                     <span><input  class="guest_input4" type="text" id="year" name="year" placeholder="년"></span>
                     <span><input class="guest_input4" type="text" id="month" name="month" placeholder="월"></span>
                     <span><input  class="guest_input4" type="text" id="day" name="day" placeholder="일"></span><br>
                     <div id="checkbox_gender">
-                        <span class="gender_select"><input id="gender_woman" type="checkbox" value="1" class="checkbox"><label for="gender_woman"><span>여성</span></label></span>
-                        <span class="gender_select"><input id="gender_man" type="checkbox" value="0" class="checkbox"><label for="gender_man"><span>남성</span></label></span>
+                        <span class="gender_select"><input id="gender_woman" type="checkbox" value="1" class="checkbox"><label for="gender_woman" class="label"><span>여성</span></label></span>
+                        <span class="gender_select"><input id="gender_man" type="checkbox" value="0" class="checkbox"><label for="gender_man" class="label"><span>남성</span></label></span>
                     </div>
                 </div><!--생일 성별 end-->
 
