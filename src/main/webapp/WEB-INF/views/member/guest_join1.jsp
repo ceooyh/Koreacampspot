@@ -230,6 +230,9 @@
 			else if(length==0){
 				$("#pass").css("color", "red");
 				$("#input_result2").html("비밀번호는 반드시 입력해주시기 바랍니다.");
+			}else{
+				$("#pass").css("color", "blue");
+				$("#input_result2").html("사용가능한 비밀번호입니다.");
 			}
 		});
 		
@@ -237,7 +240,7 @@
 		/*비밀번호 확인 입력 문제시 알림창 띄워주는 부분*/
 		$("#passcheck").keyup(function() {
 			var length = $("#passcheck").val().trim().length
-			if(length<4 && length > 0){
+			if(length<8 && length > 0){
 				$("#passcheck").css("color", "red");
 				$("#input_result3").html("비밀번호는 8자리 이상 입력해주세요.");
 			}
@@ -245,9 +248,13 @@
 				$("#passcheck").css("color", "red");
 				$("#input_result3").html("비밀번호는 반드시 입력해주시기 바랍니다.");
 			}
-			/*else($("#passcheck").val()!=$("#pass").val()){
+			else if($("#passcheck").val()!=$("#pass").val()){
 				$("#input_result3").html("비밀번호와 일치하지 않습니다.");
-			}*/
+			}
+			else{
+				$("#passcheck").css("color", "blue");
+				$("#input_result3").html("비밀번호가 알맞습니다.");
+			}
 		});
 		
 		/*이름 입력시 문제되는 사항에 대해서 보여줌*/
@@ -400,8 +407,8 @@
                 <p id="inside_headline">회원님의 정보를 입력해주세요</p>
                 <div id="id_insert" class="part"><!--아이디 입력 부분 start-->
                         <span class="guest_insert"><label for="id" class="label">아이디</label></span><br>
-                        <span><input  class="guest_input1 input" type="text" name="id" id="id" placeholder="아이디를 입력하세요"></span><br>
                        	<div class="input_result" id="input_result1"></div>
+                        <span><input  class="guest_input1 input" type="text" name="id" id="id" placeholder="아이디를 입력하세요"></span><br>
                         <span class="guest_insert"><button id="btn_id_check" type="button">중복검사</button></span><br>
                 </div><!--아이디 입력 부분 end-->
 
