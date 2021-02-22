@@ -82,6 +82,7 @@ public class MemberController {
 	public String idCheckAction(HttpServletRequest request, HttpServletResponse response) {
 		String id = request.getParameter("id");
 		String idCheck = service.idCheck(id);
+		System.out.println(idCheck);
 		try {
 			if(idCheck == null) 	
 				response.getWriter().write("true");	// 아이디 사용 가능
@@ -102,7 +103,7 @@ public class MemberController {
 		String tel1 = request.getParameter("tel1");
 		String tel2 = request.getParameter("tel2");
 		String tel3 = request.getParameter("tel3");
-		String birth = request.getParameter("birth");
+		String birth = request.getParameter("year") + "-" + request.getParameter("month") + "-" + request.getParameter("day");
 		String email1 = request.getParameter("email");
 		String email2 = request.getParameter("host");
 		int gender = Integer.parseInt(request.getParameter("gender"));
@@ -117,7 +118,7 @@ public class MemberController {
 			}
 			else {
 				response.setContentType("text/html;charset=utf-8");
-				response.getWriter().write("<script>alert('회원가입 완료!');location.href='guestJoin2View?id="+id+".do';</script>");
+				response.getWriter().write("<script>alert('회원가입 완료!');location.href='guestJoin2View.do?id="+id+"';</script>");
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -134,7 +135,7 @@ public class MemberController {
 	}
 	
 	// 일반 사용자 취향정보 등록 - 희원,20210219
-	@RequestMapping("/guestJoinFavoriteAction.do.do")
+	@RequestMapping("/guestJoinFavoriteAction.do")
 	public String guestJoin(HttpServletRequest request, HttpServletResponse response) {
 		String id = request.getParameter("id");
 		// 취향 정보 - 희원,20210222
