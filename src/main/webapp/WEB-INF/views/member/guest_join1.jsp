@@ -331,7 +331,7 @@
 <body>
     <section>
         <p id="headline">회원 가입 페이지</p>
-        <form action="guestJoin2View.do" method="GET">
+        <form action="guestJoinAction.do" method="GET">
         <div id="container">
                 <p id="inside_headline">회원님의 정보를 입력해주세요</p>
                 <div id="id_insert" class="part"><!--아이디 입력 부분 start-->

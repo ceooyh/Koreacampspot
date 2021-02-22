@@ -254,7 +254,7 @@
 <body>
 form
     <div id="container">
-    <form action="guestJoinAction.do">
+    <form action="guestJoinFavoriteAction.do">
         <p id="headline">취향 정보 입력란</p>
             <div id="camp_type" class="category">
                 <p id="category_1">캠핑의 종류</p>
@@ -316,7 +316,7 @@ form
             </div>
             <div id="btn_submit">
                 <button type="submit">회원가입</button>
-                <a href="guestJoinView.do">이전</a>
+                <a href="/">건너뛰기</a>
             </div>
           </form>
     </div><!--container-->

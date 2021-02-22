@@ -27,7 +27,7 @@
                         <td>
                             <input type="text" name="address1" id="address1" placeholder="시/도">
                             <input type="text" name="address2" id="address2" placeholder="읍/면/리">
-                            <input type="text" name="address3" id="address3" placeholder="상세주소"">
+                            <input type="text" name="address3" id="address3" placeholder="상세주소">
                         </td>
                     </tr>
                     <tr>
