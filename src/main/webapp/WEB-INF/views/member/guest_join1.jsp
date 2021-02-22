@@ -191,51 +191,112 @@
     .guest_input1:focus,.guest_input2:focus,.guest_input3:focus,.guest_input4:focus{
         border-bottom: 2px solid rgb(46, 46, 46);
     }
+    .input_result{
+    	margin-top:5px;
+    	font-family: '보통노토';
+    	color:rgb(215,215,215);
+    	font-size: 13px;
+    }
 
 
 </style>
 <script src="../../../lib/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 	$(function(){
+		
+		/*아이디 중복시 아래에 알림창 띄워주고 글씨색 변경해주는 부분*/
 		$("#id").keyup(function() {
 			var length = $("#id").val().trim().length
 			if(length<4 && length > 0){
 				$("#id").css("color", "red");
-				$("#id").html("아이디는 4자리 이상 입력해주세요.");
+				$("#input_result1").html("아이디는 4자리 이상 입력해주세요.");
 			}
 			else if(length==0){
 				$("#id").css("color", "red");
-				$("#id").html("아이디는 반드시 입력해주시기 바랍니다.");
+				$("#input_result1").html("아이디는 반드시 입력해주시기 바랍니다.");
 			}
 			else{
 				$("#id").css("color", "blue");
-				$("#id").html("사용가능한 형식입니다");
+				$("#input_result1").html("사용가능한 형식입니다");
 			}
 		});
-		$("#btn_id_check").click(function(){
-				var data = $("#id").val();
-				$.ajax({
-					url : "idCheckAction.do",
-					data : data,
-					method:"get",
-					success:function(d){
-						d = d ==='true';
-		                if(d){
-		                    alert("아이디가 중복되는 사항이 없습니다.");
-		                }else{
-		                    alert("아이디가 중복됩니다.");
-		                }
-				}
+		/*비밀번호 입력 문제시 알림창 띄워주고 글씨색 변경해주는 부분*/
+		$("#pass").keyup(function() {
+			var length = $("#pass").val().trim().length
+			if(length<8 && length > 0){
+				$("#pass").css("color", "red");
+				$("#input_result2").html("비밀번호는 8자리 이상 입력해주세요.");
+			}
+			else if(length==0){
+				$("#pass").css("color", "red");
+				$("#input_result2").html("비밀번호는 반드시 입력해주시기 바랍니다.");
+			}
+		});
+		
+		
+		/*비밀번호 확인 입력 문제시 알림창 띄워주는 부분*/
+		$("#passcheck").keyup(function() {
+			var length = $("#passcheck").val().trim().length
+			if(length<4 && length > 0){
+				$("#passcheck").css("color", "red");
+				$("#input_result3").html("비밀번호는 8자리 이상 입력해주세요.");
+			}
+			else if(length==0){
+				$("#passcheck").css("color", "red");
+				$("#input_result3").html("비밀번호는 반드시 입력해주시기 바랍니다.");
+			}else($("#passcheck").val()!=$("#pass").val()){
+				$("#input_result3").html("비밀번호와 일치하지 않습니다.");
+			}
+		});
+		
+		/*이름 입력시 문제되는 사항에 대해서 보여줌*/
+		$("#name").keyup(function() {
+			var length = $("#name").val().trim().length
+			if(length==0){
+				$("#name").css("color", "red");
+				$("#input_result4").html("이름은 반드시 입력해주시기 바랍니다.");
+			}else{
+				$("#name").css("color", "blue");
+				$("#input_result4").html("이름이 입력되었습니다.");
+			}
+		});
+		
+		/*아이디 중복 기능 확인*/
+		$('#btn_id_check').on('click', function(){ 
+			$.ajax({ 
+				type: "get", 
+				url: "idCheckAction.do", 
+				data: { 
+					"id" : $('#id').val() 
+				}, 
+				success: function(data){ 
+					if(data){ 
+						alert("아이디 사용가능");
+					} else{ 
+						alert("아이디가 중복되었습니다.");
+					} 
+				} 
 			});
 		});
 		
+		
+		/*남녀 버튼 변경 구현*/
 		$("#gender_woman").click(function(){
-			if("#gender_man").attr("checked", " ");
+			if($(this).prop('checked')){
+				$('input[type="checkbox"][name="gender"]').prop('checked',false);
+			 	$(this).prop('checked',true);
+			}
 		});
+		/*남녀 버튼 변경 구현*/
 		$("#gender_man").click(function(){
-			if("#gender_woman").attr("checked", " ");
+			if($(this).prop('checked')){
+				$('input[type="checkbox"][name="gender"]').prop('checked',false);
+			 	$(this).prop('checked',true);
+			}
 		});
-			
+
+		
+		/*최종 회원가입시 미입력부분 포커스 맞춰주고 alert 띄워주는 부분*/
 		$("#btn_submit").click(function() {
 	    	 var prevID=$("input:text[name=prev_id]").val()
 	    	 var id=$("input:text[name=id]").val();
@@ -339,7 +400,8 @@
                 <div id="id_insert" class="part"><!--아이디 입력 부분 start-->
                         <span class="guest_insert"><label for="id" class="label">아이디</label></span><br>
                         <span><input  class="guest_input1 input" type="text" name="id" id="id" placeholder="아이디를 입력하세요"></span><br>
-                        <span class="guest_insert"><button id="btn_id_check" type="button">중복검사</button></span>
+                       	<div class="input_result" id="input_result1"></div>
+                        <span class="guest_insert"><button id="btn_id_check" type="button">중복검사</button></span><br>
                 </div><!--아이디 입력 부분 end-->
 
 
@@ -347,6 +409,7 @@
 
                 <div id="id_insert" class="part"><!--비밀번호 입력 부분 start-->
                         <span class="guest_insert"><label for="pass" class="label">비밀번호입력</label></span><br>
+                        <div class="input_result" id="input_result2"></div>
                         <span><input  class="guest_input1" type="password" name="pass" id="pass" placeholder="비밀번호 입력"></span>
                 </div><!--비밀번호 입력 부분 end-->
                     
@@ -355,6 +418,7 @@
                     
                 <div id="id_insert" class="part"><!--비밀번호 확인 부분 start-->
                         <span class="guest_insert"><label for="passcheck" class="label">비밀번호확인</label></span><br>
+                        <div class="input_result" id="input_result3"></div>
                         <span><input class="guest_input1" type="password" name="passcheck" id="passcheck" placeholder="비밀번호 확인"></span>
                 </div><!--비밀번호 확인 부분 end-->
                     
@@ -363,6 +427,7 @@
 
                 <div id="id_insert" class="part"><!--이름 입력 부분 start-->
                     <span class="guest_insert"><label for="name" class="label">이름</label></span><br>
+                    <div class="input_result" id="input_result4"></div>
                     <span><input class="guest_input1" type="text" name="name" id="name" placeholder="이름 입력"></span>
                 </div><!--이름 입력 부분 end-->
 
@@ -371,6 +436,7 @@
 
                 <div id="id_insert" class="part"><!--전화번호 입력 부분 start-->
                     <span class="guest_insert"><label for="tel2" class="label">전화번호</label></span><br>
+                    <div class="input_result" id="input_result5"></div>
                         <span><select name="tel1" id="tel1">
                                 <option value="010">010</option>
                                 <option value="019">019</option>
@@ -385,6 +451,7 @@
 
                 <div id="id_insert" class="part"><!--이메일 부분 start-->
                     <span class="guest_insert"><label for="pass" class="label">이메일</label></span><br>
+                    <div class="input_result" id="input_result6"></div>
                     <span><input class="guest_input3" type="text" name="email" id="email" placeholder="이메일을 입력해주세요"></span>
                     <span><select name="host" id="host">
                                 <option value="naver.com">@naver.com</option>
@@ -400,12 +467,13 @@
 
                 <div id="id_insert" class="part"><!--생일/성별 start-->
                     <span class="guest_insert"><label for="year" class="label">생일/성별</label></span><br>
+                    <div class="input_result" id="input_result7"></div>
                     <span><input  class="guest_input4" type="text" id="year" name="year" placeholder="년"></span>
                     <span><input class="guest_input4" type="text" id="month" name="month" placeholder="월"></span>
                     <span><input  class="guest_input4" type="text" id="day" name="day" placeholder="일"></span><br>
                     <div id="checkbox_gender">
-                        <span class="gender_select"><input id="gender_woman" type="checkbox" value="1" class="checkbox"><label for="gender_woman" class="label"><span>여성</span></label></span>
-                        <span class="gender_select"><input id="gender_man" type="checkbox" value="0" class="checkbox"><label for="gender_man" class="label"><span>남성</span></label></span>
+                        <span class="gender_select"><input id="gender_woman" type="checkbox" value="1" class="checkbox" name="gender"><label for="gender_woman" class="label"><span>여성</span></label></span>
+                        <span class="gender_select"><input id="gender_man" type="checkbox" value="0" class="checkbox"  name="gender"><label for="gender_man" class="label"><span>남성</span></label></span>
                     </div>
                 </div><!--생일 성별 end-->
 
@@ -418,6 +486,6 @@
             </div>
         </form><!--폼마지막 줄-->
     </section>
-   <jsp:include page="../template/footer.jsp" flush="false"></jsp:include>
+<jsp:include page="../template/footer.jsp" flush="false"></jsp:include>
 </body>
 </html>

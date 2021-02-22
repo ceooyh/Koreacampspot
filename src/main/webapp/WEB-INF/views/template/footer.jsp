@@ -75,7 +75,7 @@
 </head>
 <body>
 	<footer>
-        <div id="container">
+        <div id="footer_container">
             <div>
                 <ul>
                     <a href="/" id="name">(주)KoreaCampSpot</a>
