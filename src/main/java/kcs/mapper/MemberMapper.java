@@ -18,7 +18,7 @@ public interface MemberMapper {
 	int guestJoin(MemberDTO memberDTO);
 
 	// 일반 사용자 회원가입(취향정보)
-	int insertGuestFavorit(FavoriteDTO favoriteDTO);
+	int guestFavoriteJoin(FavoriteDTO favoriteDTO); 
 
 	// 사업자 회원가입(개인정보)
 	int businessJoin(MemberDTO memberDTO);
@@ -27,7 +27,11 @@ public interface MemberMapper {
 	void insertBusiness(BusinessDTO businessDTO);
 
 	// 아이디 중복 체크
-	String idCheck(String id); 
-	
+	String idCheck(String id);
+
+	// 비밀번호 찾기
+	String findPw(HashMap<String, Object> map);
+
 	
 }
+

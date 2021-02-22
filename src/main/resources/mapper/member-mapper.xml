@@ -21,4 +21,7 @@
 	<select id="idCheck" parameterType="String" resultType="String">
 		select id from member where id like #{id}
 	</select>
+	<select id="findPw" parameterType="map" resultType="String">
+		select pass from member where id like #{id} and name like #{name} and email1 like #{email1} and email2 like #{email2}
+	</select>
 </mapper>

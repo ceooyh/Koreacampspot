@@ -29,11 +29,13 @@ public class MemberService {
 	}
 
 	// 일반 사용자 회원가입 - 희원,20210219
-	public int guestJoin(MemberDTO memberDTO, FavoriteDTO favoriteDTO) {
-		int count = mapper.guestJoin(memberDTO);
-		if(count != 0 && favoriteDTO != null);
-			mapper.insertGuestFavorit(favoriteDTO);
-		return count;
+	public int guestJoin(MemberDTO memberDTO) {
+		return mapper.guestJoin(memberDTO);
+	}
+	
+	// 일반 사용자 회원가입 취향입력 - 희원,20210222
+	public int guestFavoriteJoin(FavoriteDTO favoriteDTO) {
+		return mapper.guestFavoriteJoin(favoriteDTO);
 	}
 
 	// 사업자 회원가입 - 희원,20210219
@@ -48,5 +50,14 @@ public class MemberService {
 	public String idCheck(String id) {
 		return mapper.idCheck(id);
 	}
-	
+
+	// 비밀번호 찾기 - 희원, 20210222
+	public String findPw(String id, String name, String email1, String email2) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("id", id);
+		map.put("name", name);
+		map.put("email1", email1);
+		map.put("email2", email2);
+		return mapper.findPw(map);
+	}
 }

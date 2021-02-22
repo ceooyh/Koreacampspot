@@ -248,6 +248,9 @@
         background-color: rgb(46, 46, 46);
         color: rgb(243, 243, 243);
     }
+     #hidden_id_value{
+        display: none;
+    }
 
 </style>
 </head>
@@ -255,6 +258,7 @@
 <jsp:include page="../template/header.jsp" flush="false"></jsp:include>
     <div id="container">
     <form action="guestJoinFavoriteAction.do">
+    	<input type="text" id="hidden_id_value" name="id" value="${requestScope.id}">
         <p id="headline">취향 정보 입력란</p>
             <div id="camp_type" class="category">
                 <p id="category_1">캠핑의 종류</p>

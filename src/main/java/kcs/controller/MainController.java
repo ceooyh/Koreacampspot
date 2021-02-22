@@ -10,6 +10,11 @@ public class MainController {
 		return "index";
 	}
 	
+	@RequestMapping("indexView.do")
+	public String index() {
+		return "index";
+	}
+	
 	@RequestMapping("info.do")
 	public String info() {
 		return "main/info";

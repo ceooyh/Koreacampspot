@@ -1,6 +1,7 @@
 package kcs.controller;
 
 import java.io.IOException;
+import java.net.http.HttpRequest;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -64,15 +65,12 @@ public class MemberController {
 		return "index";
 	}
 	
-	@RequestMapping("guest_join.do")
-	public String guestJoin() {
-		return null;
-	}
 	// 회원가입 사용자 선택 페이지로 이동 - 희원,20210219
 	@RequestMapping("/selectJoinView.do")
 	public String selectJoinView() {
 		return "member/select_join";
 	}
+	
 	// 일반 사용자 회원가입 페이지로 이동 - 희원,20210219
 	@RequestMapping("/guestJoinView.do")
 	public String guestJoinView() {
@@ -94,8 +92,8 @@ public class MemberController {
 		return null;
 	}
 	
-	// 일반 사용자 회원가입 수행1 - 희원,20210222 
-	@RequestMapping("/guestJoin2View.do")
+	// 일반 사용자 회원가입 수행 - 희원,20210222 
+	@RequestMapping("/guestJoinAction.do")
 	public String guestJoin2View(HttpServletRequest request, HttpServletResponse response) {
 		// 개인정보
 		String id = request.getParameter("id");
@@ -111,31 +109,53 @@ public class MemberController {
 		int user_type = 1;
 		
 		MemberDTO memberDTO = new MemberDTO(id, pass, name, tel1, tel2, tel3, birth, email1, email2, gender, user_type);
+		try {
+			int count = service.guestJoin(memberDTO);
+			if(count == 0) {
+				response.setContentType("text/html;charset=utf-8");
+				response.getWriter().write("<script>alert('페이지 오류');history.back();</script>");
+			}
+			else {
+				response.setContentType("text/html;charset=utf-8");
+				response.getWriter().write("<script>alert('회원가입 완료!');location.href='guestJoin2View?id="+id+".do';</script>");
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 	
-	// 일반 사용자 회원가입 수행2 - 희원,20210219
-	@RequestMapping("/guestJoinAction.do")
+	// 일반 사용자 취향정보 입력 페이지로 이동 - 희원,20210222
+	@RequestMapping("/guestJoin2View.do")
+	public String guestJoin2View(HttpServletRequest request) {
+		String id = request.getParameter("id");
+		request.setAttribute("id", id);
+		return "member/guest_join2";
+	}
+	
+	// 일반 사용자 취향정보 등록 - 희원,20210219
+	@RequestMapping("/guestJoinFavoriteAction.do.do")
 	public String guestJoin(HttpServletRequest request, HttpServletResponse response) {
-		// 취향 정보 - 미완성
+		String id = request.getParameter("id");
+		// 취향 정보 - 희원,20210222
+		String stag = request.getParameter("stag");
 		
 		// 회원테이블, 취향테이블에 추가
-		FavoriteDTO favoriteDTO = null;
-//		favoriteDTO new FavoriteDTO(id, stag);
+		FavoriteDTO favoriteDTO = new FavoriteDTO(id, stag);
 		
-//		try {
-//			int count = service.guestJoin(memberDTO, favoriteDTO);
-//			if(count == 0) {
-//				response.setContentType("text/html;charset=utf-8");
-//				response.getWriter().write("<script>alert('페이지 오류');history.back();</script>");
-//			}
-//			else {
-//				response.setContentType("text/html;charset=utf-8");
-//				response.getWriter().write("<script>alert('회원가입 완료!');location.href='loginView.do';</script>");
-//			}
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
+		try {
+			int count = service.guestFavoriteJoin(favoriteDTO);
+			if(count == 0) {
+				response.setContentType("text/html;charset=utf-8");
+				response.getWriter().write("<script>alert('페이지 오류');history.back();</script>");
+			}
+			else {
+				response.setContentType("text/html;charset=utf-8");
+				response.getWriter().write("<script>alert('취향등록 완료!');location.href='loginView.do';</script>");
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 	
@@ -161,12 +181,12 @@ public class MemberController {
 		int gender = Integer.parseInt(request.getParameter("gender"));
 		int user_type = 2;
 		
-		// 사업자 등록 정보 - 미완성
+		// 사업자 등록 정보 - 희원,20210222
+		String business_no = request.getParameter("business_no1") + "-" + request.getParameter("business_no2") + "-" + request.getParameter("business_no3");
 		
 		// 회원테이블, 사업자등록정보테이블에 추가 
 		MemberDTO memberDTO = new MemberDTO(id, pass, name, tel1, tel2, tel3, birth, email1, email2, gender, user_type);
-		BusinessDTO businessDTO = null;
-//		businessDTO = new BusinessDTO(id, business_no);
+		BusinessDTO businessDTO = new BusinessDTO(id, business_no);
 		
 		try {
 			int count = service.businessJoin(memberDTO, businessDTO);
@@ -183,5 +203,26 @@ public class MemberController {
 		return null;
 	}
 	
-	// 아이디/비밀번호 찾기
+	// 아이디/비밀번호 찾기 페이지로 이동 - 희원,20210222
+	@RequestMapping("/findIdPwView.do")
+	public String findIdPwView() {
+		return "member/find_id_pw";
+	}
+	
+	// 아이디/비밀번호 찾기 - 희원,20210222
+	@RequestMapping("/findIdPw.do")
+	public String findIdPw(HttpServletRequest request, HttpServletResponse response) {
+		String id = request.getParameter("id");
+		String name = request.getParameter("name");
+		String email1 = request.getParameter("email");
+		String email2 = request.getParameter("host");
+		
+		// 비밀번호 찾기
+		String pass = service.findPw(id, name, email1, email2);
+		try {
+			response.getWriter().write(pass);
+		} catch (IOException e) {
+		}
+		return null;
+	}
 }
