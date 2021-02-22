@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:include page="../template/header.jsp" flush="false"></jsp:include>
+	<jsp:include page="../template/header2.jsp" flush="false"></jsp:include>
 	<div id="container">
         <textarea name="info_paper" id="info_paper" cols="30" rows="10">정보제공동의서들어가는곳</textarea>
         <a href="businessJoinView.do">사업자</a>

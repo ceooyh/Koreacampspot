@@ -255,7 +255,7 @@
 </style>
 </head>
 <body>
-<jsp:include page="../template/header.jsp" flush="false"></jsp:include>
+<jsp:include page="../template/header2.jsp" flush="false"></jsp:include>
     <div id="container">
     <form action="guestJoinFavoriteAction.do">
     	<input type="text" id="hidden_id_value" name="id" value="${requestScope.id}">

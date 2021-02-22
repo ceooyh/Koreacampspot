@@ -99,7 +99,7 @@
     <c:choose>
 		<c:when test="${sessionScope.login == null}">
 			<nav>
-				<h1 id="title">CAMPSPOT</h1>
+				<h1 id="title"><a id="title_companyLogo" href="indexView.do">CAMPSPOT</a></h1>
 				<ul id="menu_bar">
 					<li><a href="infoView.do">소개</a></li>
 					<li><a href="findCampSpotView.do">캠핑 스팟 찾기</a></li>
@@ -113,7 +113,7 @@
 
 		<c:when test="${sessionScope.user_type == 1}">
 			<nav>
-				<h1 id="title">CAMPSPOT</h1>
+				<h1 id="title"><a id="title_companyLogo" href="indexView.do">CAMPSPOT</a></h1>
                     <ul id="menu_bar">
                         <li><a href="infoView.do">소개</a></li>
                         <li><a href="findCampSpotView.do">캠핑 스팟 찾기</a></li>
@@ -142,7 +142,7 @@
 
 		<c:when test="${sessionScope.user_type == 2}">
 			<nav >
-				<h1 id="title">CAMPSPOT</h1>
+				<h1 id="title"><a id="title_companyLogo" href="indexView.do">CAMPSPOT</a></h1>
 				<ul id="menu_bar">
 					<li><a href="infoView.do">소개</a></li>
 					<li><a href="#">캠핑장 등록</a>
