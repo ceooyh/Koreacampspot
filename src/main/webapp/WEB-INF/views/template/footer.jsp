@@ -30,7 +30,7 @@
         margin:0;
         padding: 0;
     }
-    div{
+    footer div{
         width:1920px;
         margin: 10px auto;
         padding: 5px;
@@ -38,36 +38,37 @@
         background-color: rgb(46,46,46);
         color:  rgb(215,215,215);
     }
-    ul{
+    footer ul{
         list-style: none;
     }
-    #bold{
-        font-weight: bold;
+    footer #bold{
+        font-family: '보통노토';
         font-size: 14px;
         
     }
-    .copyright{
+    footer .copyright{
+        font-family: '보통노토';
         list-style: none;
     }
-    #size{
+    footer #size{
         font-size: 14px;
     }
-    #copy{
-        font-weight: bold;
+    footer #copy{
+        font-family: '보통노토';
         font-size: 12px;
     }
-    #name{
-        font-size: 20px;
-        font-weight: bold;
-        color:  rgb(215,215,215);
+    footer #name{
+        font-size: 25px;
+        font-family: '두꺼운로보';
+        color:  rgb(233, 233, 233);
         text-decoration: none;
     }
-    hr{
+    footer hr{
         margin: 5px 0px;
     }
-    #black{
-        font-weight: bold;
-        color:  rgb(215,215,215);
+    footer #black{
+        font-family: '굵은노토';
+        color:  rgb(233,233,233);
         text-decoration: none;
     }
 </style>
@@ -77,7 +78,7 @@
         <div id="container">
             <div>
                 <ul>
-                    <a href="/" id="name">(주)가현이의 동물농장</a>
+                    <a href="/" id="name">(주)KoreaCampSpot</a>
                     <hr>
                     <li>사업자등록번호 505-05-50505</li>
                     <li>Contact : 032-505-0505</li>
@@ -101,15 +102,6 @@
             </div>  
             <div class="copyright">
                 <ul>
-                    <li>
-                        일부 호텔은 체크인 24시간 이상 전에 취소해야 합니다. 자세한 내용은 사이트에서 확인해 주세요.<br>
-                        
-                        리워드 1박의 금액은 적립하신 스탬프 10개의 평균 요금입니다. 이 요금에는 세금 및 서비스 요금이 포함되지 않습니다.<br>
-                        사용하시는 각 리워드 숙박에 대해 ₩5,500의 수수료가 적용되지만 앱에서 사용 시 수수료가 부과되지 않습니다. 제외 사항이 적용됩니다.<br>
-                    </li>
-                    <li id="size">
-                        Hotels505.com 및 Hotels505.com 로고는 미국 및/또는 다른 국가에서 Hotels505.com, LP의 상표 또는 등록 상표입니다. 기타 모든 상표는 해당 소유권자의 자산입니다.
-                    </li>
                     <li id="copy">
                         © 2021 Hotels505.com은 505 Group 계열사입니다. All rights reserved. Copyright ⓒ <a href="#" id="black"> All rights reserved.</a> Designed by <a href="#" id="black"> KCS </a>
                     </li>

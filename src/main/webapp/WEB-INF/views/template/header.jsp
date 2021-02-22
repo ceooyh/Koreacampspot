@@ -8,30 +8,52 @@
 <title>상단 메뉴바</title>
 <script src="lib/jquery-3.5.1.min.js"></script>
 <style>
+    @font-face {
+        font-family: '보통노토';
+        src: url(../../../Font/NotoSansCJKkr-hinted/NotoSansCJKkr-Medium.otf);
+    }
+    @font-face {
+        font-family: '굵은노토';
+        src: url(../../../Font/NotoSansCJKkr-hinted/NotoSansCJKkr-Black.otf);
+    }
+    @font-face {
+        font-family: '검은고딕';
+        src: url(../../../Font/검은고딕/OFL.txt);
+    }
+    @font-face {
+        font-family: '보통로보';
+        src: url(../../../Font/Roboto/Roboto-Medium.ttf);
+    }
+    @font-face {
+        font-family: '두꺼운로보';
+        src: url(../../../Font/Roboto/Roboto-Bold.ttf);
+    }
     * {
         margin: 0;
         padding: 0;
     }
-    h1{
+    nav h1{
         margin-top: 20px;
         margin-left: 30px;
         float: left;
+        font-family: '굵은노토';
     }
-    a {
+    nav a {
         text-decoration: none;
-        color: black;
+        color: rgb(46, 46, 46);
         font-weight: bold;
+        font-family: '보통노토';
     }
-    a:hover {
+    nav a:hover {
 	    color: #508164;
     }
-    ul {
+    nav ul {
         list-style-type: none;
         margin: 5px auto;
         display: inline-block;
         text-align: center;
     }
-    li {
+    nav li {
         list-style: none;
         height: 60px;
         margin: 0px 10px;
@@ -47,7 +69,7 @@
         text-align: center;
         background-color: rgba(247, 243, 243, 0.5);
     }
-    #login{
+    nav #login{
         width: 200px;
         float: right;
         margin-top: 15px;
@@ -60,7 +82,7 @@
         padding: 15px;
         text-align: center;
     }
-    .sub {
+    nav .sub {
         display: none;
         position: absolute;
         top: 70px;
@@ -68,7 +90,7 @@
         z-index: 1;
         width: 100%;
     }
-    .sub li {
+    nav .sub li {
         padding: 10px 0px !important;
     }
 </style>
@@ -80,8 +102,8 @@
 				<h1 id="title">CAMPSPOT</h1>
 				<ul id="menu_bar">
 					<li><a href="infoView.do">소개</a></li>
-					<li><a href="#">캠핑 스팟 찾기</a></li>
-					<li><a href="#">찜한 스팟</a></li>
+					<li><a href="findCampSpotView.do">캠핑 스팟 찾기</a></li>
+					<li><a href="keepCampSpotView.do">찜한 스팟</a></li>
 					<li><a href="selectJoinView.do">회원가입</a></li>
 					<li><a href="loginView.do">로그인</a></li>
 				</ul>
@@ -94,10 +116,10 @@
 				<h1 id="title">CAMPSPOT</h1>
                     <ul id="menu_bar">
                         <li><a href="infoView.do">소개</a></li>
-                        <li><a href="#">캠핑 스팟 찾기</a></li>
-                        <li><a href="#">찜한 스팟</a></li>
+                        <li><a href="findCampSpotView.do">캠핑 스팟 찾기</a></li>
+                        <li><a href="keepCampSpotView.do">찜한 스팟</a></li>
                         <li><a href="qnaView.do">문의하기</a></li>
-                        <li><a href="#">마이 페이지</a>
+                        <li><a href="questMyPageView.do">마이 페이지</a>
                             <ul class="sub">
                                 <li>개인정보 수정</li>
                                 <li>취향정보수정</li>
@@ -135,8 +157,8 @@
 					<li>
                         <a href="#">마이 페이지</a>
                         <ul class="sub">
-                            <li><a href="#">개인정보수정</a></li>
-                            <li><a href="#">사업자정보수정</a></li>
+                            <li><a href="businessInfoUpdateView.do">개인정보수정</a></li>
+                            <li><a href="businessNoInfoUpdateView.do">사업자정보수정</a></li>
                         </ul>
                     </li>
 					<li id="logout"><a href="logoutAction.do">로그아웃</a></li>
