@@ -220,6 +220,8 @@ public class MemberController {
 		// 비밀번호 찾기
 		String pass = service.findPw(id, name, email1, email2);
 		try {
+			if(pass == null)
+				pass = "";
 			response.getWriter().write(pass);
 		} catch (IOException e) {
 		}

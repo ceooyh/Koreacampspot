@@ -15,7 +15,7 @@ public class MainController {
 		return "index";
 	}
 	
-	@RequestMapping("info.do")
+	@RequestMapping("/infoView.do")
 	public String info() {
 		return "main/info";
 	}
