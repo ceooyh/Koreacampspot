@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import kcs.dto.BusinessDTO;
 import kcs.dto.FavoriteDTO; 
-import kcs.dto.MemberDTO;
+import kcs.dto.MemberDTO; 
 
 @Mapper
 public interface MemberMapper { 
