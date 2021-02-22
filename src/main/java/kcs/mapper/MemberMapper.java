@@ -10,7 +10,7 @@ import kcs.dto.MemberDTO;
 
 @Mapper
 public interface MemberMapper {
-
+ 
 	// 로그인
 	MemberDTO login(HashMap<String, Object> map);
 
@@ -24,7 +24,10 @@ public interface MemberMapper {
 	int businessJoin(MemberDTO memberDTO);
 
 	// 사업자 회원가입(사업자정보)
-	void insertBusiness(BusinessDTO businessDTO); 
+	void insertBusiness(BusinessDTO businessDTO);
+
+	// 아이디 중복 체크
+	String idCheck(String id); 
 	
 	
 }

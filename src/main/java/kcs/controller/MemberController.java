@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -15,7 +16,7 @@ import kcs.dto.MemberDTO;
 import kcs.service.MemberService;
 
 @Controller
-public class MemberController {
+public class MemberController { 
 	private MemberService service;
 
 	public MemberController(MemberService service) {
@@ -78,9 +79,24 @@ public class MemberController {
 		return "member/guest_join1";
 	}
 	
-	// 일반 사용자 회원가입 수행 - 희원,20210219
-	@RequestMapping("/guestJoinAction.do")
-	public String guestJoin(HttpServletRequest request, HttpServletResponse response) {
+	// 아이디 중복 체크 - 희원,20210222
+	@RequestMapping("/idCheckAction.do")
+	public String idCheckAction(HttpServletRequest request, HttpServletResponse response) {
+		String id = request.getParameter("id");
+		String idCheck = service.idCheck(id);
+		try {
+			if(idCheck == null) 	
+				response.getWriter().write("true");	// 아이디 사용 가능
+			else	
+				response.getWriter().write("false");	// 아이디 중복
+		} catch (IOException e) {
+		}
+		return null;
+	}
+	
+	// 일반 사용자 회원가입 수행1 - 희원,20210222
+	@RequestMapping("/guestJoin2View.do")
+	public String guestJoin2View(HttpServletRequest request, HttpServletResponse response) {
 		// 개인정보
 		String id = request.getParameter("id");
 		String pass = request.getParameter("pass");
@@ -94,26 +110,32 @@ public class MemberController {
 		int gender = Integer.parseInt(request.getParameter("gender"));
 		int user_type = 1;
 		
+		MemberDTO memberDTO = new MemberDTO(id, pass, name, tel1, tel2, tel3, birth, email1, email2, gender, user_type);
+		return null;
+	}
+	
+	// 일반 사용자 회원가입 수행2 - 희원,20210219
+	@RequestMapping("/guestJoinAction.do")
+	public String guestJoin(HttpServletRequest request, HttpServletResponse response) {
 		// 취향 정보 - 미완성
 		
 		// 회원테이블, 취향테이블에 추가
-		MemberDTO memberDTO = new MemberDTO(id, pass, name, tel1, tel2, tel3, birth, email1, email2, gender, user_type);
 		FavoriteDTO favoriteDTO = null;
 //		favoriteDTO new FavoriteDTO(id, stag);
 		
-		try {
-			int count = service.guestJoin(memberDTO, favoriteDTO);
-			if(count == 0) {
-				response.setContentType("text/html;charset=utf-8");
-				response.getWriter().write("<script>alert('페이지 오류');history.back();</script>");
-			}
-			else {
-				response.setContentType("text/html;charset=utf-8");
-				response.getWriter().write("<script>alert('회원가입 완료!');location.href='loginView.do';</script>");
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+//		try {
+//			int count = service.guestJoin(memberDTO, favoriteDTO);
+//			if(count == 0) {
+//				response.setContentType("text/html;charset=utf-8");
+//				response.getWriter().write("<script>alert('페이지 오류');history.back();</script>");
+//			}
+//			else {
+//				response.setContentType("text/html;charset=utf-8");
+//				response.getWriter().write("<script>alert('회원가입 완료!');location.href='loginView.do';</script>");
+//			}
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 		return null;
 	}
 	
@@ -141,7 +163,7 @@ public class MemberController {
 		
 		// 사업자 등록 정보 - 미완성
 		
-		// 회원테이블, 사업자등록정보테이블에 추가
+		// 회원테이블, 사업자등록정보테이블에 추가 
 		MemberDTO memberDTO = new MemberDTO(id, pass, name, tel1, tel2, tel3, birth, email1, email2, gender, user_type);
 		BusinessDTO businessDTO = null;
 //		businessDTO = new BusinessDTO(id, business_no);

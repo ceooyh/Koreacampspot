@@ -18,7 +18,7 @@ public class MemberService {
 		this.mapper = mapper;
 	}
 
-	// 여기부터 서비스 메서드 작성
+	// 여기부터 서비스 메서드 작성 
 	
 	// 로그인 메서드 -성진
 	public MemberDTO login(String id, String pass) {
@@ -42,6 +42,11 @@ public class MemberService {
 		if(count != 0 && businessDTO != null);
 			mapper.insertBusiness(businessDTO);
 		return count;
+	}
+
+	// 아이디 중복 체크 - 희원,20210222
+	public String idCheck(String id) {
+		return mapper.idCheck(id);
 	}
 	
 }
