@@ -204,19 +204,28 @@
 			}
 		});
 		$("#btn_id_check").click(function(){
-			var data = $("#id").val();
-			$.ajax({
-				url : "idCheckAction.do",
-				data : data,
-				method:"get",
-				success:function(d){
-	                if(d){
-	                    alert("아이디가 중복되는 사항이 없습니다.");
-	                }else{
-	                    alert("아이디가 중복됩니다.");
-	                }
-			}
+				var data = $("#id").val();
+				$.ajax({
+					url : "idCheckAction.do",
+					data : data,
+					method:"get",
+					success:function(d){
+		                if(d){
+		                    alert("아이디가 중복되는 사항이 없습니다.");
+		                }else{
+		                    alert("아이디가 중복됩니다.");
+		                }
+				}
+			});
 		});
+		
+		$("#gender_woman").click(function(){
+			if("#gender_man").attr("checked", " ");
+		});
+		$("#gender_man").click(function(){
+			if("#gender_woman").attr("checked", " ");
+		});
+			
 		$("#btn_submit").click(function() {
 	    	 var prevID=$("input:text[name=prev_id]").val()
 	    	 var id=$("input:text[name=id]").val();
