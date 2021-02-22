@@ -5,11 +5,11 @@ import java.util.HashMap;
 import org.apache.ibatis.annotations.Mapper;
 
 import kcs.dto.BusinessDTO;
-import kcs.dto.FavoriteDTO;
-import kcs.dto.MemberDTO;
+import kcs.dto.FavoriteDTO;  
+import kcs.dto.MemberDTO; 
 
 @Mapper
-public interface MemberMapper {
+public interface MemberMapper { 
  
 	// 로그인
 	MemberDTO login(HashMap<String, Object> map);
