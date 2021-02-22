@@ -88,6 +88,7 @@
 			</nav>
 		</c:when>
 
+
 		<c:when test="${sessionScope.user_type == 1}">
 			<nav>
 				<h1 id="title">CAMPSPOT</h1>
@@ -116,7 +117,7 @@
                 </div>
 			</nav>
 		</c:when>
-		
+
 		<c:when test="${sessionScope.user_type == 2}">
 			<nav >
 				<h1 id="title">CAMPSPOT</h1>

@@ -18,4 +18,7 @@
 	<insert id="insertBusiness" parameterType="business">
 		insert into business values(SEQ_BUSINESS_BNO.NEXTVAL, #{id}, #{business_no})
 	</insert>
+	<select id="idCheck" parameterType="String" resultType="String">
+		select id from member where id like #{id}
+	</select>
 </mapper>

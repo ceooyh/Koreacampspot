@@ -9,6 +9,21 @@
     <title>문의하기 페이지</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src="../../lib/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript">
+    	$(function(){
+			var title = $("#title").val()
+			var content = $("#content").val()
+    		$(btn).click(function(){
+				if(title==null){
+					alert("제목을 반드시 입력해주세요.")
+				}else(content ==null){
+					alert("제목을 반드시 입력해주세요.")
+				}
+    		})
+    	});
+    	
+    </script>
 </head>
 <style>
     @font-face {
@@ -144,7 +159,7 @@
                             <p id="qna_content_title"><label for="title">[문의내용]</label></p>
                             <textarea name="content" id="content" cols="95" rows="20" placeholder="문의내용을 입력하세요"></textarea>
                             <div id="btn_submit">
-                            <button type="submit">전송</button>
+                            <button id="btn" type="submit">전송</button>
                             </div>
                         </div><!--내용 입력란-->
             </div><!--container 마지막 부분-->

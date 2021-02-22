@@ -2,27 +2,9 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="board">
-	
+<mapper namespace="kcs.mapper.BoardMapper">
 	<select id="selectBoardList" parameterType="int" resultType="board">
-		select bno,writer,title,content,bdate,blike,bhate,views from 
-		(select ceil(rownum / 7) as pagenum,bno,title,writer,content,bdate,blike,bhate,views from
- 	 		 (select b.*, nvl(views,0) as views from 
- 	 		 board b, (select bno, count(*) as views from 
- 	 		 board_comment group by bno) c 
- 	 		 where b.bno = c.bno(+) 
- 	 		 <choose>
- 	 		 	<when test="mode.equals('blike')">
-	 	 		 	order by b.blike desc)) 
- 	 		 	</when>
- 	 		 	<when test="mode.equals('bhate')">
-	 	 			 order by b.bhate desc))
- 	 		 	</when>
-				<otherwise>
-	 	 			 order by b.bno desc))
-				</otherwise>
- 	 		 </choose>
- 	 		  where pagenum = #{pageNo} 	 	
+		select bno,writer,title,content,bdate,blike,bhate,views,comment_count from (select ceil(rownum/7) as pagenum, bno, title, bdate, views, writer, content, blike, bhate, comment_count from (select b.*, nvl(c.comment_count, 0) as comment_count from board b, (select bno, count(*) as comment_count from BOARD_COMMENT group by bno) c where b.bno = c.bno(+) order by b.bno desc)) where pagenum = #{pageNo}	 	
 	</select>
 	
 	<update id="addCount" parameterType="int">
