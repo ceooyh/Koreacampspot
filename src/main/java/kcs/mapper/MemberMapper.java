@@ -5,7 +5,7 @@ import java.util.HashMap;
 import org.apache.ibatis.annotations.Mapper;
 
 import kcs.dto.BusinessDTO;
-import kcs.dto.FavoriteDTO; 
+import kcs.dto.FavoriteDTO;  
 import kcs.dto.MemberDTO; 
 
 @Mapper
