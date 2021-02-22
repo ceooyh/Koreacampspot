@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<jsp:include page="../template/header.jsp" flush="false"></jsp:include>
+<jsp:include page="../template/footer.jsp" flush="false"></jsp:include>
 </body>
 </html>

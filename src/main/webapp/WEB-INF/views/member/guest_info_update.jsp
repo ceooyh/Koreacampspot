@@ -329,6 +329,7 @@
 </script>
 </head>
 <body>
+<jsp:include page="../template/header.jsp" flush="false"></jsp:include>
     <section>
         <p id="headline">회원 정보 변경페이지</p>
         <form action="guestJoinAction.do" method="GET">
@@ -415,5 +416,6 @@
             </div>
         </form><!--폼마지막 줄-->
     </section>
+    <jsp:include page="../template/footer.jsp" flush="false"></jsp:include>
 </body>
 </html>

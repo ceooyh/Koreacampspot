@@ -358,6 +358,7 @@
 </script>
 </head>
 <body>
+<jsp:include page="../template/header.jsp" flush="false"></jsp:include>
     <section>
         <p id="headline">회원 가입 페이지</p>
         <form action="businessJoinAction.do" method="GET">
@@ -451,11 +452,12 @@
 
 
                 <div id="btn_continer">
-                    <button class="btn_submit">다음</button>
+                    <button class="btn_submit">회원가입</button>
                     <button class="btn_before">이전</button>
                 </div>
             </div>
         </form><!--폼마지막 줄-->
     </section>
+    <jsp:include page="../template/footer.jsp" flush="false"></jsp:include>
 </body>
 </html>

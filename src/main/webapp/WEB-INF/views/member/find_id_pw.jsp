@@ -8,6 +8,7 @@
 </head>
 <body>
 <body>
+<jsp:include page="../template/header.jsp" flush="false"></jsp:include>
     <div id="container">
 		<form action="findIdPw.do" method="GET">
             <table>
@@ -35,5 +36,6 @@
             <button>입력완료</button>
 		</form>
 	</div>
+	<jsp:include page="../template/footer.jsp" flush="false"></jsp:include>
 </body>
 </html>

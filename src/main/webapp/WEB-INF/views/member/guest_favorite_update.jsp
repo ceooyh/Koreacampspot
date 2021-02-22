@@ -252,6 +252,7 @@
 </head>
 <body>
     <div id="container">
+	<form action="">
         <p id="headline">취향 정보 수정</p>
             <div id="camp_type" class="category">
                 <p id="category_1">캠핑의 종류</p>
@@ -312,9 +313,11 @@
                 <input type="checkbox" id="pet_open" name="pet_open"  value="#반려동물동반"><label for="pet_open"><span>#반려동물동반</span></label>
             </div>
             <div id="btn_submit">
-                <button>회원가입</button>
-                <a href="#">취소</a>
+                <button>변경 완료</button>
+                <a href="indexView.do">취소</a>
             </div>
+            </form>
     </div><!--container-->
     <jsp:include page="../template/footer.jsp" flush="false"></jsp:include>
 </body>
+</html>

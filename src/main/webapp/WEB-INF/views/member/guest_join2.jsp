@@ -252,7 +252,7 @@
 </style>
 </head>
 <body>
-form
+<jsp:include page="../template/header.jsp" flush="false"></jsp:include>
     <div id="container">
     <form action="guestJoinFavoriteAction.do">
         <p id="headline">취향 정보 입력란</p>
@@ -316,7 +316,7 @@ form
             </div>
             <div id="btn_submit">
                 <button type="submit">회원가입</button>
-                <a href="/">건너뛰기</a>
+                <a href="indexView.do">건너뛰기</a>
             </div>
           </form>
     </div><!--container-->
