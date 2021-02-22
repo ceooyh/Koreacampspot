@@ -7,9 +7,9 @@
 		select * from member where id like #{id} and pass like #{pass}
 	</select>
 	<insert id="guestJoin" parameterType="member">
-		insert into member values(#{id}, #{pass}, #{name}, #{tel1}, #{tel2}, #{tel3}, #{birth}, #{email1}, #{email2}, #{gender}, #{user_type})
+		insert into member values(#{id}, #{pass}, #{name}, #{tel1}, #{tel2}, #{tel3}, to_date(#{birth}, 'YYYY-MM-DD'), #{email1}, #{email2}, #{gender}, #{user_type})
 	</insert>
-	<insert id="insertGuestFavorit" parameterType="favorite">
+	<insert id="guestFavoriteJoin" parameterType="favorite">
 		insert into favorite values(#{id}, #{stag})
 	</insert>
 	<insert id="businessJoin" parameterType="member">

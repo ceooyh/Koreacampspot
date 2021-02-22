@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>상단 메뉴바</title>
-<script src="lib/jquery-3.5.1.min.js"></script>
 <style>
     @font-face {
         font-family: '보통노토';
@@ -94,6 +93,10 @@
         padding: 10px 0px !important;
     }
 </style>
+<script src="../../../lib/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+
+</script>
 </head>
 <body>
     <c:choose>
