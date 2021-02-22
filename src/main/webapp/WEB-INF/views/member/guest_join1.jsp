@@ -219,6 +219,7 @@
 					data : data,
 					method:"get",
 					success:function(d){
+						d = d ==='true';
 		                if(d){
 		                    alert("아이디가 중복되는 사항이 없습니다.");
 		                }else{
@@ -338,7 +339,7 @@
                 <div id="id_insert" class="part"><!--아이디 입력 부분 start-->
                         <span class="guest_insert"><label for="id">아이디</label></span><br>
                         <span><input  class="guest_input1" type="text" name="id" id="id" placeholder="아이디를 입력하세요"></span><br>
-                        <span class="guest_insert"><button id="btn_id_check">중복검사</button></span>
+                        <span class="guest_insert"><button id="btn_id_check" type="button">중복검사</button></span>
                 </div><!--아이디 입력 부분 end-->
 
 
