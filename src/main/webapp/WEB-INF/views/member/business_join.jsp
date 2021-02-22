@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>사업자 회원가입 페이지</title>
 <style>
-    @font-face {
+     @font-face {
         font-family: '보통노토';
         src: url(../../../Font/NotoSansCJKkr-hinted/NotoSansCJKkr-Medium.otf);
     }
@@ -154,6 +154,15 @@
         font-family: '보통노토';
         border-radius: 3%;
     }
+    .btn_before{
+        padding-top: 8px;
+        padding-bottom: 8px;
+        background-color: rgb(245, 244, 244);
+        width: 49%;
+        border: none;
+        font-family: '보통노토';
+        border-radius: 3%;
+    }
     #btn_continer button:hover{
         background-color: rgb(63, 62, 62);
         color: rgb(245, 244, 244);
@@ -181,31 +190,172 @@
     .guest_input1:focus,.guest_input2:focus,.guest_input3:focus,.guest_input4:focus{
         border-bottom: 2px solid rgb(46, 46, 46);
     }
-    input[type="file"]{
-        overflow: hidden;
-        width: 1;
-        height: 1;
-        padding: 0; 
-    }
-    #file_upload label{
-        padding: 8px;
-        font-family: '굵은노토';
-        width: 100px;
-        border-radius: 10px;
-        border: 1px solid rgb(216, 215, 215);
-        color: rgb(46, 46, 46);
-        cursor: pointer;
-    }
-    #file_upload label:hover{
-        border: none;
-        background-color: rgb(46, 46, 46);
-        color: rgb(216, 215, 215);
-    }
-
-
 
 
 </style>
+<script src="../../../lib/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#id").keyup(function() {
+			var length = $("#id").val().trim().length
+			if(length<4 && length > 0){
+				$("#id").css("color", "red");
+				$("#id").html("아이디는 4자리 이상 입력해주세요.");
+			}
+			else if(length==0){
+				$("#id").css("color", "red");
+				$("#id").html("아이디는 반드시 입력해주시기 바랍니다.");
+			}
+			else{
+				$("#id").css("color", "blue");
+				$("#id").html("사용가능한 형식입니다");
+			}
+		});
+		$("#btn_id_check").click(function(){
+				var data = $("#id").val();
+				$.ajax({
+					url : "idCheckAction.do",
+					data : data,
+					method:"get",
+					success:function(d){
+		                if(d){
+		                    alert("아이디가 중복되는 사항이 없습니다.");
+		                }else{
+		                    alert("아이디가 중복됩니다.");
+		                }
+				}
+			});
+		});
+		
+		$("#gender_woman").click(function(){
+			if("#gender_man").attr("checked", " ");
+		});
+		$("#gender_man").click(function(){
+			if("#gender_woman").attr("checked", " ");
+		});
+			
+		$("#btn_submit").click(function() {
+	    	 var prevID=$("input:text[name=prev_id]").val()
+	    	 var id=$("input:text[name=id]").val();
+	    	event.preventDefault();
+	    		if($("#id").val().trim().length == 0){
+	    			alert("아이디를 입력해주세요");
+	    			$("#id").focus();
+	    			return false;
+	    			};
+	    		if($("#id").val().trim().length < 4){
+	    			alert("아이디는 4글자이상 입력해주세요");
+	    			$("#id").focus();
+	    			return false;
+	    		};
+	    		if($("#pass").val().trim().length == 0){
+	    			alert("암호를 입력해주세요");
+	    			$("#pass").focus();
+	   				return false;
+	   			};
+	   			if($("#pass").val().trim().length < 8){
+	   				alert("암호는 8자이상 입력해주세요");
+    				$("#pass").focus();
+	    			return false;
+	    		};
+	    		if($("#pass").val() != $("#passcheck").val()){
+	   				alert("암호확인과 암호를 일치시켜주세요.");
+	   				$("#pass").focus();
+	   				return false;
+	   			}
+    			if($("#name").val().trim().length == 0){
+	    			alert("이름을 입력해주세요");
+	    			$("#name").focus();
+	    			return false;
+	    		};
+	    		if($("#tel1").val().trim().length == 0){
+	    			alert("연락처는 반드시 입력해주시기 바랍니다.");
+	   				$("#tel1").focus();
+	   				return false;
+	   			};
+	    		if($("#tel1").val().trim().length<2){
+	    			alert("연락처를 형식에 맞게 입력해주세요(ex:000-0000-0000)");
+	    			$("#tel1").focus();
+	   				return false;
+	   			};
+	   			if($("#tel2").val().trim().length == 0){
+	   				alert("연락처는 반드시 입력해주시기 바랍니다.");
+    				$("#tel2").focus();
+	    			return false;
+	    		};
+	    		if($("#tel2").val().trim().length<4){
+	    			alert("연락처를 형식에 맞게 입력해주세요(ex:000-0000-0000)");
+	    			$("#tel2").focus();
+	   				return false;
+	   			}
+	    		if($("#tel3").val().trim().length == 0){
+	    			alert("연락처는 반드시 입력해주시기 바랍니다.");
+	    			$("#tel3").focus();
+	   				return false;
+	   			};
+	   			if($("#tel3").val().trim().length<4){
+	   				alert("연락처를 형식에 맞게 입력해주세요(ex:000-0000-0000)");
+    				$("#tel3").focus();
+    				return false;
+	    		};
+	    		if($("#email").val().length == 0){
+	    			alert("이메일은 반드시 입력해주시기 바랍니다..");
+	    			$("#email").focus();
+	   				return false;
+	   			};
+	    		if($("#year").val().length == 0){
+	    			alert("생년월일을 입력해주세요");
+	    			$("#year").focus();
+	   				return false;
+	   			};
+	    		if($("#month").val().length == 0){
+	    			alert("생년월일을 입력해주세요");
+	    			$("#month").focus();
+	   				return false;
+	   			};
+	    		if($("#day").val().length == 0){
+	    			alert("생년월일을 입력해주세요");
+	    			$("#day").focus();
+	   				return false;
+	   			};
+	   			if(&("#business_no1").val.length ==0){
+	    			alert("사업자등록번호를 반드시 입력해주세요");
+	    			$("#business_no1").focus();
+	   				return false;
+	   			}
+	   			if($("#business_no1").val().trim().length<3){
+	    			alert("사업자등록번호를 양식에 맞게 다시 입력해주세요");
+	    			$("#business_no1").focus();
+	   				return false;
+	   			}
+	   			if(&("#business_no2").val.length ==0){
+	    			alert("사업자등록번호를 반드시 입력해주세요");
+	    			$("#business_no1").focus();
+	   				return false;
+	   			}
+	   			if($("#business_no2").val().trim().length<2){
+	    			alert("사업자등록번호를 양식에 맞게 다시 입력해주세요");
+	    			$("#business_no1").focus();
+	   				return false;
+	   			}
+	   			if(&("#business_no3").val.length ==0){
+	    			alert("사업자등록번호를 반드시 입력해주세요");
+	    			$("#business_no1").focus();
+	   				return false;
+	   			}
+	   			if($("#business_no3").val().trim().length<5){
+	    			alert("사업자등록번호를 양식에 맞게 다시 입력해주세요");
+	    			$("#business_no1").focus();
+	   				return false;
+	   			}
+	    		if(!(id == prevID)){
+	    			alert("아이디 중복체크는 필수로 해야됩니다.");
+	    			return false;
+	   			};
+	    		$("#btn_submit").submit();
+	    	});
+	});
+</script>
 </head>
 <body>
     <section>
@@ -302,7 +452,7 @@
 
                 <div id="btn_continer">
                     <button class="btn_submit">다음</button>
-                    <button class="btn_submit">이전</button>
+                    <button class="btn_before">이전</button>
                 </div>
             </div>
         </form><!--폼마지막 줄-->

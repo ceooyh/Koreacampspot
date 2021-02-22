@@ -155,6 +155,15 @@
         font-family: '보통노토';
         border-radius: 3%;
     }
+    .btn_before{
+        padding-top: 8px;
+        padding-bottom: 8px;
+        background-color: rgb(245, 244, 244);
+        width: 49%;
+        border: none;
+        font-family: '보통노토';
+        border-radius: 3%;
+    }
     #btn_continer button:hover{
         background-color: rgb(63, 62, 62);
         color: rgb(245, 244, 244);
