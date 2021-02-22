@@ -269,6 +269,113 @@
 			}
 		});
 		
+		
+		/*전화번호 입력시 문제되는 사항에 대해서 보여줌*/
+		$("#tel2").keyup(function() {
+			var length = $("#tel2").val().trim().length
+			if(length==0){
+				$("#tel2").css("color", "red");
+				$("#input_result5").html("전화번호는 반드시 전부 입력해주시기 바랍니다.");
+			}
+			else if(length >0 && length <2){
+				$("#tel2").css("color", "red");
+				$("#input_result5").html("가운데 전화번호는  2글자 이상 5글자 이하입니다.");
+			}
+			else if(length >= 5){
+				$("#tel2").css("color", "red");
+				$("#input_result5").html("가운데 전화번호는 5글자 이하입니다.");
+			}
+			else{
+				$("#tel2").css("color", "blue");
+				$("#input_result5").html("다음 전화번호를 입력해주십쇼.");
+			}
+		});
+		
+		/*전화번호 입력시 문제되는 사항에 대해서 보여줌*/
+		$("#tel3").keyup(function() {
+			var length = $("#tel3").val().trim().length
+			if(length==0){
+				$("#tel3").css("color", "red");
+				$("#input_result5").html("전화번호는 반드시 전부 입력해주시기 바랍니다.");
+			}
+			else if(length >0 && length <4){
+				$("#tel3").css("color", "red");
+				$("#input_result5").html("마지막 전화번호는  4글자입니다.");
+			}
+			else if(length >= 5){
+				$("#tel3").css("color", "red");
+				$("#input_result5").html("마지막 전화번호는 5글자 이하입니다.");
+			}
+			else{
+				$("#tel3").css("color", "blue");
+				$("#input_result5").html("올바른 양식입니다.");
+			}
+		});
+		
+		/*이메일 입력시 문제되는 사항에 대해서 보여줌*/
+		$("#email").keyup(function() {
+			var length = $("#email").val().trim().length
+			if(length==0){
+				$("#email").css("color", "red");
+				$("#input_result6").html("이메일을 입력해주시기 바랍니다.");
+			}
+			else{
+				$("#email").css("color", "blue");
+				$("#input_result6").html("올바른 양식입니다.");
+			}
+		});
+		
+		/*년도 입력시 문제되는 사항에 대해서 보여줌*/
+		$("#year").keyup(function() {
+			var length = $("#year").val().trim().length
+			if(length==0){
+				$("#year").css("color", "red");
+				$("#input_result7").html("생년월일을 반드시 입력해주세요.");
+			}
+			else if(length >0 && length <4){
+				$("#year").css("color", "red");
+				$("#input_result7").html("년도의 양식은 4글자입니다(ex:1894,1991)");
+			}
+			else{
+				$("#year").css("color", "blue");
+				$("#input_result7").html("월을 입력해주세요");
+			}
+		});
+		
+		/*월 입력시 문제되는 사항에 대해서 보여줌*/
+		$("#month").keyup(function() {
+			var length = $("#month").val().trim().length
+			if(length==0){
+				$("#month").css("color", "red");
+				$("#input_result7").html("생년월일을 반드시 입력해주세요.");
+			}
+			else if(length >=3){
+				$("#month").css("color", "red");
+				$("#input_result7").html("월은 3글자 이상 입력 할 수 없습니다.");
+			}
+			else{
+				$("#month").css("color", "blue");
+				$("#input_result7").html("일을 입력해주세요");
+			}
+		});
+		
+		/*일 입력시 문제되는 사항에 대해서 보여줌*/
+		$("#day").keyup(function() {
+			var length = $("#day").val().trim().length
+			if(length==0){
+				$("#day").css("color", "red");
+				$("#input_result7").html("생년월일을 반드시 입력해주세요.");
+			}
+			else if(length >=3){
+				$("#day").css("color", "red");
+				$("#input_result7").html("일은 3글자 이상 입력 할 수 없습니다.");
+			}
+			else{
+				$("#day").css("color", "blue");
+				$("#input_result7").html("올바른 양식입니다.");
+			}
+		});
+		
 		/*아이디 중복 기능 확인*/
 		$('#btn_id_check').on('click', function(){ 
 			$.ajax({ 
@@ -399,7 +506,7 @@
 </script>
 </head>
 <body>
-<jsp:include page="../template/header.jsp" flush="false"></jsp:include>
+<jsp:include page="../template/header2.jsp" flush="false"></jsp:include>
     <section>
         <p id="headline">회원 가입 페이지</p>
         <form action="guestJoinAction.do" method="GET">
