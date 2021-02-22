@@ -94,7 +94,7 @@ public class MemberController {
 		return null;
 	}
 	
-	// 일반 사용자 회원가입 수행1 - 희원,20210222
+	// 일반 사용자 회원가입 수행1 - 희원,20210222 
 	@RequestMapping("/guestJoin2View.do")
 	public String guestJoin2View(HttpServletRequest request, HttpServletResponse response) {
 		// 개인정보
