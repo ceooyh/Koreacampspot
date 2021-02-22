@@ -119,7 +119,7 @@
                         <li><a href="findCampSpotView.do">캠핑 스팟 찾기</a></li>
                         <li><a href="keepCampSpotView.do">찜한 스팟</a></li>
                         <li><a href="qnaView.do">문의하기</a></li>
-                        <li><a href="questMyPageView.do">마이 페이지</a>
+                        <li><a href="guestInfoUpdateView.do">마이 페이지</a>
                             <ul class="sub">
                                 <li><a href="guestInfoUpdateView.do">개인정보 수정</a></li>
                                 <li><a href="guestFavoriteUpdateView.do">취향정보수정</a></li>

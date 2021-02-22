@@ -320,7 +320,7 @@
             </div>
             <div id="btn_submit">
                 <button type="submit">회원가입</button>
-                <a href="indexView.do">건너뛰기</a>
+                <a href="loginView.do">건너뛰기</a>
             </div>
           </form>
     </div><!--container-->
