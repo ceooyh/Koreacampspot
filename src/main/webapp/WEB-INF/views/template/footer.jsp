@@ -6,13 +6,33 @@
 <meta charset="UTF-8">
 <title>회사 정보</title>
 <style>
-    *{
+	@font-face {
+        font-family: '보통노토';
+        src: url(../../../Font/NotoSansCJKkr-hinted/NotoSansCJKkr-Medium.otf);
+    }
+    @font-face {
+        font-family: '굵은노토';
+        src: url(../../../Font/NotoSansCJKkr-hinted/NotoSansCJKkr-Black.otf);
+    }
+    @font-face {
+        font-family: '검은고딕';
+        src: url(../../../Font/검은고딕/OFL.txt);
+    }
+    @font-face {
+        font-family: '보통로보';
+        src: url(../../../Font/Roboto/Roboto-Medium.ttf);
+    }
+    @font-face {
+        font-family: '두꺼운로보';
+        src: url(../../../Font/Roboto/Roboto-Bold.ttf);
+    }
+     *{
         margin:0;
         padding: 0;
     }
     div{
-        width:1200px;
-        margin: 0 auto;
+        width:1920px;
+        margin: 10px auto;
         padding: 5px;
         font-size: 14px;
         background-color: rgb(46,46,46);
@@ -43,7 +63,7 @@
         text-decoration: none;
     }
     hr{
-        margin: 5px;
+        margin: 5px 0px;
     }
     #black{
         font-weight: bold;
@@ -57,7 +77,7 @@
         <div id="container">
             <div>
                 <ul>
-                    <a href="/" id="name">(주)KoreaCampSpot</a>
+                    <a href="/" id="name">(주)가현이의 동물농장</a>
                     <hr>
                     <li>사업자등록번호 505-05-50505</li>
                     <li>Contact : 032-505-0505</li>
