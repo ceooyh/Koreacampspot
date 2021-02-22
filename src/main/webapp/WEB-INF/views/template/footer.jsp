@@ -57,7 +57,7 @@
         <div id="container">
             <div>
                 <ul>
-                    <a href="/" id="name">(주)가현이의 동물농장</a>
+                    <a href="/" id="name">(주)KoreaCampSpot</a>
                     <hr>
                     <li>사업자등록번호 505-05-50505</li>
                     <li>Contact : 032-505-0505</li>
