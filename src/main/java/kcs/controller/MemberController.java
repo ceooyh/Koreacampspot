@@ -228,4 +228,59 @@ public class MemberController {
 		}
 		return null;
 	}
+	
+	// 개인정보 수정 페이지로 이동 (일반 사용자) - 희원,20210222
+	@RequestMapping("/guestInfoUpdateView.do")
+	public String guestInfoUpdateView(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+		try {
+			String id = (String) session.getAttribute("id");
+			if(id == null) {
+				response.setContentType("text/html;charset=utf-8");
+				response.getWriter().write("<script>alert('로그인 후 이용 가능합니다.');location.href='loginView.do';</script>");
+			}else {
+				MemberDTO dto = service.selectMemberDTO(id);
+				if(dto == null) {
+					response.setContentType("text/html;charset=utf-8");
+					response.getWriter().write("<script>alert('페이지 오류');history.back();</script>");
+				}else {
+					request.setAttribute("dto", dto);
+					return "member/guest_info_update";
+				}
+			}
+		} catch (IOException e) {
+		}
+		return null;
+	}
+	
+	// 개인정보 수정 진행 (일반 사용자) - 희원,20210222
+	@RequestMapping("/guestInfoUpdateAction.do")
+	public String guestInfoUpdateAction(HttpServletRequest request, HttpServletResponse response) {
+		// 개인정보
+		String id = request.getParameter("id");
+		String pass = request.getParameter("pass");
+		String name = request.getParameter("name");
+		String tel1 = request.getParameter("tel1");
+		String tel2 = request.getParameter("tel2");
+		String tel3 = request.getParameter("tel3");
+		String birth = request.getParameter("year") + "-" + request.getParameter("month") + "-" + request.getParameter("day");
+		String email1 = request.getParameter("email");
+		String email2 = request.getParameter("host");
+		int gender = Integer.parseInt(request.getParameter("gender"));
+		
+		MemberDTO memberDTO = new MemberDTO(id, pass, name, tel1, tel2, tel3, birth, email1, email2, gender);
+		try {
+			int count = service.guestInfoUpdate(memberDTO);
+			if(count == 0) {
+				response.setContentType("text/html;charset=utf-8");
+				response.getWriter().write("<script>alert('페이지 오류');history.back();</script>");
+			}
+			else {
+				response.setContentType("text/html;charset=utf-8");
+				response.getWriter().write("<script>alert('회원정보 수정 완료!');location.href='indexView.do';</script>");
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

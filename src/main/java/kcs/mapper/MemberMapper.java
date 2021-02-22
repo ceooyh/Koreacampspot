@@ -32,6 +32,12 @@ public interface MemberMapper {
 	// 비밀번호 찾기
 	String findPw(HashMap<String, Object> map);
 
+	// 회원정보 수정을 위한 회원정보 가져오기 (개인정보)
+	MemberDTO selectMemberDTO(String id);
+
+	// 개인정보 수정 진행 (일반 사용자)
+	int guestInfoUpdate(MemberDTO memberDTO);
+
 	
 }
 

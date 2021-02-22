@@ -60,4 +60,14 @@ public class MemberService {
 		map.put("email2", email2);
 		return mapper.findPw(map);
 	}
+
+	// 회원정보 수정을 위한 회원정보 가져오기 (개인정보) - 희원,20210222
+	public MemberDTO selectMemberDTO(String id) {
+		return mapper.selectMemberDTO(id);
+	}
+
+	// 개인정보 수정 진행 (일반 사용자) - 희원,20210222
+	public int guestInfoUpdate(MemberDTO memberDTO) {
+		return mapper.guestInfoUpdate(memberDTO);
+	}
 }
