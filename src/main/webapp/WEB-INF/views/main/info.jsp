@@ -15,6 +15,7 @@
         margin: 0 auto;
     }
     #writer_section{
+    	text-align: center;
         width: 100%;
         margin: 0 auto;
     }
