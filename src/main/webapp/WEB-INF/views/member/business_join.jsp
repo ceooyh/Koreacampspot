@@ -538,7 +538,7 @@ $(function(){
 <jsp:include page="../template/header.jsp" flush="false"></jsp:include>
     <section>
         <p id="headline">회원 가입 페이지</p>
-        <form action="businessJoinAction.do" method="GET" enctype="multipart/form-data">
+        <form action="businessJoinAction.do" method="POST" enctype="multipart/form-data">
         <div id="container">
                 <p id="inside_headline">회원님의 정보를 입력해주세요</p>
                 <div id="id_insert" class="part"><!--아이디 입력 부분 start-->
