@@ -37,7 +37,7 @@
     }
     nav {
         width: 100%;
-        position: fixed;
+        position:fixed;
         text-align: center;
         background-color: rgb(226, 226, 226);
     }
@@ -46,9 +46,10 @@
     }
     
     #headline_logo_text{
-        margin-top: 20px;
+        margin-top: 12px;
         margin-left: 30px;
         font-family: '굵은노토';
+        font-size: 20px;
     }
     nav a {
         text-decoration: none;
@@ -57,62 +58,111 @@
         font-family: '보통노토';
     }
     nav a:hover {
-	    color: #ecc34f;
+	   color: #ecc34f;
     }
     nav ul {
+   		height:100%;
         list-style-type: none;
-        margin: 5px auto;
+        margin: 0 auto;
         display: inline-block;
         text-align: center;
     }
     .dropbtn{
+    	box-sizing:border-box;
         list-style: none;
-        width: 130px;
-        height: 60px;
+        width: 170px;
+        height: 100%;
         text-align: center;
         padding:20px 0px;
         box-sizing: border-box;
         display: inline-block;
         position: relative;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
     }
-    nav #login{
+    .dropbtn_hcon {
+        list-style: none;
+        width: 170px;
+        height: 100%;
+        text-align: center;
+        padding:20px 0px;
+        box-sizing: border-box;
+        display: inline-block;
+        position: relative;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+    }
+     nav #login{
         font-family: '굵은노토';
-        width: 300px;
+        width: 200px;
         float: right;
-        margin-top: 15px;
-        margin-right: 30px;
+        margin:0;
+        margin-top: 7px;
         color: rgb(46, 46, 46);
-    }
-    .dropbtn {
-            color: white;
-            padding: 16px;
-            font-size: 16px;
-            border: none;
     }
 
     .dropdown {
             display: inline-block;
+            padding: 0;
+            box-sizing: border-box;
     }
 
     .dropdown-content {
             display: none;
             position: absolute;
-            z-index: 1;
+            z-index: 10;
             text-align: center;
             width: 100%;
+            height:150px;
             left: 0;
-            background-color: rgb(226, 226, 226);
+            top:50px;
+	    	background-color: rgb(226, 226, 226);
     }
     .dropdown-content a {
-            padding-top: 40px;
-            padding-bottom: 20px;
             text-decoration: none;
-            display: block;
     }
+    .dropdown-content-li{
+    	margin-bottom: 20px;
+    	height: 20px;
+    }
+    .dropdown-content-li:first-child{
+    	margin-top: 20px;
+    }
+    
     .dropdown-content a:hover{
         color: #ecc34f;
     }
-    .dropdown:hover .dropdown-content {display: block;}
+    .dropdown-content1 {
+            display: none;
+            position: absolute;
+            z-index: 10;
+            text-align: center;
+            width: 100%;
+            height:70px;
+            left: 0;
+            top:50px;
+	    	background-color: rgb(226, 226, 226);
+    }
+    .dropdown-content1 a {
+            text-decoration: none;
+    }
+    .dropdown-content1-li{
+    	margin-bottom: 20px;
+    	height: 20px;
+    }
+    .dropdown-content1-li:first-child{
+    	margin-top: 20px;
+    }
+    
+    .dropdown-content1 a:hover{
+        color: #ecc34f;
+    }
+    
+    .dropbtn_hcon:hover .dropdown-content {display: block;}
+    .dropbtn_hcon:hover .dropdown-content1 {display: block;}
+    
 </style>
 </head>
 <body>
@@ -147,18 +197,18 @@
                             <li class="dropbtn"><a href="findCampSpotView.do">캠핑 스팟 찾기</a></li>
                             <li class="dropbtn"><a href="keepCampSpotView.do">찜한 스팟</a></li>
                             <li class="dropbtn"><a href="qnaView.do">문의하기</a></li>
-                            <li class="dropbtn"><a href="questMyPageView.do">마이 페이지</a>
+                            <li class="dropbtn_hcon"><a href="questMyPageView.do">마이 페이지</a>
                                 <ul class="dropdown-content">
-                                    <li><a href="guestInfoUpdateView.do">개인정보수정</a></li>
-                                    <li><a href="guestFavoriteUpdateView.do">취향정보수정</a></li>
-                                    <li><a href="guestBookListView.do">캠핑장예약내역</a></li>
+                                    <li class="dropdown-content-li"><a href="guestInfoUpdateView.do">개인정보수정</a></li>
+                                    <li class="dropdown-content-li"><a href="guestFavoriteUpdateView.do">취향정보수정</a></li>
+                                    <li class="dropdown-content-li"><a href="guestBookListView.do">캠핑장예약내역</a></li>
                                 </ul>
                             </li>
                             <li class="dropbtn"><a href="boardList.do">게시판</a></li>
                             <li class="dropbtn"><a href="logoutAction.do">로그아웃</a></li>
                 </ul>
             </div>
-            <div id="login">
+          <div id="login">
                 <table>
                     <tr>
                         <td><img src="../../../img/mainpage/사람 아이콘.png" style="width:32px;"></td>
@@ -179,31 +229,31 @@
                 <div class="dropdown">
                     <ul>
                         <li class="dropbtn"><a href="infoView.do">소개</a></li>
-                        <li class="dropbtn"><a href="#">캠핑장 등록</a>
+                        <li class="dropbtn_hcon"><a href="#">캠핑장 등록</a>
                             <ul class="dropdown-content">
-                                <li><a href="applySpotView.do">캠핑장 등록 신청</a></li>
-                                <li><a href="applySpotStatusView.do">캠핑장 신청/현황</a></li>
-                                <li><a href="applySpotListView.do">캠핑장 관리</a></li>
+                                <li class="dropdown-content-li"><a href="applySpotView.do">캠핑장 등록 신청</a></li>
+                                <li class="dropdown-content-li"><a href="applySpotStatusView.do">캠핑장 신청/현황</a></li>
+                                <li class="dropdown-content-li"><a href="applySpotListView.do">캠핑장 관리</a></li>
                             </ul>
                         </li>
                         <li class="dropbtn"><a href="manageBookListView.do">예약 관리</a></li>
                         <li class="dropbtn"><a href="qnaView.do">문의하기</a></li>
-                        <li class="dropbtn"><a href="#">마이 페이지</a>
-                            <ul class="dropdown-content">
-                                <li><a href="businessInfoUpdateView.do">사업자정보수정</a></li>
+                        <li class="dropbtn_hcon"><a href="#">마이 페이지</a>
+                            <ul class="dropdown-content1">
+                                <li class="dropdown-content-li"><a href="businessInfoUpdateView.do">사업자정보수정</a></li>
                             </ul>
                         </li>
                         <li class="dropbtn"><a href="logoutAction.do">로그아웃</a></li>
                     </ul>
                 </div>
-                <div id="login">
-                    <table>
-                        <tr>
-                            <td><img src="../../../img/mainpage/사람 아이콘.png" style="width:32px;"></td>
-                            <td>${sessionScope.id}님 로그인</td>
-                        </tr>
-                    </table>
-                </div>
+            <div id="login">
+                <table>
+                    <tr>
+                        <td><img src="../../../img/mainpage/사람 아이콘.png" style="width:32px;"></td>
+                        <td>${sessionScope.id}님 로그인</td>
+                    </tr>
+                </table>
+            </div>
 			</nav>
 		</c:when>
 
@@ -223,14 +273,14 @@
                         <li class="dropbtn"><a href="logoutAction.do">로그아웃</a></li>
                     </ul>
                 </div>
-                <div id="login">
-                    <table>
-                        <tr>
-                            <td><img src="../../../img/mainpage/사람 아이콘.png" style="width:32px;"></td>
-                            <td>${sessionScope.id}님 로그인</td>
-                        </tr>
-                    </table>
-                </div>
+            <div id="login">
+                <table>
+                    <tr>
+                        <td><img src="../../../img/mainpage/사람 아이콘.png" style="width:32px;"></td>
+                        <td>${sessionScope.id}님 로그인</td>
+                    </tr>
+                </table>
+            </div>
 			</nav>
 		</c:when>
 </c:choose>
