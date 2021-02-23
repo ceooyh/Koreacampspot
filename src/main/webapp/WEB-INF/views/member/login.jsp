@@ -126,7 +126,7 @@
         <section>
             <form action="loginAction.do">
                 <div id="headline_comment">
-                    <p id="headline_comment1">Wellcome!</p><p id="headline_comment2">코리아 캠프스팟에 오신것을 환영합니다.</p>
+                    <p id="headline_comment1">Welcome!</p><p id="headline_comment2">코리아 캠프스팟에 오신것을 환영합니다.</p>
                 </div>
                 <hr id="hr_line">
                 <div id="login_input_console">

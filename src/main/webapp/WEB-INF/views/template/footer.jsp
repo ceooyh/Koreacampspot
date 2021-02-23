@@ -30,12 +30,16 @@
         margin:0;
         padding: 0;
     }
+    footer{
+    	position: absolute;
+    	bottom: 0;
+    }
     footer div{
         width:100%;
         margin: 10px auto;
         padding: 5px;
         font-size: 14px;
-        background-color: rgb(46,46,46);
+        background-color: rgb(44,42,41);
         color:  rgb(215,215,215);
     }
     footer ul{

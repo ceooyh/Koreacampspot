@@ -8,6 +8,12 @@
 <script src="../../../lib/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 	$(function(){
+		/*비동의가 되어있을시 다음페이지로 넘어가지 못하도록함*/
+		$(".btn_next_level").click(function(){
+			$("")
+			if()
+		});
+		
 		/*동의 버튼 변경 구현*/
 		$("#guest_agree").click(function(){
 			if($(this).prop('checked')){
