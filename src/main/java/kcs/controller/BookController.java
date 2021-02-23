@@ -1,6 +1,8 @@
 package kcs.controller;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -32,9 +34,18 @@ public class BookController {
 				response.setContentType("text/html;charset=utf-8");
 				response.getWriter().write("<script>alert('로그인 후 이용 가능합니다.');location.href='loginView.do';</script>");
 			}else {
+				// 예약 내역
 				String id = (String) session.getAttribute("id");
 				List<BookDTO> list = service.getGuestBookList(id);
 				request.setAttribute("list", list);
+				
+				// 날짜 정보
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+				Calendar cal = Calendar.getInstance();
+				String today = sdf.format(cal.getTime());
+				request.setAttribute("today", today);
+				System.out.println(today);
+				
 				return "book/guest_book_list";
 			}
 		} catch (IOException e) {
