@@ -8,4 +8,7 @@
 		from book b, spot_area a, spot s
 		where b.sano = a.sano and a.sno = s.sno and b.id like #{id}
 	</select>
+	<delete id="guestBookCancel" parameterType="String">
+		delete from book where bno like #{bno}
+	</delete>
 </mapper>

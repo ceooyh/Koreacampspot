@@ -32,7 +32,7 @@
         margin: 0;
     }
     section{
-    	margin-bottom: 40px;
+    	margin-bottom: 100px;
     }
     #headline_comment{
          text-align: center;
@@ -138,10 +138,10 @@
                             <td><p class="inside_content">${dto.sname}</p></td>
                             <c:choose>
                             	<c:when test="${dto.status == 1}">
-		                            <td><p class="inside_content"><a id="status_click_button" href="guestBookCancel.do">예약취소</a></p></td>
+		                            <td><p class="inside_content"><a id="status_click_button" href="guestBookCancel.do?bno=${dto.bno}">예약취소</a></p></td>
                             	</c:when>
                             	<c:when test="${requestScope.today >= dto.start_date}">
-		                            <td><p class="inside_content"><a id="status_click_button" href="reviewWriteView.do">후기남기기</a></p></td>
+		                            <td><p class="inside_content"><a id="status_click_button" href="reviewWriteView.do?bno=${dto.bno}">후기남기기</a></p></td>
                             	</c:when>
                             </c:choose>
                         </tr>

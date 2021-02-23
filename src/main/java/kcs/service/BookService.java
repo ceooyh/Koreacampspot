@@ -22,5 +22,10 @@ public class BookService {
 	public List<BookDTO> getGuestBookList(String id) {
 		return mapper.getGuestBookList(id);
 	}
+
+	// 캠핑장 예약 취소 (일반 사용자 - 마이페이지) - 희원,20210223
+	public int guestBookCancel(String bno) {
+		return mapper.guestBookCancel(bno);
+	}
 	
 }

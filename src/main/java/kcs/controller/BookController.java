@@ -51,4 +51,28 @@ public class BookController {
 		}
 		return null;
 	}
+	
+	// 캠핑장 예약 취소 (일반 사용자 - 마이페이지) -희원,20210223
+	@RequestMapping("/guestBookCancel.do")
+	public String guestBookCancel(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+		String bno = request.getParameter("bno");
+		try {
+			if((String)session.getAttribute("id") == null) {
+				response.setContentType("text/html;charset=utf-8");
+				response.getWriter().write("<script>alert('로그인 후 이용 가능합니다.');location.href='loginView.do';</script>");
+			}else {
+				int count = service.guestBookCancel(bno);
+				if(count == 0) {
+					response.setContentType("text/html;charset=utf-8");
+					response.getWriter().write("<script>alert('페이지 오류');location.href='guestBookListView.do';</script>");
+				}else {
+					response.setContentType("text/html;charset=utf-8");
+					response.getWriter().write("<script>alert('해당 예약이 취소되었습니다.');location.href='guestBookListView.do';</script>");
+				}
+			}
+		} catch (IOException e) {
+			// TODO: handle exception
+		}
+		return null;
+	}
 }

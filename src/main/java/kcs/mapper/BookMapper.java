@@ -12,4 +12,8 @@ public interface BookMapper {
 	// 캠핑장 예약 내역 확인 (일반 사용자 - 마이페이지)
 	List<BookDTO> getGuestBookList(String id);
 
+	// 캠핑장 예약 취소 (일반 사용자 - 마이페이지)
+	int guestBookCancel(String bno);
+
 }
+
