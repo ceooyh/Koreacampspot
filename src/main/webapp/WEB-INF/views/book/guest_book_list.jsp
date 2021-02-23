@@ -81,6 +81,9 @@
         background-color: rgb(46,46,46);
         border:none;
     }
+    #reservation_headline_img{
+    	width: 100%;
+    }
 </style>
 <script src="../../../lib/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
@@ -89,7 +92,7 @@
 </head>
 <body>
 <jsp:include page="../template/header2.jsp" flush="false"></jsp:include>
-
+	<img src="../../../img/reservationpage/reservation.png" id="reservation_headline_img">
     <section>
         <p id="headline_comment">고객 예약테이블</p>
         <div id="reservation_table">
