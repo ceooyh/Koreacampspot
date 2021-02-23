@@ -42,4 +42,7 @@
 	<update id="businessInfoUpdate" parameterType="member">
 		update member set pass = #{pass}, name = #{name}, tel1 = #{tel1}, tel2 = #{tel2},  tel3 = #{tel3},  birth = #{birth},  email1 = #{email1},  email2 = #{email2},  gender = #{gender} where id like #{id}
 	</update>
+	<select id="getBusinessBno" parameterType="String" resultType="int">
+		select bno from business where id like #{id}
+	</select>
 </mapper>

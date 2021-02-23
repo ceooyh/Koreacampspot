@@ -50,6 +50,9 @@ public interface MemberMapper {
 	// 사업자 개인정보 수정 (member 테이블)
 	int businessInfoUpdate(MemberDTO memberDTO);
 
+	// business 테이블의 bno 가져오기
+	int getBusinessBno(String id);
+
 	
 }
 
