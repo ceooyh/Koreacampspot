@@ -10,8 +10,11 @@
 	$(function(){
 		/*비동의가 되어있을시 다음페이지로 넘어가지 못하도록함*/
 		$(".btn_next_level").click(function(){
-			$("")
-			if()
+			consle.log($("input:text[name=guest_agree]").val());
+			if($("input:text[name=guest_agree]").val() == 0){
+				alert("동의를 하지 않으시면 회원가입을 진행 할 수 없습니다.");
+				return false;
+			}
 		});
 		
 		/*동의 버튼 변경 구현*/
