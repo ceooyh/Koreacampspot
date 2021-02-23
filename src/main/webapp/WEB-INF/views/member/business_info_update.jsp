@@ -539,7 +539,7 @@ $(function(){
 <jsp:include page="../template/header.jsp" flush="false"></jsp:include>
     <section>
         <p id="headline">회원 수정 페이지</p>
-        <form action="businessInfoUpdateAction.do" method="GET">
+        <form action="businessInfoUpdateAction.do" method="GET" enctype="multipart/form-data">
         <div id="container">
                 <p id="inside_headline">회원님의 정보를 수정해주세요</p>
                 <div id="id_insert" class="part"><!--아이디 입력 부분 start-->

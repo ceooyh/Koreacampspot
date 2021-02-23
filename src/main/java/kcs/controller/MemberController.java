@@ -1,7 +1,7 @@
 package kcs.controller;
 
+import java.io.File;
 import java.io.IOException;
-import java.net.http.HttpRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.json.JSONObject;
+import org.apache.tomcat.util.http.fileupload.FileItem;
+import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
+import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
@@ -201,11 +203,35 @@ public class MemberController {
 				response.getWriter().write("<script>alert('페이지 오류');history.back();</script>");
 			}
 			else {
+				// bno 가져오기
+				int bno = service.getBusinessBno(id);
 				// 사업자 등록증 파일 업로드
 				List<MultipartFile> fileList = request.getFiles("file");
-				String path = "c:\\fileupload\\business\\" + id + "\\";
+				String path = "c:\\fileupload\\business\\"+ id+"\\";
 				ArrayList<BusinessFileDTO> fList = new ArrayList<BusinessFileDTO>();
 				
+				for(MultipartFile mf : fileList) {
+					String originalFileName = mf.getOriginalFilename();
+					long fileSize = mf.getSize();
+					if(fileSize == 0) continue;
+					System.out.println("originalfileName : " + originalFileName);
+					System.out.println("fileSize : " + fileSize);
+					System.out.println(mf.getContentType());
+					
+					// 파일 업로드
+					String safeFile = path + originalFileName;
+					fList.add(new BusinessFileDTO(bno, id, originalFileName));
+					File parentPath = new File(path);
+					if(parentPath.exists()) parentPath.mkdirs();	// 경로 생성
+					try {
+						mf.transferTo(new File(safeFile));
+						
+					} catch (IllegalStateException e) {
+						e.printStackTrace();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
 				response.setContentType("text/html;charset=utf-8");
 				response.getWriter().write("<script>alert('회원가입 완료!');location.href='loginView.do';</script>");
 			}

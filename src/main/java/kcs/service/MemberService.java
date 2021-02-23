@@ -87,4 +87,9 @@ public class MemberService {
 		if(count == 0) return 0;
 		else return mapper.businessInfoUpdate(memberDTO);
 	}
+
+	// business 테이블의 bno 가져오기
+	public int getBusinessBno(String id) {
+		return mapper.getBusinessBno(id);
+	}
 }
