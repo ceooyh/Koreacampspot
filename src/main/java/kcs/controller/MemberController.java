@@ -214,15 +214,15 @@ public class MemberController {
 					String originalFileName = mf.getOriginalFilename();
 					long fileSize = mf.getSize();
 					if(fileSize == 0) continue;
-					System.out.println("originalfileName : " + originalFileName);
-					System.out.println("fileSize : " + fileSize);
-					System.out.println(mf.getContentType());
+//					System.out.println("originalfileName : " + originalFileName);
+//					System.out.println("fileSize : " + fileSize);
+//					System.out.println(mf.getContentType());
 					
 					// 파일 업로드
 					String safeFile = path + originalFileName;
 					fList.add(new BusinessFileDTO(bno, id, originalFileName));
 					File parentPath = new File(path);
-					if(parentPath.exists()) parentPath.mkdirs();	// 경로 생성
+					if(!parentPath.exists()) parentPath.mkdirs();	// 경로 생성
 					try {
 						mf.transferTo(new File(safeFile));
 						
@@ -232,6 +232,9 @@ public class MemberController {
 						e.printStackTrace();
 					}
 				}
+				// 사업자 등록 파일 테이블에 추가
+				service.insertBusinessFile(fList);
+				
 				response.setContentType("text/html;charset=utf-8");
 				response.getWriter().write("<script>alert('회원가입 완료!');location.href='loginView.do';</script>");
 			}
@@ -368,7 +371,10 @@ public class MemberController {
 					response.setContentType("text/html;charset=utf-8");
 					response.getWriter().write("<script>alert('페이지 오류');history.back();</script>");
 				}else {
+					// 사업자 개인정보
 					request.setAttribute("dto", dto);
+					
+					// 사업자 등록정보
 					BusinessDTO businessDTO = service.selectBusinessDTO(id);
 					String[] business = businessDTO.getBusiness_no().split("-");
 					String business_no1 = business[0];
@@ -377,6 +383,11 @@ public class MemberController {
 					request.setAttribute("business_no1", business_no1);
 					request.setAttribute("business_no2", business_no2);
 					request.setAttribute("business_no3", business_no3);
+					
+					// 파일 로드 부분 - 희원,20210223
+					List<BusinessFileDTO> fList = service.getBusinessFile(id);
+					request.setAttribute("file", fList);
+					
 					return "member/business_info_update";
 				}
 			}
