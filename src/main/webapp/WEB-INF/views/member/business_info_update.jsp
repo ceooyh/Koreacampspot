@@ -536,7 +536,7 @@ $(function(){
 </script>
 </head>
 <body>
-<jsp:include page="../template/header.jsp" flush="false"></jsp:include>
+<jsp:include page="../template/header2.jsp" flush="false"></jsp:include>
     <section>
         <p id="headline">회원 수정 페이지</p>
         <form action="businessInfoUpdateAction.do" method="POST" enctype="multipart/form-data">

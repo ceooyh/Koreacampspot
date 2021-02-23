@@ -45,4 +45,10 @@
 	<select id="getBusinessBno" parameterType="String" resultType="int">
 		select bno from business where id like #{id}
 	</select>
+	<select id="getBusinessFile" parameterType="String" resultType="businessFile">
+		select * from business_file where id like #{id}
+	</select>
+	<insert id="insertBusinessFile" parameterType="businessFile">
+		insert into business_file (#{bno}, #{id}, #{fileName})
+	</insert>
 </mapper>
