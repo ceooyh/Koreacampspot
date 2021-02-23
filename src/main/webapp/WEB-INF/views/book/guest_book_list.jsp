@@ -9,23 +9,23 @@
 <style type="text/css">
     @font-face {
         font-family: '보통노토';
-        src: url(Font/NotoSansCJKkr-hinted/NotoSansCJKkr-Medium.otf);
+        src: url(../../../Font/NotoSansCJKkr-hinted/NotoSansCJKkr-Medium.otf);
     }
     @font-face {
         font-family: '굵은노토';
-        src: url(Font/NotoSansCJKkr-hinted/NotoSansCJKkr-Black.otf);
+        src: url(../../../Font/NotoSansCJKkr-hinted/NotoSansCJKkr-Black.otf);
     }
     @font-face {
         font-family: '검은고딕';
-        src: url(Font/검은고딕/OFL.txt);
+        src: url(../../../Font/검은고딕/OFL.txt);
     }
     @font-face {
         font-family: '보통로보';
-        src: url(Font/Roboto/Roboto-Medium.ttf);
+        src: url(../../../Font/Roboto/Roboto-Medium.ttf);
     }
     @font-face {
         font-family: '두꺼운로보';
-        src: url(Font/Roboto/Roboto-Bold.ttf);
+        src: url(../../../Font/Roboto/Roboto-Bold.ttf);
     }
     *{
         padding: 0;

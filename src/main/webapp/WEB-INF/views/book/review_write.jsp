@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>후기 작성 페이지</title>
 </head>
 <body>
 
