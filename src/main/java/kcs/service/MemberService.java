@@ -60,4 +60,31 @@ public class MemberService {
 		map.put("email2", email2);
 		return mapper.findPw(map);
 	}
+
+	// 회원정보 수정을 위한 회원정보 가져오기 (개인정보) - 희원,20210222
+	public MemberDTO selectMemberDTO(String id) {
+		return mapper.selectMemberDTO(id);
+	}
+
+	// 개인정보 수정 진행 (일반 사용자) - 희원,20210222
+	public int guestInfoUpdate(MemberDTO memberDTO) {
+		return mapper.guestInfoUpdate(memberDTO);
+	}
+
+	// 취향정보 수정 진행 (일반 사용자) - 희원,20210223
+	public int guestFavoriteUpdate(FavoriteDTO favoriteDTO) {
+		return mapper.guestFavoriteUpdate(favoriteDTO);
+	}
+
+	// 사업자정보 수정을 위한 사업자정보 가져오기 - 희원,20210223
+	public BusinessDTO selectBusinessDTO(String id) {
+		return mapper.selectBusinessDTO(id);
+	}
+
+	// 사업자 정보 수정 진행 - 희원,20210223
+	public int businessUpdate(MemberDTO memberDTO, BusinessDTO businessDTO) {
+		int count = mapper.businessUpdate(businessDTO);
+		if(count == 0) return 0;
+		else return mapper.businessInfoUpdate(memberDTO);
+	}
 }

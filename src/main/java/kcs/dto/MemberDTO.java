@@ -32,6 +32,23 @@ public class MemberDTO {
 		this.user_type = user_type;
 	}
 
+	
+	// 회원정보 수정용
+	public MemberDTO(String id, String pass, String name, String tel1, String tel2, String tel3, String birth,
+			String email1, String email2, int gender) {
+		super();
+		this.id = id;
+		this.pass = pass;
+		this.name = name;
+		this.tel1 = tel1;
+		this.tel2 = tel2;
+		this.tel3 = tel3;
+		this.birth = birth;
+		this.email1 = email1;
+		this.email2 = email2;
+		this.gender = gender;
+	}
+
 	public String getId() {
 		return id;
 	}
