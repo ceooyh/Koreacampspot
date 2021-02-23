@@ -31,6 +31,9 @@
         padding: 0;
         margin: 0;
     }
+    section{
+    	margin-bottom: 40px;
+    }
     #headline_comment{
          text-align: center;
         font-family: '굵은노토';
@@ -54,8 +57,8 @@
         padding-top: 10px;
         text-align: center;
         color: rgb(46,46,46);
-        border-top: 1px solid rgb(215, 215,215);
-        border-bottom: 1px solid rgb(215, 215,215);
+        border-top: 2px solid rgb(215, 215,215);
+        border-bottom: 2px solid rgb(215, 215,215);
         font-family: '굵은노토';
     }
     .inside_content{

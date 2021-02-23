@@ -4,59 +4,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>상단 메뉴바</title>
-<script src="lib/jquery-3.5.1.min.js"></script>
-<script type="text/javascript">
-	/*$(function(){
-		$("#navigation_bar #slide_bar").mouseover(function(){
-			console.log(3);
-			if($(this).children().hasClass("sub")){
-				$(this).children(".sub").slideDown();
-				$("#menu").stop().slideDown();
-			}
-		});
-		$("#navigation_bar #slide_bar").mouseleave(function(){
-			$(this).children(".sub").slideUp();
-			$("#menu").stop().slideUp();
-		});
-	});*/
-</script>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Header</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
 <style>
     @font-face {
-        font-family: '보통노토';
-        src: url(../../../Font/NotoSansCJKkr-hinted/NotoSansCJKkr-Medium.otf);
+            font-family: '보통노토';
+            src: url(../../../Font/NotoSansCJKkr-hinted/NotoSansCJKkr-Medium.otf);
     }
     @font-face {
-        font-family: '굵은노토';
-        src: url(../../../Font/NotoSansCJKkr-hinted/NotoSansCJKkr-Black.otf);
+            font-family: '굵은노토';
+            src: url(../../../Font/NotoSansCJKkr-hinted/NotoSansCJKkr-Black.otf);
     }
     @font-face {
-        font-family: '검은고딕';
-        src: url(../../../Font/검은고딕/OFL.txt);
+            font-family: '검은고딕';
+            src: url(../../../Font/검은고딕/OFL.txt);
     }
     @font-face {
-        font-family: '보통로보';
-        src: url(../../../Font/Roboto/Roboto-Medium.ttf);
+            font-family: '보통로보';
+            src: url(../../../Font/Roboto/Roboto-Medium.ttf);
     }
     @font-face {
-        font-family: '두꺼운로보';
-        src: url(../../../Font/Roboto/Roboto-Bold.ttf);
+            font-family: '두꺼운로보';
+            src: url(../../../Font/Roboto/Roboto-Bold.ttf);
     }
     * {
-        margin: 0;
-        padding: 0;
+            margin: 0;
+            padding: 0;
     }
     nav {
         width: 100%;
         position: fixed;
         text-align: center;
-        background-color: rgb(247, 243, 243);
+        background-color: rgb(226, 226, 226);
     }
-    nav h1{
+    #company_logo_text{
+        float: left;
+    }
+    
+    #headline_logo_text{
         margin-top: 20px;
         margin-left: 30px;
-        float: left;
         font-family: '굵은노토';
     }
     nav a {
@@ -65,160 +56,183 @@
         font-weight: bold;
         font-family: '보통노토';
     }
+    nav a:hover {
+	    color: #ecc34f;
+    }
     nav ul {
         list-style-type: none;
         margin: 5px auto;
         display: inline-block;
         text-align: center;
-        position: relative;
     }
-    nav li {
+    .dropbtn{
         list-style: none;
+        width: 130px;
         height: 60px;
-        margin: 0px 10px;
         text-align: center;
-        float: left;
         padding:20px 0px;
         box-sizing: border-box;
         display: inline-block;
+        position: relative;
     }
-    
     nav #login{
-        width: 200px;
+        font-family: '굵은노토';
+        width: 300px;
         float: right;
         margin-top: 15px;
+        margin-right: 30px;
+        color: rgb(46, 46, 46);
     }
-    
-    #menu_bar li{
-        display: inline-block;
-        box-sizing: border-box;
-        line-height: 30px;
-        padding: 15px;
-        text-align: center;
+    .dropbtn {
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
     }
-    
-    nav .sub {
-        display: none;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        z-index: 1;
-        width: 100%;
-	    background-color: rgb(247, 243, 243);
-	    padding: 0;
-	    margin: 0;
+
+    .dropdown {
+            display: inline-block;
     }
-    .slide_bar{
-   		width:200px;
-        padding: 10px 0px;
-        display: block;
+
+    .dropdown-content {
+            display: none;
+            position: absolute;
+            z-index: 1;
+            text-align: center;
+            width: 100%;
+            left: 0;
+            background-color: rgb(226, 226, 226);
     }
-    
-    .navigation_bar:hover .sub {display: block;}
-    
+    .dropdown-content a {
+            padding-top: 40px;
+            padding-bottom: 20px;
+            text-decoration: none;
+            display: block;
+    }
+    .dropdown-content a:hover{
+        color: #ecc34f;
+    }
+    .dropdown:hover .dropdown-content {display: block;}
 </style>
 </head>
 <body>
-    <c:choose>
-		<c:when test="${sessionScope.login == null}">
-			<nav>
-				<h1 id="title"><a id="title_companyLogo" href="indexView.do">CAMPSPOT</a></h1>
-				<ul id="menu_bar">
-					<li class="navigation_bar"><a href="infoView.do">소개</a></li>
-					<li class="navigation_bar"><a href="findCampSpotView.do">캠핑 스팟 찾기</a></li>
-					<li class="navigation_bar"><a href="keepCampSpotView.do">찜한 스팟</a></li>
-					<li class="navigation_bar"><a href="selectJoinView.do">회원가입</a></li>
-					<li class="navigation_bar"><a href="loginView.do">로그인</a></li>
-				</ul>
-			</nav>
-		</c:when>
+<c:choose>
+    <c:when test="${sessionScope.login == null}">
+        <nav>
+            <div id="company_logo_text">
+                <p id="headline_logo_text"><a id="title_companyLogo" href="indexView.do">KOREACAMPSPOT</a></p>
+            </div>
+            <div class="dropdown">
+                <ul>
+                    <li class="dropbtn"><a href="infoView.do">소개</a></li>
+                    <li class="dropbtn"><a href="findCampSpotView.do">캠핑 스팟 찾기</a></li>
+                    <li class="dropbtn"><a href="keepCampSpotView.do">찜한 스팟</a></li>
+                    <li class="dropbtn"><a href="selectJoinView.do">회원가입</a></li>
+                    <li class="dropbtn"><a href="loginView.do">로그인</a></li>
+                </ul>
+            </div>
+        </nav>
+    </c:when>
 
 
-		<c:when test="${sessionScope.user_type == 1}">
+
+    <c:when test="${sessionScope.user_type == 1}">
+        <nav>
+            <div id="company_logo_text">
+                <p id="headline_logo_text"><a id="title_companyLogo" href="indexView.do">KOREACAMPSPOT</a></p>
+            </div>
+            <div class="dropdown">
+                <ul>
+                            <li class="dropbtn"><a href="infoView.do">소개</a></li>
+                            <li class="dropbtn"><a href="findCampSpotView.do">캠핑 스팟 찾기</a></li>
+                            <li class="dropbtn"><a href="keepCampSpotView.do">찜한 스팟</a></li>
+                            <li class="dropbtn"><a href="qnaView.do">문의하기</a></li>
+                            <li class="dropbtn"><a href="questMyPageView.do">마이 페이지</a>
+                                <ul class="dropdown-content">
+                                    <li><a href="guestInfoUpdateView.do">개인정보수정</a></li>
+                                    <li><a href="guestFavoriteUpdateView.do">취향정보수정</a></li>
+                                    <li><a href="guestBookListView.do">캠핑장예약내역</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropbtn"><a href="boardList.do">게시판</a></li>
+                            <li class="dropbtn"><a href="logoutAction.do">로그아웃</a></li>
+                </ul>
+            </div>
+            <div id="login">
+                <table>
+                    <tr>
+                        <td><img src="../../../img/mainpage/사람 아이콘.png" style="width:32px;"></td>
+                        <td>${sessionScope.id}님 로그인</td>
+                    </tr>
+                </table>
+            </div>
+        </nav>
+    </c:when>
+
+
+
+    <c:when test="${sessionScope.user_type == 2}">
 			<nav>
-				<h1 id="title"><a id="title_companyLogo" href="indexView.do">CAMPSPOT</a></h1>
-                    <ul id="menu_bar">
-                        <li class="navigation_bar"><a href="infoView.do">소개</a></li>
-                        <li class="navigation_bar"><a href="findCampSpotView.do">캠핑 스팟 찾기</a></li>
-                        <li class="navigation_bar"><a href="keepCampSpotView.do">찜한 스팟</a></li>
-                        <li class="navigation_bar"><a href="qnaView.do">문의하기</a></li>
-                        <li class="navigation_bar"><a href="guestInfoUpdateView.do">마이 페이지</a>
-                            <ul class="sub">
-                                <li class="slide_bar"><a href="guestInfoUpdateView.do">개인정보 수정</a></li>
-                                <li class="slide_bar"><a href="guestFavoriteUpdateView.do">취향정보수정</a></li>
-                                <li class="slide_bar"><a href="guestBookListView.do">캠핑장 예약 내역</a></li>
+				<div id="company_logo_text">
+                    <p id="headline_logo_text"><a id="title_companyLogo" href="indexView.do">KOREACAMPSPOT</a></p>
+                </div>
+                <div class="dropdown">
+                    <ul>
+                        <li class="dropbtn"><a href="infoView.do">소개</a></li>
+                        <li class="dropbtn"><a href="#">캠핑장 등록</a>
+                            <ul class="dropdown-content">
+                                <li><a href="applySpotView.do">캠핑장 등록 신청</a></li>
+                                <li><a href="applySpotStatusView.do">캠핑장 신청/현황</a></li>
+                                <li><a href="applySpotListView.do">캠핑장 관리</a></li>
                             </ul>
                         </li>
-                        <li class="navigation_bar"><a href="boardList.do">게시판</a></li>
-                        <li class="navigation_bar"><a href="logoutAction.do">로그아웃</a></li>
+                        <li class="dropbtn"><a href="manageBookListView.do">예약 관리</a></li>
+                        <li class="dropbtn"><a href="qnaView.do">문의하기</a></li>
+                        <li class="dropbtn"><a href="#">마이 페이지</a>
+                            <ul class="dropdown-content">
+                                <li><a href="businessInfoUpdateView.do">사업자정보수정</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropbtn"><a href="logoutAction.do">로그아웃</a></li>
                     </ul>
+                </div>
                 <div id="login">
                     <table>
                         <tr>
-                            <td><img src="guest_login.png" style="width:32px;"></td>
+                            <td><img src="../../../img/mainpage/사람 아이콘.png" style="width:32px;"></td>
                             <td>${sessionScope.id}님 로그인</td>
                         </tr>
                     </table>
                 </div>
-                <div id="menu"></div>
 			</nav>
 		</c:when>
 
-		<c:when test="${sessionScope.user_type == 2}">
-			<nav >
-				<h1 id="title"><a id="title_companyLogo" href="indexView.do">CAMPSPOT</a></h1>
-				<ul id="menu_bar">
-					<li class="navigation_bar"><a href="infoView.do">소개</a></li>
-					<li class="navigation_bar"><a href="#">캠핑장 등록</a>
-						<ul class="sub">
-							<li class="slide_bar"><a href="applySpotView.do">캠핑장 등록 신청</a></li>
-							<li class="slide_bar"><a href="applySpotStatusView.do">캠핑장 신청/현황</a></li>
-							<li class="slide_bar"><a href="applySpotListView.do">캠핑장 관리</a></li>
-						</ul>
-					</li>
-					<li class="navigation_bar"><a href="manageBookListView.do">예약 관리</a></li>
-					<li class="navigation_bar"><a href="qnaView.do">문의하기</a></li>
-					<li>
-                        <a href="businessInfoUpdateView.do">마이 페이지</a>
-                        <ul class="sub">
-                            <li class="navigation_bar"><a href="businessInfoUpdateView.do">사업자정보수정</a></li>
-                        </ul>
-                    </li>
-					<li id="logout"><a href="logoutAction.do">로그아웃</a></li>
-				</ul>
-                <div id="login">
-                    <table>
-                        <tr>
-                            <td><img src="guest_login.png" style="width:32px;"></td>
-                            <td>${sessionScope.id}님 로그인</td>
-                        </tr>
-                    </table>
-                </div>
-                <div id="menu"></div>
-			</nav>
-		</c:when>
 
-		<c:when test="${sessionScope.user_type == 0}">
+
+        <c:when test="${sessionScope.user_type == 0}">
 			<nav>
-                <h1 id="title"><a href="indexView.do">CAMPSPOT</a></h1>
-				<ul id="menu_bar">
-					<li class="navigation_bar"><a href="applyManageListView.do">캠핑장 등록 허가</a></li>
-					<li class="navigation_bar"><a href="memberManageListView.do">회원 관리</a></li>
-					<li class="navigation_bar"><a href="qnaView.do">문의 관리</a></li>
-					<li class="navigation_bar"><a href="boardView.do">게시판</a></li>
-					<li class="navigation_bar"><a href="logoutAction.do">로그아웃</a></li>
-				</ul>
+                <div id="company_logo_text">
+                    <p id="headline_logo_text"><a id="title_companyLogo" href="indexView.do">KOREACAMPSPOT</a></p>
+                </div>
+                <div class="dropdown">
+                    <ul>
+                        <li class="dropbtn"><a href="applyManageListView.do">캠핑장 등록 허가</a></li>
+                        <li class="dropbtn"><a href="memberManageListView.do">회원 관리</a></li>
+                        <li class="dropbtn"><a href="qnaView.do">문의 관리</a></li>
+                        <li class="dropbtn"><a href="boardView.do">게시판</a></li>
+                        <li class="dropbtn"><a href="logoutAction.do">로그아웃</a></li>
+                    </ul>
+                </div>
                 <div id="login">
                     <table>
                         <tr>
-                            <td><img src="guest_login.png" style="width:32px;"></td>
+                            <td><img src="../../../img/mainpage/사람 아이콘.png" style="width:32px;"></td>
                             <td>${sessionScope.id}님 로그인</td>
                         </tr>
                     </table>
                 </div>
 			</nav>
 		</c:when>
-	</c:choose>
-
+</c:choose>
 </body>
 </html>
