@@ -113,7 +113,7 @@ public class BoardController {
 		// 첨부파일 등록 - 성진
 		List<MultipartFile> fileList = request.getFiles("file"); 
 		System.out.println(fileList.size());
-		String path = "c:\\fileupload\\"+writer+"\\";
+		String path = "c:\\fileupload\\board"+writer+"\\";
 		ArrayList<BoardFileDTO> fList = new ArrayList<BoardFileDTO>();
 		for(MultipartFile mf : fileList) {
 			String originalFileName = mf.getOriginalFilename();
@@ -178,7 +178,7 @@ public class BoardController {
 	public String fileDownload(HttpServletRequest request, HttpServletResponse response) {
 		String fileName = request.getParameter("file");
 		String writer = request.getParameter("writer");
-		String path = "c:\\fileupload\\"+writer+"\\"+fileName;
+		String path = "c:\\fileupload\\board\\"+writer+"\\"+fileName;
 
 		File file = new File(path);
 		try {
@@ -213,7 +213,7 @@ public class BoardController {
 	public String imageLoad(HttpServletRequest request, HttpServletResponse response) {
 		String fileName = request.getParameter("file");
 		String writer = request.getParameter("writer");
-		String path = "c:\\fileupload\\"+writer+"\\"+fileName;
+		String path = "c:\\fileupload\\board\\"+writer+"\\"+fileName;
 
 		File file = new File(path);
 		try {

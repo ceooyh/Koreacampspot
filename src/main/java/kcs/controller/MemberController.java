@@ -2,6 +2,7 @@ package kcs.controller;
 
 import java.io.IOException;
 import java.net.http.HttpRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,8 +13,10 @@ import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import kcs.dto.BusinessDTO;
+import kcs.dto.BusinessFileDTO;
 import kcs.dto.FavoriteDTO;
 import kcs.dto.MemberDTO;
 import kcs.service.MemberService;
@@ -170,7 +173,7 @@ public class MemberController {
 
 	// 사업자 회원가입 수행 - 희원,20210219
 	@RequestMapping("/businessJoinAction.do")
-	public String businessJoinAction(HttpServletRequest request, HttpServletResponse response) {
+	public String businessJoinAction(MultipartHttpServletRequest request, HttpServletResponse response) {
 		// 개인정보
 		String id = request.getParameter("id");
 		String pass = request.getParameter("pass");
@@ -199,8 +202,9 @@ public class MemberController {
 			}
 			else {
 				// 사업자 등록증 파일 업로드
-//				List<MultipartFile> fileList = 
-				
+				List<MultipartFile> fileList = request.getFiles("file");
+				String path = "c:\\fileupload\\business\\" + id + "\\";
+				ArrayList<BusinessFileDTO> fList = new ArrayList<BusinessFileDTO>();
 				
 				response.setContentType("text/html;charset=utf-8");
 				response.getWriter().write("<script>alert('회원가입 완료!');location.href='loginView.do';</script>");
