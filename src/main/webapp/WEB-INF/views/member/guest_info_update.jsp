@@ -505,7 +505,7 @@ $(function(){
 </script>
 </head>
 <body>
-<jsp:include page="../template/header.jsp" flush="false"></jsp:include>
+<jsp:include page="../template/header2.jsp" flush="false"></jsp:include>
     <section>
         <p id="headline">회원 정보 변경페이지</p>
         <form action="guestInfoUpdateAction.do" method="GET">
