@@ -1,53 +1,135 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>게시판 글쓰기 페이지</title>
-</head>
 <style>
+	@font-face {
+        font-family: '보통노토';
+        src: url(../../../Font/NotoSansCJKkr-hinted/NotoSansCJKkr-Medium.otf);
+    }
+    @font-face {
+        font-family: '굵은노토';
+        src: url(../../../Font/NotoSansCJKkr-hinted/NotoSansCJKkr-Black.otf);
+    }
+    @font-face {
+        font-family: '검은고딕';
+        src: url(../../../Font/검은고딕/OFL.txt);
+    }
+    @font-face {
+        font-family: '보통로보';
+        src: url(../../../Font/Roboto/Roboto-Medium.ttf);
+    }
+    @font-face {
+        font-family: '두꺼운로보';
+        src: url(../../../Font/Roboto/Roboto-Bold.ttf);
+    }
 	*{
 	    margin:0;
 	    padding:0;
+		
 	}
-    #container{
+    section{
         width: 1200px; 
         margin: 0 auto;
         padding: 20px;
-        border: 1px solid black;
-    }
-    h2{
+		position: relative;
+	}
+    #container > div{
+	    width: 100%;
+	    border-collapse: collapse;
+	    margin:0 auto;
+		position: relative;
+	}
+    #board_write_headline{
 	    border-top : 1px solid black;
 		border-bottom : 1px solid black;
 	    padding: 10px;
         margin: 10px;
+		text-align: center;
 	}
-    #container table{
-	    width: 100%;
-	    border-collapse: collapse;
-	    margin:0 auto;
+	#title_box{
+		padding: 10px;
+		display: flex;
 	}
-	#container th{
-	    width:150px !important;
-	    text-align: right;
-	    padding:5px;
+	
+	#title_head{
+		width: 5%;
+		margin: 0px;
+		font-family: '보통로보';
+		font-family: '보통노토';
 	}
-	#container td{
-	    padding:15px;
-	    height: 40px;
+	#writer_box{
+		padding: 10px;
+		display: flex;
 	}
+	#writer_head{
+		width: 5%;
+		margin: 0px;
+		font-family: '보통로보';
+		font-family: '보통노토';
+	}
+	#textarea_box{
+		padding: 10px;
+		display: flex;
+		font-family: '보통로보';
+		font-family: '보통노토';
+	}
+	#textarea_head{
+		width: 5%;
+		margin: 0px;
+		font-family: '보통로보';
+		font-family: '보통노토';
+	}
+    textarea {
+	    width:100%;
+	    height: 300px;
+	    resize: none;
+	    box-sizing: border-box;
+		margin-top: 10px;
+		border-radius: 15px;
+	}
+	
 	#container input{
 	    width: 100%;
 	    height:40px;
 	    box-sizing:border-box;
+		border-bottom: 1px solid gray;
 	    border-width : 1px;
 	    border-radius: 5px;
 	}
-    .btn{
+   
+	#textarea_box{
+		display: inline-block;
+	}
+	
+    .btn:hover{
+	    background-color: #282828;
+	    color:#FFFFFF
+	}
+	.plusminus_btn{
+		border-radius: 25%;
+		display: inline-block;
+		margin: 10px 0px 10px 0;
+		width: 30px;
+		height: 25px;
+		border: 1px solid  #416f94;
+	}
+	.plusminus_btn:hover{
+		background-color:  #2796f0;
+		color: white;
+	}
+
+	#board_write_page{
+		display: flex;
+		justify-content: flex-end;
+	}
+	.btn{
 	    text-decoration: none;
 	    width: 80px;
-	    display: inline-block;
 	    padding:5px 0px;
 	    font-weight:normal;
 	    border : 1px solid #585858;
@@ -57,26 +139,14 @@
 	    border-radius: 3px;
 	    background-color: #646262;
 	    color: white;
+		display: inline-block;
+		margin: 20px 10px 0px 10px;
 	}
-    textarea {
-	    width:100%;
-	    height: 300px;
-	    resize: none;
-	    box-sizing: border-box;
-	}
-	p input{
-	    width:80% !important;
-	}
-    .btn:hover{
-	    background-color: #282828;
-	    color:#FFFFFF
-	}
-
-	
 </style>
+</head>
 <body>
 
-<!-- jstl 주석처리 
+ <!-- jstl 주석처리  -->
 
 	<c:if test="${sessionScope.login == null || sessionScope.login == false  }">
 		<c:set var="page" target="${sessionScope }" value="${pageContext.request.requestURI}${pageContext.request.queryString }" property="resultPage" scope="session"/>
@@ -87,55 +157,51 @@
 		</script>
 	</c:if>
 	
- -->	
+	
 	
 	<jsp:include page="../template/header.jsp" flush="false"></jsp:include>
 	
  
-	<div id="container">
-		<h2>글쓰기 페이지</h2>
+	<section>
+		<h2 id="board_write_headline">글쓰기 페이지</h2>
 		<form action="boardWriteAction.do" enctype="multipart/form-data" method="post">
-			<table>
-				<tr>
-					<th>[제목]</th>
-					<td><input type="text" name="title"></td>
-				</tr>
-				<tr>
-					<th>[작성자]</th>
-					<td>
-						<input type="hidden" name="writer" value="${sessionScope.id }">
-						${sessionScope.id }
-					</td>
-				</tr>
-				<tr>
-					<th style="vertical-align: top;">[내용]</th><td><textarea name="content"></textarea></td>
-				</tr>
+			<div id="container">
+				<div id="title_box"><!--게시판 글쓰기 작성시작-->
+					<span id="title_head"><label for="title">[제목]</label></span>
+					<input type="text" id="title" name="title">
+				</div>
+				
+				<div id="writer_box"><!--게시판 작성자-->
+					<span id="writer_head"><label for="writer">[작성자]</label></span>
+					<span id="session_writer"><input type="hidden" id="writer" name="writer" value="${sessionScope.id }">
+						${sessionScope.id }</span>
+				</div>
+				
+				<div id="textarea_box"><!--게시판 내용-->
+					<span id="textarea_head"><label for="content">[내용]</label></span>
+					<span id="textarea_body"><textarea name="content" id="content"></textarea></span>
+				</div>
+	
+				<div id="file_form">
+					<span id="textarea_head">[첨부파일 등록]</span>
+						<div>
+							<p><button type="button" class="plusminus_btn" id="plus">+</button> <button type="button" class="plusminus_btn" id="minus">-</button></p>
+							<p><input type="file" name="file" id="file"></p>
+							<p><input type="file" name="file" id="file"></p>
+							<p><input type="file" name="file" id="file"></p>
+						</div>
+				</div>
 		
-		<!-- 첨부 파일 등록
-		 
-				<tr>
-					<td colspan="2" id="file_form">
-						<p><input type="file" name="file"> 
-						<button type="button" id="plus">+</button> <button type="button" id="minus">-</button></p>
-						<p><input type="file" name="file"></p>
-						<p><input type="file" name="file"></p>
-					</td>
-				</tr>
-		
-		-->
 		
 		<!-- 페이징 처리 --> 
-				<tr>
-					<th><a href="main.do?pageNo=${requestScope.pageNo == null ? 1 : requestScope.pageNo }" class="btn">목록보기</a></th>
-					<td style="text-align: right;">
-						<a href="javascript:history.back();" class="btn">뒤로가기</a>
+				<div id="board_write_page">
+					<span id="back_to_list_btn"><a href="boardList.do?pageNo=${requestScope.pageNo == null ? 1 : requestScope.pageNo }" class="btn">목록보기</a></span>
+					<span id="back_btn"><a href="javascript:history.back();" class="btn">뒤로가기</a></span>
 						<button class="btn">글쓰기</button>
-					</td>
-				</tr>
-			</table>
-		</form>
+					</div>
+		</form><!--폼 마감-->
 	</div>
-	
+	</section><!--섹션 마감-->
 	
 	<jsp:include page="../template/footer.jsp" flush="false"></jsp:include>
 

@@ -7,6 +7,26 @@
 <meta charset="UTF-8">
 <title>게시판 목록 페이지</title>
 <style>
+    @font-face {
+        font-family: '보통노토';
+        src: url(../../../Font/NotoSansCJKkr-hinted/NotoSansCJKkr-Medium.otf);
+    }
+    @font-face {
+        font-family: '굵은노토';
+        src: url(../../../Font/NotoSansCJKkr-hinted/NotoSansCJKkr-Black.otf);
+    }
+    @font-face {
+        font-family: '검은고딕';
+        src: url(../../../Font/검은고딕/OFL.txt);
+    }
+    @font-face {
+        font-family: '보통로보';
+        src: url(../../../Font/Roboto/Roboto-Medium.ttf);
+    }
+    @font-face {
+        font-family: '두꺼운로보';
+        src: url(../../../Font/Roboto/Roboto-Bold.ttf);
+    }
     *{
         margin:0;
         padding:0;
@@ -26,23 +46,24 @@
     #search{
         height: 30px;
         border-color: #e8e8e8;
-        color: #e8e8e8;
+        color: black;
         border-radius: 3px;
         border: 1px solid #c8c8c8;
     }
     #btn_search{
-        height: 30px;
+        width: 60px;
         background-color: #646262;
         font-weight: bold;
         font-size: 16px;
-        border: 1px solid #c8c8c8;
+        border : 1px solid #585858;
         border-radius: 3px;
         margin-left: 5px;
         padding: 5px;
-        color: white;
+        color: rgb(148, 144, 144);
     }
-    #main{
-        
+    #btn_search:hover{
+        background-color: #282828;
+	    color:#FFFFFF;
     }
     .board{
         width: 100%;
@@ -104,27 +125,27 @@
             <c:forEach var="dto" items="${requestScope.list }">
                 <tr>
                     <td>${dto.bno }</td>
-                    <td><a href="boardView.do?bno=${dto.bno }"> ${dto.title }</a></td>
+                    <td><a href="boardView.do?bno=${dto.bno }"> ${dto.title }</a><span id="comment_count">${dto.comment_count}</span></td>
                     <td>${dto.writer}</td>
-                    <td>${dto.bDate }</td>
+                    <td>${dto.bdate }</td>
                     <td>${dto.views }</td>
-                    <td>${dto.bLike }</td>
-                    <td>${dto.bHate }</td>
+                    <td>${dto.blike }</td>
+                    <td>${dto.bhate }</td>
                 </tr>
             </c:forEach>
             <tr>
                 <td colspan="7">
                         <div class="page_bar">
                             <c:if test="${pagging.previousPageGroup }">
-                                <a href="index.do?pageNo=${pagging.startPageOfPageGroup - 1 }">◀</a>
+                                <a href="boardList.do?pageNo=${pagging.startPageOfPageGroup - 1 }">◀</a>
                             </c:if>
                             <c:forEach var="i" begin="${pagging.startPageOfPageGroup}" 
                             end="${pagging.endPageOfPageGroup}">
-                                <a href="index.do?pageNo=${i }">${ i}</a>
+                                <a href="boardList.do?pageNo=${i }">${ i}</a>
                             </c:forEach>
                         
                             <c:if test="${pagging.nextPageGroup }">
-                                <a href="index.do?pageNo=${pagging.endPageOfPageGroup + 1 }">▶</a>
+                                <a href="boardList.do?pageNo=${pagging.endPageOfPageGroup + 1 }">▶</a>
                             </c:if>
                             <a href="boardWriteView.do" class="btn_writer">글쓰기</a>
                         </div>

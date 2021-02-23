@@ -32,14 +32,15 @@
 	src: url(../../../Font/Roboto/Roboto-Bold.ttf);
 }
 
-#container {
+#board_detail_container {
 	width: 1200px;
 	margin: 0 auto;
 	padding: 20px;
 	border: 1px solid black;
+	position: ;
 }
 
-h2 {
+#board_detail_headline {
 	border-top: 2px solid black;
 	border-bottom: 2px solid black;
 	padding: 10px;
@@ -49,26 +50,30 @@ h2 {
 .part_select {
 	height: 50px;
 	font-family: '굵은노토';
-	border: 1px solid red;
 	box-sizing: border-box;
 	padding-bottom: 10px;
 	padding-left: 5px;
 }
+.part_select > span{
+	padding-left: 20px;
+}
+#part_selecrt_title > #board_title{
+	margin-left: 18px;
+}
 
 .part_select_content {
 	font-family: '굵은노토';
-	border: 1px solid lime;
 	padding-left: 5px;
 }
 
-label {
+#header_label{
 	font-family: '굵은노토';
 	font-size: 13px;
 	color: rgb(46, 46, 46);
 	font-weight: bold;
 }
 
-span {
+.board_detail_span {
 	display: inline-block;
 	border-bottom: 2px solid rgb(231, 231, 231);
 	color: rgb(46, 46, 46);
@@ -88,6 +93,9 @@ span {
 	border: 2px solid rgb(231, 231, 231);
 	margin: 5px 0px;
 }
+.btn{
+	margin: 40px 0;
+}
 
 .modify {
 	width: 80px;
@@ -97,9 +105,9 @@ span {
 	font-size: 14px;
 	text-align: center;
 	text-decoration: none;
-	background-color: #646262;
+	background-color: #1a56fa;
 	color: white;
-	border: 1px solid #585858;
+	border: 1px solid #00817b;
 	box-sizing: border-box;
 	display: inline-block;
 	border-radius: 3px;
@@ -114,23 +122,154 @@ span {
 	font-size: 14px;
 	text-align: center;
 	text-decoration: none;
-	background-color: #646262;
+	background-color: #1a56fa;
 	color: white;
-	border: 1px solid #585858;
+	border: 1px solid #00817b;
 	box-sizing: border-box;
 	display: inline-block;
 	border-radius: 3px;
 	float: left;
 }
+.modify:hover{
+	background-color: #5eb3f8;
+	border: 1px solid #04cac0;
+	color: #3004a7
+}
+.move:hover{
+	background-color: #5eb3f8;
+	border: 1px solid #04cac0;
+	color: #3004a7
+    
+}
+#board_like_hate{
+	clear: both;
+	display: inline-block;
+	margin: 0 100px;
+}
+.part_like_hate{
+	float: left;
+}
+#comment_write_box{
+	clear: both;
+}
+#comment_headline{
+	margin: 15px 0;
+	font-family: '보통노토';
+}
 
-.btn:hover {
-	background-color: #282828;
-	color: #FFFFFF
+#comment_insert, .length{
+	text-align: right;
+}
+
+#comment_insert_btn{
+	background-color: #faea0f;
+	color: rgb(0, 0, 0);
+	width: 80px;
+	margin-right: 5px;
+	font-weight: normal;
+	font-size: 14px;
+	text-align: center;
+	border: 1px solid #f1d901;
+	box-sizing: border-box;
+	border-radius: 3px;
+}
+#comment_insert_btn:hover{
+	background-color: #a19707;
+	color: #faea0f;
+	border: 1px solid #5e5401;
+}
+
+#comment_area{
+	margin: 0;
+	width: 1200px;
+	height: 200px;
+	resize: none;
+	font-size: 25px;
+	padding: 10px;
+	box-sizing: border-box;
+}
+.comment_list{
+	width: 100%;
+	box-sizing: border-box;
+	margin: 0 auto;
+	position: relative;
+}
+#part_comment_box{
+	width: 1200px;
+	text-align: center;
+	border: 1px solid black;
+	box-sizing: border-box;
+	border-collapse: collapse;
+}
+.part_comment_content{
+	width: 1200px;
+}
+.part_comment_view{
+	width: 300px;
+	box-sizing: border-box;
+}
+#part_comment_view_content{
+	width: 500px;
+	height: 150px;
+	position: relative;
+	font-size: 20px;
+	font-weight: normal;
+	text-align: left;
+}
+#list_border{
+	border: 1px solid black;
 }
 </style>
+<script src="../../../lib/jquery-3.5.1.min.js"></script>
+<script>
+	$(function(){
+		$(".comment_form textarea").keyup(function() {
+			$(this).next().text($(this).val().length+"/500");
+		});
+		$(".comment_form button").click(function(){
+			var data = $("#comment").serialize();
+			$.ajax({
+				url : "insertComment.do",
+				data : data,
+				method:"get",
+				success:function(d){
+					alert("댓글 등록 성공 : " + d);
+					location.reload();	
+				}
+			});
+		});
+		$(".btn_like_hate").click(function(){
+			// 0 - like, 1 - hate
+			// bno;
+			var obj = $(this);
+			d = "bno=${requestScope.board.bno}&mode="+$(this).index();
+			console.log(d);
+			$.ajax({
+				url : "plusLikeHate.do",
+				data : d,
+				method : "get",
+				success:function(result){
+					result = result.trim();
+					if(result == "false"){
+						alert("로그인후 이용하실 수 있습니다.");
+						location.href="loginView.do";
+					}
+					console.log(result, result.length);
+					$(obj).children("span").html(result);
+					
+				},
+				error : function(request, status, error) {
+					alert(request.responseText.trim());
+					location.href="loginView.do";
+					
+				}
+			});
+		});
+	});
+</script>
 </head>
 <body>
-	<!-- jstl 주석처리 
+	<!-- jstl 주석처리  -->
     
         <c:if test="${sessionScope.login == null || sessionScope.login == false  }">
             <c:set var="page" target="${sessionScope }" value="${pageContext.request.requestURI}${pageContext.request.queryString }" property="resultPage" scope="session"/>
@@ -141,133 +280,130 @@ span {
             </script>
         </c:if>
     
-    -->
+   
 	<jsp:include page="../template/header.jsp" flush="false"></jsp:include>
 
-	<div id="container">
-		<section>
-			<h2>게시판 페이지</h2>
+	<div id="board_detail_container">
+		<section id="">
+			<h2 id="board_detail_headline">게시판 페이지</h2>
 
-			<div class="part_select">
-				<label for="title">[제목]</label> <span>${requestScope.board.title }</span>
+			<div class="part_select" id="part_selecrt_title">
+				<span class="board_detail_span">[제목]</span><span class="board_detail_span" id="board_title">${requestScope.board.title }</span>
 			</div>
 			<div class="part_select">
-				<label for="#">[작성자]</label> <span>${requestScope.board.writer }</span>
+				<span class="board_detail_span" id="board_writer">[작성자]</span><span>${requestScope.board.writer }</span>
 			</div>
 			<div class="part_select">
-				<label for="bdate">[작성일]</label> <span>${requestScope.board.bdate }</span>
+				<span class="board_detail_span" id="board_date">[작성일]</span><span>${requestScope.board.bdate }</span>
 			</div>
 			<div class="part_select">
-				<label for="views">[조회수]</label> <span>${requestScope.board.views }</span>
+				<span class="board_detail_span" id="board_views">[조회수]</span><span>${requestScope.board.views }</span>
 			</div>
 			<div class="part_select_content">
-				<label for="content">[내용]</label> <span id="content_view">${requestScope.board.content }</span>
+				<span class="board_detail_span" id="board_content">[내용]</span><span class="board_detail_span" id="content_view">${requestScope.board.content }</span>
 			</div>
-		</section>
-
-
-
-		<!--
-                    <tr>
-                        <td colspan="2">
-                            [첨부파일]<br>
-                            <c:forEach var="f" items=" ">
-                                <a href=" ">
-                                ${f.fileName}</a><br>
-                                <c:if test="">
-                                    <img src="">
+	
+            <div id="file_list">
+		 	       <span class="board_detail_span">[첨부파일]</span><br>
+                            <c:forEach var="f" items="${requestScope.file }">
+                                <a href="fileDownload.do?writer=${f.writer }&file=${f.fileName}"><span>${f.fileName}</span></a><br>
+                                
+								<c:if test="${f.type =='image' }">
+                                    <img src="imageLoad.do?writer=${f.writer }&file=${f.fileName}&type=${f.type}">
                                 </c:if>
                                 <c:if test="${f.type =='video' }">
-                                    <video controls src=" "></video>
+                                    <video controls src="imageLoad.do?writer=${f.writer }&file=${f.fileName}&type=${f.type}"></video>
                                 </c:if>
                             </c:forEach>
-                        </td>
-                    </tr>
-    -->
-
-		<!--
+			</div>
+			<hr>
+			<div class="btn">
+				<a href="#" class="move">이전글</a> <a href="javascript:history.back();"
+					class="move">목록보기</a> <a href="#" class="move">다음글</a>
+			</div>
+	
+			<div class="btn">
+				<c:if test="${sessionScope.id == requestScope.board.writer }">
+					<a href="deleteBoard.do?bno=${requestScope.board.bno }"
+						class="modify">삭제</a>
+					<a href="#" class="modify">수정</a>
+				</c:if>
+			</div>
+		</section>
+		
+		<section id="board_like_hate">
                 <div class="part_like_hate">
-                    <a href="#" >
+                    <a href="#" class="btn_like_hate">
                         <img src=" ">
-                        <span>${requestScope.board.blike }</span>
+                        <span class="board_detail_span">${requestScope.board.blike }</span>
                     </a>
                 </div>  
                 <div class="part_like_hate">
-                    <a href="#" >
+                    <a href="#" class="btn_like_hate">
                         <img src=" ">
-                        <span>${requestScope.board.bhate }</span>
+                        <span class="board_detail_span">${requestScope.board.bhate }</span>
                     </a>
                 </div>  
-     -->
+		</section>		
+		<hr>
+		<section id="comment_write_box">
+        	<c:if test="${sessionScope.login == true}">
+            	<div class="comment_form">
+                	<form id="comment">
+						<p id="comment_headline">[댓글을 작성해주세요]</p>
+                    	<input type="hidden" name="bno" value="${requestScope.board.bno }">
+                    	<input type="hidden" name="writer" value="${sessionScope.id }">
+                    	<span class="writer">${sessionScope.id }</span>
+                        <textarea id="comment_area" name="content" maxlength="500"></textarea>
+                        <p class="length">0/500</p>
+                        <p id="comment_insert"><button id="comment_insert_btn" type="button">등록</button></p>
+                    </form>							
+                </div>
+            </c:if>
+		</section>
+		
+		<hr>
 
-		<!--
-
-               <c:if test="${sessionScope.login == true}">
-                    <tr>
-                        <td colspan="2">
-                            <div class="comment_form">
-                                <form id="comment">
-                                <input type="hidden" name="bno" value="${requestScope.board.bno }">
-                                <input type="hidden" name="writer" value="${sessionScope.id }">
-                                <span class="writer">${sessionScope.id }</span>
-                                <textarea name="content" maxlength="500"></textarea>
-                                <p class="length">0/500</p><hr>
-                                <p style="text-align: right;"><button type="button">등록</button></p>
-                                </form>							
-                            </div>
-                        </td>
-                    </tr>
-                        </c:if>
-         -->
-
-
-		<div class="btn">
-			<a href="#" class="move">이전글</a> <a href="javascript:history.back();"
-				class="move">목록보기</a> <a href="#" class="move">다음글</a>
-		</div>
-
-		<div class="btn">
-			<c:if test="${sessionScope.id == requestScope.board.writer }">
-				<a href="deleteBoard.do?bno=${requestScope.board.bno }"
-					class="modify">삭제</a>
-				<a href="#" class="modify">수정</a>
-			</c:if>
-		</div>
-		<!--             
-        <section>
-            <c:forEach var="comment" items="${requestScope.comment }">
-                <table class="comment">	
-                       <div class="part_comment">
-                            <label for="writer">[작성자]</label>
-                        </div>              
-                        <div class="part_comment">
-                            <label for="cdate">[작성일]</label>
-                        </div></td>               
-                        <div class="part_comment">
-                            <label for="clilke">[좋아요]</label>
-                        </div></td>           
-                        <div class="part_comment">
-                            <label for="bhate">[싫어요]</label>
-                        </div></td>      
-                        <div class="part_comment_view">
-                                <span>${comment.writer }</span>
-                        </div></td>               
-                        <div class="part_comment_view">
-                                <span>${comment.cdate }</span>
-                        </div></td>               
-                        <div class="part_comment_view">
-                                <span><a href="" >${comment.clike }</a></span>
-                        </div></td>               
-                        <div class="part_comment_view">
-                                <span><a href="">${comment.chate }</a></span> 
-                        </div></td>               
-                        <div class="part_comment_view">
-                                <span>${comment.content }</span>
-                        </div></td>               
-            </c:forEach>
-        </section>            
-     -->
-
+		<section class="comment_list">
+			<table id="part_comment_box">
+				<tr>
+					<th class="part_comment">
+						<label id="board_detail_label" for="writer">[작성자]</label>
+					</th>              
+					<th class="part_comment">
+						<label  for="cdate">[작성일]</label>
+					</th>             
+					<th class="part_comment_content">
+						<label for="content">[댓글]</label>
+					</th>           
+					<th class="part_comment">
+						<label for="clilke">[좋아요]</label>
+					</th>           
+					<th class="part_comment">
+						<label for="bhate">[싫어요]</label>
+					</th>
+				</tr>      
+				<c:forEach var="comment" items="${requestScope.commentList}">
+				<tr id="list_border">
+					<td class="part_comment_view">
+						<span id="#comment_writer">${comment.writer}</span>
+					</td>               
+					<td class="part_comment_view">
+						<span id="#comment_cdate">${comment.cdate}</span>
+					</td>               
+					<td class="part_comment_view" id="part_comment_view_content">
+						<span id="#comment_content">${comment.content}</span>
+					</td>               
+					<td class="part_comment_view">
+						<span id="#comment_clike"><a href="">${comment.clike}</a></span>
+					</td>
+					<td class="part_comment_view">
+						<span id="#comment_chate"><a href="">${comment.chate}</a></span> 
+					</td>
+				</tr>	              
+				</c:forEach>
+			</table>
+		</section>		
 	</div>
 	<jsp:include page="../template/footer.jsp" flush="false"></jsp:include>
 
