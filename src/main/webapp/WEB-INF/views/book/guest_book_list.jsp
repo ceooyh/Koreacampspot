@@ -48,7 +48,7 @@
         border-collapse: collapse;
     }
     .head_name{
-        width: 200px;
+        width: 150px;
         height: 30px;
         font-size: 14px;
         padding-top: 10px;
@@ -59,7 +59,7 @@
         font-family: '굵은노토';
     }
     .inside_content{
-        width: 200px;
+        width: 150px;
         height: 60px;
         padding-top: 30px;
         font-size: 14px;
@@ -67,6 +67,19 @@
         color: rgb(46,46,46);
         border-bottom: 1px solid rgb(215, 215,215);
         font-family: '굵은노토';
+    }
+    #status_click_button{
+        text-decoration: none;
+        color: rgb(46,46,46);
+        background-color: rgb(233, 233, 233);
+        border: 1px solid rgb(46,46,46);
+        border-radius: 5px;
+        padding:4px ;
+    }
+    #status_click_button:hover{
+        color: rgb(233, 233, 233);
+        background-color: rgb(46,46,46);
+        border:none;
     }
 </style>
 <script src="../../../lib/jquery-3.5.1.min.js"></script>
@@ -92,6 +105,7 @@
                         <th><p class="head_name">예약 상태</p></th>
                         <th><p class="head_name">가격</p></th>
                         <th><p class="head_name">캠핑장 이름</p></th>
+                        <th><p class="head_name"></p></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -106,6 +120,14 @@
                             <td><p class="inside_content">${dto.status}</p></td>
                             <td><p class="inside_content">${dto.price}</p></td>
                             <td><p class="inside_content">${dto.sname}</p></td>
+                            <c:choose>
+                            	<c:when test="${dto.status == 1}">
+		                            <td><p class="inside_content"><a id="status_click_button" href="guestBookCancel.do">예약취소</a></p></td>
+                            	</c:when>
+                            	<c:when test="${dto.today > dto.start_date}">
+		                            <td><p class="inside_content"><a id="status_click_button" href="reviewWriteView.do">후기남기기</a></p></td>
+                            	</c:when>
+                            </c:choose>
                         </tr>
                     </c:forEach>
                 </tbody>
