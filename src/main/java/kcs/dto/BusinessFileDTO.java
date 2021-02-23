@@ -5,12 +5,12 @@ import org.apache.ibatis.type.Alias;
 @Alias("businessFile")
 public class BusinessFileDTO {
 	private int bno;
-	private String writer;
+	private String id;
 	private String fileName;
-	public BusinessFileDTO(int bno, String writer, String fileName) {
+	public BusinessFileDTO(int bno, String id, String fileName) {
 		super();
 		this.bno = bno;
-		this.writer = writer;
+		this.id = id;
 		this.fileName = fileName;
 	}
 	public int getBno() {
@@ -19,11 +19,11 @@ public class BusinessFileDTO {
 	public void setBno(int bno) {
 		this.bno = bno;
 	}
-	public String getWriter() {
-		return writer;
+	public String getid() {
+		return id;
 	}
-	public void setWriter(String writer) {
-		this.writer = writer;
+	public void setid(String id) {
+		this.id = id;
 	}
 	public String getFileName() {
 		return fileName;

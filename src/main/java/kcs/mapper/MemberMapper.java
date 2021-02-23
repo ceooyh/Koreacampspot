@@ -61,6 +61,9 @@ public interface MemberMapper {
 	// 사업자 등록 파일 테이블에 추가
 	void insertBusinessFile(BusinessFileDTO businessFileDTO);
 
+	// 사업자 등록 파일 테이블에서 수정
+	void updateBusinessFile(BusinessFileDTO businessFileDTO);
+
 	
 }
 

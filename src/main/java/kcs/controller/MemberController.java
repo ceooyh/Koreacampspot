@@ -398,7 +398,7 @@ public class MemberController {
 	
 	// 사업자 정보 수정 진행 - 희원,20210223
 	@RequestMapping("/businessInfoUpdateAction.do")
-	public String businessInfoUpdateAction(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+	public String businessInfoUpdateAction(MultipartHttpServletRequest request, HttpServletResponse response, HttpSession session) {
 		// 개인정보
 		String id = request.getParameter("id");
 		String pass = request.getParameter("pass");
@@ -426,6 +426,46 @@ public class MemberController {
 				response.getWriter().write("<script>alert('페이지 오류');history.back();</script>");
 			}
 			else {
+				// bno 가져오기
+				int bno = service.getBusinessBno(id);
+				// 사업자 등록증 파일 업로드
+				List<MultipartFile> fileList = request.getFiles("file");
+				String path = "c:\\fileupload\\business\\"+ id+"\\";
+				ArrayList<BusinessFileDTO> fList = new ArrayList<BusinessFileDTO>();
+				
+				for(MultipartFile mf : fileList) {
+					String originalFileName = mf.getOriginalFilename();
+					long fileSize = mf.getSize();
+					if(fileSize == 0) continue;
+//					System.out.println("originalfileName : " + originalFileName);
+//					System.out.println("fileSize : " + fileSize);
+//					System.out.println(mf.getContentType());
+					
+					// 파일 업로드
+					String safeFile = path + originalFileName;
+					fList.add(new BusinessFileDTO(bno, id, originalFileName));
+					File parentPath = new File(path);
+					if(!parentPath.exists()) parentPath.mkdirs();	// 경로 생성
+					try {
+						mf.transferTo(new File(safeFile));
+						
+					} catch (IllegalStateException e) {
+						e.printStackTrace();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+				// 기존 파일 등록 정보가 있는지 검사
+				List<BusinessFileDTO> prevfList = service.getBusinessFile(id);
+				if(prevfList.size() == 0 || prevfList == null) {
+					System.out.println("tlqkf");
+					// 등록 정보가 없다면 사업자 등록 파일 테이블에 추가
+					service.insertBusinessFile(fList);
+				}else {
+					// 등록 정보가 있다면 사업자 등록 파일 테이블에서 수정
+					service.updateBusinessFile(fList);
+				}
+				
 				response.setContentType("text/html;charset=utf-8");
 				response.getWriter().write("<script>alert('사업자 정보 수정 완료!');location.href='indexView.do';</script>");
 			}

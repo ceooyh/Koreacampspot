@@ -106,4 +106,10 @@ public class MemberService {
 		for(int i=0; i<fList.size(); i++)
 			mapper.insertBusinessFile(fList.get(i));
 	}
+
+	// 사업자 등록 파일 테이블에서 수정 - 희원,20210223
+	public void updateBusinessFile(ArrayList<BusinessFileDTO> fList) {
+		for(int i=0; i<fList.size(); i++)
+			mapper.updateBusinessFile(fList.get(i));
+	}
 }
