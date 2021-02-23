@@ -11,4 +11,10 @@
 	<delete id="guestBookCancel" parameterType="String">
 		delete from book where bno like #{bno}
 	</delete>
+	<insert id="insertReview" parameterType="review">
+		insert into review (SEQ_REVIEW_RNO.NEXTVAL, #{sno}, #{id}, #{star}, #{content}, sysdate)
+	</insert>
+	<insert id="insertReviewFile" parameterType="reviewFile">
+		insert into review_file (SEQ_REVIEW_FILE_RFNO.NEXTVAL, #{sno}, #{writer}, #{fileName})
+	</insert>
 </mapper>
