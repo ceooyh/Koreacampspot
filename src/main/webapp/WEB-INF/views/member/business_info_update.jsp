@@ -624,7 +624,10 @@ $(function(){
 
 
                 <div id="file_upload" class="part">
-                    <span><input type="file" name="file" id="file"><label for="file">파일업로드</label></span>
+                   	<span><input type="file" name="file" id="file"><label for="file">파일업로드</label></span>
+                	<c:forEach var="f" items="${requestScope.file }">
+                    	<span><input type="file" name="file" id="file" value="${f.fileName}"><label for="file">파일업로드</label></span>
+                	</c:forEach>
                 </div>    
 
 
