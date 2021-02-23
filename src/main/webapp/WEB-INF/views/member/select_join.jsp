@@ -5,6 +5,25 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입 검수 페이지</title>
+<script src="../../../lib/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		/*동의 버튼 변경 구현*/
+		$("#guest_agree").click(function(){
+			if($(this).prop('checked')){
+				$('input[type="checkbox"][name="guest_agree"]').prop('checked',false);
+			 	$(this).prop('checked',true);
+			}
+		});
+		/*비동의 버튼 변경 구현*/
+		$("#guest_nonagree").click(function(){
+			if($(this).prop('checked')){
+				$('input[type="checkbox"][name="guest_agree"]').prop('checked',false);
+			 	$(this).prop('checked',true);
+			}
+		});
+	});
+</script>
 <style>
     @font-face {
         font-family: '보통노토';
@@ -33,6 +52,7 @@
     section{
         width: 700px;
         margin: 30px auto;
+        margin-bottom: 60px;
     }
     #headline_select_join{
         padding:10px;
@@ -130,13 +150,13 @@
             </div>
             <div id="select_join_agree_btn">
                 <span class="agree_select"><input id="guest_agree" type="checkbox" value="1" class="checkbox" name="guest_agree"><label for="guest_agree" class="label"><span>동의</span></label></span>
-                <span class="agree_select"><input id="guest_nonagree" type="checkbox" value="0" class="checkbox"  name="guest_nonagree"><label for="guest_nonagree" class="label"><span>비동의</span></label></span>
+                <span class="agree_select"><input id="guest_nonagree" type="checkbox" value="0" class="checkbox"  name="guest_agree"><label for="guest_nonagree" class="label"><span>비동의</span></label></span>
             </div>
         </div>
         
         <div id="choise_btn_div">
-            <a class="btn_next_level" href="businessJoinView.do">사업자 가입이동</a>
-            <a class="btn_next_level" href="guestJoinView.do">일반 가입자 이동</a>
+            <a class="btn_next_level" id="business_join_btn" href="businessJoinView.do">사업자 가입이동</a>
+            <a class="btn_next_level" id="guest_join_btn" href="guestJoinView.do">일반 가입자 이동</a>
         </div>
     </section>
 	<jsp:include page="../template/footer.jsp" flush="false"></jsp:include>
