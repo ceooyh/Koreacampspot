@@ -33,6 +33,7 @@
     }
     section{
         width: 100%;
+        margin: 0 auto;
     }
     #headline_comment{
         text-align: center;
@@ -124,7 +125,7 @@
                             	<c:when test="${dto.status == 1}">
 		                            <td><p class="inside_content"><a id="status_click_button" href="guestBookCancel.do">예약취소</a></p></td>
                             	</c:when>
-                            	<c:when test="${dto.today > dto.start_date}">
+                            	<c:when test="${requestScope.today >= dto.start_date}">
 		                            <td><p class="inside_content"><a id="status_click_button" href="reviewWriteView.do">후기남기기</a></p></td>
                             	</c:when>
                             </c:choose>
