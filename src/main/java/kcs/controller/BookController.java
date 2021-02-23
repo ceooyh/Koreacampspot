@@ -44,7 +44,6 @@ public class BookController {
 				Calendar cal = Calendar.getInstance();
 				String today = sdf.format(cal.getTime());
 				request.setAttribute("today", today);
-				System.out.println(today);
 				
 				return "book/guest_book_list";
 			}
