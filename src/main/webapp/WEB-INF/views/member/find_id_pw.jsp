@@ -8,7 +8,7 @@
 </head>
 <body>
 <body>
-<jsp:include page="../template/header.jsp" flush="false"></jsp:include>
+<jsp:include page="../template/header2.jsp" flush="false"></jsp:include>
     <div id="container">
 		<form action="findIdPw.do" method="GET">
             <table>
