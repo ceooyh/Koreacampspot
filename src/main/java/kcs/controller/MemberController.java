@@ -214,9 +214,6 @@ public class MemberController {
 					String originalFileName = mf.getOriginalFilename();
 					long fileSize = mf.getSize();
 					if(fileSize == 0) continue;
-//					System.out.println("originalfileName : " + originalFileName);
-//					System.out.println("fileSize : " + fileSize);
-//					System.out.println(mf.getContentType());
 					
 					// 파일 업로드
 					String safeFile = path + originalFileName;
@@ -410,13 +407,12 @@ public class MemberController {
 		String email1 = request.getParameter("email");
 		String email2 = request.getParameter("host");
 		int gender = Integer.parseInt(request.getParameter("gender"));
-		int user_type = 2;
 		
 		// 사업자 등록 정보
 		String business_no = request.getParameter("business_no1") + "-" + request.getParameter("business_no2") + "-" + request.getParameter("business_no3");
 		
 		// 회원테이블, 사업자등록정보테이블 수정 
-		MemberDTO memberDTO = new MemberDTO(id, pass, name, tel1, tel2, tel3, birth, email1, email2, gender, user_type);
+		MemberDTO memberDTO = new MemberDTO(id, pass, name, tel1, tel2, tel3, birth, email1, email2, gender);
 		BusinessDTO businessDTO = new BusinessDTO(id, business_no);
 		
 		try {
@@ -426,22 +422,18 @@ public class MemberController {
 				response.getWriter().write("<script>alert('페이지 오류');history.back();</script>");
 			}
 			else {
-				// bno 가져오기
-				int bno = service.getBusinessBno(id);
 				// 사업자 등록증 파일 업로드
 				List<MultipartFile> fileList = request.getFiles("file");
 				String path = "c:\\fileupload\\business\\"+ id+"\\";
 				ArrayList<BusinessFileDTO> fList = new ArrayList<BusinessFileDTO>();
-				
 				for(MultipartFile mf : fileList) {
 					String originalFileName = mf.getOriginalFilename();
 					long fileSize = mf.getSize();
 					if(fileSize == 0) continue;
-//					System.out.println("originalfileName : " + originalFileName);
-//					System.out.println("fileSize : " + fileSize);
-//					System.out.println(mf.getContentType());
 					
 					// 파일 업로드
+					// bno 가져오기
+					int bno = service.getBusinessBno(id);
 					String safeFile = path + originalFileName;
 					fList.add(new BusinessFileDTO(bno, id, originalFileName));
 					File parentPath = new File(path);
@@ -455,15 +447,18 @@ public class MemberController {
 						e.printStackTrace();
 					}
 				}
-				// 기존 파일 등록 정보가 있는지 검사
-				List<BusinessFileDTO> prevfList = service.getBusinessFile(id);
-				if(prevfList.size() == 0 || prevfList == null) {
-					System.out.println("tlqkf");
-					// 등록 정보가 없다면 사업자 등록 파일 테이블에 추가
-					service.insertBusinessFile(fList);
-				}else {
-					// 등록 정보가 있다면 사업자 등록 파일 테이블에서 수정
-					service.updateBusinessFile(fList);
+
+				// 사업자 등록증 수정
+				if(fList.size() != 0) {
+					// 파일을 업로드 한 경우
+					List<BusinessFileDTO> prevfList = service.getBusinessFile(id);
+					if(prevfList.size() == 0 || prevfList == null) {
+						// 등록 파일이 없다면 사업자 등록 파일 테이블에 추가
+						service.insertBusinessFile(fList);
+					}else {
+						// 등록 파일이 있다면 사업자 등록 파일 테이블에서 수정
+						service.updateBusinessFile(fList);
+					}
 				}
 				
 				response.setContentType("text/html;charset=utf-8");
