@@ -61,7 +61,7 @@
     section{
         width: 700px;
         margin: 30px auto;
-        margin-bottom: 60px;
+        margin-bottom: 110px;
     }
     #headline_select_join{
         padding:10px;
