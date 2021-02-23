@@ -143,18 +143,20 @@
 </style>
 <script src="../../../lib/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
-    $(".star").on('click',function(){
-        var idx = $(this).index();
-    $(".star").removeClass("on");
-        for(var i=0; i<=idx; i++){
-        $(".star").eq(i).addClass("on");
-        }
-    });
+	$(function(){
+	    $(".star").on('click',function(){
+	        var idx = $(this).index();
+	    $(".star").removeClass("on");
+	        for(var i=0; i<=idx; i++){
+	        $(".star").eq(i).addClass("on");
+	        }
+	    });
+	})
 </script>
 </head>
 <body>
  <section>
-        <form action="sendQnA.do">
+        <form action="reviewWriteAction.do">
             <div id="container">
                         <p id="headline">캠핑장후기</p><!--헤드라인-->
 
@@ -165,7 +167,7 @@
 
                         <div class="part_select">
                             <p><label for="title">[제목]</label></p>
-                            <sapn class="input_span"><input type="text" name="title" id="title" placeholder="제목을 입력해주세요"></sapn>
+                            <span class="input_span"><input type="text" name="title" id="title" placeholder="제목을 입력해주세요"></span>
                         </div><!--제목 입력란-->
 
                         <div class="part_select">

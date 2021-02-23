@@ -75,4 +75,10 @@ public class BookController {
 		}
 		return null;
 	}
+	
+	// 캠핑장 후기 작성 페이지로 이동 - 희원,20210223
+    @RequestMapping("/reviewWriteView.do")
+    public String reviewWriteView() {
+        return "book/review_write";
+    }
 }
