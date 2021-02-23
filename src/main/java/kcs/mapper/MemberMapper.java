@@ -32,6 +32,24 @@ public interface MemberMapper {
 	// 비밀번호 찾기
 	String findPw(HashMap<String, Object> map);
 
+	// 회원정보 수정을 위한 회원정보 가져오기 (개인정보)
+	MemberDTO selectMemberDTO(String id);
+
+	// 개인정보 수정 진행 (일반 사용자)
+	int guestInfoUpdate(MemberDTO memberDTO);
+
+	// 취향정보 수정 진행 (일반 사용자)
+	int guestFavoriteUpdate(FavoriteDTO favoriteDTO);
+
+	// 사업자정보 수정을 위한 사업자정보 가져오기
+	BusinessDTO selectBusinessDTO(String id);
+
+	// 사업자 정보 수정 (business 테이블)
+	int businessUpdate(BusinessDTO businessDTO);
+
+	// 사업자 개인정보 수정 (member 테이블)
+	int businessInfoUpdate(MemberDTO memberDTO);
+
 	
 }
 

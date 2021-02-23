@@ -252,8 +252,9 @@
 </head>
 <body>
     <div id="container">
-	<form action="">
+	<form action="guestFavoriteUpdateAction.do">
         <p id="headline">취향 정보 수정</p>
+       		<input type="text" id="hidden_id_value" name="id" value="${requestScope.id}">
             <div id="camp_type" class="category">
                 <p id="category_1">캠핑의 종류</p>
                 <input type="checkbox" id="camping" name="camping" value="#일반야영장"><label for="camping"><span>#일반야영장</span></label>

@@ -385,7 +385,8 @@
 					"id" : $('#id').val() 
 				}, 
 				success: function(data){ 
-					if(data){ 
+					data = data === "true";
+					if(data == true){ 
 						alert("아이디 사용가능");
 					} else{ 
 						alert("아이디가 중복되었습니다.");
@@ -502,6 +503,11 @@
 	   			};
 	    		$("#btn_submit").submit();
 	    	});
+		
+		// 이전버튼 클릭시 이전 페이지로 이동
+		$(".btn_before").click(function(){
+			location.href="selectJoinView.do";
+		});
 	});
 </script>
 </head>
@@ -596,7 +602,7 @@
 
                 <div id="btn_continer">
                     <button class="btn_submit">다음</button>
-                    <button class="btn_before">이전</button>
+                    <button type="button" class="btn_before">이전</button>
                 </div>
             </div>
         </form><!--폼마지막 줄-->

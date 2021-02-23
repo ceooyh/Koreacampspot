@@ -82,12 +82,11 @@ public class MemberController {
 	public String idCheckAction(HttpServletRequest request, HttpServletResponse response) {
 		String id = request.getParameter("id");
 		String idCheck = service.idCheck(id);
-		System.out.println(idCheck);
 		try {
 			if(idCheck == null) 	
-				response.getWriter().write("true");	// 아이디 사용 가능
+				response.getWriter().print("true");	// 아이디 사용 가능
 			else	
-				response.getWriter().write("false");	// 아이디 중복
+				response.getWriter().print("false");	// 아이디 중복
 		} catch (IOException e) {
 		}
 		return null;
@@ -109,6 +108,7 @@ public class MemberController {
 		int gender = Integer.parseInt(request.getParameter("gender"));
 		int user_type = 1;
 		
+		// 회원 테이블에 추가
 		MemberDTO memberDTO = new MemberDTO(id, pass, name, tel1, tel2, tel3, birth, email1, email2, gender, user_type);
 		try {
 			int count = service.guestJoin(memberDTO);
@@ -141,7 +141,7 @@ public class MemberController {
 		// 취향 정보 - 희원,20210222
 		String stag = request.getParameter("stag");
 		
-		// 회원테이블, 취향테이블에 추가
+		// 취향테이블에 추가
 		FavoriteDTO favoriteDTO = new FavoriteDTO(id, stag);
 		
 		try {
@@ -176,7 +176,7 @@ public class MemberController {
 		String tel1 = request.getParameter("tel1");
 		String tel2 = request.getParameter("tel2");
 		String tel3 = request.getParameter("tel3");
-		String birth = request.getParameter("birth");
+		String birth = request.getParameter("year") + "-" + request.getParameter("month") + "-" + request.getParameter("day");
 		String email1 = request.getParameter("email");
 		String email2 = request.getParameter("host");
 		int gender = Integer.parseInt(request.getParameter("gender"));
@@ -228,4 +228,176 @@ public class MemberController {
 		}
 		return null;
 	}
+	
+	// 개인정보 수정 페이지로 이동 (일반 사용자) - 희원,20210222
+	@RequestMapping("/guestInfoUpdateView.do")
+	public String guestInfoUpdateView(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+		try {
+			String id = (String) session.getAttribute("id");
+			if(id == null) {
+				response.setContentType("text/html;charset=utf-8");
+				response.getWriter().write("<script>alert('로그인 후 이용 가능합니다.');location.href='loginView.do';</script>");
+			}else {
+				MemberDTO dto = service.selectMemberDTO(id);
+				if(dto == null) {
+					response.setContentType("text/html;charset=utf-8");
+					response.getWriter().write("<script>alert('페이지 오류');history.back();</script>");
+				}else {
+					request.setAttribute("dto", dto);
+					return "member/guest_info_update";
+				}
+			}
+		} catch (IOException e) {
+		}
+		return null;
+	}
+	
+	// 개인정보 수정 진행 (일반 사용자) - 희원,20210222
+	@RequestMapping("/guestInfoUpdateAction.do")
+	public String guestInfoUpdateAction(HttpServletRequest request, HttpServletResponse response) {
+		// 개인정보
+		String id = request.getParameter("id");
+		String pass = request.getParameter("pass");
+		String name = request.getParameter("name");
+		String tel1 = request.getParameter("tel1");
+		String tel2 = request.getParameter("tel2");
+		String tel3 = request.getParameter("tel3");
+		String birth = request.getParameter("year") + "-" + request.getParameter("month") + "-" + request.getParameter("day");
+		String email1 = request.getParameter("email");
+		String email2 = request.getParameter("host");
+		int gender = Integer.parseInt(request.getParameter("gender"));
+		
+		// 개인정보 수정
+		MemberDTO memberDTO = new MemberDTO(id, pass, name, tel1, tel2, tel3, birth, email1, email2, gender);
+		try {
+			int count = service.guestInfoUpdate(memberDTO);
+			if(count == 0) {
+				response.setContentType("text/html;charset=utf-8");
+				response.getWriter().write("<script>alert('페이지 오류');history.back();</script>");
+			}
+			else {
+				response.setContentType("text/html;charset=utf-8");
+				response.getWriter().write("<script>alert('회원(개인)정보 수정 완료!');location.href='guestFavoriteUpdateView.do';</script>");
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	// 취향정보 수정 페이지로 이동 (일반 사용자) - 희원,20210223
+	@RequestMapping("/guestFavoriteUpdateView.do")
+	public String guestFavoriteUpdateView() {
+		return "member/guest_favorite_update";
+	}
+	
+	// 취향정보 수정 진행 (일반 사용자) - 희원,20210223
+	@RequestMapping("/guestFavoriteUpdateAction.do")
+	public String guestFavoriteUpdateAction(HttpServletRequest request, HttpServletResponse response) {
+		String id = request.getParameter("id");
+		// 취향 정보
+		String stag = request.getParameter("stag");
+		
+		// 취향 정보 수정
+		FavoriteDTO favoriteDTO = new FavoriteDTO(id, stag);
+		
+		try {
+			int count = service.guestFavoriteUpdate(favoriteDTO);
+			if(count == 0) {
+				response.setContentType("text/html;charset=utf-8");
+				response.getWriter().write("<script>alert('페이지 오류');history.back();</script>");
+			}
+			else {
+				response.setContentType("text/html;charset=utf-8");
+				response.getWriter().write("<script>alert('취향정보 수정 완료!');location.href='indexView.do';</script>");
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	// 사업자정보 수정 페이지로 이동 - 희원,20210223
+	@RequestMapping("/businessInfoUpdateView.do")
+	public String businessInfoUpdateView(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+		try {
+			String id = (String) session.getAttribute("id");
+			if(id == null) {
+				response.setContentType("text/html;charset=utf-8");
+				response.getWriter().write("<script>alert('로그인 후 이용 가능합니다.');location.href='loginView.do';</script>");
+			}else {
+				MemberDTO dto = service.selectMemberDTO(id);
+				
+				if(dto == null) {
+					response.setContentType("text/html;charset=utf-8");
+					response.getWriter().write("<script>alert('페이지 오류');history.back();</script>");
+				}else {
+					request.setAttribute("dto", dto);
+					BusinessDTO businessDTO = service.selectBusinessDTO(id);
+					String[] business = businessDTO.getBusiness_no().split("-");
+					String business_no1 = business[0];
+					String business_no2 = business[1];
+					String business_no3 = business[2];
+					request.setAttribute("business_no1", business_no1);
+					request.setAttribute("business_no2", business_no2);
+					request.setAttribute("business_no3", business_no3);
+					return "member/business_info_update";
+				}
+			}
+		} catch (IOException e) {
+		}
+		return null;
+	}
+	
+	// 사업자 정보 수정 진행 - 희원,20210223
+	@RequestMapping("/businessInfoUpdateAction.do")
+	public String businessInfoUpdateAction(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+		// 개인정보
+		String id = request.getParameter("id");
+		String pass = request.getParameter("pass");
+		String name = request.getParameter("name");
+		String tel1 = request.getParameter("tel1");
+		String tel2 = request.getParameter("tel2");
+		String tel3 = request.getParameter("tel3");
+		String birth = request.getParameter("year") + "-" + request.getParameter("month") + "-" + request.getParameter("day");
+		String email1 = request.getParameter("email");
+		String email2 = request.getParameter("host");
+		int gender = Integer.parseInt(request.getParameter("gender"));
+		int user_type = 2;
+		
+		// 사업자 등록 정보
+		String business_no = request.getParameter("business_no1") + "-" + request.getParameter("business_no2") + "-" + request.getParameter("business_no3");
+		
+		// 회원테이블, 사업자등록정보테이블 수정 
+		MemberDTO memberDTO = new MemberDTO(id, pass, name, tel1, tel2, tel3, birth, email1, email2, gender, user_type);
+		BusinessDTO businessDTO = new BusinessDTO(id, business_no);
+		
+		try {
+			int count = service.businessUpdate(memberDTO, businessDTO);
+			if(count == 0) {
+				response.setContentType("text/html;charset=utf-8");
+				response.getWriter().write("<script>alert('페이지 오류');history.back();</script>");
+			}
+			else {
+				response.setContentType("text/html;charset=utf-8");
+				response.getWriter().write("<script>alert('사업자 정보 수정 완료!');location.href='indexView.do';</script>");
+			}
+		} catch (IOException e) {
+		}
+		return null;
+	}
+		
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
