@@ -49,6 +49,9 @@
 		select * from business_file where id like #{id}
 	</select>
 	<insert id="insertBusinessFile" parameterType="businessFile">
-		insert into business_file (#{bno}, #{id}, #{fileName})
+		insert into business_file values(#{bno}, #{id}, #{fileName})
 	</insert>
+	<update id="updateBusinessFile" parameterType="businessFile">
+		update business_file set fileName = #{fileName} where id like #{id}
+	</update>
 </mapper>

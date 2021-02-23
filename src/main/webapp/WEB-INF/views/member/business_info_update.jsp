@@ -578,8 +578,8 @@ $(function(){
                     <span class="guest_insert"><label for="tel2">전화번호</label></span><br>
                         <span><select name="tel1" id="tel1">
                                 <option value="010" <c:if test="${requestScope.dto.tel1 eq '010'}">checked</c:if>>010</option>
-                                <option value="019" <c:if test="${requestScope.dto.tel1 eq '019'}">checked</c:if>>019</option>
-                                <option value="011" <c:if test="${requestScope.dto.tel1 eq '011'}">checked</c:if>>011</option>
+                                <option value="019" <c:if test="${requestScope.dto.tel2 eq '019'}">checked</c:if>>019</option>
+                                <option value="011" <c:if test="${requestScope.dto.tel3 eq '011'}">checked</c:if>>011</option>
                             </select></span>
                             <span><input class="guest_input2" type="text" value="${requestScope.dto.tel2 }" name="tel2" id="tel2" class="tel" placeholder="0000"></span>
                             <span><input class="guest_input2" type="text" value="${requestScope.dto.tel3 }" name="tel3" id="tel3" class="tel" placeholder="0000"></span>
@@ -625,11 +625,7 @@ $(function(){
 
                 <div id="file_upload" class="part">
                    	<span><input type="file" name="file" id="file"><label for="file">파일업로드</label></span>
-                	<c:forEach var="f" items="${requestScope.file }">
-                    	<span><input type="file" name="file" id="file" value="${f.fileName}"><label for="file">파일업로드</label></span>
-                	</c:forEach>
                 </div>    
-
 
                 <div id="btn_continer">
                     <button class="btn_submit">정보수정</button>
