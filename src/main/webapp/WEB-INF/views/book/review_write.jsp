@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+	<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -9,23 +9,23 @@
 <style type="text/css">
 	@font-face {
         font-family: '보통노토';
-        src: url(../../../Font/NotoSansCJKkr-hinted/NotoSansCJKkr-Medium.otf);
+        src: url(Font/NotoSansCJKkr-hinted/NotoSansCJKkr-Medium.otf);
     }
     @font-face {
         font-family: '굵은노토';
-        src: url(../../../Font/NotoSansCJKkr-hinted/NotoSansCJKkr-Black.otf);
+        src: url(Font/NotoSansCJKkr-hinted/NotoSansCJKkr-Black.otf);
     }
     @font-face {
         font-family: '검은고딕';
-        src: url(../../../Font/검은고딕/OFL.txt);
+        src: url(Font/검은고딕/OFL.txt);
     }
     @font-face {
         font-family: '보통로보';
-        src: url(../../../Font/Roboto/Roboto-Medium.ttf);
+        src: url(Font/Roboto/Roboto-Medium.ttf);
     }
     @font-face {
         font-family: '두꺼운로보';
-        src: url(../../../Font/Roboto/Roboto-Bold.ttf);
+        src: url(Font/Roboto/Roboto-Bold.ttf);
     }
     *{
         padding: 0;
@@ -119,17 +119,44 @@
     textarea::placeholder{
         color: rgb(216, 215, 215);
     }
+    .star-box{
+        float: right;
+    }
+    .star{
+        display:inline-block;
+        width: 30px;height: 60px;
+        cursor: pointer;
+    }
+    .star_left{
+        background: url(http://gahyun.wooga.kr/main/img/testImg/star.png) no-repeat 0 0; 
+        background-size: 60px; 
+        margin-right: -3px;
+    }
+    .star_right{
+        background: url(http://gahyun.wooga.kr/main/img/testImg/star.png) no-repeat -30px 0; 
+        background-size: 60px; 
+        margin-left: -3px;
+    }
+    .star.on{
+        background-image: url(http://gahyun.wooga.kr/main/img/testImg/star_on.png);
+    }
 </style>
 <script src="../../../lib/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
-
+    $(".star").on('click',function(){
+        var idx = $(this).index();
+    $(".star").removeClass("on");
+        for(var i=0; i<=idx; i++){
+        $(".star").eq(i).addClass("on");
+        }
+    });
 </script>
 </head>
 <body>
  <section>
         <form action="sendQnA.do">
             <div id="container">
-                        <p id="headline">고객문의사항</p><!--헤드라인-->
+                        <p id="headline">캠핑장후기</p><!--헤드라인-->
 
                         <div class="part_select">
                             <p><label for="#">[아이디]</label></p>
@@ -142,7 +169,23 @@
                         </div><!--제목 입력란-->
 
                         <div class="part_select">
-                            <p id="qna_content_title"><label for="title">[후기내용]</label></p>
+                            <span id="qna_content_title"><label for="title">[후기내용]</label></span>
+                            <div class="star-box">
+                                <span class="star star_left"></span>
+                                <span class="star star_right"></span>
+                              
+                                <span class="star star_left"></span>
+                                <span class="star star_right"></span>
+                              
+                                <span class="star star_left"></span>
+                                <span class="star star_right"></span>
+                              
+                               <span class="star star_left"></span>
+                               <span class="star star_right"></span>
+                              
+                               <span class="star star_left"></span>
+                               <span class="star star_right"></span>
+                              </div>
                             <textarea name="content" id="content" cols="95" rows="20" placeholder="문의내용을 입력하세요"></textarea>
                             <div id="btn_submit">
                             <button id="btn" type="submit">전송</button>

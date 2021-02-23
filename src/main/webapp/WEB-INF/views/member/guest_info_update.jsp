@@ -33,7 +33,7 @@
     }
     section{
         width: 100%;
-        margin: 0 auto;
+        margin: 30px auto;
     }
     #headline{
         font-size: 30px;
