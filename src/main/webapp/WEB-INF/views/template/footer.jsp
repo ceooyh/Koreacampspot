@@ -31,73 +31,64 @@
         padding: 0;
     }
     footer{
-    	position: absolute;
-    	bottom: 0;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background-color: rgb(44, 42, 41);
+        height: 150px;
+        box-sizing: border-box;
     }
-    footer div{
-        width:100%;
-        margin: 10px auto;
-        padding: 5px;
-        font-size: 14px;
-        background-color: rgb(44,42,41);
-        color:  rgb(215,215,215);
+    #top_footer{
+        color: rgb(241, 241, 241);
+        width: 80%;
+        margin: 0 auto;
     }
-    footer ul{
-        list-style: none;
-    }
-    footer #bold{
+    #bottom_footer{
         font-family: '보통노토';
-        font-size: 14px;
-        
+        color: rgb(196, 196, 196);
+        width: 80%;
+        height: 10%;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 13px;
     }
-    footer .copyright{
+    #top_footer{
+        width: 80%;
+        height: 10%;
+        margin: 0 auto;
+        margin-top: 20px;
+        text-align: center;
+    }
+    #top_footer a{
         font-family: '보통노토';
-        list-style: none;
-    }
-    footer #size{
-        font-size: 14px;
-    }
-    footer #copy{
-        font-family: '보통노토';
-        font-size: 12px;
-    }
-    footer #name{
-        font-size: 25px;
-        font-family: '두꺼운로보';
-        color:  rgb(233, 233, 233);
+        color: rgb(196, 196, 196);
         text-decoration: none;
+        width: 20%;
+        font-size: 15px;
+        padding: 0 30px;
     }
-    footer hr{
-        margin: 5px 0px;
+    #footer_hyperline{
+        border: 1px solid rgb(241, 241, 241);
+        margin: 20px 0;
     }
-    footer #black{
-        font-family: '굵은노토';
-        color:  rgb(233,233,233);
-        text-decoration: none;
+    #top_footer a:hover{
+        text-decoration: underline;
     }
 </style>
 </head>
 <body>
-	<footer>
+    <footer>
         <div id="footer_container">
-            <div>
-                <ul>
-                    <a href="/" id="name">(주)KoreaCampSpot</a>
-                    <hr>
-                    <li>사업자등록번호 505-05-50505</li>
-                    <li>Contact : 032-505-0505</li>
-                    <li>E-mail : ceojsqpqp@naver.com </li>
-                    <li>주소: 경기도 김포시 통진읍 담터로 50번길 505</li>
-                    <li>통신판매업신고번호 : 2021-김포통진-0505호</li>
-                    <hr>
-                </ul>
-            </div>  
-            <div class="copyright">
-                <ul>
-                    <li id="copy">
-                        © 2021 Hotels505.com은 505 Group 계열사입니다. All rights reserved. Copyright ⓒ <a href="#" id="black"> All rights reserved.</a> Designed by <a href="#" id="black"> KCS </a>
-                    </li>
-                </ul>
+            <div id="top_footer">
+                <a class="footer_movetag" href="index.do">HOME</a>
+                <a class="footer_movetag" href="infoView.do">INTRODUCE</a>
+                <a class="footer_movetag" href="findCampSpotView.do">CAMPINGSPOT</a>
+                <a class="footer_movetag" href="selectJoinView.do">JOINUS</a>
+            </div>
+            <hr id="footer_hyperline">
+            <div id="bottom_footer">
+                <span class="top_footer_span">© 2021 koreacampspot은 505 Group 계열사입니다. All rights reserved. Copyright ⓒ</span><br>
+                <span class="top_footer_span">All rights reserved. Designed by KCS</span>
             </div>
         </div>
     </footer>
