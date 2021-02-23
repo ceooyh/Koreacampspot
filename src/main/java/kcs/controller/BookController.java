@@ -1,7 +1,16 @@
 package kcs.controller;
 
-import org.springframework.stereotype.Controller;
+import java.io.IOException;
+import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import kcs.dto.BookDTO;
 import kcs.service.BookService;
 
 @Controller
@@ -14,4 +23,22 @@ public class BookController {
 	}
 
 	// 여기부터 RequestMapping 처리
+	
+	// 캠핑장 예약 내역 확인 (일반 사용자 - 마이페이지) - 희원,20210223
+	@RequestMapping("guestBookListView.do")
+	public String guestBookListView(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+		try {
+			if((String)session.getAttribute("id") == null) {
+				response.setContentType("text/html;charset=utf-8");
+				response.getWriter().write("<script>alert('로그인 후 이용 가능합니다.');location.href='loginView.do';</script>");
+			}else {
+				String id = (String) session.getAttribute("id");
+				List<BookDTO> list = service.getGuestBookList(id);
+				request.setAttribute("list", list);
+				return "book/guest_book_list";
+			}
+		} catch (IOException e) {
+		}
+		return null;
+	}
 }

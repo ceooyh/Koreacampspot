@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kcs.mapper.BookMapper">
+	<select id="getGuestBookList" parameterType="String" resultType="book">
+		select b.bno, b.start_date, b.end_date, b.book_date, b.sano, b.id, b.status, a.sno, a.price, s.sname 
+		from book b, spot_area a, spot s
+		where b.sano = a.sano and a.sno = s.sno and b.id like #{id}
+	</select>
+</mapper>
