@@ -2,6 +2,7 @@ package kcs.controller;
 
 import java.io.IOException;
 import java.net.http.HttpRequest;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 import kcs.dto.BusinessDTO;
 import kcs.dto.FavoriteDTO;
@@ -196,6 +198,10 @@ public class MemberController {
 				response.getWriter().write("<script>alert('페이지 오류');history.back();</script>");
 			}
 			else {
+				// 사업자 등록증 파일 업로드
+//				List<MultipartFile> fileList = 
+				
+				
 				response.setContentType("text/html;charset=utf-8");
 				response.getWriter().write("<script>alert('회원가입 완료!');location.href='loginView.do';</script>");
 			}
