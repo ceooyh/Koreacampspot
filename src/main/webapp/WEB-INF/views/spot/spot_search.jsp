@@ -40,7 +40,7 @@
         margin: 0;
     }
     #detail_condition{
-        background-image: url(img/searchimg.png);
+        background-image: url(../../../img/spotpage/searchimg.png);
         height: 421px;
         box-sizing: border-box;
         padding-top: 3px;
