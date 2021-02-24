@@ -73,7 +73,7 @@ public class BoardController {
 
 		// 3. request에 BoardDTO 저장
 		request.setAttribute("board", dto);
-		request.setAttribute("comment", list);
+		request.setAttribute("commentList", list);
 		request.setAttribute("file", fList);
 
 		return "board/board_detail_view";
