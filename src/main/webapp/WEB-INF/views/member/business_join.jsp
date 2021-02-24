@@ -196,6 +196,25 @@
     	color:rgb(215,215,215);
     	font-size: 13px;
     }
+    
+       /*파일업로드 부분 수정*/
+    #file_upload input[name="file"]{
+        display: none;
+    }
+    #file_upload_label{
+        color: rgb(44, 42, 41);
+        cursor: pointer;
+        padding: 5px;
+        border: 1px solid rgb(215, 215, 215);
+        border-radius: 3px;
+        background-color: white;
+        font-family: '보통노토';
+    }
+    #file_upload_label:hover{
+        border: none;
+        background-color: rgb(44, 42, 41);
+        color: white;
+    }
 
 
 </style>
@@ -680,7 +699,7 @@ $(function(){
 
 
                 <div id="id_insert" class="part"><!--사업자 등록번호 입력 start-->
-                    <span class="guest_insert"><label for="business_no">사업자등록번호</label></span><br>
+                    <span class="guest_insert"><label for="business_no" class="label">사업자등록번호</label></span><br>
                     <div class="input_result" id="input_result8"></div>
                     <span><input class="guest_input4" type="text" id="business_no1" name="business_no1" placeholder="000"></span>
                     <span><input class="guest_input4" type="text" id="business_no2" name="business_no2" placeholder="00"></span>
@@ -689,7 +708,7 @@ $(function(){
 
 
                 <div id="file_upload" class="part">
-                    <span><input type="file" name="file" id="file"><label for="file">파일업로드</label></span>
+                    <span><input type="file" name="file" id="file"><label for="file" id="file_upload_label">파일업로드</label></span>
                 </div>    
 
 
