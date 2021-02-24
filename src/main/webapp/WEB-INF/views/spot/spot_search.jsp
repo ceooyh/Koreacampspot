@@ -215,7 +215,7 @@
         <div id="detail_camping_info">
 			<c:forEach var="dto" items="${requestScope.list}">
 		            <div>
-		                <span>리뷰수 ${dto.}</span><span>별점 ${dto.star}</span>
+		                <span>리뷰수 ${dto.review_count}</span><span>별점 ${dto.star}</span>
 		                <p id="campingplace_name"><a href="spotDetailView.do" class="campingplace_atag">${dto.sname}</a></p>
 		                <p id="campingplace_address">주소 : ${dto.address}</p><p id="campingplace_tel">전화번호 : ${dto.tel}</p>
 		            </div>
