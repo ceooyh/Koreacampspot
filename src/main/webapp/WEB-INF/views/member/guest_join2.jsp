@@ -8,66 +8,6 @@
 <title>Insert title here</title>
 <script src="../../../lib/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
-	$(function(){
-		$("#btn_submit_favorite").click(function(){
-			var camp_type = $('#camp_type > input[type="checkbox"]');
-			var mood = $('#mood > input[type="checkbox"]');
-			var theme = $('#theme > input[type="checkbox"]');
-			var location_type = $('#location_type > input[type="checkbox"]');
-			var facilities = $('#facilities > input[type="checkbox"]');
-			var result = array();
-			var cnt = 0;
-			var stag = "";
-			
-			console.log(camp_type.size());
-			console.log(mood.size());
-			console.log(theme.size());
-			console.log(location_type.size());
-			console.log(facilities.size());
-			for(var i=0;i<camp_type.size();i++){
-				if(camp_type[i].checked == true){
-					result[cnt] = camp_type[i].value;
-					cnt++;
-				}
-			}
-			for(var i=0;i<mood.size();i++){
-				if(mood[i].checked == true){
-					result[cnt] = mood[i].value;
-					cnt++;
-				}
-			}
-			for(var i=0;i<theme.size();i++){
-				if(theme[i].checked == true){
-					result[cnt] = theme[i].value;
-					cnt++;
-				}
-			}
-			for(var i=0;i<location_type.size();i++){
-				if(location_type[i].checked == true){
-					result[cnt] = location_type[i].value;
-					cnt++;
-				}
-			}
-			for(var i=0;i<facilities.size();i++){
-				if(facilities[i].checked == true){
-					result[cnt] = facilities[i].value;
-					cnt++;
-				}
-			}
-			for(var i=0; i<result.size();i++){
-				stag += result[i].val();
-			}
-			
-			$.ajax({
-				url : "guestJoinFavoriteAction.do",
-				data : stag,
-				method:"get",
-				success:function(d){
-					location.href ="indexView.do"
-				}
-			});
-		});
-	});
 </script>
 <style>
     @font-face {
@@ -320,7 +260,7 @@
 <body>
 <jsp:include page="../template/header2.jsp" flush="false"></jsp:include>
     <div id="container">
-    <form action="guestJoinFavoriteAction.do">
+    <form id="guest_join2_frm" action="guestJoinFavoriteAction.do">
     	<input type="text" id="hidden_id_value" name="id" value="${requestScope.id}">
         <p id="headline">취향 정보 입력란</p>
             <div id="camp_type" class="category">

@@ -413,7 +413,7 @@
 
 		
 		/*최종 회원가입시 미입력부분 포커스 맞춰주고 alert 띄워주는 부분*/
-		$("#btn_submit").click(function() {
+		$(".btn_submit").click(function() {
 	    	 var prevID=$("input:text[name=prev_id]").val()
 	    	 var id=$("input:text[name=id]").val();
 	    	event.preventDefault();
@@ -601,7 +601,7 @@
 
 
                 <div id="btn_continer">
-                    <button class="btn_submit">다음</button>
+                    <button class="btn_submit"  id="btn_submit">다음</button>
                     <button type="button" class="btn_before">이전</button>
                 </div>
             </div>
