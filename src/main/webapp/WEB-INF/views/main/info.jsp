@@ -22,7 +22,7 @@
 </style>
 </head>
 <body>
-	<jsp:include page="../template/header.jsp" flush="false"></jsp:include>
+	<jsp:include page="../template/header2.jsp" flush="false"></jsp:include>
 	  <section>
 	        <div id="writer_section">
 	                <img id="section_line_img" src="../../../img/infopage/section_Image.png" alt="">
