@@ -34,9 +34,8 @@
     #container{
         width: 1200px;
         border: 1px solid black;
-        margin: 0 auto;
+        margin: 120px auto;
         text-align: left;
-        padding-top: 120px;
     }
     #search_bar{
         background-color: #e8e8e8;
