@@ -9,11 +9,26 @@
 		s.rent_tent, s.rent_equipment, s.pool, s.pet, s.fishing, s.experience, s.caravan_open, s.trailer_open, 
 		s.beach, s.island, s.mountain, s.forest, s.valley, s.river, s.lake, s.city, 
 		s.wifi, s.hot_water, s.shower, s.mart, s.toilet, s.electric, s.pet_open, 
-		s.status, NVL(r.star, 0), NVL(c.review_count, 0)
+		s.status, NVL(r.star, 0) as star, NVL(c.review_count, 0) as review_count
 		from spot s,
 			(select sno, avg(star) as star from review group by sno order by sno asc) r,
 			(select sno, count(*) as review_count from review group by sno order by sno asc) c
 		where s.sno = r.sno(+) and s.sno = c.sno(+)
 		order by s.sno asc
+	</select>
+	<select id="getCampSearchList" resultType="String">
+		select * from 
+		(select s.sno, s.id, s.sname, s.address1, s.address2, s.address3, s.tel1, s.tel2, s.tel3, s.stag, s.spot_link, s.content, 
+		s.autocamping, s.glamping, s.caravan, 
+		s.rent_tent, s.rent_equipment, s.pool, s.pet, s.fishing, s.experience, s.caravan_open, s.trailer_open, 
+		s.beach, s.island, s.mountain, s.forest, s.valley, s.river, s.lake, s.city, 
+		s.wifi, s.hot_water, s.shower, s.mart, s.toilet, s.electric, s.pet_open, 
+		s.status, NVL(r.star, 0) as star, NVL(c.review_count, 0) as review_count
+		from spot s,
+			(select sno, avg(star) as star from review group by sno order by sno asc) r,
+			(select sno, count(*) as review_count from review group by sno order by sno asc) c
+		where s.sno = r.sno(+) and s.sno = c.sno(+)
+		order by s.sno asc) a
+		where a.address1 || a.address2 || a.address3 like '%'||#{search}||'%' or a.stag like '%'||#{search}||'%' or a.sname like '%'||#{search}||'%'
 	</select>
 </mapper>
