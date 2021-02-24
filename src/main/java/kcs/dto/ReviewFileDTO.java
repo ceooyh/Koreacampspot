@@ -1,5 +1,8 @@
 package kcs.dto;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("reviewFile")
 public class ReviewFileDTO {
 	private int rfno;
 	private int sno;
