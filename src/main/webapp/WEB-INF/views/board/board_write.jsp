@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="../../../lib/jquery-3.5.1.min.js"></script>
 <title>게시판 글쓰기 페이지</title>
 <style>
 	@font-face {
@@ -36,7 +37,7 @@
         width: 1200px; 
         margin: 0 auto;
         padding: 20px;
-		padding-top: 25px;
+		padding-top: 100px;
 	}
     #container > div{
 	    width: 100%;
@@ -54,7 +55,7 @@
 		padding: 10px;
 		display: flex;
 	}
-	
+	 
 	#title_head{
 		width: 5%;
 		margin: 0px;
@@ -114,11 +115,13 @@
 		margin: 10px 0px 10px 0;
 		width: 30px;
 		height: 25px;
-		border: 1px solid  #416f94;
+		border: 1px solid  #416f9431;
+		background-color: #646262;
+		color: white;
 	}
 	.plusminus_btn:hover{
-		background-color:  #2796f0;
-		color: white;
+		background-color: rgb(250, 187, 71);
+	    color: rgb(26, 2, 2);
 	}
 
 	#board_write_page{
@@ -141,23 +144,39 @@
 		margin: 20px 10px 0px 10px;
 	}
 	.write_page_btn:hover{
-		background-color: rgb(61, 58, 58);
-	    color: white;
+		background-color: rgb(250, 187, 71);
+	    color: rgb(26, 2, 2);
 	}
 </style>
+
+<script>
+	$(function(){
+		var count = 3;//첨부파일 태그 개수
+		$("#plus").click(function(){
+			if(count == 5) return;
+			count++;
+			$("#file_form").append("<p><input type='file' name='file'></p>");
+		});
+		$("#minus").click(function(){
+			if(count == 1) return;
+				$(this).parent().parent().children("p").last().remove();
+			count--;
+		});
+	});
+</script>
 </head>
 <body>
 
  <!-- jstl 주석처리  -->
 
-	<!-- <c:if test="${sessionScope.login == null || sessionScope.login == false  }">
+	<c:if test="${sessionScope.login == null || sessionScope.login == false  }">
 		<c:set var="page" target="${sessionScope }" value="${pageContext.request.requestURI}${pageContext.request.queryString }" property="resultPage" scope="session"/>
 		${pageContext.request.requestURI}${pageContext.request.queryString }
 		<script>
 			alert("로그인을 하셔야 이용할수 있습니다.");
 			location.href="loginView.do";
 		</script>
-	</c:if> -->
+	</c:if>
 	
 	
 	
