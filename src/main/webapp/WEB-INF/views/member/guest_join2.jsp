@@ -6,6 +6,69 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="../../../lib/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#btn_submit_favorite").click(function(){
+			var camp_type = $('#camp_type > input[type="checkbox"]');
+			var mood = $('#mood > input[type="checkbox"]');
+			var theme = $('#theme > input[type="checkbox"]');
+			var location_type = $('#location_type > input[type="checkbox"]');
+			var facilities = $('#facilities > input[type="checkbox"]');
+			var result = array();
+			var cnt = 0;
+			var stag = "";
+			
+			console.log(camp_type.size());
+			console.log(mood.size());
+			console.log(theme.size());
+			console.log(location_type.size());
+			console.log(facilities.size());
+			for(var i=0;i<camp_type.size();i++){
+				if(camp_type[i].checked == true){
+					result[cnt] = camp_type[i].value;
+					cnt++;
+				}
+			}
+			for(var i=0;i<mood.size();i++){
+				if(mood[i].checked == true){
+					result[cnt] = mood[i].value;
+					cnt++;
+				}
+			}
+			for(var i=0;i<theme.size();i++){
+				if(theme[i].checked == true){
+					result[cnt] = theme[i].value;
+					cnt++;
+				}
+			}
+			for(var i=0;i<location_type.size();i++){
+				if(location_type[i].checked == true){
+					result[cnt] = location_type[i].value;
+					cnt++;
+				}
+			}
+			for(var i=0;i<facilities.size();i++){
+				if(facilities[i].checked == true){
+					result[cnt] = facilities[i].value;
+					cnt++;
+				}
+			}
+			for(var i=0; i<result.size();i++){
+				stag += result[i].val();
+			}
+			
+			$.ajax({
+				url : "guestJoinFavoriteAction.do",
+				data : stag,
+				method:"get",
+				success:function(d){
+					location.href ="indexView.do"
+				}
+			});
+		});
+	});
+</script>
 <style>
     @font-face {
         font-family: '보통노토';
@@ -319,7 +382,7 @@
                 <input type="checkbox" id="pet_open" name="theme"  value="-반려동물동반"><label for="pet_open"><span>#반려동물동반</span></label>
             </div>
             <div id="btn_submit">
-                <button type="submit">회원가입</button>
+                <button type="button" id="btn_submit_favorite">회원가입</button>
                 <a href="loginView.do">건너뛰기</a>
             </div>
           </form>
