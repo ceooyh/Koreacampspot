@@ -6,8 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>문의내역 상세페이지</title>
+  <script>
+        var pageNo = 1;//전역변수
+        $(function(){
+            
+        });
+    </script>
 <style>
-     @font-face {
+    @font-face {
         font-family: '보통노토';
         src: url(../../../Font/NotoSansCJKkr-hinted/NotoSansCJKkr-Medium.otf);
     }
@@ -28,8 +34,8 @@
         src: url(../../../Font/Roboto/Roboto-Bold.ttf);
     }
     *{
-        margin:0;
         padding: 0;
+        margin: 0;
     }
     #container{
         padding: 20px;
@@ -37,94 +43,63 @@
         width: 704px;
         margin: 20px auto;
     }
-    #headline{
-        text-align: center;
-        font-family: '굵은노토';
-        font-size: 30px;
-        color: rgb(46, 46, 46);
-        margin-bottom: 20px;
-    }
-    .part_select{
-        margin-bottom: 10px;
-    }
-    label{
-        font-family: '보통노토';
-        font-size: 13px;
-        color: rgb(46, 46, 46);
-    }
-    span{
-        display: inline-block;
-        border-bottom: 2px solid rgb(231, 231, 231);
-        color: rgb(46, 46, 46);
-        padding:  10px 0;
-        font-family: '보통노토';
-        font-size: 20px;
-    }
-    #content_view{
-        width: 680px;
-        height: 300px;
-        padding: 10px;
-        box-sizing: border-box;
-        border-radius: 10px;
-        color: rgb(46, 46, 46);
-        font-family: '보통노토';
-        border: 2px solid rgb(231, 231, 231);
-        margin: 5px 0px;
-    }
-    #response_view{
-        width: 680px;
-        margin: 5px 0px;
-        padding: 10px;
-        box-sizing: border-box;
-        border: 2px solid rgb(231, 231, 231);
-        border-radius: 10px;
-        color: rgb(46, 46, 46);
-        font-family: '보통노토';
-    }
-
 </style>
 </head>
 <body>
+    <jsp:include page="../template/header2.jsp" flush="false"></jsp:include>
   <!--
-        <c:if test="${sessionScope.login == null || sessionScope.login == false  }">
-		<c:set var="page" target="${sessionScope }" value="${pageContext.request.requestURI}${pageContext.request.queryString }" property="resultPage" scope="session"/>
-		${pageContext.request.requestURI}${pageContext.request.queryString }
-		<script>
-			alert("로그인을 하셔야 이용할수 있습니다.");
-			location.href="loginView.do";
-		</script>
-	</c:if>
+    <c:if test="${requestScope.list ==null}">
+        <script>
+            location.href=".do?pageNo=1";
+            
+        </script>
+    </c:if>
 -->
-<jsp:include page="../template/header2.jsp" flush="false"></jsp:include>
-
-	    <div id="container">
-            <section>
-                    <p id="headline">문의글 조회 페이지</p>
-                    
-                    <div class="part_select">
-                        <p><label for="title">[제목]</label>  <span>${requestScope.qna.title }</span></p>
-                    </div>
-
-                    <div class="part_select">
-                        <p><label for="#">[아이디]</label>  <span>${requestScope.qna.writer }</span></p>
-                    </div>
-
-                    <div class="part_select">
-                        <p><label for="qdate">[작성일]</label>  <span>${requestScope.qna.qdate }</span></p>
-                    </div>
-                    
-                    <div class="part_select">
-                        <p><label for="content">[문의내용]</label></p>
-                        <span id="content_view">${requestScope.qna.content }</span>
-                    </div>   
-                    
-                    <div class="part_select">
-                        <p><label for="response">[답변]</label></p>
-                        <span id="response_view">${requestScope.qna.response }</span>
-                    </div>   
-            </section>
-        </div>
-    
-    <jsp:include page="../template/footer.jsp" flush="false"></jsp:include>
+    <div id="container">
+    <h2>문의하기 상세페이지</h2>
+        <hr>
+        <table>
+            <tr>
+                <th>[NO]</th>
+                <th>[제목]</th>
+                <th>[작성자]</th>
+                <th>[내용]</th>
+                <th>[작성일]</th>
+                <th>[조회]</th>
+                <th>[답변]</th>
+            </tr>
+            
+        <c:forEach var="qna" items="${requestScope.list }">
+            <tr>
+                <td><p>${qna.qno }</p></td>
+                <td><p>${qna.title }</p></td>
+                <td><p>${qna.id}</p></td>
+                <td><p>${qna.content }</p></td>
+                <td><p>${qna.qdate }</p></td>
+                <td><p>${qna.status }</p></td>
+                <td><p>${qna.response }</p></td>
+            </tr>
+        </c:forEach>
+        
+    <tr>
+        <td colspan="7">
+                <div class="page_bar">
+                    <c:if test="${pagging.previousPageGroup }">
+                        <a href=" .do?pageNo=${pagging.startPageOfPageGroup - 1 }">◀</a>
+                    </c:if>
+                    <c:forEach var="i" begin="${pagging.startPageOfPageGroup}" 
+                    end="${pagging.endPageOfPageGroup}">
+                        <a href=".do?pageNo=${i }">${ i}</a>
+                    </c:forEach>
+                
+                    <c:if test="${pagging.nextPageGroup }">
+                        <a href=" .do?pageNo=${pagging.endPageOfPageGroup + 1 }">▶</a>
+                    </c:if>
+                </div>
+            </td>
+        </tr>
+    </table> 
+</div>
+<jsp:include page="../template/footer.jsp" flush="false"></jsp:include>
 </body>
 </html>
