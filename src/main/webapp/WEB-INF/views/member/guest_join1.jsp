@@ -594,7 +594,7 @@
                     <span><input  class="guest_input4" type="text" id="day" name="day" placeholder="일"></span><br>
                     <div id="checkbox_gender">
                         <span class="gender_select"><input id="gender_woman" type="checkbox" value="1" class="checkbox" name="gender"><label for="gender_woman" class="label"><span>여성</span></label></span>
-                        <span class="gender_select"><input id="gender_man" type="checkbox" value="0" class="checkbox"  name="gender"><label for="gender_man" class="label"><span>남성</span></label></span>
+                        <span class="gender_select"><input id="gender_man" type="checkbox" value="0" class="checkbox"  name="gender" checked><label for="gender_man" class="label"><span>남성</span></label></span>
                     </div>
                 </div><!--생일 성별 end-->
 
