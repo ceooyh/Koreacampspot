@@ -342,6 +342,20 @@ public class SpotDTO {
 	public void setReview_count(int review_count) {
 		this.review_count = review_count;
 	}
+	@Override
+	public String toString() {
+		return "SpotDTO [sno=" + sno + ", id=" + id + ", sname=" + sname + ", address1=" + address1 + ", address2="
+				+ address2 + ", address3=" + address3 + ", tel1=" + tel1 + ", tel2=" + tel2 + ", tel3=" + tel3
+				+ ", stag=" + stag + ", spot_link=" + spot_link + ", content=" + content + ", autocamping="
+				+ autocamping + ", glamping=" + glamping + ", caravan=" + caravan + ", rent_tent=" + rent_tent
+				+ ", rent_equipment=" + rent_equipment + ", pool=" + pool + ", pet=" + pet + ", fishing=" + fishing
+				+ ", experience=" + experience + ", caravan_open=" + caravan_open + ", trailer_open=" + trailer_open
+				+ ", beach=" + beach + ", island=" + island + ", mountain=" + mountain + ", forest=" + forest
+				+ ", valley=" + valley + ", river=" + river + ", lake=" + lake + ", city=" + city + ", wifi=" + wifi
+				+ ", hot_water=" + hot_water + ", shower=" + shower + ", mart=" + mart + ", toilet=" + toilet
+				+ ", electric=" + electric + ", pet_open=" + pet_open + ", status=" + status + ", star=" + star
+				+ ", review_count=" + review_count + "]";
+	}
 	
 	
 }
