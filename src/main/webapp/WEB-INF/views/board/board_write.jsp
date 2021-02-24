@@ -32,24 +32,23 @@
 	    padding:0;
 		
 	}
-    section{
+    .board_write_container{
         width: 1200px; 
         margin: 0 auto;
         padding: 20px;
-		position: relative;
+		padding-top: 25px;
 	}
     #container > div{
 	    width: 100%;
 	    border-collapse: collapse;
 	    margin:0 auto;
-		position: relative;
 	}
     #board_write_headline{
 	    border-top : 1px solid black;
 		border-bottom : 1px solid black;
 	    padding: 10px;
         margin: 10px;
-		text-align: center;
+		text-align: left;
 	}
 	#title_box{
 		padding: 10px;
@@ -97,7 +96,6 @@
 	    width: 100%;
 	    height:40px;
 	    box-sizing:border-box;
-		border-bottom: 1px solid gray;
 	    border-width : 1px;
 	    border-radius: 5px;
 	}
@@ -127,7 +125,7 @@
 		display: flex;
 		justify-content: flex-end;
 	}
-	.btn{
+	.write_page_btn{
 	    text-decoration: none;
 	    width: 80px;
 	    padding:5px 0px;
@@ -142,27 +140,31 @@
 		display: inline-block;
 		margin: 20px 10px 0px 10px;
 	}
+	.write_page_btn:hover{
+		background-color: rgb(61, 58, 58);
+	    color: white;
+	}
 </style>
 </head>
 <body>
 
  <!-- jstl 주석처리  -->
 
-	<c:if test="${sessionScope.login == null || sessionScope.login == false  }">
+	<!-- <c:if test="${sessionScope.login == null || sessionScope.login == false  }">
 		<c:set var="page" target="${sessionScope }" value="${pageContext.request.requestURI}${pageContext.request.queryString }" property="resultPage" scope="session"/>
 		${pageContext.request.requestURI}${pageContext.request.queryString }
 		<script>
 			alert("로그인을 하셔야 이용할수 있습니다.");
 			location.href="loginView.do";
 		</script>
-	</c:if>
+	</c:if> -->
 	
 	
 	
 	<jsp:include page="../template/header.jsp" flush="false"></jsp:include>
 	
  
-	<section>
+	<section class="board_write_container">
 		<h2 id="board_write_headline">글쓰기 페이지</h2>
 		<form action="boardWriteAction.do" enctype="multipart/form-data" method="post">
 			<div id="container">
@@ -195,9 +197,9 @@
 		
 		<!-- 페이징 처리 --> 
 				<div id="board_write_page">
-					<span id="back_to_list_btn"><a href="boardList.do?pageNo=${requestScope.pageNo == null ? 1 : requestScope.pageNo }" class="btn">목록보기</a></span>
-					<span id="back_btn"><a href="javascript:history.back();" class="btn">뒤로가기</a></span>
-						<button class="btn">글쓰기</button>
+					<span id="back_to_list_btn"><a href="boardList.do?pageNo=${requestScope.pageNo == null ? 1 : requestScope.pageNo }" class="write_page_btn">목록보기</a></span>
+					<span id="back_btn"><a href="javascript:history.back();" class="write_page_btn">뒤로가기</a></span>
+						<button class="write_page_btn">글쓰기</button>
 					</div>
 		</form><!--폼 마감-->
 	</div>
