@@ -159,17 +159,6 @@
         <form action="reviewWriteAction.do">
             <div id="container">
                         <p id="headline">캠핑장후기</p><!--헤드라인-->
-
-                        <div class="part_select">
-                            <p><label for="#">[아이디]</label></p>
-                            <span class="input_span"><input id="first_input" type="text" name="id" id="id" value="${sessionScope.id} }" readonly></span>
-                        </div><!--아이디 입력란 마지막 자동 입력-->
-
-                        <div class="part_select">
-                            <p><label for="title">[제목]</label></p>
-                            <span class="input_span"><input type="text" name="title" id="title" placeholder="제목을 입력해주세요"></span>
-                        </div><!--제목 입력란-->
-
                         <div class="part_select">
                             <span id="qna_content_title"><label for="title">[후기내용]</label></span>
                             <div class="star-box">
