@@ -128,17 +128,17 @@
         cursor: pointer;
     }
     .star_left{
-        background: url(http://gahyun.wooga.kr/main/img/testImg/star.png) no-repeat 0 0; 
+        background: url(../../../img/reviewpage/star.png) no-repeat 0 0; 
         background-size: 60px; 
         margin-right: -3px;
     }
     .star_right{
-        background: url(http://gahyun.wooga.kr/main/img/testImg/star.png) no-repeat -30px 0; 
+        background: url(../../../img/reviewpage/star.png) no-repeat -30px 0; 
         background-size: 60px; 
         margin-left: -3px;
     }
     .star.on{
-        background-image: url(http://gahyun.wooga.kr/main/img/testImg/star_on.png);
+        background-image: url(../../../img/reviewpage/star_on1.png);
     }
 </style>
 <script src="../../../lib/jquery-3.5.1.min.js"></script>
