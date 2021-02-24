@@ -1,5 +1,7 @@
 package kcs.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -17,7 +19,8 @@ public class SpotController {
 	// 여기부터 RequestMapping 처리
 	
 	@RequestMapping("/findCampSpotView.do")
-    public String findCampSpotView() {
+    public String findCampSpotView(HttpServletRequest request) {
+		
         return "spot/spot_search";
     }
 }

@@ -29,7 +29,6 @@ public class QnAController {
 	@RequestMapping("/qnaView.do")
 	public String qnaView(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 		// 세션 정보
-		System.out.println((int) session.getAttribute("user_type"));
 		int user_type = (int) session.getAttribute("user_type");
 		String writer = "";
 		// 페이징
