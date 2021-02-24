@@ -8,10 +8,17 @@
 <script src="../../../lib/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 	$(function(){
+		$(".agree_select").click(function(){
+			if($("#guest_nonagree").is(":checked") == true){
+				console.log('yes');
+			}else{
+				console.log('no');
+			}
+		});
+		
 		/*비동의가 되어있을시 다음페이지로 넘어가지 못하도록함*/
 		$(".btn_next_level").click(function(){
-			consle.log($("input:text[name=guest_agree]").val());
-			if($("input:text[name=guest_agree]").val() == 0){
+			if($("#guest_nonagree").is(":checked") == true){
 				alert("동의를 하지 않으시면 회원가입을 진행 할 수 없습니다.");
 				return false;
 			}
