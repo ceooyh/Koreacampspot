@@ -35,13 +35,18 @@
         width: 1200px;
         border: 1px solid black;
         margin: 0 auto;
-        text-align: center;
+        text-align: left;
+        padding-top: 120px;
     }
     #search_bar{
         background-color: #e8e8e8;
         margin: 30px 0px;
         padding: 15px;
         text-align: right;
+    }
+    #board_list_title{
+        text-decoration: none;
+        color: black;
     }
     #search{
         height: 30px;
@@ -50,7 +55,32 @@
         border-radius: 3px;
         border: 1px solid #c8c8c8;
     }
-    #btn_search{
+    .page_number_design{
+        width: 25px;
+        border-radius: 5px;
+        display: inline-block;
+        background-color: rgb(131, 173, 192);
+        color: white;
+        text-decoration: none;
+        text-align: center;
+    }
+    #write_btn{
+        display: inline-block;
+        width: 80px;
+        float: right;
+        background-color: rgb(131, 173, 192);
+        box-sizing: border-box;
+    }
+    .page_number_design:hover{
+        background-color: rgb(4, 115, 167);
+        color: rgb(10, 3, 77);
+    }
+    #write_btn:hover{
+        background-color: rgb(4, 115, 167);
+        color: rgb(10, 3, 77);
+
+    }
+    #btn_board_list_search{
         width: 60px;
         background-color: #646262;
         font-weight: bold;
@@ -97,7 +127,7 @@
             <!--검색 버튼 alink-->
             <div id="search_bar">
                 <form action="boardSearch.do">
-                    <input type="text" id="search" name="search" placeholder="검색어를 입력해 주세요."><button id="btn_search" type="submit">검색</button>
+                    <input type="text" id="search" name="search" placeholder="검색어를 입력해 주세요."><button id="btn_board_list_search" type="submit">검색</button>
                 </form>    
             </div>
             <table class="board">
@@ -107,11 +137,8 @@
                     <th class="writer">작성자</th>
                     <th class="date">작성일</th>
                     <th>조회수</th>
-                    
-                    <!-- 좋아요 클릭하면 좋아요를 많이 받은 순서대로 출력 -->
-                    
-                    <th id="blike"><a href="plusLikeHate.do?mode=blike">좋아요</a></th>
-                    <th id="bhate"><a href="plusLikeHate.do?mode=bhate">싫어요</a></th>
+                    <th id="blike">좋아요</th>
+                    <th id="bhate">싫어요</th>
                 </tr>
 
         <!-- jstl 주석처리,게시판 기능 추가 기존 게시판에 있는 내용을 el과 jstl로 표현 - -->
@@ -125,7 +152,7 @@
             <c:forEach var="dto" items="${requestScope.list }">
                 <tr>
                     <td>${dto.bno }</td>
-                    <td><a href="boardView.do?bno=${dto.bno }"> ${dto.title }</a><span id="comment_count">${dto.comment_count}</span></td>
+                    <td><a id="board_list_title" href="boardView.do?bno=${dto.bno }"> ${dto.title }</a><span id="comment_count">  [${dto.comment_count}]</span></td>
                     <td>${dto.writer}</td>
                     <td>${dto.bdate }</td>
                     <td>${dto.views }</td>
@@ -137,17 +164,19 @@
                 <td colspan="7">
                         <div class="page_bar">
                             <c:if test="${pagging.previousPageGroup }">
-                                <a href="boardList.do?pageNo=${pagging.startPageOfPageGroup - 1 }">◀</a>
+                                <a class="page_number_design" href="boardList.do?pageNo=${pagging.startPageOfPageGroup - 1 }">◀</a>
                             </c:if>
                             <c:forEach var="i" begin="${pagging.startPageOfPageGroup}" 
                             end="${pagging.endPageOfPageGroup}">
-                                <a href="boardList.do?pageNo=${i }">${ i}</a>
+                                <a class="page_number_design" href="boardList.do?pageNo=${i }">${i}</a>
                             </c:forEach>
                         
                             <c:if test="${pagging.nextPageGroup }">
-                                <a href="boardList.do?pageNo=${pagging.endPageOfPageGroup + 1 }">▶</a>
+                                <a class="page_number_design" href="boardList.do?pageNo=${pagging.endPageOfPageGroup + 1 }">▶</a>
                             </c:if>
-                            <a href="boardWriteView.do" class="btn_writer">글쓰기</a>
+                            
+                           
+                                <a class="page_number_design" id="write_btn" href="boardWriteView.do">글쓰기</a>
                         </div>
                 </td>
             </tr>    
