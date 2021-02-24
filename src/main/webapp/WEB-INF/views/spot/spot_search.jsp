@@ -362,7 +362,7 @@
                         </div>
                         <div>
                             <p id="campingplace_name"><a href="spotDetailView.do" class="campingplace_atag">${dto.sname}</a></p>
-                            <p id="campingplace_address">주소 : ${dto.address1} - ${dto.address2} - ${dto.address3}</p><p id="campingplace_tel">전화번호 : ${dto.tel2} - ${dto.tel2} - ${dto.tel3}</p>
+                            <p id="campingplace_address">주소 : ${dto.address1}  ${dto.address2}  ${dto.address3}</p><p id="campingplace_tel">전화번호 : ${dto.tel2} - ${dto.tel2} - ${dto.tel3}</p>
                         </div>
 		            </div>
 		            <div id="facility_info">
