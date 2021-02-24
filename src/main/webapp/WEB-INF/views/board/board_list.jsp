@@ -174,7 +174,7 @@
                             <c:if test="${pagging.nextPageGroup }">
                                 <a class="page_number_design" href="boardList.do?pageNo=${pagging.endPageOfPageGroup + 1 }">▶</a>
                             </c:if>
-                            
+                             
                            
                                 <a class="page_number_design" id="write_btn" href="boardWriteView.do">글쓰기</a>
                         </div>

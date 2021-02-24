@@ -55,7 +55,7 @@
 		padding: 10px;
 		display: flex;
 	}
-	
+	 
 	#title_head{
 		width: 5%;
 		margin: 0px;

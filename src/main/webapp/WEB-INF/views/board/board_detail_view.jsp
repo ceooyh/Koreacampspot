@@ -273,14 +273,14 @@
 <body>
 	<!-- jstl 주석처리  -->
     
-        <!-- <c:if test="${sessionScope.login == null || sessionScope.login == false  }">
+        <c:if test="${sessionScope.login == null || sessionScope.login == false  }">
             <c:set var="page" target="${sessionScope }" value="${pageContext.request.requestURI}${pageContext.request.queryString }" property="resultPage" scope="session"/>
             ${pageContext.request.requestURI}${pageContext.request.queryString }
             <script>
                 alert("로그인을 하셔야 이용할수 있습니다.");
                 location.href="loginView.do";
             </script>
-        </c:if> -->
+        </c:if>
     
    
 	<jsp:include page="../template/header.jsp" flush="false"></jsp:include>
@@ -322,13 +322,13 @@
 			<section id="board_like_hate">
 			<div class="part_like_hate">
 				<a href="#" class="btn_like_hate">
-					<img src="../../../img/boardLike/good-quality.png" style="width: 50px;">
+					<img src="../../../img/boardLike/good-quality2.png" style="width: 50px;">
 					<p class="board_detail_span">${requestScope.board.blike }</p>
 				</a>
 			</div>  
-			<div class="part_like_hate">
+			<div class="part_like_hate"> 
 				<a href="#" class="btn_like_hate">
-					<img src="../../../img/boardLike/good-quality.png" style="width: 50px; transform: rotate(0.5turn);">
+					<img src="../../../img/boardLike/good-quality2.png" style="width: 50px; transform: rotate(0.5turn);">
 					<span class="board_detail_span">${requestScope.board.bhate }</span>
 				</a>
 			</div>
