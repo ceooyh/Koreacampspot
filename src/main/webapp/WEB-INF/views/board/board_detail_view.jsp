@@ -35,6 +35,7 @@
 #board_detail_container {
 	width: 1200px;
 	margin: 0 auto;
+	margin-bottom: 200px;
 	padding: 20px;
 	border: 1px solid black;
 	padding-top: 150px;
@@ -90,8 +91,8 @@
 	border: 2px solid rgb(231, 231, 231);
 	margin: 5px 0px;
 }
-.btn{
-	margin: 40px 0;
+.prev_next_list_btn{
+	margin: 40px 0 0 460px;
 }
 
 .modify {
@@ -141,9 +142,10 @@
 #board_like_hate{
 	clear: both;
 	display: inline-block;
-	margin-top: 50px;
+	margin: 50px 0 0 450px;
 }
 .part_like_hate{
+	margin: 0 10px;
 	float: left;
 }
 #comment_write_box{
@@ -213,10 +215,11 @@
 #part_comment_view_content{
 	width: 800px;
 	height: 150px;
-	position: relative;
 	font-size: 20px;
 	font-weight: normal;
 	text-align: left;
+	padding: 0;
+	box-sizing: border-box;
 }
 #list_border{
 	border: 1px solid black;
@@ -228,7 +231,7 @@
 		$(".comment_form textarea").keyup(function() {
 			$(this).next().text($(this).val().length+"/500");
 		});
-		$(".comment_form button").click(function(){
+		$(".comment_insert_btn").click(function(){
 			var data = $("#comment").serialize();
 			$.ajax({
 				url : "insertComment.do",
@@ -273,17 +276,17 @@
 <body>
 	<!-- jstl 주석처리  -->
     
-        <c:if test="${sessionScope.login == null || sessionScope.login == false  }">
+        <!-- <c:if test="${sessionScope.login == null || sessionScope.login == false  }">
             <c:set var="page" target="${sessionScope }" value="${pageContext.request.requestURI}${pageContext.request.queryString }" property="resultPage" scope="session"/>
             ${pageContext.request.requestURI}${pageContext.request.queryString }
             <script>
                 alert("로그인을 하셔야 이용할수 있습니다.");
                 location.href="loginView.do";
             </script>
-        </c:if>
+        </c:if> -->
     
    
-	<jsp:include page="../template/header2.jsp" flush="false"></jsp:include>
+	<jsp:include page="../template/header.jsp" flush="false"></jsp:include>
 
 	<div id="board_detail_container">
 		<section id="">
@@ -321,29 +324,29 @@
 			
 			<section id="board_like_hate">
 			<div class="part_like_hate">
-				<a href="#" class="btn_like_hate">
-					<img src="../../../img/boardLike/good-quality2.png" style="width: 50px;">
-					<p class="board_detail_span">${requestScope.board.blike }</p>
+				<a href="" class="btn_like_hate">
+					<img src="../../../img/boardLike/good-quality.png" style="width: 50px;">
+					<span class="board_detail_span">${requestScope.board.blike }</span>
 				</a>
 			</div>  
-			<div class="part_like_hate"> 
-				<a href="#" class="btn_like_hate">
-					<img src="../../../img/boardLike/good-quality2.png" style="width: 50px; transform: rotate(0.5turn);">
+			<div class="part_like_hate">
+				<a href="" class="btn_like_hate">
+					<img src="../../../img/boardLike/good-quality.png" style="width: 50px; transform: rotate(0.5turn);">
 					<span class="board_detail_span">${requestScope.board.bhate }</span>
 				</a>
 			</div>
 			</section>  
-			<div class="btn">
+			<div class="prev_next_list_btn">
 				<a href="#" class="move">이전글</a> 
 				<a href="javascript:history.back();" class="move">목록보기</a> 
 				<a href="#" class="move">다음글</a>
 			</div>
 	
-			<div class="btn">
+			<div class="delete_update_btn">
 				<c:if test="${sessionScope.id == requestScope.board.writer }">
 					<a href="deleteBoard.do?bno=${requestScope.board.bno }"
 						class="modify">삭제</a>
-					<a href="#" class="modify">수정</a>
+					<a href="updateBoard.do?bno=${requestScope.board.bno}" class="modify">수정</a>
 				</c:if>
 			</div>
 		</section>
@@ -399,10 +402,10 @@
 						<span id="#comment_content">${comment.content}</span>
 					</td>               
 					<td class="part_comment_view">
-						<span id="#comment_clike"><a href="">${comment.clike}</a></span>
+						<span id="#comment_clike"><a href="commentLike.do?cno=${comment.clike}">${comment.clike}</a></span>
 					</td>
 					<td class="part_comment_view">
-						<span id="#comment_chate"><a href="">${comment.chate}</a></span> 
+						<span id="#comment_chate"><a href="commentHate.do?cno=${comment.chate}">${comment.chate}</a></span> 
 					</td>
 				</tr>	              
 				</c:forEach>

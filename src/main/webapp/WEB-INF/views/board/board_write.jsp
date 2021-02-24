@@ -40,7 +40,7 @@
 		padding-top: 100px;
 	}
     #container > div{
-	    width: 100%;
+	    width: 98%;
 	    border-collapse: collapse;
 	    margin:0 auto;
 	}
@@ -61,6 +61,10 @@
 		margin: 0px;
 		font-family: '보통로보';
 		font-family: '보통노토';
+	}
+	#board_write_title{
+		padding: 20px;
+		font-size: 20px;
 	}
 	#writer_box{
 		padding: 10px;
@@ -91,6 +95,8 @@
 	    box-sizing: border-box;
 		margin-top: 10px;
 		border-radius: 15px;
+		padding: 20px;
+		font-size: 20px;
 	}
 	
 	#container input{
@@ -169,14 +175,14 @@
 
  <!-- jstl 주석처리  -->
 
-	<c:if test="${sessionScope.login == null || sessionScope.login == false  }">
+	<!-- <c:if test="${sessionScope.login == null || sessionScope.login == false  }">
 		<c:set var="page" target="${sessionScope }" value="${pageContext.request.requestURI}${pageContext.request.queryString }" property="resultPage" scope="session"/>
 		${pageContext.request.requestURI}${pageContext.request.queryString }
 		<script>
 			alert("로그인을 하셔야 이용할수 있습니다.");
 			location.href="loginView.do";
 		</script>
-	</c:if>
+	</c:if> -->
 	
 	
 	
@@ -189,7 +195,7 @@
 			<div id="container">
 				<div id="title_box"><!--게시판 글쓰기 작성시작-->
 					<span id="title_head"><label for="title">[제목]</label></span>
-					<input type="text" id="title" name="title">
+					<input type="text" id="board_write_title" name="title">
 				</div>
 				
 				<div id="writer_box"><!--게시판 작성자-->

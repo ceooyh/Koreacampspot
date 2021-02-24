@@ -31,7 +31,7 @@
         margin:0;
         padding:0;
     }
-    #container{
+    #board_list_container{
         width: 1200px;
         border: 1px solid black;
         margin: 120px auto;
@@ -58,7 +58,7 @@
         width: 25px;
         border-radius: 5px;
         display: inline-block;
-        background-color: rgb(178, 196, 204);
+        background-color: #e8e8e8;
         color: rgb(2, 11, 48);
         text-decoration: none;
         text-align: center;
@@ -67,7 +67,7 @@
         display: inline-block;
         width: 80px;
         float: right;
-        background-color: rgb(178, 196, 204);
+        background-color: #e8e8e8;
         box-sizing: border-box;
     }
     .page_number_design:hover{
@@ -119,8 +119,8 @@
 <body>
     <jsp:include page="../template/header2.jsp" flush="false"></jsp:include>
 
-    <div id="container">
-        <h2>게시판 글쓰기 페이지</h2>
+    <div id="board_list_container">
+        <h2>커뮤니티 목록</h2>
         
         <div id="main">
             <!--검색 버튼 alink-->
@@ -142,11 +142,11 @@
 
         <!-- jstl 주석처리,게시판 기능 추가 기존 게시판에 있는 내용을 el과 jstl로 표현 - -->
 
-            <c:if test="${requestScope.list ==null}">
+            <!-- <c:if test="${requestScope.list ==null}">
                 <script>
                     location.href="boardList.do?pageNo=1";
                     
-                </script>
+                </script> -->
             </c:if> 
             <c:forEach var="dto" items="${requestScope.list }">
                 <tr>
