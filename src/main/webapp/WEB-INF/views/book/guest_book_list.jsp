@@ -141,7 +141,7 @@
 		                            <td><p class="inside_content"><a id="status_click_button" href="guestBookCancel.do?bno=${dto.bno}">예약취소</a></p></td>
                             	</c:when>
                             	<c:when test="${requestScope.today >= dto.start_date}">
-		                            <td><p class="inside_content"><a id="status_click_button" href="reviewWriteView.do?bno=${dto.bno}">후기남기기</a></p></td>
+		                            <td><p class="inside_content"><a id="status_click_button" href="reviewWriteView.do?bno=${dto.bno}&sno=${dto.sno}">후기남기기</a></p></td>
                             	</c:when>
                             </c:choose>
                         </tr>
