@@ -260,6 +260,8 @@
 </style>
 </head>
 <body>
+<jsp:include page="../template/header2.jsp" flush="false"></jsp:include>
+
     <section>
         <div id="detail_condition"><!-- 선택창 시작 -->
             <form action="spotSearch.do">
@@ -451,5 +453,7 @@
         </div>
 
     </section>
+<jsp:include page="../template/footer.jsp" flush="false"></jsp:include>
+
 </body>
 </html>
