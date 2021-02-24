@@ -24,7 +24,7 @@
 
 </style>
 <body>
-    <jsp:include page="../template/header.jsp" flush="false"></jsp:include>
+    <jsp:include page="../template/header2.jsp" flush="false"></jsp:include>
         <div id="container">
             <h2 id="headline">캠핑장 신청/현황 관리</h2>
                 <hr>

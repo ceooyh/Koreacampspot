@@ -118,7 +118,7 @@
     
 </style>
 <body>
-    <jsp:include page="../template/header.jsp" flush="false"></jsp:include>
+    <jsp:include page="../template/header2.jsp" flush="false"></jsp:include>
 
     <div id="container">
         <h2>게시판 글쓰기 페이지</h2>

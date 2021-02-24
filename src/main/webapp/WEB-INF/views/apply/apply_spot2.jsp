@@ -252,7 +252,7 @@
 </style>
 </head>
 <body>
-    <jsp:include page="../template/header.jsp" flush="false"></jsp:include>
+    <jsp:include page="../template/header2.jsp" flush="false"></jsp:include>
     <div id="container">
         <p id="headline">취향 정보 입력란</p>
             <div id="camp_type" class="category">

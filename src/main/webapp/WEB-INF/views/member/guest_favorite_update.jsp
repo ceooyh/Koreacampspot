@@ -251,6 +251,7 @@
 </style>
 </head>
 <body>
+<jsp:include page="../template/header2.jsp" flush="false"></jsp:include>
     <div id="container">
 	<form action="guestFavoriteUpdateAction.do">
         <p id="headline">취향 정보 수정</p>

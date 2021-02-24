@@ -180,7 +180,7 @@
 	
 	
 	
-	<jsp:include page="../template/header.jsp" flush="false"></jsp:include>
+	<jsp:include page="../template/header2.jsp" flush="false"></jsp:include>
 	
  
 	<section class="board_write_container">

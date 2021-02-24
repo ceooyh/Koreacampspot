@@ -140,6 +140,7 @@
     }
 </style>
 <body>
+<jsp:include page="../template/header2.jsp" flush="false"></jsp:include>
     <section>
         <form action="sendQnA.do">
             <div id="container">
@@ -165,5 +166,6 @@
             </div><!--container 마지막 부분-->
         </form>
     </section>
+<jsp:include page="../template/footer.jsp" flush="false"></jsp:include>
 </body>
 </html>

@@ -156,6 +156,7 @@
 </head>
 <body>
  <section>
+ <jsp:include page="../template/header2.jsp" flush="false"></jsp:include>
         <form action="reviewWriteAction.do">
             <div id="container">
                         <p id="headline">캠핑장후기</p><!--헤드라인-->
@@ -185,5 +186,6 @@
             </div><!--container 마지막 부분-->
         </form>
     </section>
+<jsp:include page="../template/footer.jsp" flush="false"></jsp:include>
 </body>
 </html>

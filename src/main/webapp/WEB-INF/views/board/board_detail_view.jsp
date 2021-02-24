@@ -283,7 +283,7 @@
         </c:if>
     
    
-	<jsp:include page="../template/header.jsp" flush="false"></jsp:include>
+	<jsp:include page="../template/header2.jsp" flush="false"></jsp:include>
 
 	<div id="board_detail_container">
 		<section id="">

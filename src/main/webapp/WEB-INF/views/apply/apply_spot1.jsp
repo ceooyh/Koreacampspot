@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-    <jsp:include page="../template/header.jsp" flush="false"></jsp:include> 
+    <jsp:include page="../template/header2.jsp" flush="false"></jsp:include> 
     <div id="container">
         <section class="info">
             <h2 id="headline">캠핑장 등록 신청</h2>

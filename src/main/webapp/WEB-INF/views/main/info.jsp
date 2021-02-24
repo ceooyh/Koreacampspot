@@ -17,7 +17,7 @@
     #writer_section{
     	text-align: center;
         width: 100%;
-        margin: 0 auto;
+        margin: 150px auto;
     }
 </style>
 </head>
