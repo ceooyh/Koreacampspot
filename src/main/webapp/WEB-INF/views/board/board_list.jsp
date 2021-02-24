@@ -59,8 +59,8 @@
         width: 25px;
         border-radius: 5px;
         display: inline-block;
-        background-color: rgb(131, 173, 192);
-        color: white;
+        background-color: rgb(178, 196, 204);
+        color: rgb(2, 11, 48);
         text-decoration: none;
         text-align: center;
     }
@@ -68,16 +68,16 @@
         display: inline-block;
         width: 80px;
         float: right;
-        background-color: rgb(131, 173, 192);
+        background-color: rgb(178, 196, 204);
         box-sizing: border-box;
     }
     .page_number_design:hover{
-        background-color: rgb(4, 115, 167);
-        color: rgb(10, 3, 77);
+        background-color: rgb(250, 187, 71);
+        color: rgb(17, 5, 124);
     }
     #write_btn:hover{
-        background-color: rgb(4, 115, 167);
-        color: rgb(10, 3, 77);
+        background-color: rgb(250, 187, 71);
+        color: rgb(17, 5, 124);
 
     }
     #btn_board_list_search{

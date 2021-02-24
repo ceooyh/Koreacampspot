@@ -37,7 +37,7 @@
 	margin: 0 auto;
 	padding: 20px;
 	border: 1px solid black;
-	position: ;
+	padding-top: 150px;
 }
 
 #board_detail_headline {
@@ -53,9 +53,6 @@
 	box-sizing: border-box;
 	padding-bottom: 10px;
 	padding-left: 5px;
-}
-.part_select > span{
-	padding-left: 20px;
 }
 #part_selecrt_title > #board_title{
 	margin-left: 18px;
@@ -144,7 +141,7 @@
 #board_like_hate{
 	clear: both;
 	display: inline-block;
-	margin: 0 100px;
+	margin-top: 50px;
 }
 .part_like_hate{
 	float: left;
@@ -202,14 +199,19 @@
 	border-collapse: collapse;
 }
 .part_comment_content{
-	width: 1200px;
+	width: 800px;
 }
+.part_comment{
+	width: 100px;
+}
+
+
 .part_comment_view{
-	width: 300px;
+	width: 100px;
 	box-sizing: border-box;
 }
 #part_comment_view_content{
-	width: 500px;
+	width: 800px;
 	height: 150px;
 	position: relative;
 	font-size: 20px;
@@ -271,14 +273,14 @@
 <body>
 	<!-- jstl 주석처리  -->
     
-        <c:if test="${sessionScope.login == null || sessionScope.login == false  }">
+        <!-- <c:if test="${sessionScope.login == null || sessionScope.login == false  }">
             <c:set var="page" target="${sessionScope }" value="${pageContext.request.requestURI}${pageContext.request.queryString }" property="resultPage" scope="session"/>
             ${pageContext.request.requestURI}${pageContext.request.queryString }
             <script>
                 alert("로그인을 하셔야 이용할수 있습니다.");
                 location.href="loginView.do";
             </script>
-        </c:if>
+        </c:if> -->
     
    
 	<jsp:include page="../template/header.jsp" flush="false"></jsp:include>
@@ -316,10 +318,25 @@
                                 </c:if>
                             </c:forEach>
 			</div>
-			<hr>
+			
+			<section id="board_like_hate">
+			<div class="part_like_hate">
+				<a href="#" class="btn_like_hate">
+					<img src="../../../img/boardLike/good-quality.png" style="width: 50px;">
+					<p class="board_detail_span">${requestScope.board.blike }</p>
+				</a>
+			</div>  
+			<div class="part_like_hate">
+				<a href="#" class="btn_like_hate">
+					<img src="../../../img/boardLike/good-quality.png" style="width: 50px; transform: rotate(0.5turn);">
+					<span class="board_detail_span">${requestScope.board.bhate }</span>
+				</a>
+			</div>
+			</section>  
 			<div class="btn">
-				<a href="#" class="move">이전글</a> <a href="javascript:history.back();"
-					class="move">목록보기</a> <a href="#" class="move">다음글</a>
+				<a href="#" class="move">이전글</a> 
+				<a href="javascript:history.back();" class="move">목록보기</a> 
+				<a href="#" class="move">다음글</a>
 			</div>
 	
 			<div class="btn">
@@ -331,21 +348,8 @@
 			</div>
 		</section>
 		
-		<section id="board_like_hate">
-                <div class="part_like_hate">
-                    <a href="#" class="btn_like_hate">
-                        <img src=" ">
-                        <span class="board_detail_span">${requestScope.board.blike }</span>
-                    </a>
-                </div>  
-                <div class="part_like_hate">
-                    <a href="#" class="btn_like_hate">
-                        <img src=" ">
-                        <span class="board_detail_span">${requestScope.board.bhate }</span>
-                    </a>
-                </div>  
-		</section>		
-		<hr>
+		
+		
 		<section id="comment_write_box">
         	<c:if test="${sessionScope.login == true}">
             	<div class="comment_form">
@@ -391,7 +395,7 @@
 					<td class="part_comment_view">
 						<span id="#comment_cdate">${comment.cdate}</span>
 					</td>               
-					<td class="part_comment_view" id="part_comment_view_content">
+					<td id="part_comment_view_content">
 						<span id="#comment_content">${comment.content}</span>
 					</td>               
 					<td class="part_comment_view">
