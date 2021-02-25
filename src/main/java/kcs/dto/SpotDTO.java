@@ -1,334 +1,398 @@
 package kcs.dto;
 
-import org.apache.ibatis.type.Alias;
-
-@Alias("spot")
 public class SpotDTO {
 
-	private int sno;
-	private String id;
-	private String sname;
-	private String address1;
-	private String address2;
-	private String address3;
-	private String tel1;
-	private String tel2;
-	private String tel3;
-	private String stag;
-	private String spot_link;
-	private String content;
-	private int autocamping;
-	private int glamping;
-	private int caravan;
-	private int rent_tent;
-	private int rent_equipment;
-	private int pool;
-	private int pet;
-	private int fishing;
-	private int experience;
-	private int caravan_open;
-	private int trailer_open;
-	private int beach;
-	private int island;
-	private int mountain;
-	private int forest;
-	private int valley;
-	private int river;
-	private int lake;
-	private int city;
-	private int wifi;
-	private int hot_water;
-	private int shower;
-	private int mart;
-	private int toilet;
-	private int electric;
-	private int pet_open;
-	private int status;
+	private int contentId;
+	private String facltNm;
+	private String lineIntro;
+	private String intro;
+	private String bizrno;
+	private String manageSttus;
+	private String hvofBgnde;
+	private String hvofEnddle;
+	private String featureNm;
+	private String induty;
+	private String lctCl;
+	private String doNm;
+	private String sigunguNm;
+	private int zipcode;
+	private String addr1;
+	private String addr2;
+	private String tel;
+	private String homepage;
+	private int gnrlSiteCo;
+	private int autoSiteCo;
+	private int glampSiteCo;
+	private int caravSiteCo;
+	private int indvdlCaravSiteCo;
+	private int siteBottomCl1;
+	private int siteBottomCl2;
+	private int siteBottomCl3;
+	private int siteBottomCl4;
+	private int siteBottomCl5;
+	private int glampInnerFclty;
+	private int caravInnerFclty;
+	private String operPdCl;
+	private String trlerAcmpnyAt;
+	private String caravAcmpnyAt;
+	private int toiletCo;
+	private int swrmCo;
+	private int wtrplCo;
+	private String brazierCl;
+	private String sbrsCl;
+	private String sbrsEtc;
+	private String posblFcltyCl;
+	private String posblFcltyEtc;
+	private String exprnProgrm;
+	private String themaEnvrnCl;
+	private String eqpmnLendCl;
+	private String animalCmgCl;
+	private String tourEraCl;
+	private String firstImageUrl;
 	
 	private double star;
 	private int review_count;
-	public SpotDTO(int sno, String id, String sname, String address1, String address2, String address3, String tel1,
-			String tel2, String tel3, String stag, String spot_link, String content, int autocamping, int glamping,
-			int caravan, int rent_tent, int rent_equipment, int pool, int pet, int fishing, int experience,
-			int caravan_open, int trailer_open, int beach, int island, int mountain, int forest, int valley, int river,
-			int lake, int city, int wifi, int hot_water, int shower, int mart, int toilet, int electric, int pet_open,
-			int status, double star, int review_count) {
+	public SpotDTO(int contentId, String facltNm, String lineIntro, String intro, String bizrno, String manageSttus,
+			String hvofBgnde, String hvofEnddle, String featureNm, String induty, String lctCl, String doNm,
+			String sigunguNm, int zipcode, String addr1, String addr2, String tel, String homepage, int gnrlSiteCo,
+			int autoSiteCo, int glampSiteCo, int caravSiteCo, int indvdlCaravSiteCo, int siteBottomCl1,
+			int siteBottomCl2, int siteBottomCl3, int siteBottomCl4, int siteBottomCl5, int glampInnerFclty,
+			int caravInnerFclty, String operPdCl, String trlerAcmpnyAt, String caravAcmpnyAt, int toiletCo, int swrmCo,
+			int wtrplCo, String brazierCl, String sbrsCl, String sbrsEtc, String posblFcltyCl, String posblFcltyEtc,
+			String exprnProgrm, String themaEnvrnCl, String eqpmnLendCl, String animalCmgCl, String tourEraCl,
+			String firstImageUrl, double star, int review_count) {
 		super();
-		this.sno = sno;
-		this.id = id;
-		this.sname = sname;
-		this.address1 = address1;
-		this.address2 = address2;
-		this.address3 = address3;
-		this.tel1 = tel1;
-		this.tel2 = tel2;
-		this.tel3 = tel3;
-		this.stag = stag;
-		this.spot_link = spot_link;
-		this.content = content;
-		this.autocamping = autocamping;
-		this.glamping = glamping;
-		this.caravan = caravan;
-		this.rent_tent = rent_tent;
-		this.rent_equipment = rent_equipment;
-		this.pool = pool;
-		this.pet = pet;
-		this.fishing = fishing;
-		this.experience = experience;
-		this.caravan_open = caravan_open;
-		this.trailer_open = trailer_open;
-		this.beach = beach;
-		this.island = island;
-		this.mountain = mountain;
-		this.forest = forest;
-		this.valley = valley;
-		this.river = river;
-		this.lake = lake;
-		this.city = city;
-		this.wifi = wifi;
-		this.hot_water = hot_water;
-		this.shower = shower;
-		this.mart = mart;
-		this.toilet = toilet;
-		this.electric = electric;
-		this.pet_open = pet_open;
-		this.status = status;
+		this.contentId = contentId;
+		this.facltNm = facltNm;
+		this.lineIntro = lineIntro;
+		this.intro = intro;
+		this.bizrno = bizrno;
+		this.manageSttus = manageSttus;
+		this.hvofBgnde = hvofBgnde;
+		this.hvofEnddle = hvofEnddle;
+		this.featureNm = featureNm;
+		this.induty = induty;
+		this.lctCl = lctCl;
+		this.doNm = doNm;
+		this.sigunguNm = sigunguNm;
+		this.zipcode = zipcode;
+		this.addr1 = addr1;
+		this.addr2 = addr2;
+		this.tel = tel;
+		this.homepage = homepage;
+		this.gnrlSiteCo = gnrlSiteCo;
+		this.autoSiteCo = autoSiteCo;
+		this.glampSiteCo = glampSiteCo;
+		this.caravSiteCo = caravSiteCo;
+		this.indvdlCaravSiteCo = indvdlCaravSiteCo;
+		this.siteBottomCl1 = siteBottomCl1;
+		this.siteBottomCl2 = siteBottomCl2;
+		this.siteBottomCl3 = siteBottomCl3;
+		this.siteBottomCl4 = siteBottomCl4;
+		this.siteBottomCl5 = siteBottomCl5;
+		this.glampInnerFclty = glampInnerFclty;
+		this.caravInnerFclty = caravInnerFclty;
+		this.operPdCl = operPdCl;
+		this.trlerAcmpnyAt = trlerAcmpnyAt;
+		this.caravAcmpnyAt = caravAcmpnyAt;
+		this.toiletCo = toiletCo;
+		this.swrmCo = swrmCo;
+		this.wtrplCo = wtrplCo;
+		this.brazierCl = brazierCl;
+		this.sbrsCl = sbrsCl;
+		this.sbrsEtc = sbrsEtc;
+		this.posblFcltyCl = posblFcltyCl;
+		this.posblFcltyEtc = posblFcltyEtc;
+		this.exprnProgrm = exprnProgrm;
+		this.themaEnvrnCl = themaEnvrnCl;
+		this.eqpmnLendCl = eqpmnLendCl;
+		this.animalCmgCl = animalCmgCl;
+		this.tourEraCl = tourEraCl;
+		this.firstImageUrl = firstImageUrl;
 		this.star = star;
 		this.review_count = review_count;
 	}
-	public int getSno() {
-		return sno;
+	public int getContentId() {
+		return contentId;
 	}
-	public void setSno(int sno) {
-		this.sno = sno;
+	public void setContentId(int contentId) {
+		this.contentId = contentId;
 	}
-	public String getId() {
-		return id;
+	public String getFacltNm() {
+		return facltNm;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setFacltNm(String facltNm) {
+		this.facltNm = facltNm;
 	}
-	public String getSname() {
-		return sname;
+	public String getLineIntro() {
+		return lineIntro;
 	}
-	public void setSname(String sname) {
-		this.sname = sname;
+	public void setLineIntro(String lineIntro) {
+		this.lineIntro = lineIntro;
 	}
-	public String getAddress1() {
-		return address1;
+	public String getIntro() {
+		return intro;
 	}
-	public void setAddress1(String address1) {
-		this.address1 = address1;
+	public void setIntro(String intro) {
+		this.intro = intro;
 	}
-	public String getAddress2() {
-		return address2;
+	public String getBizrno() {
+		return bizrno;
 	}
-	public void setAddress2(String address2) {
-		this.address2 = address2;
+	public void setBizrno(String bizrno) {
+		this.bizrno = bizrno;
 	}
-	public String getAddress3() {
-		return address3;
+	public String getManageSttus() {
+		return manageSttus;
 	}
-	public void setAddress3(String address3) {
-		this.address3 = address3;
+	public void setManageSttus(String manageSttus) {
+		this.manageSttus = manageSttus;
 	}
-	public String getTel1() {
-		return tel1;
+	public String getHvofBgnde() {
+		return hvofBgnde;
 	}
-	public void setTel1(String tel1) {
-		this.tel1 = tel1;
+	public void setHvofBgnde(String hvofBgnde) {
+		this.hvofBgnde = hvofBgnde;
 	}
-	public String getTel2() {
-		return tel2;
+	public String getHvofEnddle() {
+		return hvofEnddle;
 	}
-	public void setTel2(String tel2) {
-		this.tel2 = tel2;
+	public void setHvofEnddle(String hvofEnddle) {
+		this.hvofEnddle = hvofEnddle;
 	}
-	public String getTel3() {
-		return tel3;
+	public String getFeatureNm() {
+		return featureNm;
 	}
-	public void setTel3(String tel3) {
-		this.tel3 = tel3;
+	public void setFeatureNm(String featureNm) {
+		this.featureNm = featureNm;
 	}
-	public String getStag() {
-		return stag;
+	public String getInduty() {
+		return induty;
 	}
-	public void setStag(String stag) {
-		this.stag = stag;
+	public void setInduty(String induty) {
+		this.induty = induty;
 	}
-	public String getSpot_link() {
-		return spot_link;
+	public String getLctCl() {
+		return lctCl;
 	}
-	public void setSpot_link(String spot_link) {
-		this.spot_link = spot_link;
+	public void setLctCl(String lctCl) {
+		this.lctCl = lctCl;
 	}
-	public String getContent() {
-		return content;
+	public String getDoNm() {
+		return doNm;
 	}
-	public void setContent(String content) {
-		this.content = content;
+	public void setDoNm(String doNm) {
+		this.doNm = doNm;
 	}
-	public int getAutocamping() {
-		return autocamping;
+	public String getSigunguNm() {
+		return sigunguNm;
 	}
-	public void setAutocamping(int autocamping) {
-		this.autocamping = autocamping;
+	public void setSigunguNm(String sigunguNm) {
+		this.sigunguNm = sigunguNm;
 	}
-	public int getGlamping() {
-		return glamping;
+	public int getZipcode() {
+		return zipcode;
 	}
-	public void setGlamping(int glamping) {
-		this.glamping = glamping;
+	public void setZipcode(int zipcode) {
+		this.zipcode = zipcode;
 	}
-	public int getCaravan() {
-		return caravan;
+	public String getAddr1() {
+		return addr1;
 	}
-	public void setCaravan(int caravan) {
-		this.caravan = caravan;
+	public void setAddr1(String addr1) {
+		this.addr1 = addr1;
 	}
-	public int getRent_tent() {
-		return rent_tent;
+	public String getAddr2() {
+		return addr2;
 	}
-	public void setRent_tent(int rent_tent) {
-		this.rent_tent = rent_tent;
+	public void setAddr2(String addr2) {
+		this.addr2 = addr2;
 	}
-	public int getRent_equipment() {
-		return rent_equipment;
+	public String getTel() {
+		return tel;
 	}
-	public void setRent_equipment(int rent_equipment) {
-		this.rent_equipment = rent_equipment;
+	public void setTel(String tel) {
+		this.tel = tel;
 	}
-	public int getPool() {
-		return pool;
+	public String getHomepage() {
+		return homepage;
 	}
-	public void setPool(int pool) {
-		this.pool = pool;
+	public void setHomepage(String homepage) {
+		this.homepage = homepage;
 	}
-	public int getPet() {
-		return pet;
+	public int getGnrlSiteCo() {
+		return gnrlSiteCo;
 	}
-	public void setPet(int pet) {
-		this.pet = pet;
+	public void setGnrlSiteCo(int gnrlSiteCo) {
+		this.gnrlSiteCo = gnrlSiteCo;
 	}
-	public int getFishing() {
-		return fishing;
+	public int getAutoSiteCo() {
+		return autoSiteCo;
 	}
-	public void setFishing(int fishing) {
-		this.fishing = fishing;
+	public void setAutoSiteCo(int autoSiteCo) {
+		this.autoSiteCo = autoSiteCo;
 	}
-	public int getExperience() {
-		return experience;
+	public int getGlampSiteCo() {
+		return glampSiteCo;
 	}
-	public void setExperience(int experience) {
-		this.experience = experience;
+	public void setGlampSiteCo(int glampSiteCo) {
+		this.glampSiteCo = glampSiteCo;
 	}
-	public int getCaravan_open() {
-		return caravan_open;
+	public int getCaravSiteCo() {
+		return caravSiteCo;
 	}
-	public void setCaravan_open(int caravan_open) {
-		this.caravan_open = caravan_open;
+	public void setCaravSiteCo(int caravSiteCo) {
+		this.caravSiteCo = caravSiteCo;
 	}
-	public int getTrailer_open() {
-		return trailer_open;
+	public int getIndvdlCaravSiteCo() {
+		return indvdlCaravSiteCo;
 	}
-	public void setTrailer_open(int trailer_open) {
-		this.trailer_open = trailer_open;
+	public void setIndvdlCaravSiteCo(int indvdlCaravSiteCo) {
+		this.indvdlCaravSiteCo = indvdlCaravSiteCo;
 	}
-	public int getBeach() {
-		return beach;
+	public int getSiteBottomCl1() {
+		return siteBottomCl1;
 	}
-	public void setBeach(int beach) {
-		this.beach = beach;
+	public void setSiteBottomCl1(int siteBottomCl1) {
+		this.siteBottomCl1 = siteBottomCl1;
 	}
-	public int getIsland() {
-		return island;
+	public int getSiteBottomCl2() {
+		return siteBottomCl2;
 	}
-	public void setIsland(int island) {
-		this.island = island;
+	public void setSiteBottomCl2(int siteBottomCl2) {
+		this.siteBottomCl2 = siteBottomCl2;
 	}
-	public int getMountain() {
-		return mountain;
+	public int getSiteBottomCl3() {
+		return siteBottomCl3;
 	}
-	public void setMountain(int mountain) {
-		this.mountain = mountain;
+	public void setSiteBottomCl3(int siteBottomCl3) {
+		this.siteBottomCl3 = siteBottomCl3;
 	}
-	public int getForest() {
-		return forest;
+	public int getSiteBottomCl4() {
+		return siteBottomCl4;
 	}
-	public void setForest(int forest) {
-		this.forest = forest;
+	public void setSiteBottomCl4(int siteBottomCl4) {
+		this.siteBottomCl4 = siteBottomCl4;
 	}
-	public int getValley() {
-		return valley;
+	public int getSiteBottomCl5() {
+		return siteBottomCl5;
 	}
-	public void setValley(int valley) {
-		this.valley = valley;
+	public void setSiteBottomCl5(int siteBottomCl5) {
+		this.siteBottomCl5 = siteBottomCl5;
 	}
-	public int getRiver() {
-		return river;
+	public int getGlampInnerFclty() {
+		return glampInnerFclty;
 	}
-	public void setRiver(int river) {
-		this.river = river;
+	public void setGlampInnerFclty(int glampInnerFclty) {
+		this.glampInnerFclty = glampInnerFclty;
 	}
-	public int getLake() {
-		return lake;
+	public int getCaravInnerFclty() {
+		return caravInnerFclty;
 	}
-	public void setLake(int lake) {
-		this.lake = lake;
+	public void setCaravInnerFclty(int caravInnerFclty) {
+		this.caravInnerFclty = caravInnerFclty;
 	}
-	public int getCity() {
-		return city;
+	public String getOperPdCl() {
+		return operPdCl;
 	}
-	public void setCity(int city) {
-		this.city = city;
+	public void setOperPdCl(String operPdCl) {
+		this.operPdCl = operPdCl;
 	}
-	public int getWifi() {
-		return wifi;
+	public String getTrlerAcmpnyAt() {
+		return trlerAcmpnyAt;
 	}
-	public void setWifi(int wifi) {
-		this.wifi = wifi;
+	public void setTrlerAcmpnyAt(String trlerAcmpnyAt) {
+		this.trlerAcmpnyAt = trlerAcmpnyAt;
 	}
-	public int getHot_water() {
-		return hot_water;
+	public String getCaravAcmpnyAt() {
+		return caravAcmpnyAt;
 	}
-	public void setHot_water(int hot_water) {
-		this.hot_water = hot_water;
+	public void setCaravAcmpnyAt(String caravAcmpnyAt) {
+		this.caravAcmpnyAt = caravAcmpnyAt;
 	}
-	public int getShower() {
-		return shower;
+	public int getToiletCo() {
+		return toiletCo;
 	}
-	public void setShower(int shower) {
-		this.shower = shower;
+	public void setToiletCo(int toiletCo) {
+		this.toiletCo = toiletCo;
 	}
-	public int getMart() {
-		return mart;
+	public int getSwrmCo() {
+		return swrmCo;
 	}
-	public void setMart(int mart) {
-		this.mart = mart;
+	public void setSwrmCo(int swrmCo) {
+		this.swrmCo = swrmCo;
 	}
-	public int getToilet() {
-		return toilet;
+	public int getWtrplCo() {
+		return wtrplCo;
 	}
-	public void setToilet(int toilet) {
-		this.toilet = toilet;
+	public void setWtrplCo(int wtrplCo) {
+		this.wtrplCo = wtrplCo;
 	}
-	public int getElectric() {
-		return electric;
+	public String getBrazierCl() {
+		return brazierCl;
 	}
-	public void setElectric(int electric) {
-		this.electric = electric;
+	public void setBrazierCl(String brazierCl) {
+		this.brazierCl = brazierCl;
 	}
-	public int getPet_open() {
-		return pet_open;
+	public String getSbrsCl() {
+		return sbrsCl;
 	}
-	public void setPet_open(int pet_open) {
-		this.pet_open = pet_open;
+	public void setSbrsCl(String sbrsCl) {
+		this.sbrsCl = sbrsCl;
 	}
-	public int getStatus() {
-		return status;
+	public String getSbrsEtc() {
+		return sbrsEtc;
 	}
-	public void setStatus(int status) {
-		this.status = status;
+	public void setSbrsEtc(String sbrsEtc) {
+		this.sbrsEtc = sbrsEtc;
+	}
+	public String getPosblFcltyCl() {
+		return posblFcltyCl;
+	}
+	public void setPosblFcltyCl(String posblFcltyCl) {
+		this.posblFcltyCl = posblFcltyCl;
+	}
+	public String getPosblFcltyEtc() {
+		return posblFcltyEtc;
+	}
+	public void setPosblFcltyEtc(String posblFcltyEtc) {
+		this.posblFcltyEtc = posblFcltyEtc;
+	}
+	public String getExprnProgrm() {
+		return exprnProgrm;
+	}
+	public void setExprnProgrm(String exprnProgrm) {
+		this.exprnProgrm = exprnProgrm;
+	}
+	public String getThemaEnvrnCl() {
+		return themaEnvrnCl;
+	}
+	public void setThemaEnvrnCl(String themaEnvrnCl) {
+		this.themaEnvrnCl = themaEnvrnCl;
+	}
+	public String getEqpmnLendCl() {
+		return eqpmnLendCl;
+	}
+	public void setEqpmnLendCl(String eqpmnLendCl) {
+		this.eqpmnLendCl = eqpmnLendCl;
+	}
+	public String getAnimalCmgCl() {
+		return animalCmgCl;
+	}
+	public void setAnimalCmgCl(String animalCmgCl) {
+		this.animalCmgCl = animalCmgCl;
+	}
+	public String getTourEraCl() {
+		return tourEraCl;
+	}
+	public void setTourEraCl(String tourEraCl) {
+		this.tourEraCl = tourEraCl;
+	}
+	public String getFirstImageUrl() {
+		return firstImageUrl;
+	}
+	public void setFirstImageUrl(String firstImageUrl) {
+		this.firstImageUrl = firstImageUrl;
 	}
 	public double getStar() {
 		return star;
@@ -342,20 +406,8 @@ public class SpotDTO {
 	public void setReview_count(int review_count) {
 		this.review_count = review_count;
 	}
-	@Override
-	public String toString() {
-		return "SpotDTO [sno=" + sno + ", id=" + id + ", sname=" + sname + ", address1=" + address1 + ", address2="
-				+ address2 + ", address3=" + address3 + ", tel1=" + tel1 + ", tel2=" + tel2 + ", tel3=" + tel3
-				+ ", stag=" + stag + ", spot_link=" + spot_link + ", content=" + content + ", autocamping="
-				+ autocamping + ", glamping=" + glamping + ", caravan=" + caravan + ", rent_tent=" + rent_tent
-				+ ", rent_equipment=" + rent_equipment + ", pool=" + pool + ", pet=" + pet + ", fishing=" + fishing
-				+ ", experience=" + experience + ", caravan_open=" + caravan_open + ", trailer_open=" + trailer_open
-				+ ", beach=" + beach + ", island=" + island + ", mountain=" + mountain + ", forest=" + forest
-				+ ", valley=" + valley + ", river=" + river + ", lake=" + lake + ", city=" + city + ", wifi=" + wifi
-				+ ", hot_water=" + hot_water + ", shower=" + shower + ", mart=" + mart + ", toilet=" + toilet
-				+ ", electric=" + electric + ", pet_open=" + pet_open + ", status=" + status + ", star=" + star
-				+ ", review_count=" + review_count + "]";
-	}
+	
+	
 	
 	
 }
