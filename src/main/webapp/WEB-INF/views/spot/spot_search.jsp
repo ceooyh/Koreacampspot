@@ -429,12 +429,12 @@
                     </div><!--카테고리 캠핑테마 마지막-->
 
                     <div id="detail_camping_category_price" class="detail_camping_category"><!--가격대 검색창 시작-->
-                        <span>가격대</span> <input class="price_input" type="text" name="price_min" id="price_min" placeholder="최소">~<input class="price_input" type="text" name="price_max" id="price_max" placeholder="최대">        
+                        <span>가격대</span> <input class="price_input" type="number" name="price_min" id="price_min" placeholder="최소">~<input class="price_input" type="number" name="price_max" id="price_max" placeholder="최대">        
                     </div><!--가격대 검색창 마지막-->
 
                     <div id="detail_camping_category_btn" class="detail_camping_category"><!--검색버튼 배치 시작-->
                         <button type="submit" class="camping_category_btn">검색</button>
-                        <button type="button" class="camping_category_btn">초기화</button>
+                        <button type="reset" class="camping_category_btn">초기화</button>
                     </div><!--검색버튼 배치 마지막-->
 
                 </div><!--캠핑 상세검색창 마지막-->
