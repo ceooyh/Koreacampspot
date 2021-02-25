@@ -452,7 +452,13 @@
             <c:forEach var="dto" items="requestScope.list">
                 <div id="camping_info_list">
                     <div id="spot_main_img">
-                        <img src="${dto.firstImageUrl}" alt="">
+                    	<c:choose>
+							<c:when test="${dto.firstImageUrl eq '-'}">
+							</c:when>
+							<c:when test="${dto.firstImageUrl ne '-'}">
+		                        <img src="${dto.firstImageUrl}">
+							</c:when>
+                    	</c:choose>
                     </div>
                     <div id="spot_main_content">
                         <span id="spot_name_title"><a href="spotDetailView.do?sno=${dto.contentId}">${dto.facltNm}</a></span><br>
