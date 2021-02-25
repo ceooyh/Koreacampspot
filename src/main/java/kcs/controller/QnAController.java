@@ -99,8 +99,8 @@ public class QnAController {
 		List<QnADTO> list = service.getAdminQnAList(title,writer,pageNo,user_type);
 		int count = service.getAdminCount();
 		PaggingVO vo = new PaggingVO(count, pageNo);
-		request.getSession().setAttribute("page", vo);
-		request.getSession().setAttribute("list", list);
+		request.setAttribute("page", vo);
+		request.setAttribute("list", list);
 		
 		return "qna/qna_response_view";
 	}
