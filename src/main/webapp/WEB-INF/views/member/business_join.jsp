@@ -215,12 +215,25 @@
         background-color: rgb(44, 42, 41);
         color: white;
     }
+     input[type="number"]::-webkit-inner-spin-button {
+	    -webkit-appearance: none;
+	    margin: 0;
+	}
 
 
 </style>
 <script src="../../../lib/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 $(function(){
+	
+	/*이름에는 한글만 입력할 수 있도록 변경*/
+	var name = document.querySelector("#name");
+	var onlyKorean = function() {
+	  var pattern = /[a-z0-9]|[ \[\]{}()<>?|`~!@#$%^&*-_+=,.;:\"'\\]/g;
+	  this.value = this.value.replace(pattern, "");
+	  alert("한글만 입력해주세요");
+	};
+	name.addEventListener('keypress', onlyKorean);
 	
 	/*아이디 중복시 아래에 알림창 띄워주고 글씨색 변경해주는 부분*/
 	$("#id").keyup(function() {
@@ -596,12 +609,8 @@ $(function(){
     			$("#business_no1").focus();
    				return false;
    			}
-    		if(!(id == prevID)){
-    			alert("아이디 중복체크는 필수로 해야됩니다.");
-    			return false;
-   			};
     		$("#btn_submit").submit();
-    	});
+    		});
 	
 	// 이전버튼 클릭시 이전 페이지로 이동
 	$(".btn_before").click(function(){
@@ -662,8 +671,8 @@ $(function(){
                                 <option value="019">019</option>
                                 <option value="011">011</option>
                             </select></span>
-                            <span><input class="guest_input2" type="text" name="tel2" id="tel2" class="tel" placeholder="0000"></span>
-                            <span><input class="guest_input2" type="text" name="tel3" id="tel3" class="tel" placeholder="0000"></span>
+                            <span><input class="guest_input2" type="number" name="tel2" id="tel2" class="tel" placeholder="0000"></span>
+                            <span><input class="guest_input2" type="number" name="tel3" id="tel3" class="tel" placeholder="0000"></span>
                 </div><!--전화번호 입력 부분 end-->
 
 
@@ -688,9 +697,9 @@ $(function(){
                 <div id="id_insert" class="part"><!--생일/성별 start-->
                     <span class="guest_insert"><label for="year" class="label">생일/성별</label></span><br>
                     <div class="input_result" id="input_result7"></div>
-                    <span><input  class="guest_input4" type="text" id="year" name="year" placeholder="년"></span>
-                    <span><input class="guest_input4" type="text" id="month" name="month" placeholder="월"></span>
-                    <span><input  class="guest_input4" type="text" id="day" name="day" placeholder="일"></span><br>
+                    <span><input  class="guest_input4" type="number" id="year" name="year" placeholder="년"></span>
+                    <span><input class="guest_input4" type="number" id="month" name="month" placeholder="월"></span>
+                    <span><input  class="guest_input4" type="number" id="day" name="day" placeholder="일"></span><br>
                     <div id="checkbox_gender">
                         <span class="gender_select"><input id="gender_woman" type="checkbox" value="1" class="checkbox" name="gender"><label for="gender_woman" class="label"><span>여성</span></label></span>
                         <span class="gender_select"><input id="gender_man" type="checkbox" value="0" class="checkbox"  name="gender" checked><label for="gender_man" class="label"><span>남성</span></label></span>
@@ -701,9 +710,9 @@ $(function(){
                 <div id="id_insert" class="part"><!--사업자 등록번호 입력 start-->
                     <span class="guest_insert"><label for="business_no" class="label">사업자등록번호</label></span><br>
                     <div class="input_result" id="input_result8"></div>
-                    <span><input class="guest_input4" type="text" id="business_no1" name="business_no1" placeholder="000"></span>
-                    <span><input class="guest_input4" type="text" id="business_no2" name="business_no2" placeholder="00"></span>
-                    <span><input class="guest_input4" type="text" id="business_no3" name="business_no3" placeholder="00000"></span><br>
+                    <span><input class="guest_input4" type="number" id="business_no1" name="business_no1" placeholder="000"></span>
+                    <span><input class="guest_input4" type="number" id="business_no2" name="business_no2" placeholder="00"></span>
+                    <span><input class="guest_input4" type="number" id="business_no3" name="business_no3" placeholder="00000"></span><br>
                  </div><!--사업자 등록번호 입력 end-->
 
 

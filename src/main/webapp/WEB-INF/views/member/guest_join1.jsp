@@ -208,11 +208,12 @@
 <script type="text/javascript">
 	$(function(){
 		
+		/*이름에는 한글만 입력할 수 있도록 변경*/
 		var name = document.querySelector("#name");
 		var onlyKorean = function() {
 		  var pattern = /[a-z0-9]|[ \[\]{}()<>?|`~!@#$%^&*-_+=,.;:\"'\\]/g;
 		  this.value = this.value.replace(pattern, "");
-		  alert("한글만 입력해주세요")
+		  alert("한글만 입력해주세요");
 		};
 		name.addEventListener('keypress', onlyKorean);
 		
@@ -426,7 +427,6 @@
 		
 		/*최종 회원가입시 미입력부분 포커스 맞춰주고 alert 띄워주는 부분*/
 		$(".btn_submit").click(function() {
-	    	 var prevID=$("input:text[name=prev_id]").val()
 	    	 var id=$("input:text[name=id]").val();
 	    	event.preventDefault();
 	    		if($("#id").val().trim().length == 0){
@@ -508,10 +508,6 @@
 	    			alert("생년월일을 입력해주세요");
 	    			$("#day").focus();
 	   				return false;
-	   			};
-	    		if(!(id == prevID)){
-	    			alert("아이디 중복체크는 필수로 해야됩니다.");
-	    			return false;
 	   			};
 	    		$("#btn_submit").submit();
 	    	});
