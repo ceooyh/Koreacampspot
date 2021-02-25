@@ -717,11 +717,6 @@ $(function(){
                  </div><!--사업자 등록번호 입력 end-->
 
 
-                <div id="file_upload" class="part">
-                    <span><input type="file" name="file" id="file"><label for="file" id="file_upload_label">파일업로드</label></span>
-                </div>    
-
-
                 <div id="btn_continer">
                     <button class="btn_submit" id="btn_submit">회원가입</button>
                     <button type="button" class="btn_before">이전</button>

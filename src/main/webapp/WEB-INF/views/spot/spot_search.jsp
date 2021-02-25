@@ -352,6 +352,41 @@
         padding-left: 20px;
         letter-spacing :2px;
     }
+    #paging_write{
+        width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 50px;
+    }
+    #paging_write a{
+        text-decoration: none;
+        /*color: rgb(44, 42, 41);*/
+        font-family: '굵은노토';
+        font-size: 14px;
+    }
+    .page_arrow{
+        color: rgb(44, 42, 41);
+        margin: 0 20px;
+    }
+    #paging_write_number{
+        display: inline-block;
+        background-color: rgb(44, 42, 41);
+        color: white;
+        padding: 3px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        margin-left: 3px;
+        margin-right: 3px;
+    }
+    #paging_write_number:hover{
+        background-color: rgb(165, 165, 165);
+        color: rgb(44, 42, 41);
+    }
+    .page_arrow:hover{
+        color: rgb(165, 165, 165);
+    }
 </style>
 </head>
 <body>
@@ -484,17 +519,46 @@
                 </div>
                 <hr id="h1_down_row">
             </c:forEach>
-            <c:set var="page" value="${requestScope.page}" scope="page" />
-					<c:if test="${page.previousPageGroup }">
-						<a href="findCampSpotView.do?pageNo=${page.startPageOfPageGroup-1}">◀</a>
-					</c:if>
-					<c:forEach var="i" begin="${page.startPageOfPageGroup }" end="${page.endPageOfPageGroup }" step="1">
-						<a href="findCampSpotView.do?pageNo=${i}">${i}</a>					
-					</c:forEach>
-					<c:if test="${page.nextPageGroup }">
-						<a href="findCampSpotView.do?pageNo=${page.endPageOfPageGroup+1}">▶</a>
-					</c:if>
-        </div>
+            <div id="detail_camping_info">
+	            <h1>캠핑장 상세 리스트</h1>
+	            <hr id="h1_down_row">
+	            <c:forEach var="dto" items="requestScope.list">
+	                <div id="camping_info_list">
+	                    <div id="spot_main_img">
+	                        <img src="img/searchpage/캠핑장사진.jpg" alt="">
+	                    </div>
+	                    <div id="spot_main_content">
+	                        <span id="spot_name_title"><a href="">한티별빛아래관광농원 야영장</a></span><br>
+	                        <span id="online_intro">발 아래로 내려다보는 풍경이 일품인 캠핑장</span><br>
+	                        <span id="spot_address_title" class="spot_title">경상북도 칠곡군 가산면 응추리</span><br>
+	                        <span id="spot_tel_title" class="spot_title">054-972-8032</span><br>
+	                        <span id="spot_homepage_title" class="spot_title"><a href="http://cafe.daum.net/hantistar-camp">http://cafe.daum.net/hantistar-camp</a></span><br>
+	                        <span id="spot_theme_title">
+	                            <span>[부대시설]</span>
+	                            <p>전기,무선인터넷,장작판매,온수,물놀이장,놀이터,운동시설</p>
+	                        </span>
+	                    </div>
+	                    <div  id="spot_main_otherinfo">
+	                        <span class="camping_status_info" id="status_open">OPEN</span>
+	                        <span class="camping_status_info" id="status_close">CLOSE</span>
+	                    </div>
+	                </div>
+	                <hr id="h1_down_row">
+	            </c:forEach>
+	            <div id="paging_write">
+		                <c:set var="page" value="${requestScope.page}" scope="page" />
+		                <c:if test="${page.previousPageGroup }">
+		                    <a class="page_arrow" href="findCampSpotView.do?pageNo=${page.startPageOfPageGroup-1}">◀</a>
+		                </c:if>
+		                <c:forEach var="i" begin="${page.startPageOfPageGroup }" end="${page.endPageOfPageGroup }" step="1">
+		                    <a id="paging_write_number" href="findCampSpotView.do?pageNo=${i}">1</a>					
+		                </c:forEach>
+		                <c:if test="${page.nextPageGroup }">
+		                    <a class="page_arrow" href="findCampSpotView.do?pageNo=${page.endPageOfPageGroup+1}">▶</a>
+		                </c:if>
+		            </div>
+		        </div>
+	        </div>
     </section>
     <jsp:include page="../template/footer.jsp" flush="false"></jsp:include>
 </body>
