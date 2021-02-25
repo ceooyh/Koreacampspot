@@ -46,48 +46,8 @@ public class SpotController {
 		if(request.getParameter("pageNo") != null)
 			pageNo = request.getParameter("pageNo");
 		
-		/*S: 페이징 정보*/
+		//페이징 정보
 		int count = 0;
-		
-		// 페이징 하기 위한 총 개수 구하기
-		try {
-			StringBuilder urlBuilder = new StringBuilder("http://api.visitkorea.or.kr/openapi/service/rest/GoCamping/basedList"); /*URL*/
-			urlBuilder.append("?" + URLEncoder.encode("ServiceKey","UTF-8") + "=de4n60BId3f9KozHqu47z%2FtxC6YjJEtG0KeMQojtPltNyV702A9d5lltXnQdN7W25Q9R71S0krGaTtdfEIEoQw%3D%3D"); /*Service Key*/
-			urlBuilder.append("&" + URLEncoder.encode("ServiceKey","UTF-8") + "=" + URLEncoder.encode("de4n60BId3f9KozHqu47z%2FtxC6YjJEtG0KeMQojtPltNyV702A9d5lltXnQdN7W25Q9R71S0krGaTtdfEIEoQw%3D%3D", "UTF-8")); /*공공데이터포털에서 받은 인증키*/
-			urlBuilder.append("&" + URLEncoder.encode("MobileOS","UTF-8") + "=" + URLEncoder.encode("ETC", "UTF-8")); /*IOS(아이폰),AND(안드로이드),WIN(윈도우폰),ETC*/
-			urlBuilder.append("&" + URLEncoder.encode("MobileApp","UTF-8") + "=" + URLEncoder.encode("AppTest", "UTF-8")); /*서비스명=어플명*/
-			urlBuilder.append("&_type=json"); /*서비스명=어플명*/
-			
-			URL url = new URL(urlBuilder.toString());
-			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-			conn.setRequestMethod("GET");
-			conn.setRequestProperty("Content-type", "application/json");
-			System.out.println("Response code: " + conn.getResponseCode());
-			BufferedReader rd;
-			if(conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
-				rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-			} else {
-				rd = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
-			}
-			StringBuilder sb = new StringBuilder();
-			String line;
-			while ((line = rd.readLine()) != null) {
-				sb.append(line);
-			}
-			
- 			JSONObject json = new JSONObject(sb.toString());
-			
-			
-			if(conn.getResponseCode() == 200) {
-				JSONArray arr = json.getJSONObject("response").getJSONObject("body").getJSONObject("items").getJSONArray("item");
-				count = arr.length();
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		PaggingVO page = new PaggingVO(count, Integer.parseInt(pageNo));
-		/*E: 페이징 정보*/
 		
 		try {
 			StringBuilder urlBuilder = new StringBuilder("http://api.visitkorea.or.kr/openapi/service/rest/GoCamping/basedList"); /*URL*/
@@ -120,10 +80,14 @@ public class SpotController {
 			
 			
 			if(conn.getResponseCode() == 200) {
-				JSONArray arr = json.getJSONObject("response").getJSONObject("body").getJSONObject("items").getJSONArray("item");
+				// 페이징 처리 위한 총 개수
+				count = Integer.parseInt(json.getJSONObject("response").getJSONObject("body").getJSONObject("items").getString("totalCount"));
 				
+				// 목록 받아오기
+				JSONArray arr = json.getJSONObject("response").getJSONObject("body").getJSONObject("items").getJSONArray("item");
 				for(int i=0; i<arr.length(); i++) {
 					JSONObject j = arr.getJSONObject(i);
+					System.out.println(arr.get(i).toString());
 					int contentId = j.has("contentId") ? j.getInt("contentId") : 1;
 					String facltNm = j.has("facltNm") ? j.getString("facltNm") : "-";
 					String lineIntro = j.has("lineIntro") ? j.getString("lineIntro") : "-";
@@ -181,7 +145,11 @@ public class SpotController {
 					list.add(
 							new SpotDTO(contentId, facltNm, lineIntro, intro, bizrno, manageSttus, hvofBgnde, hvofEnddle, featureNm, induty, lctCl, doNm, sigunguNm, zipcode, addr1, addr2, tel, homepage, gnrlSiteCo, autoSiteCo, glampSiteCo, caravSiteCo, indvdlCaravSiteCo, siteBottomCl1, siteBottomCl2, siteBottomCl3, siteBottomCl4, siteBottomCl5, glampInnerFclty, caravInnerFclty, operPdCl, trlerAcmpnyAt, caravAcmpnyAt, toiletCo, swrmCo, wtrplCo, brazierCl, sbrsCl, sbrsEtc, posblFcltyCl, posblFcltyEtc, exprnProgrm, themaEnvrnCl, eqpmnLendCl, animalCmgCl, tourEraCl, firstImageUrl, star, review_count)
 							);
+					
 				}
+
+				// 페이징 정보
+				PaggingVO page = new PaggingVO(count, Integer.parseInt(pageNo));
 				
 				request.setAttribute("list", list);
 				request.setAttribute("pageNo", pageNo);
@@ -215,48 +183,9 @@ public class SpotController {
 		if(request.getParameter("pageNo") != null)
 			pageNo = request.getParameter("pageNo");
 		
-		/*S: 페이징 정보*/
+		// 페이징 정보
 		int count = 0;
 		
-		// 페이징 하기 위한 총 개수 구하기
-		try {
-			StringBuilder urlBuilder = new StringBuilder("http://api.visitkorea.or.kr/openapi/service/rest/GoCamping/basedList"); /*URL*/
-			urlBuilder.append("?" + URLEncoder.encode("ServiceKey","UTF-8") + "=de4n60BId3f9KozHqu47z%2FtxC6YjJEtG0KeMQojtPltNyV702A9d5lltXnQdN7W25Q9R71S0krGaTtdfEIEoQw%3D%3D"); /*Service Key*/
-			urlBuilder.append("&" + URLEncoder.encode("ServiceKey","UTF-8") + "=" + URLEncoder.encode("de4n60BId3f9KozHqu47z%2FtxC6YjJEtG0KeMQojtPltNyV702A9d5lltXnQdN7W25Q9R71S0krGaTtdfEIEoQw%3D%3D", "UTF-8")); /*공공데이터포털에서 받은 인증키*/
-			urlBuilder.append("&" + URLEncoder.encode("MobileOS","UTF-8") + "=" + URLEncoder.encode("ETC", "UTF-8")); /*IOS(아이폰),AND(안드로이드),WIN(윈도우폰),ETC*/
-			urlBuilder.append("&" + URLEncoder.encode("MobileApp","UTF-8") + "=" + URLEncoder.encode("AppTest", "UTF-8")); /*서비스명=어플명*/
-			urlBuilder.append("&_type=json"); /*서비스명=어플명*/
-			
-			URL url = new URL(urlBuilder.toString());
-			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-			conn.setRequestMethod("GET");
-			conn.setRequestProperty("Content-type", "application/json");
-			System.out.println("Response code: " + conn.getResponseCode());
-			BufferedReader rd;
-			if(conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
-				rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-			} else {
-				rd = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
-			}
-			StringBuilder sb = new StringBuilder();
-			String line;
-			while ((line = rd.readLine()) != null) {
-				sb.append(line);
-			}
-			
- 			JSONObject json = new JSONObject(sb.toString());
-			
-			
-			if(conn.getResponseCode() == 200) {
-				JSONArray arr = json.getJSONObject("response").getJSONObject("body").getJSONObject("items").getJSONArray("item");
-				count = arr.length();
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		PaggingVO page = new PaggingVO(count, Integer.parseInt(pageNo));
-		/*E: 페이징 정보*/		
 		try {
 			StringBuilder urlBuilder = new StringBuilder("http://api.visitkorea.or.kr/openapi/service/rest/GoCamping/searchList"); /*URL*/
 			urlBuilder.append("?" + URLEncoder.encode("ServiceKey","UTF-8") + "=de4n60BId3f9KozHqu47z%2FtxC6YjJEtG0KeMQojtPltNyV702A9d5lltXnQdN7W25Q9R71S0krGaTtdfEIEoQw%3D%3D"); /*Service Key*/
@@ -290,6 +219,11 @@ public class SpotController {
 			ArrayList<SpotDTO> list = new ArrayList<SpotDTO>();
 			
 			if(conn.getResponseCode() == 200) {
+				
+				// 페이징 처리 위한 총 개수
+				count = Integer.parseInt(json.getJSONObject("response").getJSONObject("body").getJSONObject("items").getString("totalCount"));
+				
+				// 목록 받아오기
 				JSONArray arr = json.getJSONObject("response").getJSONObject("body").getJSONObject("items").getJSONArray("item");
 				System.out.println(arr.toString());
 				for(int i=0; i<arr.length(); i++) {
@@ -352,6 +286,9 @@ public class SpotController {
 							new SpotDTO(contentId, facltNm, lineIntro, intro, bizrno, manageSttus, hvofBgnde, hvofEnddle, featureNm, induty, lctCl, doNm, sigunguNm, zipcode, addr1, addr2, tel, homepage, gnrlSiteCo, autoSiteCo, glampSiteCo, caravSiteCo, indvdlCaravSiteCo, siteBottomCl1, siteBottomCl2, siteBottomCl3, siteBottomCl4, siteBottomCl5, glampInnerFclty, caravInnerFclty, operPdCl, trlerAcmpnyAt, caravAcmpnyAt, toiletCo, swrmCo, wtrplCo, brazierCl, sbrsCl, sbrsEtc, posblFcltyCl, posblFcltyEtc, exprnProgrm, themaEnvrnCl, eqpmnLendCl, animalCmgCl, tourEraCl, firstImageUrl, star, review_count)
 							);
 				}
+
+				// 페이징 정보
+				PaggingVO page = new PaggingVO(count, Integer.parseInt(pageNo));
 
 				request.setAttribute("list", list);
 				request.setAttribute("pageNo", pageNo);
