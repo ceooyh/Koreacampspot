@@ -47,14 +47,13 @@
 </head>
 <body>
     <jsp:include page="../template/header2.jsp" flush="false"></jsp:include>
-  <!--
-    <c:if test="${requestScope.list ==null}">
-        <script>
-            location.href=".do?pageNo=1";
-            
-        </script>
-    </c:if>
--->
+	    <c:if test="${requestScope.list ==null}">
+	        <script>
+	            location.href=".do?pageNo=1";
+	            
+	        </script>
+	    </c:if>
+    
     <div id="container">
     <h2>문의하기 상세페이지</h2>
         <hr>

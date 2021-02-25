@@ -85,7 +85,7 @@ public class QnAController {
 		return null;
 	}
 	
-	//문의 상세페이지 - 가현,20210225
+	//문의 상세페이지 - 가현,20210224
 	@RequestMapping("/qnaAdminView.do")
 	public String qnaManageList(HttpServletRequest request) {
 		String title = request.getParameter("title");

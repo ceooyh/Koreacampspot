@@ -18,7 +18,7 @@
 			<ul>
 				<li>제목 : ${requestScope.dto.title }</li>
 				<li>작성자 : ${requestScope.dto.writer }</li>
-				<li>작성일 : ${requestScope.dto.date }</li>
+				<li>작성일 : ${requestScope.dto.qdate }</li>
 				<c:choose>
 					<c:when test="${requestScope.dto.status==0}">
 						<li>미확인</li>

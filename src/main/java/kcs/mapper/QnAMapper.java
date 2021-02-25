@@ -22,6 +22,7 @@ public interface QnAMapper {
 
 	List<QnADTO> getAdminQnAList(HashMap<String, Object> map);
 
+
 	int getAdminCount();
 
 
