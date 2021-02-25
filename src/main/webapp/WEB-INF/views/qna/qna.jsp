@@ -62,12 +62,12 @@
         border: 1px solid rgb(46, 46, 46);
         border-radius: 8px;
         padding: 20px;
-        margin: 20px auto;
+        margin: 80px auto;
         width: 704px;
     }
 
     #headline {
-        width: 700px;
+        width: 685px;
         border-top: 2px solid rgb(46, 46, 46);
         border-bottom: 2px solid rgb(46, 46, 46);
         padding: 10px;
@@ -222,23 +222,22 @@
     }
 </style>
 	<jsp:include page="../template/header2.jsp" flush="false"></jsp:include>
-<!--<c:if test="${sessionScope.login == null}">
-		<script>
-			alert("권한이 없습니다. 로그인 후 이용해 주세요");
-			location.href = "loginView.do";
-		</script>
-	</c:if> -->
+		<c:if test="${sessionScope.login == null}">
+			<script>
+				alert("권한이 없습니다. 로그인 후 이용해 주세요");
+				location.href = "loginView.do";
+			</script>
+		</c:if>
 	<section>
 		<div id="container">
-			<p id="headline">고객문의사항</p>
-			<!--헤드라인-->
+            <p id="headline">QnA</p>
+	
 
 			<c:choose>
-				<!-- 관리자 -->
-				<c:when test="${sessionScope.user_type == 0}">
+				
+				<c:when test="${sessionScope.user_type == '0'}">
 
-					<p id="headline">QnA</p>
-					<!--헤드라인-->
+					
 					<div class="part">
 						<table id="part_topic">
 							<tr>
@@ -276,17 +275,16 @@
 
 
 				<c:when test="${sessionScope.user_type == 1}">
-					<!-- 개인 -->
+					
 					<div class="guestQnA">
 						<form action="guestQnAAction.do" method="get">
 							<div class="part_select">
 								<p>
 									<label for="#">[아이디]</label>
 								</p>
-								<span class="input_span"><input id="first_input"
-									type="text" name="id" id="id" readonly>${member.writer}</span>
+								<span class="input_span"><input id="first_input" type="text" name="id" id="id" value="${sessionScope.id}" readonly></span>
 							</div>
-							<!--아이디 입력란 마지막 자동 입력-->
+							
 
 							<div class="part_select">
 								<p>
@@ -295,7 +293,7 @@
 								<span class="input_span"><input type="text" name="title"
 									id="title" placeholder="제목을 입력해주세요"></span>
 							</div>
-							<!--제목 입력란-->
+						
 
 							<div class="part_select">
 								<p id="qna_content_title">
@@ -307,13 +305,13 @@
 									<button id="btn_enter" type="submit">문의 등록</button>
 								</div>
 							</div>
-							<!--내용 입력란-->
+							
 						</form>
 					</div>
 
 
 					<div class="part">
-						<!--자신이 작성한 게시글 리스트-->
+						
 						<table id="part_topic">
 							<tr>
 								<th class="part_No">[No]</th>
@@ -349,7 +347,7 @@
 				</c:when>
 
 
-				<!-- 사업자 -->
+				
 				<c:when test="${sessionScope.user_type == 2}">
 					<div class="businessQnA">
 						<form action="businessQnAAction.do" method="get">
@@ -360,7 +358,7 @@
 								<span class="input_span"><input id="first_input"
 									type="text" name="id" id="id" value="${member.writer}" readonly></span>
 							</div>
-							<!--아이디 입력란 마지막 자동 입력-->
+							
 
 							<div class="part_select">
 								<p>
@@ -369,7 +367,7 @@
 								<span class="input_span"><input type="text" name="title"
 									id="title" placeholder="제목을 입력해주세요"></span>
 							</div>
-							<!--제목 입력란-->
+							
 
 							<div class="part_select">
 								<p id="qna_content_title">
@@ -381,11 +379,11 @@
 									<button id="btn_enter" type="submit">문의 등록</button>
 								</div>
 							</div>
-							<!--내용 입력란-->
+							
 						</form>
 
 						<div class="part">
-							<!--자신이 작성한 게시글 리스트-->
+						
 							<table id="part_topic">
 								<tr>
 									<th class="part_No">[No]</th>
