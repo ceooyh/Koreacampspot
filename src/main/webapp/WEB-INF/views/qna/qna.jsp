@@ -141,7 +141,7 @@
 </style>
 <body>
 <jsp:include page="../template/header2.jsp" flush="false"></jsp:include>
-   <c:if test="${sessionScope.login == null || sessionScope.user_type != '0' }">
+   <c:if test="${sessionScope.login == null}">
 				<script>
 					alert("권한이 없습니다. 로그인 후 이용해 주세요");
 					location.href="loginView.do";
