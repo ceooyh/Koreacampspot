@@ -7,6 +7,6 @@
 		select avg(star) as star from review where sno = 1 group by #{contentId}
 	</select>
 	<select id="getReviewCount" parameterType="int" resultType="int">
-		select count(*) as review_count from review where sno = #{contentId}
+		select count(*) as review_count from review where sno = #{contentId} 
 	</select>
 </mapper>
