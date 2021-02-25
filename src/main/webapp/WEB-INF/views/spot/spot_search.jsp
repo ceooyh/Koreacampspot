@@ -60,7 +60,7 @@
         margin: 0;
     }
     #detail_condition{
-        background-image: url(img/searchimg.png);
+        background-image: url(../../../img/searchpage/searchimg.png);
         height: 875px;
         box-sizing: border-box;
         padding-top: 3px;
@@ -355,6 +355,7 @@
 </style>
 </head>
 <body>
+<jsp:include page="../template/header2.jsp" flush="false"></jsp:include>
     <section>
         <div id="detail_condition"><!-- 선택창 시작 -->
             <form action="spotSearch.do">
@@ -488,7 +489,7 @@
 						<a href="findCampSpotView.do?pageNo=${page.endPageOfPageGroup+1}">▶</a>
 					</c:if>
         </div>
-
     </section>
+    <jsp:include page="../template/footer.jsp" flush="false"></jsp:include>
 </body>
 </html>
