@@ -24,7 +24,7 @@ public interface BoardMapper {
 	List<BoardFileDTO> selectFileList(int bno);
 	//게시글 갯수 불러오기
 	int selectCount();
-	//댓글달기
+	//댓글달기 
 	int insertBoardComment(BoardCommentDTO dto);
 	//댓글 좋아요
 	int updateCommentLike(int cno);

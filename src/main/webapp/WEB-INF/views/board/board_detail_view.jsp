@@ -295,14 +295,14 @@
 <body>
 	<!-- jstl 주석처리  -->
     
-        <!-- <c:if test="${sessionScope.login == null || sessionScope.login == false  }">
+        <c:if test="${sessionScope.login == null || sessionScope.login == false  }">
             <c:set var="page" target="${sessionScope }" value="${pageContext.request.requestURI}${pageContext.request.queryString }" property="resultPage" scope="session"/>
             ${pageContext.request.requestURI}${pageContext.request.queryString }
             <script>
                 alert("로그인을 하셔야 이용할수 있습니다.");
                 location.href="loginView.do";
             </script>
-        </c:if> -->
+        </c:if>
     
    
 	<jsp:include page="../template/header.jsp" flush="false"></jsp:include>

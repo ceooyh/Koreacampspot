@@ -76,7 +76,7 @@ public class BoardService {
 	// 게시글 등록 - 성진
 	public int insertBoard(BoardDTO dto) {
 		return mapper.insertBoard(dto);
-	}
+	} 
 	// 첨부파일 등록 - 성진
 	public void insertFileList(ArrayList<BoardFileDTO> fList) {
 		for(int i = 0; i < fList.size();i++)

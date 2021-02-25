@@ -117,9 +117,9 @@ public class BoardController {
 			String originalFileName = mf.getOriginalFilename();
 			long fileSize = mf.getSize();
 			if(fileSize == 0) continue;
-			System.out.println("originalFileName : " + originalFileName);
-			System.out.println("fileSize : "+ fileSize);
-			System.err.println(mf.getContentType());
+//			System.out.println("originalFileName : " + originalFileName);
+//			System.out.println("fileSize : "+ fileSize);
+//			System.err.println(mf.getContentType());
 			
 			try {
 			//파일 업로드
@@ -262,8 +262,8 @@ public class BoardController {
 	}
 	
 	//게시글 수정
-	@RequestMapping("/updateBoard.do")
-	public String updateBoard(HttpServletRequest request,HttpServletResponse response) {
+	@RequestMapping("/updateBoardAction.do")
+	public String updateBoard(MultipartHttpServletRequest request,HttpServletResponse response) {
 		int bno = Integer.parseInt(request.getParameter("bno"));
 		String writer = request.getParameter("wirter");
 		String title = request.getParameter("title");
@@ -278,11 +278,37 @@ public class BoardController {
 				response.getWriter().write("<script>alert('페이지 오류');history.back();</script>");
 		}else {
 					response.setContentType("text/html;charset=utf-8");
-					response.getWriter().write("<script>alert('게시글 삭제 성공');location.href='boardView.do';</script>");
+					response.getWriter().write("<script>alert('게시글 수정 성공');location.href='boardView.do';</script>");
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+				
+		List<MultipartFile> fileList = request.getFiles("file"); 
+		System.out.println(fileList.size());
+		String path = "c:\\fileupload\\board"+writer+"\\";
+		ArrayList<BoardFileDTO> fList = new ArrayList<BoardFileDTO>();
+		for(MultipartFile mf : fileList) {
+			String originalFileName = mf.getOriginalFilename();
+			long fileSize = mf.getSize();
+			if(fileSize == 0) continue;
+			
+			try {
+			
+			String safeFile = path + originalFileName;
+			fList.add(new BoardFileDTO(bno, writer, originalFileName));
+			File parentPath = new File(path);
+			if(!parentPath.exists()) parentPath.mkdirs();
+				mf.transferTo(new File(safeFile));	
+			
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+		}
+		service.insertFileList(fList);
 		
 		return "board_detail_view";
 	}
