@@ -406,27 +406,6 @@ public class SpotDTO {
 	public void setReview_count(int review_count) {
 		this.review_count = review_count;
 	}
-	@Override
-	public String toString() {
-		return "SpotDTO [contentId=" + contentId + ", facltNm=" + facltNm + ", lineIntro=" + lineIntro + ", intro="
-				+ intro + ", bizrno=" + bizrno + ", manageSttus=" + manageSttus + ", hvofBgnde=" + hvofBgnde
-				+ ", hvofEnddle=" + hvofEnddle + ", featureNm=" + featureNm + ", induty=" + induty + ", lctCl=" + lctCl
-				+ ", doNm=" + doNm + ", sigunguNm=" + sigunguNm + ", zipcode=" + zipcode + ", addr1=" + addr1
-				+ ", addr2=" + addr2 + ", tel=" + tel + ", homepage=" + homepage + ", gnrlSiteCo=" + gnrlSiteCo
-				+ ", autoSiteCo=" + autoSiteCo + ", glampSiteCo=" + glampSiteCo + ", caravSiteCo=" + caravSiteCo
-				+ ", indvdlCaravSiteCo=" + indvdlCaravSiteCo + ", siteBottomCl1=" + siteBottomCl1 + ", siteBottomCl2="
-				+ siteBottomCl2 + ", siteBottomCl3=" + siteBottomCl3 + ", siteBottomCl4=" + siteBottomCl4
-				+ ", siteBottomCl5=" + siteBottomCl5 + ", glampInnerFclty=" + glampInnerFclty + ", caravInnerFclty="
-				+ caravInnerFclty + ", operPdCl=" + operPdCl + ", trlerAcmpnyAt=" + trlerAcmpnyAt + ", caravAcmpnyAt="
-				+ caravAcmpnyAt + ", toiletCo=" + toiletCo + ", swrmCo=" + swrmCo + ", wtrplCo=" + wtrplCo
-				+ ", brazierCl=" + brazierCl + ", sbrsCl=" + sbrsCl + ", sbrsEtc=" + sbrsEtc + ", posblFcltyCl="
-				+ posblFcltyCl + ", posblFcltyEtc=" + posblFcltyEtc + ", exprnProgrm=" + exprnProgrm + ", themaEnvrnCl="
-				+ themaEnvrnCl + ", eqpmnLendCl=" + eqpmnLendCl + ", animalCmgCl=" + animalCmgCl + ", tourEraCl="
-				+ tourEraCl + ", firstImageUrl=" + firstImageUrl + ", star=" + star + ", review_count=" + review_count
-				+ "]";
-	}
-	
-	
 	
 	
 }

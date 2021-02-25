@@ -81,7 +81,7 @@ public class SpotController {
 			
 			if(conn.getResponseCode() == 200) {
 				// 페이징 처리 위한 총 개수
-				count = Integer.parseInt(json.getJSONObject("response").getJSONObject("body").getJSONObject("items").getString("totalCount"));
+				count = json.getJSONObject("response").getJSONObject("body").getInt("totalCount");
 				
 				// 목록 받아오기
 				JSONArray arr = json.getJSONObject("response").getJSONObject("body").getJSONObject("items").getJSONArray("item");
@@ -221,7 +221,7 @@ public class SpotController {
 			if(conn.getResponseCode() == 200) {
 				
 				// 페이징 처리 위한 총 개수
-				count = Integer.parseInt(json.getJSONObject("response").getJSONObject("body").getJSONObject("items").getString("totalCount"));
+				count = json.getJSONObject("response").getJSONObject("body").getInt("totalCount");
 				
 				// 목록 받아오기
 				JSONArray arr = json.getJSONObject("response").getJSONObject("body").getJSONObject("items").getJSONArray("item");
@@ -275,7 +275,7 @@ public class SpotController {
 					String animalCmgCl = j.has("animalCmgCl") ? j.getString("animalCmgCl") : "-";
 					String tourEraCl = j.has("tourEraCl") ? j.getString("tourEraCl") : "-";
 					String firstImageUrl = j.has("firstImageUrl") ? j.getString("firstImageUrl") : "-";
-					
+					System.out.println(firstImageUrl);
 					// 별점 평균
 					double star = service.getStarAvg(contentId);
 					//리뷰수
