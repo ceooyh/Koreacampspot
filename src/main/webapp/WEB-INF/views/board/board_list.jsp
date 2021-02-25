@@ -32,10 +32,13 @@
         padding:0;
     }
     #board_list_container{
-        width: 1200px;
-        border: 1px solid black;
+        width: 1000px;
         margin: 120px auto;
         text-align: left;
+    }
+    #board_list_headline{
+        color: ; rgb(44,42,41);
+        font-size: 20px;
     }
     #search_bar{
         background-color: #e8e8e8;
@@ -90,9 +93,9 @@
         padding: 5px;
         color: rgb(148, 144, 144);
     }
-    #btn_search:hover{
-        background-color: #282828;
-	    color:#FFFFFF;
+    #btn_board_list_search:hover{
+        background-color: rgb(250, 202, 71);
+	    color:#282828;
     }
     .board{
         width: 100%;
@@ -106,6 +109,8 @@
 	.board th{
 		border-top : 1px solid black;
 		border-bottom : 1px solid black;
+        color: rgb(44,42,41);
+        font-size: 15px;
 	}
 	.board td{
 		border-top : 1px solid #e8e8e8;
@@ -120,7 +125,7 @@
     <jsp:include page="../template/header2.jsp" flush="false"></jsp:include>
 
     <div id="board_list_container">
-        <h2>커뮤니티 목록</h2>
+        <h2 id="board_list_headline">커뮤니티 목록</h2>
         
         <div id="main">
             <!--검색 버튼 alink-->
@@ -142,11 +147,11 @@
 
         <!-- jstl 주석처리,게시판 기능 추가 기존 게시판에 있는 내용을 el과 jstl로 표현 - -->
 
-            <!-- <c:if test="${requestScope.list ==null}">
+            <c:if test="${requestScope.list ==null}">
                 <script>
                     location.href="boardList.do?pageNo=1";
                     
-                </script> -->
+                </script>
             </c:if> 
             <c:forEach var="dto" items="${requestScope.list }">
                 <tr>

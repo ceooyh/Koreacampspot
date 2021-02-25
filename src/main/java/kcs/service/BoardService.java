@@ -89,6 +89,11 @@ public class BoardService {
 		return mapper.deleteBoard(bno);
 	}
 
+	public int updateBoard(BoardDTO dto) {
+		return mapper.updateBoard(dto);
+		
+	}
+
 
 	
 	

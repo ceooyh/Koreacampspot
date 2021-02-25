@@ -61,7 +61,7 @@ public class BoardController {
 		if (request.getParameter("bno") != null)
 			bno = Integer.parseInt(request.getParameter("bno"));
 		else
-			bno = (int) request.getAttribute("bno");
+			bno = (int)request.getAttribute("bno");
 		// 1-1. 해당 게시글 조회수 증가
 		service.addCount(bno);
 		// 2. DB 해당 게시글 정보를 읽어온다.
@@ -107,9 +107,7 @@ public class BoardController {
 		String title = request.getParameter("title");
 		String writer = request.getParameter("writer");
 		String content = request.getParameter("content");
-		service.insertBoard(new BoardDTO(bno, title, writer, content));
-		request.setAttribute("bno", bno);
-		
+				
 		// 첨부파일 등록 - 성진
 		List<MultipartFile> fileList = request.getFiles("file"); 
 		System.out.println(fileList.size());
@@ -138,6 +136,9 @@ public class BoardController {
 			}
 			
 		}
+		service.insertBoard(new BoardDTO(bno, writer, title, content));
+		request.setAttribute("bno", bno);
+
 		service.insertFileList(fList);
 		return new RedirectView("boardView.do?bno="+bno);
 		
@@ -260,6 +261,31 @@ public class BoardController {
 		return null;
 	}
 	
+	//게시글 수정
+	@RequestMapping("/updateBoard.do")
+	public String updateBoard(HttpServletRequest request,HttpServletResponse response) {
+		int bno = Integer.parseInt(request.getParameter("bno"));
+		String writer = request.getParameter("wirter");
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
+		
+		BoardDTO dto = new BoardDTO(bno, writer, title, content);
+		
+		int count  = service.updateBoard(dto);
+		try {
+		if(count == 0) {
+			response.setContentType("text/html;charset=utf-8");
+				response.getWriter().write("<script>alert('페이지 오류');history.back();</script>");
+		}else {
+					response.setContentType("text/html;charset=utf-8");
+					response.getWriter().write("<script>alert('게시글 삭제 성공');location.href='boardView.do';</script>");
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		
+		return "board_detail_view";
+	}
 	
 		
 	
