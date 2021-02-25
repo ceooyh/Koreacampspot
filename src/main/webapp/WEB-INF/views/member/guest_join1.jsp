@@ -197,12 +197,24 @@
     	color:rgb(215,215,215);
     	font-size: 13px;
     }
+    input[type="number"]::-webkit-inner-spin-button {
+	    -webkit-appearance: none;
+	    margin: 0;
+	}
 
 
 </style>
 <script src="../../../lib/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 	$(function(){
+		
+		var name = document.querySelector("#name");
+		var onlyKorean = function() {
+		  var pattern = /[a-z0-9]|[ \[\]{}()<>?|`~!@#$%^&*-_+=,.;:\"'\\]/g;
+		  this.value = this.value.replace(pattern, "");
+		  alert("한글만 입력해주세요")
+		};
+		name.addEventListener('keypress', onlyKorean);
 		
 		/*아이디 중복시 아래에 알림창 띄워주고 글씨색 변경해주는 부분*/
 		$("#id").keyup(function() {
@@ -563,8 +575,8 @@
                                 <option value="019">019</option>
                                 <option value="011">011</option>
                             </select></span>
-                            <span><input class="guest_input2" type="text" name="tel2" id="tel2" class="tel" placeholder="0000"></span>
-                            <span><input class="guest_input2" type="text" name="tel3" id="tel3" class="tel" placeholder="0000"></span>
+                            <span><input class="guest_input2" type="number" name="tel2" id="tel2" class="tel" placeholder="0000"></span>
+                            <span><input class="guest_input2" type="number" name="tel3" id="tel3" class="tel" placeholder="0000"></span>
                 </div><!--전화번호 입력 부분 end-->
 
 
@@ -575,6 +587,7 @@
                     <div class="input_result" id="input_result6"></div>
                     <span><input class="guest_input3" type="text" name="email" id="email" placeholder="이메일을 입력해주세요"></span>
                     <span><select name="host" id="host">
+                                <option value="">직접입력</option>
                                 <option value="naver.com">@naver.com</option>
                                 <option value="gmail.com">@gmail.com</option>
                                 <option value="nate.com">@nate.com</option>
@@ -589,9 +602,9 @@
                 <div id="id_insert" class="part"><!--생일/성별 start-->
                     <span class="guest_insert"><label for="year" class="label">생일/성별</label></span><br>
                     <div class="input_result" id="input_result7"></div>
-                    <span><input  class="guest_input4" type="text" id="year" name="year" placeholder="년"></span>
-                    <span><input class="guest_input4" type="text" id="month" name="month" placeholder="월"></span>
-                    <span><input  class="guest_input4" type="text" id="day" name="day" placeholder="일"></span><br>
+                    <span><input  class="guest_input4" type="number" id="year" name="year" placeholder="년"></span>
+                    <span><input class="guest_input4" type="number" id="month" name="month" placeholder="월"></span>
+                    <span><input  class="guest_input4" type="number" id="day" name="day" placeholder="일"></span><br>
                     <div id="checkbox_gender">
                         <span class="gender_select"><input id="gender_woman" type="checkbox" value="1" class="checkbox" name="gender"><label for="gender_woman" class="label"><span>여성</span></label></span>
                         <span class="gender_select"><input id="gender_man" type="checkbox" value="0" class="checkbox"  name="gender" checked><label for="gender_man" class="label"><span>남성</span></label></span>
