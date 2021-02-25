@@ -92,14 +92,12 @@
 </head>
 <body>
     <jsp:include page="../template/header2.jsp" flush="false"></jsp:include>
-        <!--
             <c:if test="${requestScope.list ==null}">
                 <script>
                     location.href=".do?pageNo=1";
                     
                 </script>
             </c:if>
-        -->
 	<div id="container">
         <p id="headline">문의사항 상세페이지</p>
         <div class="part">
