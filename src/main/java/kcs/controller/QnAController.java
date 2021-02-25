@@ -85,4 +85,24 @@ public class QnAController {
 		return null;
 	}
 	
+	//문의 상세페이지 - 가현,20210224
+	@RequestMapping("/qnaAdminView.do")
+	public String qnaManageList(HttpServletRequest request) {
+		String title = request.getParameter("title");
+		String writer = request.getParameter("id");
+		String user_type = request.getParameter("user_type");
+		// 페이징
+		int pageNo = 1;
+		if(request.getParameter("pageNo") != null)
+			pageNo = Integer.parseInt(request.getParameter("pageNo"));
+		// 관리자 문의 목록
+		List<QnADTO> list = service.getAdminQnAList(title,writer,pageNo,user_type);
+		int count = service.getAdminCount();
+		PaggingVO vo = new PaggingVO(count, pageNo);
+		request.setAttribute("page", vo);
+		request.setAttribute("list", list);
+		
+		return "qna/qna_response_view";
+	}
+	
 }
