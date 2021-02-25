@@ -354,7 +354,7 @@
 					<span class="board_detail_span">${requestScope.board.bhate }</span>
 				</a>
 			</div>
-			</section>  
+			</section>
 			<div class="prev_next_list_btn">
 				<a href="#" class="move">이전글</a> 
 				<a href="javascript:history.back();" class="move">목록보기</a> 

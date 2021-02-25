@@ -86,7 +86,7 @@
         width: 60px;
         background-color: #646262;
         font-weight: bold;
-        font-size: 16px;
+        font-size: 16px; 
         border : 1px solid #585858;
         border-radius: 3px;
         margin-left: 5px;

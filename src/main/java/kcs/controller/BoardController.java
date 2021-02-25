@@ -273,7 +273,7 @@ public class BoardController {
 		
 		int count  = service.updateBoard(dto);
 		try {
-		if(count == 0) {
+		if(count == 0) { 
 			response.setContentType("text/html;charset=utf-8");
 				response.getWriter().write("<script>alert('페이지 오류');history.back();</script>");
 		}else {

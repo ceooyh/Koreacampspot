@@ -64,7 +64,7 @@
 		delete from board where bno = #{bno}
 	</delete>
 	
-	<update id="updateBoard" parameterType="board">
+	<update id="updateBoard" parameterType="board"> 
 		update board set title = #{title}, content = #{content} where bno = #{bno}
 	</update>
 	

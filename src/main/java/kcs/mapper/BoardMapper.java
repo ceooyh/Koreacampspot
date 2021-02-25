@@ -38,7 +38,7 @@ public interface BoardMapper {
 	void insertFileList(BoardFileDTO boardFileDTO);
 	//게시글 삭제
 	int deleteBoard(int bno);
-	//게시글 수정
+	//게시글 수정 
 	int updateBoard(BoardDTO dto);
 	
 
