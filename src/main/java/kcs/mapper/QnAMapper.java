@@ -20,5 +20,10 @@ public interface QnAMapper {
 
 	int sendQnA(QnADTO dto);
 
+	List<QnADTO> getAdminQnAList(HashMap<String, Object> map);
+
+
+	int getAdminCount();
+
 
 }

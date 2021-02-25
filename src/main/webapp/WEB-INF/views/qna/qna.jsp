@@ -141,6 +141,12 @@
 </style>
 <body>
 <jsp:include page="../template/header2.jsp" flush="false"></jsp:include>
+   <c:if test="${sessionScope.login == null || sessionScope.user_type != '0' }">
+				<script>
+					alert("권한이 없습니다. 로그인 후 이용해 주세요");
+					location.href="loginView.do";
+				</script>
+	</c:if>
     <section>
         <form action="sendQnA.do">
             <div id="container">
@@ -156,6 +162,7 @@
                             <sapn class="input_span"><input type="text" name="title" id="title" placeholder="제목을 입력해주세요"></sapn>
                         </div><!--제목 입력란-->
 
+					
                         <div class="part_select">
                             <p id="qna_content_title"><label for="title">[문의내용]</label></p>
                             <textarea name="content" id="content" cols="95" rows="20" placeholder="문의내용을 입력하세요"></textarea>
