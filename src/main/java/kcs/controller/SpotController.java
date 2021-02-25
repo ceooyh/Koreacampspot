@@ -34,12 +34,6 @@ public class SpotController {
 	// 캠핑장 찾기 페이지로 이동 - 희원,20210225
 	@RequestMapping("/findCampSpotView.do")
     public String findCampSpotView(HttpServletRequest request, HttpServletResponse response) {
-		// 검색에서 넘어왔을 경우 리스트
-		ArrayList<SpotDTO> list = null;
-		if(request.getAttribute("list") != null)
-			list = (ArrayList<SpotDTO>) request.getAttribute("list");
-		else
-			list = new ArrayList<SpotDTO>();
 		
 		// 페이징
 		String pageNo = "1";
@@ -63,7 +57,6 @@ public class SpotController {
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("Content-type", "application/json");
-			System.out.println("Response code: " + conn.getResponseCode());
 			BufferedReader rd;
 			if(conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
 				rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
@@ -80,6 +73,8 @@ public class SpotController {
 			
 			
 			if(conn.getResponseCode() == 200) {
+				ArrayList<SpotDTO> list = new ArrayList<SpotDTO>();
+				
 				// 페이징 처리 위한 총 개수
 				count = json.getJSONObject("response").getJSONObject("body").getInt("totalCount");
 				
@@ -87,7 +82,6 @@ public class SpotController {
 				JSONArray arr = json.getJSONObject("response").getJSONObject("body").getJSONObject("items").getJSONArray("item");
 				for(int i=0; i<arr.length(); i++) {
 					JSONObject j = arr.getJSONObject(i);
-					System.out.println(arr.get(i).toString());
 					int contentId = j.has("contentId") ? j.getInt("contentId") : 1;
 					String facltNm = j.has("facltNm") ? j.getString("facltNm") : "-";
 					String lineIntro = j.has("lineIntro") ? j.getString("lineIntro") : "-";
@@ -116,8 +110,8 @@ public class SpotController {
 					int siteBottomCl3 = j.has("siteBottomCl3") ? j.getInt("siteBottomCl3") : 1;
 					int siteBottomCl4 = j.has("siteBottomCl4") ? j.getInt("siteBottomCl4") : 1;
 					int siteBottomCl5 = j.has("siteBottomCl5") ? j.getInt("siteBottomCl5") : 1;
-					int glampInnerFclty = j.has("glampInnerFclty") ? j.getInt("glampInnerFclty") : 1;
-					int caravInnerFclty = j.has("caravInnerFclty") ? j.getInt("caravInnerFclty") : 1;
+					String glampInnerFclty = j.has("glampInnerFclty") ? j.getString("glampInnerFclty") : "-";
+					String caravInnerFclty = j.has("caravInnerFclty") ? j.getString("caravInnerFclty") : "-";
 					String operPdCl = j.has("operPdCl") ? j.getString("operPdCl") : "-";
 					String trlerAcmpnyAt = j.has("trlerAcmpnyAt") ? j.getString("trlerAcmpnyAt") : "-";
 					String caravAcmpnyAt = j.has("caravAcmpnyAt") ? j.getString("caravAcmpnyAt") : "-";
@@ -201,7 +195,6 @@ public class SpotController {
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("Content-type", "application/json");
-			System.out.println("Response code: " + conn.getResponseCode());
 			BufferedReader rd;
 			if(conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
 				rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
@@ -225,7 +218,6 @@ public class SpotController {
 				
 				// 목록 받아오기
 				JSONArray arr = json.getJSONObject("response").getJSONObject("body").getJSONObject("items").getJSONArray("item");
-				System.out.println(arr.toString());
 				for(int i=0; i<arr.length(); i++) {
 					JSONObject j = arr.getJSONObject(i);
 					int contentId = j.has("contentId") ? j.getInt("contentId") : 1;
@@ -256,8 +248,8 @@ public class SpotController {
 					int siteBottomCl3 = j.has("siteBottomCl3") ? j.getInt("siteBottomCl3") : 1;
 					int siteBottomCl4 = j.has("siteBottomCl4") ? j.getInt("siteBottomCl4") : 1;
 					int siteBottomCl5 = j.has("siteBottomCl5") ? j.getInt("siteBottomCl5") : 1;
-					int glampInnerFclty = j.has("glampInnerFclty") ? j.getInt("glampInnerFclty") : 1;
-					int caravInnerFclty = j.has("caravInnerFclty") ? j.getInt("caravInnerFclty") : 1;
+					String glampInnerFclty = j.has("glampInnerFclty") ? j.getString("glampInnerFclty") : "-";
+					String caravInnerFclty = j.has("caravInnerFclty") ? j.getString("caravInnerFclty") : "-";
 					String operPdCl = j.has("operPdCl") ? j.getString("operPdCl") : "-";
 					String trlerAcmpnyAt = j.has("trlerAcmpnyAt") ? j.getString("trlerAcmpnyAt") : "-";
 					String caravAcmpnyAt = j.has("caravAcmpnyAt") ? j.getString("caravAcmpnyAt") : "-";
@@ -275,7 +267,6 @@ public class SpotController {
 					String animalCmgCl = j.has("animalCmgCl") ? j.getString("animalCmgCl") : "-";
 					String tourEraCl = j.has("tourEraCl") ? j.getString("tourEraCl") : "-";
 					String firstImageUrl = j.has("firstImageUrl") ? j.getString("firstImageUrl") : "-";
-					System.out.println(firstImageUrl);
 					// 별점 평균
 					double star = service.getStarAvg(contentId);
 					//리뷰수

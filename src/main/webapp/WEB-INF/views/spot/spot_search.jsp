@@ -397,7 +397,7 @@
 	            <div id="detail_condition_input"><!-- 상세검색창 시작 -->
 	                <span id="detail_condition_headline">키워드검색창</span>
 	                <div id="keyword_search_head"><!-- 키워드 선택창 시작 -->
-	                    <input id="keyword_search_input" type="text" placeholder="검색어를 입력하세요">
+	                    <input id="keyword_search_input" name="search" type="text" placeholder="검색어를 입력하세요">
 	                    <button class="search_btn" id="search_btn2" type="button">검색</button>
 	                </div><!-- 키워드 선택창 마지막 -->
 	            </div><!-- 상세검색창 마지막 -->

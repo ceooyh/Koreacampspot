@@ -30,8 +30,8 @@ public class SpotDTO {
 	private int siteBottomCl3;
 	private int siteBottomCl4;
 	private int siteBottomCl5;
-	private int glampInnerFclty;
-	private int caravInnerFclty;
+	private String glampInnerFclty;
+	private String caravInnerFclty;
 	private String operPdCl;
 	private String trlerAcmpnyAt;
 	private String caravAcmpnyAt;
@@ -56,8 +56,8 @@ public class SpotDTO {
 			String hvofBgnde, String hvofEnddle, String featureNm, String induty, String lctCl, String doNm,
 			String sigunguNm, int zipcode, String addr1, String addr2, String tel, String homepage, int gnrlSiteCo,
 			int autoSiteCo, int glampSiteCo, int caravSiteCo, int indvdlCaravSiteCo, int siteBottomCl1,
-			int siteBottomCl2, int siteBottomCl3, int siteBottomCl4, int siteBottomCl5, int glampInnerFclty,
-			int caravInnerFclty, String operPdCl, String trlerAcmpnyAt, String caravAcmpnyAt, int toiletCo, int swrmCo,
+			int siteBottomCl2, int siteBottomCl3, int siteBottomCl4, int siteBottomCl5, String glampInnerFclty,
+			String caravInnerFclty, String operPdCl, String trlerAcmpnyAt, String caravAcmpnyAt, int toiletCo, int swrmCo,
 			int wtrplCo, String brazierCl, String sbrsCl, String sbrsEtc, String posblFcltyCl, String posblFcltyEtc,
 			String exprnProgrm, String themaEnvrnCl, String eqpmnLendCl, String animalCmgCl, String tourEraCl,
 			String firstImageUrl, double star, int review_count) {
@@ -280,16 +280,16 @@ public class SpotDTO {
 	public void setSiteBottomCl5(int siteBottomCl5) {
 		this.siteBottomCl5 = siteBottomCl5;
 	}
-	public int getGlampInnerFclty() {
+	public String getGlampInnerFclty() {
 		return glampInnerFclty;
 	}
-	public void setGlampInnerFclty(int glampInnerFclty) {
+	public void setGlampInnerFclty(String glampInnerFclty) {
 		this.glampInnerFclty = glampInnerFclty;
 	}
-	public int getCaravInnerFclty() {
+	public String getCaravInnerFclty() {
 		return caravInnerFclty;
 	}
-	public void setCaravInnerFclty(int caravInnerFclty) {
+	public void setCaravInnerFclty(String caravInnerFclty) {
 		this.caravInnerFclty = caravInnerFclty;
 	}
 	public String getOperPdCl() {
