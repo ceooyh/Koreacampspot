@@ -35,12 +35,32 @@
         font-family: '두꺼운로보';
         src: url(../../../Font/Roboto/Roboto-Bold.ttf);
     }
+    @font-face {
+        font-family: '에스코어8';
+        src: url(../../../Font/S-Core_Dream_OTF/SCDream8.otf);
+    }
+    @font-face {
+        font-family: '에스코어7';
+        src: url(../../../Font/S-Core_Dream_OTF/SCDream7.otf);
+    }
+    @font-face {
+        font-family: '에스코어6';
+        src: url(../../../Font/S-Core_Dream_OTF/SCDream6.otf);
+    }
+    @font-face {
+        font-family: '에스코어5';
+        src: url(../../../Font/S-Core_Dream_OTF/SCDream5.otf);
+    }
+    @font-face {
+        font-family: '에스코어4';
+        src: url(../../../Font/S-Core_Dream_OTF/SCDream4.otf);
+    }
     *{
         padding: 0;
         margin: 0;
     }
     #detail_condition{
-        background-image: url(../../../img/spotpage/searchimg.png);
+        background-image: url(img/searchimg.png);
         height: 875px;
         box-sizing: border-box;
         padding-top: 3px;
@@ -191,85 +211,158 @@
         font-size: 30px;
         color: rgb(44, 42, 41);
     }
-    #review_count{
-        display: inline-block;
-        width: 100px;
-        height: 30px;
-        padding: 8px;
-        font-size: 12px;
-        box-sizing: border-box;
-        background-color: rgb(255, 174, 69);
-        color: white;
-        margin-right: 10px;
-    }
-    #star_count{
-        display: inline-block;
-        width: 100px;
-        height: 30px;
-        padding: 8px;
-        font-size: 12px;
-        box-sizing: border-box;
-        background-color: rgb(104, 232, 255);
-        color: white;
-    }
     #h1_down_row{
-        margin-bottom: 40px;
+        margin-bottom: 10px;
     }
-    .campingplace_atag{
+    #camping_info_list{
+        width: 100%;
+        box-sizing: border-box;
+        height: 300px;
+        margin-bottom: 10px;
+        position: relative;
+    }
+    #spot_main_img{
+        position: absolute;
+        left: 0;
+        width: 30%;
+        height: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        box-sizing: border-box;
+        padding: 20px;
+    }
+    #spot_main_img> img{
+        width: 100%;
+        height: 100%;
+        border:1px solid rgb(44, 42, 41);
+        box-shadow: 3px 3px 3px gray;
+    }
+    #spot_main_content{
+        position: absolute;
+        left: 30%;
+        width: 50%;
+        height: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        box-sizing: border-box;
+        padding: 20px;
+    }
+    #spot_main_otherinfo{
+        position: absolute;
+        right: 0;
+        width: 20%;
+        height: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        box-sizing: border-box;
+        padding: 20px;
+    }
+    #spot_name_title{
+        display: inline-block;
+        font-family: '에스코어8';
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+    #spot_name_title>a{
+        /*text-shadow: 2px 2px 2px rgb(163, 163, 162);*/
         text-decoration: none;
-        color: rgb(44, 42, 41);
-        font-family: '굵은노토';
-        font-size: 25px;
+        color: rgb(252, 177, 80);
     }
-    #campingplace_name{
-        margin-bottom: 20px;
-        margin-top: 20px;
-    }
-    #campingplace_name:hover{
+    #spot_name_title>a:hover{
+        color: rgb(172, 245, 130);
         text-decoration: underline;
     }
-    #campingplace_address{
+    #online_intro{
         display: inline-block;
-        margin-right: 20px;
-        margin-bottom: 20px;
-        font-family: '얇은노토2';
+        font-family: '에스코어5';
+        font-size: 23px;
         color: rgb(44, 42, 41);
+        margin-bottom: 10px;
     }
-    #campingplace_tel{
-        color: rgb(44, 42, 41);
-        font-family: '얇은노토2';
+    .spot_title{
         display: inline-block;
-        margin-bottom: 20px;
-    }
-    #facility_info{
-        padding: 20px;
-        width: 100%;
-        height: 150px;
+        font-size: 14px;
+        font-family: '에스코어5';
+        color: rgb(44, 42, 41);
+        padding-left: 25px;
         box-sizing: border-box;
-        border: 1px solid black;
-        margin-bottom: 40px;
+        height: 30px;
+        vertical-align: middle;
     }
-    #facility_info span{
-        font-family: '얇은노토';
+    #spot_address_title{
+        background-image: url(img/searchpage/location.png);
+        background-size: 20px;
+        background-repeat: no-repeat;
     }
-    #facility_info_head{
-        font-size: 20px;
-        font-family: '보통노토';
-        margin-bottom: 30px;
+    #spot_tel_title{
+        background-image: url(img/searchpage/telephone.png);
+        background-size: 20px;
+        background-repeat: no-repeat;
+    }
+    #spot_homepage_title{
+        background-image: url(img/searchpage/homepage.png);
+        background-size: 20px;
+        background-repeat: no-repeat;
+    }
+    #spot_homepage_title a{
+        color: rgb(44, 42, 41);
+        font-family: '에스코어5';
+        text-decoration: none;
+    }
+    #spot_homepage_title a:hover{
+        text-decoration: underline;
+    }
+    .camping_status_info{
+        font-family: '두꺼운로보';
+        display: inline-block;
+        font-size: 12px;
+        color: white;
+        width: 40px;
+        height: 40px;
+        vertical-align: middle;
+        text-align: center;
+        box-sizing: border-box;
+        padding-top: 14px;
+        border-radius: 50%;
+    }
+    #status_open{
+        background-color: rgb(18, 0, 180);
+    }
+    #status_close{
+        background-color: rgb(170, 0, 0);
+    }
+    #spot_theme_title{
+        display: inline-block;
+        width: 100%;
+        height: 74px;
+        border: 1px solid rgb(252, 177, 80);
+        padding: 10px;
+        box-sizing: border-box;
+    }
+    #spot_theme_title span{
+        display: inline-block;
+        font-family: '에스코어7';
+        color: rgb(44, 42, 41);
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+    #spot_theme_title p{
+        font-family: '에스코어5';
+        font-size: 12px;
+        padding-left: 20px;
+        letter-spacing :2px;
     }
 </style>
 </head>
 <body>
-<jsp:include page="../template/header2.jsp" flush="false"></jsp:include>
-
     <section>
         <div id="detail_condition"><!-- 선택창 시작 -->
             <form action="spotSearch.do">
 	            <div id="detail_condition_input"><!-- 상세검색창 시작 -->
 	                <span id="detail_condition_headline">키워드검색창</span>
 	                <div id="keyword_search_head"><!-- 키워드 선택창 시작 -->
-	                    <input id="keyword_search_input" name="search" type="text" placeholder="검색어를 입력하세요">
-	                    <button class="search_btn" id="search_btn2" type="submit">검색</button>
+	                    <input id="keyword_search_input" type="text" placeholder="검색어를 입력하세요">
+	                    <button class="search_btn" id="search_btn2" type="button">검색</button>
 	                </div><!-- 키워드 선택창 마지막 -->
 	            </div><!-- 상세검색창 마지막 -->
             </form>
@@ -348,112 +441,54 @@
             </form>
 	    </div><!-- 선택창 마지막 -->
         
-        
+
         <div id="headrow"></div>
-        
+
+
         <div id="detail_camping_info">
             <h1>캠핑장 상세 리스트</h1>
             <hr id="h1_down_row">
-			<c:forEach var="dto" items="${requestScope.list}">
-                <div id="spot_detail_search_container">
-		            <div id="spot_detail_address">
-		                <div>
-                            <span id="review_count">리뷰수 ${dto.review_count}</span><span id="star_count">별점 ${dto.star}</span>
-                        </div>
-                        <div>
-                            <p id="campingplace_name"><a href="spotDetailView.do" class="campingplace_atag">${dto.sname}</a></p>
-                            <p id="campingplace_address">주소 : ${dto.address1}  ${dto.address2}  ${dto.address3}</p><p id="campingplace_tel">전화번호 : ${dto.tel2} - ${dto.tel2} - ${dto.tel3}</p>
-                        </div>
-		            </div>
-		            <div id="facility_info">
-		            	<p id="facility_info_head">부가시설</p>
-		            	<c:choose>
-		            		<c:when test="${dto.autocamping == 1}">
-		            			<span>#오토캠핑</span>
-		            		</c:when>
-		            		<c:when test="${dto.glamping == 1}">
-		            			<span>#글램핑</span>
-		            		</c:when>
-		            		<c:when test="${dto.caravan == 1}">
-		            			<span>#카라반</span>
-		            		</c:when>
-		            		<c:when test="${dto.rent_tent == 1}">
-		            			<span>#텐트대여</span>
-		            		</c:when>
-		            		<c:when test="${dto.rent_equipment == 1}">
-		            			<span>#장비대여가능</span>
-		            		</c:when>
-		            		<c:when test="${dto.pool == 1}">
-		            			<span>#수영장</span>
-		            		</c:when>
-		            		<c:when test="${dto.pet == 1}">
-		            			<span>#반려동물이용시설</span>
-		            		</c:when>
-		            		<c:when test="${dto.fishing == 1}">
-		            			<span>#낚시</span>
-		            		</c:when>
-		            		<c:when test="${dto.experience == 1}">
-		            			<span>#체험</span>
-		            		</c:when>
-		            		<c:when test="${dto.caravan_open == 1}">
-		            			<span>#카라반가능</span>
-		            		</c:when>
-		            		<c:when test="${dto.trailer_open == 1}">
-		            			<span>#트레일러가능</span>
-		            		</c:when>
-		            		<c:when test="${dto.beach == 1}">
-		            			<span>#해변</span>
-		            		</c:when>
-		            		<c:when test="${dto.island == 1}">
-		            			<span>#섬</span>
-		            		</c:when>
-		            		<c:when test="${dto.mountain == 1}">
-		            			<span>#산</span>
-		            		</c:when>
-		            		<c:when test="${dto.forest == 1}">
-		            			<span>#숲</span>
-		            		</c:when>
-		            		<c:when test="${dto.valley == 1}">
-		            			<span>#계곡</span>
-		            		</c:when>
-		            		<c:when test="${dto.river == 1}">
-		            			<span>#강</span>
-		            		</c:when>
-		            		<c:when test="${dto.lake == 1}">
-		            			<span>#호수</span>
-		            		</c:when>
-		            		<c:when test="${dto.city == 1}">
-		            			<span>#도심</span>
-		            		</c:when>
-		            		<c:when test="${dto.wifi == 1}">
-		            			<span>#와이파이</span>
-		            		</c:when>
-		            		<c:when test="${dto.hot_water == 1}">
-		            			<span>#온수</span>
-		            		</c:when>
-		            		<c:when test="${dto.shower == 1}">
-		            			<span>#샤워시설</span>
-		            		</c:when>
-		            		<c:when test="${dto.mart == 1}">
-		            			<span>#마트이용점</span>
-		            		</c:when>
-		            		<c:when test="${dto.toilet == 1}">
-		            			<span>#화장실</span>
-		            		</c:when>
-		            		<c:when test="${dto.electric == 1}">
-		            			<span>#전기</span>
-		            		</c:when>
-		            		<c:when test="${dto.pet_open == 1}">
-		            			<span>#반려동물가능</span>
-		            		</c:when>
-		            	</c:choose>
-		            </div>
-                </div><!--전체 묶음 마지막-->
-			</c:forEach>
+            <c:forEach var="dto" items="requestScope.list">
+                <div id="camping_info_list">
+                    <div id="spot_main_img">
+                        <img src="${dto.firstImageUrl}" alt="">
+                    </div>
+                    <div id="spot_main_content">
+                        <span id="spot_name_title"><a href="spotDetailView.do?sno=${dto.contentId}">${dto.facltNm}</a></span><br>
+                        <span id="online_intro">${dto.lineIntro}</span><br>
+                        <span id="spot_address_title" class="spot_title">${dto.addr1} ${dto.addr2} </span><br>
+                        <span id="spot_tel_title" class="spot_title">${dto.tel}</span><br>
+                        <span id="spot_homepage_title" class="spot_title"><a href="${dto.homepage}">${dto.homepage}</a></span><br>
+                        <span id="spot_theme_title">
+                            <span>[부대시설]</span>
+                            <p>${dto.sbrsCl}</p>
+                        </span>
+                    </div>
+                    <div  id="spot_main_otherinfo">
+                    	<c:choose>
+                    		<c:when test="${dto.manageSttus eq '운영'}">
+	                        	<span class="camping_status_info" id="status_open">OPEN</span>
+                    		</c:when>
+                    		<c:when test="${dto.manageSttus ne '운영'}">
+	                        	<span class="camping_status_info" id="status_close">CLOSE</span>
+                    		</c:when>
+                    	</c:choose>
+                    </div>
+                </div>
+                <hr id="h1_down_row">
+            </c:forEach>
+            <c:set var="page" value="${requestScope.pageNo}" scope="page" />
+					<c:if test="${page.previousPageGroup }">
+						<a href="findCampSpotView.do?pageNo=${page.startPageOfPageGroup-1}">◀</a>
+					</c:if>
+					<c:forEach var="i" begin="${page.startPageOfPageGroup }" end="${page.endPageOfPageGroup }" step="1">
+						<a href="findCampSpotView.do?pageNo=${i}">${i}</a>					
+					</c:forEach>
+					<c:if test="${page.nextPageGroup }">
+						<a href="findCampSpotView.do?pageNo=${page.endPageOfPageGroup+1}">▶</a>
+					</c:if>
         </div>
 
     </section>
-<jsp:include page="../template/footer.jsp" flush="false"></jsp:include>
-
 </body>
 </html>

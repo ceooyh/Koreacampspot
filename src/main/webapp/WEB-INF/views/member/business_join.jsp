@@ -683,6 +683,7 @@ $(function(){
                     <div class="input_result" id="input_result6"></div>
                     <span><input class="guest_input3" type="text" name="email" id="email" placeholder="이메일을 입력해주세요"></span>
                     <span><select name="host" id="host">
+                                <option value="">직접입력</option>
                                 <option value="naver.com">@naver.com</option>
                                 <option value="gmail.com">@gmail.com</option>
                                 <option value="nate.com">@nate.com</option>
