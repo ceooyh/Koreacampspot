@@ -397,7 +397,7 @@
 	            <div id="detail_condition_input"><!-- 상세검색창 시작 -->
 	                <span id="detail_condition_headline">키워드검색창</span>
 	                <div id="keyword_search_head"><!-- 키워드 선택창 시작 -->
-	                    <input id="keyword_search_input" type="text" placeholder="검색어를 입력하세요">
+	                    <input id="keyword_search_input" name="search" type="text" placeholder="검색어를 입력하세요">
 	                    <button class="search_btn" id="search_btn2" type="button">검색</button>
 	                </div><!-- 키워드 선택창 마지막 -->
 	            </div><!-- 상세검색창 마지막 -->
@@ -484,7 +484,7 @@
         <div id="detail_camping_info">
             <h1>캠핑장 상세 리스트</h1>
             <hr id="h1_down_row">
-            <c:forEach var="dto" items="requestScope.list">
+            <c:forEach var="dto" items="${ requestScope.list}">
                 <div id="camping_info_list">
                     <div id="spot_main_img">
                     	<c:choose>
@@ -551,7 +551,7 @@
 		                    <a class="page_arrow" href="findCampSpotView.do?pageNo=${page.startPageOfPageGroup-1}">◀</a>
 		                </c:if>
 		                <c:forEach var="i" begin="${page.startPageOfPageGroup }" end="${page.endPageOfPageGroup }" step="1">
-		                    <a id="paging_write_number" href="findCampSpotView.do?pageNo=${i}">1</a>					
+		                    <a id="paging_write_number" href="findCampSpotView.do?pageNo=${i}">${i}</a>					
 		                </c:forEach>
 		                <c:if test="${page.nextPageGroup }">
 		                    <a class="page_arrow" href="findCampSpotView.do?pageNo=${page.endPageOfPageGroup+1}">▶</a>
