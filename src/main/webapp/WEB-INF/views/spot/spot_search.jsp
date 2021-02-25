@@ -290,17 +290,17 @@
         vertical-align: middle;
     }
     #spot_address_title{
-        background-image: url(img/searchpage/location.png);
+        background-image: url(../../../img/searchpage/location.png);
         background-size: 20px;
         background-repeat: no-repeat;
     }
     #spot_tel_title{
-        background-image: url(img/searchpage/telephone.png);
+        background-image: url(../../../img/searchpage/telephone.png);
         background-size: 20px;
         background-repeat: no-repeat;
     }
     #spot_homepage_title{
-        background-image: url(img/searchpage/homepage.png);
+        background-image: url(../../../img/searchpage/homepage.png);
         background-size: 20px;
         background-repeat: no-repeat;
     }
@@ -477,7 +477,7 @@
                 </div>
                 <hr id="h1_down_row">
             </c:forEach>
-            <c:set var="page" value="${requestScope.pageNo}" scope="page" />
+            <c:set var="page" value="${requestScope.page}" scope="page" />
 					<c:if test="${page.previousPageGroup }">
 						<a href="findCampSpotView.do?pageNo=${page.startPageOfPageGroup-1}">◀</a>
 					</c:if>
