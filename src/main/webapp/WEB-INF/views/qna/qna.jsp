@@ -150,26 +150,76 @@
     <section>
         <form action="sendQnA.do">
             <div id="container">
-                        <p id="headline">고객문의사항</p><!--헤드라인-->
-
-                        <div class="part_select">
-                            <p><label for="#">[아이디]</label></p>
-                            <span class="input_span"><input id="first_input" type="text" name="id" id="id" value="ceooyh" readonly></span>
-                        </div><!--아이디 입력란 마지막 자동 입력-->
-
-                        <div class="part_select">
-                            <p><label for="title">[제목]</label></p>
-                            <sapn class="input_span"><input type="text" name="title" id="title" placeholder="제목을 입력해주세요"></sapn>
-                        </div><!--제목 입력란-->
-
-					
-                        <div class="part_select">
-                            <p id="qna_content_title"><label for="title">[문의내용]</label></p>
-                            <textarea name="content" id="content" cols="95" rows="20" placeholder="문의내용을 입력하세요"></textarea>
-                            <div id="btn_submit">
-                            <button id="btn" type="submit">전송</button>
-                            </div>
-                        </div><!--내용 입력란-->
+                <p id="headline">고객문의사항</p><!--헤드라인-->
+					<c:choose>
+							
+							<!-- 관리자 -->
+				   		<c:when test="${sessionScope.user_type == 0}">
+	                        <div class="part_select">
+	                            <p><label for="#">[아이디]</label></p>
+	                            <span class="input_span"><input id="first_input" type="text" name="id" id="id" value="ceooyh" readonly></span>
+	                        </div>
+	
+	                        <div class="part_select">
+	                            <p><label for="title">[제목]</label></p>
+	                            <span class="input_span"><input type="text" name="title" id="title" placeholder="제목을 입력해주세요"></span>
+	                        </div>
+						
+	                        <div class="part_select">
+	                            <p id="qna_content_title"><label for="title">[문의내용]</label></p>
+	                        </div>
+				    	</c:when>
+				    	
+				    		<!-- 개인 -->
+				   	<c:when test="${sessionScope.user_type == 1}">
+			   			<div class="guestQnA">
+			   				<form action="guestQnAAction" method="get">
+		                        <div class="part_select">
+		                            <p><label for="#">[아이디]</label></p>
+		                            <span class="input_span"><input id="first_input" type="text" name="id" id="id" value="ceooyh" readonly></span>
+		                        </div><!--아이디 입력란 마지막 자동 입력-->
+		
+		                        <div class="part_select">
+		                            <p><label for="title">[제목]</label></p>
+		                            <span class="input_span"><input type="text" name="title" id="title" placeholder="제목을 입력해주세요"></span>
+		                        </div><!--제목 입력란-->
+		
+		                        <div class="part_select">
+		                            <p id="qna_content_title"><label for="title">[문의내용]</label></p>
+		                            <textarea name="content" id="content" cols="95" rows="20" placeholder="문의내용을 입력하세요"></textarea>
+		                            <div id="btn_submit">
+		                            <button id="btn" type="submit">전송</button>
+		                            </div>
+		                        </div><!--내용 입력란-->	
+			   				</form>
+			   			</div>	
+				    </c:when>
+				    	
+				    		<!-- 사업자 -->
+			   		<c:when test="${sessionScope.user_type == 2}">
+						<div class="businessQnA">				   		
+				   			<form action="businessQnAAction" method="get">
+		                        <div class="part_select">
+		                            <p><label for="#">[아이디]</label></p>
+		                            <span class="input_span"><input id="first_input" type="text" name="id" id="id" value="ceooyh" readonly></span>
+		                        </div><!--아이디 입력란 마지막 자동 입력-->
+		
+		                        <div class="part_select">
+		                            <p><label for="title">[제목]</label></p>
+		                            <span class="input_span"><input type="text" name="title" id="title" placeholder="제목을 입력해주세요"></span>
+		                        </div><!--제목 입력란-->
+							
+		                        <div class="part_select">
+		                            <p id="qna_content_title"><label for="title">[문의내용]</label></p>
+		                            <textarea name="content" id="content" cols="95" rows="20" placeholder="문의내용을 입력하세요"></textarea>
+		                            <div id="btn_submit">
+		                            <button id="btn" type="submit">전송</button>
+		                            </div>
+		                        </div><!--내용 입력란-->
+		                    </form>	
+                    	</div>
+			    	</c:when>
+			    </c:choose>
             </div><!--container 마지막 부분-->
         </form>
     </section>
