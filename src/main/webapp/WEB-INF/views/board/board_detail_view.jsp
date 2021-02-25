@@ -33,7 +33,7 @@
 }
 
 #board_detail_container {
-	width: 1200px;
+	width: 800px;
 	margin: 0 auto;
 	margin-bottom: 200px;
 	padding: 20px;
@@ -56,7 +56,10 @@
 	padding-left: 5px;
 }
 #part_selecrt_title > #board_title{
-	margin-left: 18px;
+	margin-left: 34px;
+}
+#board_writer_info{
+	margin-left: 20px;
 }
 
 .part_select_content {
@@ -74,25 +77,27 @@
 .board_detail_span {
 	display: inline-block;
 	border-bottom: 2px solid rgb(231, 231, 231);
-	color: rgb(46, 46, 46);
+	color: rgb(44,42,41);
 	padding: 5px 0;
-	font-family: '보통노토';
-	font-size: 20px;
+	font-size: 15px;
 }
 
+
 #content_view {
-	width: 1150px;
-	height: 300px;
+	display: inline-block;
+	width: 100%;
+	height: 200px;
 	padding: 10px;
+	font-size: 12px;
+	color: rgb(44,42,41);
 	box-sizing: border-box;
 	border-radius: 10px;
-	color: rgb(46, 46, 46);
 	font-family: '보통노토';
 	border: 2px solid rgb(231, 231, 231);
 	margin: 5px 0px;
 }
 .prev_next_list_btn{
-	margin: 40px 0 0 460px;
+	margin: 20px 0 0 285px;
 }
 
 .modify {
@@ -142,7 +147,7 @@
 #board_like_hate{
 	clear: both;
 	display: inline-block;
-	margin: 50px 0 0 450px;
+	margin: 30px 0 0 255px;
 }
 .part_like_hate{
 	margin: 0 10px;
@@ -179,11 +184,11 @@
 }
 
 #comment_area{
-	margin: 0;
-	width: 1200px;
-	height: 200px;
+	margin-top: 10px;
+	width: 100%;
+	height: 100px;
 	resize: none;
-	font-size: 25px;
+	font-size: 12px;
 	padding: 10px;
 	box-sizing: border-box;
 }
@@ -191,20 +196,22 @@
 	width: 100%;
 	box-sizing: border-box;
 	margin: 0 auto;
-	position: relative;
 }
 #part_comment_box{
-	width: 1200px;
+	width: 100%;
+	height: 100px;
 	text-align: center;
 	border: 1px solid black;
 	box-sizing: border-box;
 	border-collapse: collapse;
 }
 .part_comment_content{
-	width: 800px;
+	width: 500px;
+	font-size: 15px;
 }
 .part_comment{
 	width: 100px;
+	font-size: 15px;
 }
 
 
@@ -214,15 +221,27 @@
 }
 #part_comment_view_content{
 	width: 800px;
-	height: 150px;
 	font-size: 20px;
 	font-weight: normal;
-	text-align: left;
+	text-align: center;
 	padding: 0;
 	box-sizing: border-box;
 }
 #list_border{
 	border: 1px solid black;
+}
+#list_border > td{
+	font-size: 12px;
+	padding: 0;
+	
+}
+#comment_like{
+	text-decoration: none;
+	color: blue;
+}
+#comment_hate{
+	text-decoration: none;
+	color: red;
 }
 </style>
 <script src="../../../lib/jquery-3.5.1.min.js"></script>
@@ -296,16 +315,16 @@
 				<span class="board_detail_span">[제목]</span><span class="board_detail_span" id="board_title">${requestScope.board.title }</span>
 			</div>
 			<div class="part_select">
-				<span class="board_detail_span" id="board_writer">[작성자]</span><span>${requestScope.board.writer }</span>
+				<span class="board_detail_span">[작성자]</span><span id="board_writer_info">${requestScope.board.writer }</span>
 			</div>
 			<div class="part_select">
-				<span class="board_detail_span" id="board_date">[작성일]</span><span>${requestScope.board.bdate }</span>
+				<span class="board_detail_span">[작성일]</span><span id="board_writer_info">${requestScope.board.bdate }</span>
 			</div>
 			<div class="part_select">
-				<span class="board_detail_span" id="board_views">[조회수]</span><span>${requestScope.board.views }</span>
+				<span class="board_detail_span">[조회수]</span><span id="board_writer_info">${requestScope.board.views }</span>
 			</div>
 			<div class="part_select_content">
-				<span class="board_detail_span" id="board_content">[내용]</span><span class="board_detail_span" id="content_view">${requestScope.board.content }</span>
+				<span class="board_detail_span" id="board_content">[내용]</span><span id="content_view">${requestScope.board.content }</span>
 			</div>
 	
             <div id="file_list">
@@ -324,13 +343,13 @@
 			
 			<section id="board_like_hate">
 			<div class="part_like_hate">
-				<a href="" class="btn_like_hate">
+				<a href="commentLike.do?cno=0" class="btn_like_hate">
 					<img src="../../../img/boardLike/good-quality.png" style="width: 50px;">
 					<span class="board_detail_span">${requestScope.board.blike }</span>
 				</a>
 			</div>  
 			<div class="part_like_hate">
-				<a href="" class="btn_like_hate">
+				<a href="commentLike.do?cno=1" class="btn_like_hate">
 					<img src="../../../img/boardLike/good-quality.png" style="width: 50px; transform: rotate(0.5turn);">
 					<span class="board_detail_span">${requestScope.board.bhate }</span>
 				</a>
@@ -356,7 +375,7 @@
 		<section id="comment_write_box">
         	<c:if test="${sessionScope.login == true}">
             	<div class="comment_form">
-                	<form id="comment">
+                	<form id="comment" action="insertComment.do">
 						<p id="comment_headline">[댓글을 작성해주세요]</p>
                     	<input type="hidden" name="bno" value="${requestScope.board.bno }">
                     	<input type="hidden" name="writer" value="${sessionScope.id }">
@@ -393,19 +412,19 @@
 				<c:forEach var="comment" items="${requestScope.commentList}">
 				<tr id="list_border">
 					<td class="part_comment_view">
-						<span id="#comment_writer">${comment.writer}</span>
+						<span id="comment_writer">${comment.writer}</span>
 					</td>               
 					<td class="part_comment_view">
-						<span id="#comment_cdate">${comment.cdate}</span>
+						<span id="comment_cdate">${comment.cdate}</span>
 					</td>               
 					<td id="part_comment_view_content">
-						<span id="#comment_content">${comment.content}</span>
+						<span id="comment_content">${comment.content}</span>
 					</td>               
 					<td class="part_comment_view">
-						<span id="#comment_clike"><a href="commentLike.do?cno=${comment.clike}">${comment.clike}</a></span>
+						<span id="comment_clike"><a id="comment_like" href="commentLike.do?cno=${comment.clike}">${comment.clike}</a></span>
 					</td>
 					<td class="part_comment_view">
-						<span id="#comment_chate"><a href="commentHate.do?cno=${comment.chate}">${comment.chate}</a></span> 
+						<span id="comment_chate"><a id="comment_hate" href="commentHate.do?cno=${comment.chate}">${comment.chate}</a></span> 
 					</td>
 				</tr>	              
 				</c:forEach>

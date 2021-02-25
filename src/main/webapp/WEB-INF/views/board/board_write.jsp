@@ -34,10 +34,11 @@
 		
 	}
     .board_write_container{
-        width: 1200px; 
+        width: 500px; 
         margin: 0 auto;
         padding: 20px;
 		padding-top: 100px;
+		margin-bottom: 200px;
 	}
     #container > div{
 	    width: 98%;
@@ -57,54 +58,49 @@
 	}
 	 
 	#title_head{
-		width: 5%;
+		width: 11%;
 		margin: 0px;
-		font-family: '보통로보';
 		font-family: '보통노토';
+		font-size: 14px;
 	}
 	#board_write_title{
-		padding: 20px;
-		font-size: 20px;
+		padding: 8px;
+		font-size: 12px;
+		border: none;
+		border-bottom: 1px solid gray;
 	}
 	#writer_box{
 		padding: 10px;
 		display: flex;
 	}
 	#writer_head{
-		width: 5%;
-		margin: 0px;
-		font-family: '보통로보';
+		width: 14%;
 		font-family: '보통노토';
+		font-size: 14px;
 	}
 	#textarea_box{
 		padding: 10px;
-		display: flex;
-		font-family: '보통로보';
-		font-family: '보통노토';
 	}
 	#textarea_head{
 		width: 5%;
-		margin: 0px;
-		font-family: '보통로보';
+		font-size: 14px;
 		font-family: '보통노토';
 	}
     textarea {
-	    width:100%;
-	    height: 300px;
+	    width: 98%;
+	    height: 200px;
 	    resize: none;
 	    box-sizing: border-box;
 		margin-top: 10px;
 		border-radius: 15px;
 		padding: 20px;
-		font-size: 20px;
+		font-size: 12px;
 	}
 	
-	#container input{
-	    width: 100%;
-	    height:40px;
+	#title_box > input{
+	    width: 50%;
+	    height: 22px;
 	    box-sizing:border-box;
-	    border-width : 1px;
-	    border-radius: 5px;
 	}
    
 	#textarea_box{
@@ -118,7 +114,7 @@
 	.plusminus_btn{
 		border-radius: 25%;
 		display: inline-block;
-		margin: 10px 0px 10px 0;
+		margin: 10px 0px 0px 0;
 		width: 30px;
 		height: 25px;
 		border: 1px solid  #416f9431;
@@ -128,6 +124,10 @@
 	.plusminus_btn:hover{
 		background-color: rgb(250, 187, 71);
 	    color: rgb(26, 2, 2);
+	}
+	.file_list{
+		width: 80%;
+		margin-top: 10px;
 	}
 
 	#board_write_page{
@@ -143,11 +143,11 @@
 	    text-align:center;
 	    font-size:14px;
 	    box-sizing: border-box;
-	    border-radius: 3px;
+	    border-radius: 7px;
 	    background-color: #646262;
 	    color: white;
 		display: inline-block;
-		margin: 20px 10px 0px 10px;
+		margin: 15px 0px 0px 10px;
 	}
 	.write_page_btn:hover{
 		background-color: rgb(250, 187, 71);
@@ -161,7 +161,7 @@
 		$("#plus").click(function(){
 			if(count == 5) return;
 			count++;
-			$("#file_form").append("<p><input type='file' name='file'></p>");
+			$("#file_list").append("<p><input class='file_list' type='file' name='file'></p>");
 		});
 		$("#minus").click(function(){
 			if(count == 1) return;
@@ -173,16 +173,15 @@
 </head>
 <body>
 
- <!-- jstl 주석처리  -->
 
-	<!-- <c:if test="${sessionScope.login == null || sessionScope.login == false  }">
+	<c:if test="${sessionScope.login == null || sessionScope.login == false  }">
 		<c:set var="page" target="${sessionScope }" value="${pageContext.request.requestURI}${pageContext.request.queryString }" property="resultPage" scope="session"/>
 		${pageContext.request.requestURI}${pageContext.request.queryString }
 		<script>
 			alert("로그인을 하셔야 이용할수 있습니다.");
 			location.href="loginView.do";
 		</script>
-	</c:if> -->
+	</c:if>
 	
 	
 	
@@ -211,11 +210,11 @@
 	
 				<div id="file_form">
 					<span id="textarea_head">[첨부파일 등록]</span>
-						<div>
+						<div id="file_list">
 							<p><button type="button" class="plusminus_btn" id="plus">+</button> <button type="button" class="plusminus_btn" id="minus">-</button></p>
-							<p><input type="file" name="file" id="file"></p>
-							<p><input type="file" name="file" id="file"></p>
-							<p><input type="file" name="file" id="file"></p>
+							<p><input class='file_list' type="file" name="file" id="file"></p>
+							<p><input class='file_list' type="file" name="file" id="file"></p>
+							<p><input class='file_list' type="file" name="file" id="file"></p>
 						</div>
 				</div>
 		
