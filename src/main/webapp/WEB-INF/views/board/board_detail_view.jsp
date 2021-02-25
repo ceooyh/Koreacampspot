@@ -356,7 +356,7 @@
 			</div>
 			</section>
 			<div class="prev_next_list_btn">
-				<a href="#" class="move">이전글</a> 
+				<a href="#" class="move">이전글</a>
 				<a href="javascript:history.back();" class="move">목록보기</a> 
 				<a href="#" class="move">다음글</a>
 			</div>

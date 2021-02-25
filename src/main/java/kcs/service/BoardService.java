@@ -83,7 +83,7 @@ public class BoardService {
 			mapper.insertFileList(fList.get(i));
 		
 	}
-	 
+	
 	// 게시글 삭제 - 성진
 	public int deleteBoard(int bno) {
 		return mapper.deleteBoard(bno);

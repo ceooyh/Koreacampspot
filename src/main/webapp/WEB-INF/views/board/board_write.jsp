@@ -208,7 +208,7 @@
 					<span id="textarea_body"><textarea name="content" id="content"></textarea></span>
 				</div>
 	
-				<div id="file_form"> 
+				<div id="file_form">
 					<span id="textarea_head">[첨부파일 등록]</span>
 						<div id="file_list">
 							<p><button type="button" class="plusminus_btn" id="plus">+</button> <button type="button" class="plusminus_btn" id="minus">-</button></p>
