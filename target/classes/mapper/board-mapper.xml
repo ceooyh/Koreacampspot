@@ -65,7 +65,7 @@
 	</delete>
 	
 	<update id="updateBoard" parameterType="board">
-		update board set title = #{title}, content = #{content} where bno = #{bno}
+		update board set title = #{title}, writer=#{writer}, content = #{content} where bno = #{bno}
 	</update>
 	
 </mapper>
