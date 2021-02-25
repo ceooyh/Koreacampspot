@@ -1,10 +1,7 @@
 package kcs.service;
 
-import java.util.List;
-
 import org.springframework.stereotype.Service;
 
-import kcs.dto.SpotDTO;
 import kcs.mapper.SpotMapper;
 
 @Service
