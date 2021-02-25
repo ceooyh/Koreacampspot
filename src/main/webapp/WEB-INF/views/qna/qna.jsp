@@ -440,3 +440,5 @@
 		<!--container 마지막 부분-->
 	</section>
 	<jsp:include page="../template/footer.jsp" flush="false"></jsp:include>
+</body>
+</html>
