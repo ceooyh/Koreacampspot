@@ -3,17 +3,10 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kcs.mapper.SpotMapper">
-	<select id="getCampList" resultType="spot">
-		select s.sno, s.id, s.sname, s.address1, s.address2, s.address3, s.tel1, s.tel2, s.tel3, s.stag, s.spot_link, s.content, 
-		s.autocamping, s.glamping, s.caravan, 
-		s.rent_tent, s.rent_equipment, s.pool, s.pet, s.fishing, s.experience, s.caravan_open, s.trailer_open, 
-		s.beach, s.island, s.mountain, s.forest, s.valley, s.river, s.lake, s.city, 
-		s.wifi, s.hot_water, s.shower, s.mart, s.toilet, s.electric, s.pet_open, 
-		s.status, NVL(r.star, 0), NVL(c.review_count, 0)
-		from spot s,
-			(select sno, avg(star) as star from review group by sno order by sno asc) r,
-			(select sno, count(*) as review_count from review group by sno order by sno asc) c
-		where s.sno = r.sno(+) and s.sno = c.sno(+)
-		order by s.sno asc
+	<select id="getStarAvg" parameterType="int" resultType="double">
+		select nvl(max(avg(star)),0) as star from review where sno = #{contentId} group by sno
+	</select>
+	<select id="getReviewCount" parameterType="int" resultType="int">
+		select count(*) as review_count from review where sno = #{contentId}
 	</select>
 </mapper>
